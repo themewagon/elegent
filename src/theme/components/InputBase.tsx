@@ -8,6 +8,11 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
     styleOverrides: {
         root: {
             backgroundColor: 'transparent',
+            paddingTop: 0,
+            paddingBottom: 0,
+            'label + &': {
+                marginTop: '25px',
+            },
             ":before": {
                 border: 0,
             },
@@ -28,7 +33,8 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
                     border: 0,
                 },
                 ":focus" : {
-                    border: 0
+                    border: 0,
+                    borderColor: '#E1E1E1',
                 }
             }
         },

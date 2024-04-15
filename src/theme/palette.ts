@@ -4,7 +4,6 @@ import { caribbeanGreen, orange } from "./colors";
 const palette : PaletteOptions = {
     primary: {
         main: orange[500],
-
     },
     secondary: {
         main: caribbeanGreen[500],

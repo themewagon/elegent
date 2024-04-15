@@ -1,22 +1,22 @@
 import { Suspense, lazy } from "react";
 import PageLoader from "../components/loading/PageLoader";
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import { rootPaths } from "./paths";
-import Home from "pages/dashboard/Home";
-// import App from "App";
-// import MainLayout from "layouts/main-layout";
-// import AuthLayout from "layouts/auth-layout";
-// import Error404 from "pages/errors/Error404";
+import paths, { rootPaths } from "./paths";
 
 const App = lazy(() => import("App"));
 const MainLayout = lazy(() => import("layouts/main-layout"));
 const AuthLayout = lazy(() => import("layouts/auth-layout"));
 const Error404 = lazy(() => import("pages/errors/Error404"));
 
+import Home from "pages/dashboard/Home";
+import Login from "pages/authentication/Login";
+import SignUp from "pages/authentication/SignUp";
+import Splash from "components/loading/Splash";
+
 export const router = createBrowserRouter([
     {
         element: (
-            <Suspense>
+            <Suspense fallback={<Splash />}>
                 <App />
             </Suspense>
         ),
@@ -42,9 +42,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: rootPaths.authRoot,
-                element: <AuthLayout />,
+                element: <AuthLayout> <Outlet/> </AuthLayout>,
                 children: [
-
+                    {
+                        path: paths.login,
+                        element: <Login />,
+                    },
+                    {
+                        path: paths.signup,
+                        element: <SignUp />,
+                    },
                 ],
             },
             {
