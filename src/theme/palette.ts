@@ -8,9 +8,6 @@ const palette : PaletteOptions = {
     secondary: {
         main: caribbeanGreen[500],
     },
-    // territory: {
-
-    // },
     text: {
         primary: '#050F24',
         secondary: '#6F757E',

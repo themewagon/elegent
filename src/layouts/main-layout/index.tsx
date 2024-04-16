@@ -145,9 +145,10 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 }}
             >
                 <Toolbar sx={{
-                    pt: '30px',
+                    py: '30px',
                     display: 'flex',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    // boxShadow: '0 4px 2px -2px gray',
                 }}>
                     <IconButton
                         color="inherit"
@@ -192,7 +193,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             </AppBar>
             <Box
                 component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }, backgroundColor: 'wheat' }}
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -227,7 +228,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 sx={{ display: 'grid', gridTemplateColumns: "repeat(12, 1fr)", gap: '30px', flexGrow: 1, p: 3, mt: '90px', width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             > */}
                 {/* <Toolbar /> */}
-                <Grid container component="main" columns={12} columnSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
+                <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                 }}>
                 {children}

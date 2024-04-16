@@ -12,6 +12,10 @@ import Input from "./components/Input";
 import Button from "./components/Button";
 import InputAdornment from "./components/InputAdornment";
 import ListItemButton from "./components/ListItemButton";
+import TablePagination from "./components/TablePagination";
+import Pagination from "./components/Pagination";
+import Paper from "./components/Paper";
+import Toolbar from "./components/Toolbar";
 
 export const theme = createTheme({
     typography: typography,
@@ -27,6 +31,10 @@ export const theme = createTheme({
         MuiButton: Button,
         MuiInputAdornment: InputAdornment,
         MuiListItemButton: ListItemButton,
+        MuiTablePagination: TablePagination,
+        MuiPagination: Pagination,
+        MuiPaper: Paper,
+        MuiToolbar: Toolbar,
     },
 });
 

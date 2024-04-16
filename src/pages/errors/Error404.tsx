@@ -21,7 +21,6 @@ const Error404 = () => {
     return (
         <>
             {renderHeader}
-
             <Container>
                 <Box
                     sx={{
