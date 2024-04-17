@@ -1,28 +1,33 @@
-import { Box } from "@mui/material";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
+import IconifyIcon from "components/base/IconifyIcon";
+import { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react";
 
 const BuyersProfile = () => {
 
-    const option = {
-        title: {
-            text: 'Buyers Profile',
-        },
+    const option : EChartsOption = {
+        // title: {
+        //     text: 'Buyers Profile',
+        // },
         tooltip: {
-            trigger: 'item'
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c}%',
         },
-        legend: {
-            icon: 'pin',
-            orient: 'vertical',
-            bottom: '50%',
-            right: '2%'
-        },
+        // legend: {
+        //     icon: 'pin',
+        //     orient: 'vertical',
+        //     bottom: '50%',
+        //     right: '2%'
+        // },
         series: [
             {
                 name: 'Buyers Profile',
                 type: 'pie',
-                radius: ['60%', '70%'],
+                radius: ['75%', '100%'],
                 color: ['#FF8E29', '#27D095', '#F54F5F'],
                 avoidLabelOverlap: true,
+                startAngle: -30,
+                clockwise: false,
                 label: {
                     show: false,
                     position: 'center'
@@ -38,11 +43,11 @@ const BuyersProfile = () => {
                     show: true
                 },
                 data: [
-                    { value: 50, name: 'Male', color: '#FF8E29', },
-                    { value: 35, name: 'Female', color: '#27D095', },
-                    { value: 15, name: 'Others', color: '#F54F5F', },
+                    { value: 50, name: 'Male'},
+                    { value: 35, name: 'Female',},
+                    { value: 15, name: 'Others',},
                 ]
-            }
+            },
         ]
     };
 
@@ -51,8 +56,37 @@ const BuyersProfile = () => {
             backgroundColor: 'white',
             borderRadius: '20px',
         }}>
-
-            <EChartsReact option={option} />
+            <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
+                <Typography variant="subtitle1" color={theme => theme.palette.text.primary}>Buyers Profile</Typography>
+                <IconButton>
+                    <IconifyIcon icon="ph:dots-three-outline-fill" color="#6F757E" />
+                </IconButton>
+            </Stack>
+            <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={4} padding="0 20px 20px">
+                <Box sx={{
+                    width: '100%',
+                    flex: 1,
+                }}>
+                    <EChartsReact option={option} />
+                </Box>
+                <Stack spacing={2} sx={{
+                    width: '100%',
+                    flex: 1,
+                }}>
+                    <Stack direction="row" justifyContent="space-between">
+                        <Typography variant="body1" color={theme => theme.palette.text.secondary} sx={{ display: 'flex', alignItems: 'baseline', gap: '10px'}}><Box sx={{ width: '10px', height: '10px', backgroundColor: '#FF8E29', borderRadius: '50%'}}></Box> Male</Typography>
+                        <Typography variant="body1" color={theme => theme.palette.text.primary}>50%</Typography>
+                    </Stack>
+                    <Stack direction="row" justifyContent="space-between">
+                        <Typography variant="body1" color={theme => theme.palette.text.secondary} sx={{ display: 'flex', alignItems: 'baseline', gap: '10px'}}><Box sx={{ width: '10px', height: '10px', backgroundColor: '#27D095', borderRadius: '50%'}}></Box> Female</Typography>
+                        <Typography variant="body1" color={theme => theme.palette.text.primary}>35%</Typography>
+                    </Stack>
+                    <Stack direction="row" justifyContent="space-between">
+                        <Typography variant="body1" color={theme => theme.palette.text.secondary} sx={{ display: 'flex', alignItems: 'baseline', gap: '10px'}}><Box sx={{ width: '10px', height: '10px', backgroundColor: '#F54F5F', borderRadius: '50%'}}></Box> Others</Typography>
+                        <Typography variant="body1" color={theme => theme.palette.text.primary}>15%</Typography>
+                    </Stack>
+                </Stack>
+            </Stack>
         </Box>
     )
 }

@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material"
+import { Grid, Stack } from "@mui/material"
 
 import SaleInfo from "components/sections/dashboard/Home/SaleInfo"
 import Revenue from "components/sections/dashboard/Home/Revenue";
@@ -33,8 +33,10 @@ const Home = () => {
             <TopSellingProduct />
         </Grid>
         <Grid item xs={12} sm={4}>
-            <NewCustomers />
-            <BuyersProfile />
+            <Stack direction="column" gap="30px">
+                <NewCustomers />
+                <BuyersProfile />
+            </Stack>
         </Grid>
         </>
     )

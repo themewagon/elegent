@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Box, Button, CssBaseline, Drawer, Grid, IconButton, InputAdornment, List, ListItem, ListItemButton, OutlinedInput, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, Badge, Box, Button, CssBaseline, Divider, Drawer, Grid, IconButton, InputAdornment, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, OutlinedInput, Stack, Toolbar, Typography } from "@mui/material";
 import { PropsWithChildren, forwardRef, useState } from "react"
 import IconifyIcon from "components/base/IconifyIcon";
 import profile from "assets/profile/profile.jpg";
@@ -55,7 +55,7 @@ const navItems = [
 const MainLayout = ({ children }: PropsWithChildren) => {
 
     const { pathname } = useLocation();
-    
+
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -74,7 +74,14 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         }
     };
 
-    
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     const RouterLink = forwardRef(({ href, ...other }: {
         href: string
@@ -85,7 +92,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             backgroundColor: 'white',
             height: '100%',
             overflowY: 'overlay',
-            margin: { sm: '30px'},
+            margin: { sm: '30px' },
             borderRadius: '20px',
             display: 'flex',
             flexDirection: 'column',
@@ -93,9 +100,9 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             scrollbarWidth: 'none',
         }}>
             <Box component="img" src={logo} sx={{
-                    marginTop: '50px',
-                    mx: '40px',
-            }}/>
+                marginTop: '50px',
+                mx: '40px',
+            }} />
             <List sx={{
                 mx: 'auto',
                 flex: '1 1 auto'
@@ -131,7 +138,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             </Button>
         </Box>
     );
-    
+
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: theme => theme.palette.background.default }}>
             <CssBaseline />
@@ -148,7 +155,6 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                     py: '30px',
                     display: 'flex',
                     justifyContent: 'space-between',
-                    // boxShadow: '0 4px 2px -2px gray',
                 }}>
                     <IconButton
                         color="inherit"
@@ -159,41 +165,91 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                     >
                         <IconifyIcon icon="mdi:menu" />
                     </IconButton>
-                    <Box sx={{ 
-                        display: 'flex',
+                    <Box sx={{
+                        display: { xs: 'none', sm: 'flex'},
                         gap: 4,
-                        alignItems: 'center'
+                        alignItems: 'center',
                     }}>
-                        <Typography variant="h5" noWrap component="h5">
-                            Dashboard
-                        </Typography>
-                        {/* <TextField InputProps={{
-                            endAdornment: (
-                                <InputAdornment position="end">
-                                    <IconifyIcon icon="mdi:search" />
-                                </InputAdornment>
-                            ),
-                        }} /> */}
-                        <OutlinedInput placeholder="Search..." endAdornment={
-                            <InputAdornment position="end">
-                                <IconifyIcon icon="mdi:search" />
-                            </InputAdornment>
-                        }/>
+                    <Typography variant="h5" noWrap component="h5">
+                        Dashboard
+                    </Typography>
+                    <OutlinedInput placeholder="Search..." endAdornment={
+                        <InputAdornment position="end">
+                            <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+                        </InputAdornment>
+                    } />
                     </Box>
-                    <Box sx={{ 
+                    <IconButton color="inherit" sx={{display: { xs: 'flex', sm: 'none'},}}>
+                        <IconifyIcon icon="mdi:search" width="24px" height="24px" />
+                    </IconButton>
+                    <Box sx={{
                         display: 'flex',
-                        gap: 1.5,
+                        gap: 2,
                         alignItems: 'center'
                     }}>
+                        <IconButton color="inherit">
+                            <Badge badgeContent={1} color="primary">
+                                <IconifyIcon icon="carbon:notification-filled" width="24px" height="24px" />
+                            </Badge>
+                        </IconButton>
                         <Avatar alt="Remy Sharp" src={profile} />
                         <Typography variant="body1" component="p">Aiden Max</Typography>
-                        <IconifyIcon icon="mingcute:down-fill" width="24px" height="24px" />
+                        <IconButton
+                            color="inherit"
+                            id="basic-button"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                        >
+                            <IconifyIcon icon="ion:caret-down-outline" width="24px" height="24px" />
+                        </IconButton>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={anchorEl}
+                            open={open}
+                            onClose={handleClose}
+                            MenuListProps={{
+                                'aria-labelledby': 'basic-button',
+                            }}
+                        >
+                            <MenuItem onClick={handleClose}>
+                                <ListItemIcon>
+                                    <IconifyIcon icon="ion:home-sharp" />
+                                </ListItemIcon>
+                                <ListItemText>Home</ListItemText>
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                <ListItemIcon>
+                                    <IconifyIcon icon="mdi:account-outline" />
+                                </ListItemIcon>
+                                <ListItemText>Profile</ListItemText> 
+                            </MenuItem>
+                            <MenuItem onClick={handleClose}>
+                                <ListItemIcon>
+                                    <IconifyIcon icon="material-symbols:settings" />
+                                </ListItemIcon>
+                                <ListItemText>Settings</ListItemText>
+                            </MenuItem>
+                            <Divider />
+                            <MenuItem
+                                onClick={handleClose}
+                                disableRipple
+                                disableTouchRipple
+                                sx={{ color: 'error.main', pt: 1.5 }}
+                            >
+                                <ListItemIcon>
+                                    <IconifyIcon icon="ri:logout-circle-line" color="#F54F5F" />
+                                </ListItemIcon>
+                                <ListItemText>Logout</ListItemText>
+                            </MenuItem>
+                        </Menu>
                     </Box>
                 </Toolbar>
             </AppBar>
             <Box
                 component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 }}}
+                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="mailbox folders"
             >
                 {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -227,12 +283,12 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 component="main"
                 sx={{ display: 'grid', gridTemplateColumns: "repeat(12, 1fr)", gap: '30px', flexGrow: 1, p: 3, mt: '90px', width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             > */}
-                {/* <Toolbar /> */}
-                <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
-                }}>
+            {/* <Toolbar /> */}
+            <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
+                width: { sm: `calc(100% - ${drawerWidth}px)` },
+            }}>
                 {children}
-                </Grid>
+            </Grid>
             {/* </Box> */}
         </Box>
     );

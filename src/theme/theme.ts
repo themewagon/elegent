@@ -16,6 +16,7 @@ import TablePagination from "./components/TablePagination";
 import Pagination from "./components/Pagination";
 import Paper from "./components/Paper";
 import Toolbar from "./components/Toolbar";
+import Badge from "./components/Badge";
 
 export const theme = createTheme({
     typography: typography,
@@ -35,6 +36,7 @@ export const theme = createTheme({
         MuiPagination: Pagination,
         MuiPaper: Paper,
         MuiToolbar: Toolbar,
+        MuiBadge: Badge,
     },
 });
 

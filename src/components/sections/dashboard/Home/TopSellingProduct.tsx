@@ -1,6 +1,7 @@
 import { Box, Checkbox, Divider, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow, TableSortLabel, Toolbar, Tooltip, Typography, alpha } from "@mui/material"
 import { useMemo, useState } from "react";
 import { visuallyHidden } from '@mui/utils';
+import { DataGrid } from "@mui/x-data-grid";
 import IconifyIcon from "components/base/IconifyIcon";
 
 import nikeV22 from "assets/topSellingProducts/nikeV22.jpg";
@@ -73,10 +74,6 @@ function getComparator<Key extends keyof any>(
         : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// Since 2020 all major browsers ensure sort stability with Array.prototype.sort().
-// stableSort() brings sort stability to non-modern browsers (notably IE11). If you
-// only support modern browsers you can replace stableSort(exampleArray, exampleComparator)
-// with exampleArray.slice().sort(exampleComparator)
 function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
     const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
     stabilizedThis.sort((a, b) => {
@@ -297,8 +294,8 @@ const TopSellingProduct = () => {
     );
 
     return (
-        <Box sx={{ width: '100%' }}>
-            <Paper sx={{ width: '100%', mb: 2, borderRadius: '20px', }}>
+        <Box sx={{ width: '100%', }}>
+            <Paper sx={{ width: '100%', height: '100%', mb: 2, borderRadius: '20px', }}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <Divider />
                 <TableContainer>
@@ -369,6 +366,9 @@ const TopSellingProduct = () => {
                 />
             </Paper>
         </Box>
+        // <Box>
+        //     <DataGrid columns={}></DataGrid>
+        // </Box>
     );
 }
 

@@ -10,7 +10,6 @@ type SaleInfoProps = {
     sales: number
 }
 
-
 const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
     return (
         <Card sx={{
@@ -36,11 +35,6 @@ const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
             }}>
                 <Typography variant="subtitle1" component="p" color={theme => theme.palette.text.primary}>{title}</Typography>
                 <Typography variant="body1" component="p" color={theme => theme.palette.text.secondary}>${subtitle}</Typography>
-                {/* <Typography variant="body1" component="p" color={theme.palette.primary.main} sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1
-                }}><IconifyIcon icon="ph:trend-up-fill" /> {`+${sales}%`} last month</Typography> */}
                 <Stack direction="row" alignItems="center" gap={1} color={theme.palette.primary.main}>
                     <IconifyIcon icon="ph:trend-up-fill" width="18px" height="18px" />
                     <Typography variant="body1">{`+${sales}%`} last month</Typography>
