@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+
 import typography from "./typography";
 import palette from "./palette";
 import { shadows } from "./shadows";
@@ -17,6 +18,8 @@ import Pagination from "./components/Pagination";
 import Paper from "./components/Paper";
 import Toolbar from "./components/Toolbar";
 import Badge from "./components/Badge";
+import PaginationItem from "./components/PaginationItem";
+import { DataGrid } from "@mui/x-data-grid";
 
 export const theme = createTheme({
     typography: typography,
@@ -34,9 +37,17 @@ export const theme = createTheme({
         MuiListItemButton: ListItemButton,
         MuiTablePagination: TablePagination,
         MuiPagination: Pagination,
+        MuiPaginationItem: PaginationItem,
         MuiPaper: Paper,
         MuiToolbar: Toolbar,
         MuiBadge: Badge,
+    },
+    mixins: {
+        MuiDataGrid: {
+            containerBackground: '#FFF',
+            borderBottom: 'none',
+            
+        },
     },
 });
 

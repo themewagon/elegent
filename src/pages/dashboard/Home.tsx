@@ -23,16 +23,16 @@ const Home = () => {
         <Grid item xs={12} sm={6} md={4} lg={4}>
             <SaleInfo image={avgRevenue} title="Avg Revenue" subtitle="2,300" sales={210} />
         </Grid>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} md={8}>
             <Revenue />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} md={4}>
             <WebsiteVisitors />
         </Grid>
-        <Grid item xs={12} sm={8}>
+        <Grid item xs={12} md={8}>
             <TopSellingProduct />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} md={4}>
             <Stack direction="column" gap="30px">
                 <NewCustomers />
                 <BuyersProfile />

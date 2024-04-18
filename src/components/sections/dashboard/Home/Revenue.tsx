@@ -14,7 +14,7 @@ const Revenue = () => {
         },
         xAxis: {
             type: 'category',
-            data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+            data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
             boundaryGap: false,
             axisLine: {
                 show: true,
@@ -28,6 +28,7 @@ const Revenue = () => {
                 show: true,
                 padding: 30,
                 color: '#6F757E',
+                formatter: value => value.slice(0, 3),
             },
             axisTick: {
                 show: false,
@@ -97,7 +98,7 @@ const Revenue = () => {
             backgroundColor: 'white',
             borderRadius: '20px',
             padding: '20px',
-            height: { xs: '460px', sm: '100%', },
+            height: { xs: '460px', md: '100%', },
         }}>
             <EChartsReact option={option} style={{ height: '100%' }} />
         </Box>

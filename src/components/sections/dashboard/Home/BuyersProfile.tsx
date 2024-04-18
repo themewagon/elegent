@@ -62,7 +62,7 @@ const BuyersProfile = () => {
                     <IconifyIcon icon="ph:dots-three-outline-fill" color="#6F757E" />
                 </IconButton>
             </Stack>
-            <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={4} padding="0 20px 20px">
+            <Stack direction={{ xs: 'row', sm: 'column', lg: "row", }} justifyContent="space-between" alignItems="center" spacing={4} padding="0 20px 20px">
                 <Box sx={{
                     width: '100%',
                     flex: 1,

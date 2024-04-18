@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Badge, Box, Button, CssBaseline, Divider, Drawer, Grid, IconButton, InputAdornment, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, OutlinedInput, Stack, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, Badge, Box, CssBaseline, Divider, Drawer, Grid, IconButton, InputAdornment, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, OutlinedInput, Toolbar, Typography } from "@mui/material";
 import { PropsWithChildren, forwardRef, useState } from "react"
 import IconifyIcon from "components/base/IconifyIcon";
 import profile from "assets/profile/profile.jpg";
@@ -104,8 +104,8 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 mx: '40px',
             }} />
             <List sx={{
-                mx: 'auto',
-                flex: '1 1 auto'
+                mx: '10px',
+                flex: '1 1 auto',
             }}>
                 {navItems.map((navItem, index) => (
                     <ListItem key={index} disablePadding sx={{
@@ -113,29 +113,43 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                     }}>
                         <ListItemButton LinkComponent={RouterLink} href={navItem.path} sx={{
                             backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-                            // backgroundColor: theme.palette.primary.main,
                             color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
-                            // color: theme.palette.text.secondary,
                             ":hover": {
                                 backgroundColor: pathname === navItem.path ? theme.palette.primary.main : 'lightgray',
                                 opacity: 1.5,
                             }
                         }}>
-                            <Stack direction="row" alignItems="center" gap={1}>
+                            <ListItemIcon>
                                 {navItem.icon}
-                                <Typography variant="subtitle1">{navItem.title}</Typography>
-                            </Stack>
+                            </ListItemIcon>
+                            <ListItemText>{navItem.title}</ListItemText>
                         </ListItemButton>
                     </ListItem>
                 ))}
             </List>
-            <Button variant="text" startIcon={<IconifyIcon icon="ri:logout-circle-line" alignSelf="center" />} sx={{
-                mb: 3,
-                fontSize: '16px',
-                fontWeight: 500,
+            <List sx={{
+                mx: '10px',
             }}>
-                Log out
-            </Button>
+                <ListItem disablePadding sx={{
+                    my: '20px',
+                    mx: 0,
+                }}>
+                    <ListItemButton LinkComponent={RouterLink} href="/" sx={{
+                        backgroundColor: '#FFF',
+                        color: theme.palette.primary.main,
+                        ":hover": {
+                            backgroundColor: theme.palette.primary.main,
+                            color: '#FFF',
+                            opacity: 1.5,
+                        }
+                    }}>
+                        <ListItemIcon> 
+                            <IconifyIcon icon="ri:logout-circle-line" />
+                        </ListItemIcon>
+                        <ListItemText>Log out</ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
         </Box>
     );
 
@@ -166,20 +180,20 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                         <IconifyIcon icon="mdi:menu" />
                     </IconButton>
                     <Box sx={{
-                        display: { xs: 'none', sm: 'flex'},
+                        display: { xs: 'none', sm: 'flex' },
                         gap: 4,
                         alignItems: 'center',
                     }}>
-                    <Typography variant="h5" noWrap component="h5">
-                        Dashboard
-                    </Typography>
-                    <OutlinedInput placeholder="Search..." endAdornment={
-                        <InputAdornment position="end">
-                            <IconifyIcon icon="mdi:search" width="100%" height="100%" />
-                        </InputAdornment>
-                    } />
+                        <Typography variant="h5" noWrap component="h5">
+                            Dashboard
+                        </Typography>
+                        <OutlinedInput placeholder="Search..." endAdornment={
+                            <InputAdornment position="end">
+                                <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+                            </InputAdornment>
+                        } />
                     </Box>
-                    <IconButton color="inherit" sx={{display: { xs: 'flex', sm: 'none'},}}>
+                    <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' }, mr: 'auto', }}>
                         <IconifyIcon icon="mdi:search" width="24px" height="24px" />
                     </IconButton>
                     <Box sx={{
@@ -212,6 +226,8 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                             MenuListProps={{
                                 'aria-labelledby': 'basic-button',
                             }}
+                            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         >
                             <MenuItem onClick={handleClose}>
                                 <ListItemIcon>
@@ -223,7 +239,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                                 <ListItemIcon>
                                     <IconifyIcon icon="mdi:account-outline" />
                                 </ListItemIcon>
-                                <ListItemText>Profile</ListItemText> 
+                                <ListItemText>Profile</ListItemText>
                             </MenuItem>
                             <MenuItem onClick={handleClose}>
                                 <ListItemIcon>
@@ -282,14 +298,12 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             {/* <Box
                 component="main"
                 sx={{ display: 'grid', gridTemplateColumns: "repeat(12, 1fr)", gap: '30px', flexGrow: 1, p: 3, mt: '90px', width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-            > */}
-            {/* <Toolbar /> */}
+            ></Box> */}
             <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
             }}>
                 {children}
             </Grid>
-            {/* </Box> */}
         </Box>
     );
 }

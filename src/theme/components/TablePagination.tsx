@@ -11,12 +11,16 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
         },
         slotProps: {
             actions: {
-
+                nextButtonIcon: <h1>Next</h1>,
+                nextButton: {
+                    
+                }
             },
-        }
+        },
     },
     styleOverrides: {
         root: {
+            width: '100%',
             ":last-child": {
                 // padding: '10px 0',
                 borderRadius: '20px',
@@ -31,7 +35,7 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
             flex: 'none',
         },
         select: {
-            display: 'none',
+            display: 'none !important',
         },
         selectLabel: {
             display: 'none',
@@ -47,7 +51,8 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
         },
         actions: {
             // backgroundColor: 'orange',
-        }
+        },
+        
     }
 };
 
