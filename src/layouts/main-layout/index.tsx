@@ -110,15 +110,19 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 {navItems.map((navItem, index) => (
                     <ListItem key={index} disablePadding sx={{
                         my: '20px',
+                        borderRadius: '8px',
+                        backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
+                        color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
+                        ":hover": {
+                            backgroundColor: pathname === navItem.path ? theme.palette.primary.main : 'lightgray',
+                            opacity: 1.5,
+                        },
+                        // ":active": {
+                        //     backgroundColor: theme.palette.primary.main,
+                        //     color: '#FFF',
+                        // }
                     }}>
-                        <ListItemButton LinkComponent={RouterLink} href={navItem.path} sx={{
-                            backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-                            color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
-                            ":hover": {
-                                backgroundColor: pathname === navItem.path ? theme.palette.primary.main : 'lightgray',
-                                opacity: 1.5,
-                            }
-                        }}>
+                        <ListItemButton LinkComponent={RouterLink} href={navItem.path}>
                             <ListItemIcon>
                                 {navItem.icon}
                             </ListItemIcon>
@@ -141,9 +145,16 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                             backgroundColor: theme.palette.primary.main,
                             color: '#FFF',
                             opacity: 1.5,
-                        }
+                            "": {
+                                color: theme.palette.background.paper,
+                            }
+                        },
                     }}>
-                        <ListItemIcon> 
+                        <ListItemIcon sx={{
+                            ":hover": {
+                                color: theme.palette.background.paper,
+                            },
+                        }}>
                             <IconifyIcon icon="ri:logout-circle-line" />
                         </ListItemIcon>
                         <ListItemText>Log out</ListItemText>
@@ -159,7 +170,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             <AppBar
                 position="fixed"
                 sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    width: { sm: `calc(100% - ${drawerWidth}px + 24px)` },
                     ml: { sm: `${drawerWidth}px` },
                     backgroundColor: theme => theme.palette.background.default,
                     boxShadow: 0,
@@ -175,7 +186,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ mr: 2, display: { sm: 'none' } }}
+                        sx={{ mr: 2, ml: 0, display: { sm: 'none' } }}
                     >
                         <IconifyIcon icon="mdi:menu" />
                     </IconButton>
@@ -252,7 +263,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                                 onClick={handleClose}
                                 disableRipple
                                 disableTouchRipple
-                                sx={{ color: 'error.main', pt: 1.5 }}
+                                sx={{ color: 'error.main' }}
                             >
                                 <ListItemIcon>
                                     <IconifyIcon icon="ri:logout-circle-line" color="#F54F5F" />
@@ -279,7 +290,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                     }}
                     sx={{
                         display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, border: 0, backgroundColor: theme => theme.palette.background.default },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, border: 0, backgroundColor: theme => theme.palette.background.paper },
                     }}
                 >
                     {drawer}
@@ -301,6 +312,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             ></Box> */}
             <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
+                paddingLeft: { sm: 0 },
             }}>
                 {children}
             </Grid>

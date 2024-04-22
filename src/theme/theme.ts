@@ -20,6 +20,7 @@ import Toolbar from "./components/Toolbar";
 import Badge from "./components/Badge";
 import PaginationItem from "./components/PaginationItem";
 import { DataGrid } from "@mui/x-data-grid";
+import ListItemIcon from "./components/ListItemIcon";
 
 export const theme = createTheme({
     typography: typography,
@@ -35,6 +36,7 @@ export const theme = createTheme({
         MuiButton: Button,
         MuiInputAdornment: InputAdornment,
         MuiListItemButton: ListItemButton,
+        MuiListItemIcon: ListItemIcon, 
         MuiTablePagination: TablePagination,
         MuiPagination: Pagination,
         MuiPaginationItem: PaginationItem,
@@ -46,7 +48,6 @@ export const theme = createTheme({
         MuiDataGrid: {
             containerBackground: '#FFF',
             borderBottom: 'none',
-            
         },
     },
 });

@@ -9,7 +9,8 @@ const Revenue = () => {
             text: 'Revenue',
             textStyle: {
                 fontSize: '20.25px',
-                fontWeight: 500,
+                fontWeight: 600,
+                color: '#050F24',
             }
         },
         xAxis: {

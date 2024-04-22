@@ -1,7 +1,10 @@
+import { Box, LinearProgress } from "@mui/material"
 
 const Splash = () => {
     return (
-        <div>Splash</div>
+        <Box sx={{ width: '100%' }}>
+            <LinearProgress color="primary" />
+        </Box>
     )
 }
 

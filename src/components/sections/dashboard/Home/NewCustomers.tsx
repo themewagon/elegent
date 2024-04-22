@@ -10,6 +10,7 @@ const NewCustomers = () => {
         <Box sx={{
             backgroundColor: 'white',
             borderRadius: '20px',
+            marginTop: { xs: '70px', sm: 0},
         }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
                 <Typography variant="subtitle1" color={theme => theme.palette.text.primary}>New Customers</Typography>

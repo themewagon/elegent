@@ -1,7 +1,10 @@
+import { Box, CircularProgress } from "@mui/material"
 
 const PageLoader = () => {
     return (
-        <div>PageLoader</div>
+        <Box sx={{ display: 'flex' }}>
+            <CircularProgress color="secondary" />
+        </Box>
     )
 }
 

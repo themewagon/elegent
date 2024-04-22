@@ -1,7 +1,8 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Divider, Typography } from "@mui/material"
 import { DataGrid, GridFooter } from "@mui/x-data-grid";
 import { useDemoData } from "@mui/x-data-grid-generator";
 import CustomPagination from "components/base/CustomPagination";
+import { columns, rows as dataRows } from "data/tableData";
 
 // import IconifyIcon from "components/base/IconifyIcon";
 // import nikeV22 from "assets/topSellingProducts/nikeV22.jpg";
@@ -102,45 +103,65 @@ const TopSellingProduct = () => {
     return (
         <Box sx={{
             width: '100%',
-            height: '682px',
+            height: '100%',
             borderRadius: '20px',
             backgroundColor: '#FFF',
         }}>
-            <Typography variant="subtitle1" color={theme => theme.palette.text.primary} padding="20px">Top Selling Product</Typography>
+            <Typography variant="subtitle1" color={theme => theme.palette.text.primary} padding="30px">Top Selling Product</Typography>
+            <Divider sx={{ borderColor: "#E1E1E1", }}/>
             <Box sx={{
                 height: '100%',
-                "& .MuiDataGrid-root": {
-                    backgroundColor: '#FFF',
-                },
-                "& .MuiDataGrid-columnHeaders": {
-                    backgroundColor: '#FFF',
-                    borderBottom: "none",
-                },
             }}>
                 <DataGrid
                     pagination={true}
+                    disableRowSelectionOnClick
                     slots={{
                         pagination: CustomPagination,
                         // toolbar: GridToolbar,
                         footer: GridFooter,
                     }}
-                    {...data}
+                    // {...data}
+                    columns={columns}
+                    rows={dataRows}
                     initialState={{
                         ...data.initialState,
                         pagination: { paginationModel: { pageSize: 30 }, },
-                        // components={ toolbar: GridToolbar}
                     }}
-                    // sx={{
-                    //     ":root": {
-                    //         backgroundColor: '#FFF',
-                    //     },
-                    //     "& .MuiDataGrid-container--top": {
-                    //         backgroundColor: '#FFF',
-                    //     },
-                    //     "& .MuiDataGrid-columnHeaders": {
-                    //         backgroundColor: '#FFF',
-                    //     },
-                    // }}
+                    sx={{
+                        "&.MuiDataGrid-root": {
+                            backgroundColor: '#FFF',
+                            border: 'none',
+                            height: '100%',
+                        },
+                        ".MuiDataGrid-topContainer::after" : {
+                            content: 'none',
+                        },
+                        ".MuiDataGrid-columnHeaders" : {
+                            borderBottom: 'none',
+                        },
+                        '&.MuiDataGrid-columnSeparator': {
+                            display: 'none',
+                        },
+                        '.MuiDataGrid-cell': {
+                            border: "none",
+                            color: theme => theme.palette.text.secondary, 
+                        },
+                        '&.MuiDataGrid-withBorderColor': {
+                            borderColor: 'transparent',
+                        },
+                        '.MuiDataGrid-row': {
+                            borderBottom: 'none',
+                        }, 
+                        '.MuiDataGrid-footerContainer': {
+                            minHeight: '100px',
+                        },
+                        '.MuiDataGrid-filler': {
+                            height: 0,
+                        },
+                        '.MuiDataGrid-virtualScrollerContent': {
+                            height: '100%',
+                        },
+                    }}
                 />
             </Box>
         </Box>

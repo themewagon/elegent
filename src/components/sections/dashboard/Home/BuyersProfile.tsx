@@ -6,24 +6,15 @@ import EChartsReact from "echarts-for-react";
 const BuyersProfile = () => {
 
     const option : EChartsOption = {
-        // title: {
-        //     text: 'Buyers Profile',
-        // },
         tooltip: {
             trigger: 'item',
             formatter: '{a} <br/>{b} : {c}%',
         },
-        // legend: {
-        //     icon: 'pin',
-        //     orient: 'vertical',
-        //     bottom: '50%',
-        //     right: '2%'
-        // },
         series: [
             {
                 name: 'Buyers Profile',
                 type: 'pie',
-                radius: ['75%', '100%'],
+                radius: ['75%', '95%'],
                 color: ['#FF8E29', '#27D095', '#F54F5F'],
                 avoidLabelOverlap: true,
                 startAngle: -30,
@@ -35,9 +26,8 @@ const BuyersProfile = () => {
                 emphasis: {
                     label: {
                         show: false,
-                        fontSize: 40,
-                        fontWeight: 'bold'
-                    }
+                    },
+                    scaleSize: 0,
                 },
                 labelLine: {
                     show: true

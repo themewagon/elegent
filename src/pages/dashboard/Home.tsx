@@ -29,7 +29,7 @@ const Home = () => {
         <Grid item xs={12} md={4}>
             <WebsiteVisitors />
         </Grid>
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={8} height="686px">
             <TopSellingProduct />
         </Grid>
         <Grid item xs={12} md={4}>

@@ -49,7 +49,8 @@ const Error404 = () => {
                         src={error404}
                         sx={{
                             mx: 'auto',
-                            height: 260,
+                            width: '100%',
+                            height: 'auto',
                             my: { xs: 5, sm: 10 },
                         }}
                     />
