@@ -25,6 +25,7 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
                 // padding: '10px 0',
                 borderRadius: '20px',
             },
+            borderRadius: '20px',
         },
         toolbar: {
             display: 'flex',

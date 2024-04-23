@@ -7,7 +7,7 @@ import { Link as Nav, useLocation } from "react-router-dom";
 import { theme } from "theme/theme";
 
 
-export const drawerWidth = 258;
+export const drawerWidth = 278;
 
 const navItems = [
     {
@@ -102,14 +102,15 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             <Box component="img" src={logo} sx={{
                 marginTop: '50px',
                 mx: '40px',
+                mb: '30px',
             }} />
             <List sx={{
-                mx: '10px',
+                mx: '20px',
                 flex: '1 1 auto',
             }}>
                 {navItems.map((navItem, index) => (
                     <ListItem key={index} disablePadding sx={{
-                        my: '20px',
+                        my: '10px',
                         borderRadius: '8px',
                         backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
                         color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
@@ -132,7 +133,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 ))}
             </List>
             <List sx={{
-                mx: '10px',
+                mx: '20px',
             }}>
                 <ListItem disablePadding sx={{
                     my: '20px',
@@ -191,7 +192,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                         <IconifyIcon icon="mdi:menu" />
                     </IconButton>
                     <Box sx={{
-                        display: { xs: 'none', sm: 'flex' },
+                        display: { xs: 'none', md: 'flex' },
                         gap: 4,
                         alignItems: 'center',
                     }}>
@@ -204,7 +205,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                             </InputAdornment>
                         } />
                     </Box>
-                    <IconButton color="inherit" sx={{ display: { xs: 'flex', sm: 'none' }, mr: 'auto', }}>
+                    <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto', }}>
                         <IconifyIcon icon="mdi:search" width="24px" height="24px" />
                     </IconButton>
                     <Box sx={{

@@ -11,18 +11,19 @@ export const columns = [
     {
         field: "id",
         headerName: "ID",
-        width: 70,
+        flex: 1,
     },
     {
         field: "product",
         headerName: "Product",
-        width: 200,
+        flex: 1.5,
+        // width: 200,
         renderCell: (params) => {
             console.log(params);
             return (
-                <Stack direction="row" spacing={1}>
+                <Stack direction="row" spacing={1} alignItems='center'>
                     <Avatar src={params.value.avatar} />
-                    <Stack direction="column" spacing={0.5}>
+                    <Stack direction="column" spacing={0.5} justifyContent="space-between">
                         <Typography variant="body1" color={theme => theme.palette.text.primary}>
                             {params.value.title}
                         </Typography>
@@ -37,22 +38,28 @@ export const columns = [
     {
         field: "orders",
         headerName: "Orders",
-        width: 130,
+        flex: 1,
     },
     {
         field: "price",
         headerName: "Price",
-        width: 90,
+        flex: 1,
     },
     {
         field: "ads-spent",
         headerName: "Ads Spent",
-        width: 100,
+        flex: 1,
     },
     {
         field: "refunds",
         headerName: "Refunds",
-        width: 100,
+        flex: 1,
+        renderCell: ({row: { refunds }}) => {
+            if(refunds > 0)
+                return `>${refunds}`;
+            else
+                return `<${-refunds}`;
+        }
     },
 ];
 
@@ -91,7 +98,7 @@ export const rows = [
         orders: 6000,
         price: 80,
         "ads-spent": 5.8,
-        refunds: 11,
+        refunds: -11,
     },
     {
         id: 4,
@@ -115,6 +122,6 @@ export const rows = [
         orders: 2000,
         price: 15,
         "ads-spent": 2.5,
-        refunds: 10,
+        refunds: -10,
     },
 ];

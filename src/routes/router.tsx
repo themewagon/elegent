@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Suspense, lazy } from "react";
 import PageLoader from "../components/loading/PageLoader";
 import { Outlet, createBrowserRouter } from "react-router-dom";

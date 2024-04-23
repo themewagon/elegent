@@ -45,11 +45,15 @@ export const theme = createTheme({
         MuiBadge: Badge,
     },
     mixins: {
-        MuiDataGrid: {
-            containerBackground: '#FFF',
-            borderBottom: 'none',
+        // MuiDataGrid: {
+        //     containerBackground: '#FFF',
+        //     borderBottom: 'none',
+        // },
+        toolbar: {
+
         },
     },
+    
 });
 
 shadows.forEach((shadow, index) => {

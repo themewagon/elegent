@@ -6,6 +6,7 @@ const ListItemIcon: Components<Omit<Theme, 'components'>>['MuiListItemIcon'] = {
     styleOverrides: {
         root: {
             color: 'inherit',
+            minWidth: 'auto',
         }
     }
 };

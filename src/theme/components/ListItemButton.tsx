@@ -8,6 +8,7 @@ const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton']
             display: 'flex',
             alignItems: 'center',
             borderRadius: '8px',
+            gap: '10px',
         }
     }
 };

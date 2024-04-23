@@ -9,56 +9,76 @@ const Revenue = () => {
             text: 'Revenue',
             textStyle: {
                 fontSize: '20.25px',
-                fontWeight: 600,
-                color: '#050F24',
-            }
+                fontWeight: 500,
+                color: '#050F24'
+            },
+            top: 30,
+            left: 30
         },
         xAxis: {
             type: 'category',
-            data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+            data: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July',
+                'August'
+            ],
             boundaryGap: false,
             axisLine: {
                 show: true,
                 lineStyle: {
                     color: '#E1E1E1',
                     width: 1,
-                    type: 'dashed',
+                    type: 'dashed'
                 }
             },
             axisLabel: {
                 show: true,
                 padding: 30,
                 color: '#6F757E',
-                formatter: value => value.slice(0, 3),
+                formatter: (value) => value.slice(0, 3)
             },
             axisTick: {
-                show: false,
-            },
+                show: false
+            }
         },
         yAxis: {
             type: 'value',
             max: 400,
-            splitNumber: 3,
+            splitNumber: 4,
             axisLine: {
                 show: false,
+            },
+            axisLabel: {
+                show: true,
+                color: '#6F757E',
+                align: 'center',
+                padding: [0, 20, 0, 0],
             },
             splitLine: {
                 interval: 5,
                 lineStyle: {
                     color: '#E1E1E1',
                     width: 1,
-                    type: 'dashed',
+                    type: 'dashed'
                 }
             }
         },
+
         grid: {
-            backgroundColor: '#27D095',
-            show: false
+            left: 65,
+            right: 32,
+            top: 123,
+            bottom: 87,
         },
         legend: {
             show: true,
-            top: '2%',
-            right: '2%',
+            top: 30,
+            right: 30,
             orient: 'horizontal',
             icon: 'pin'
         },
@@ -77,7 +97,7 @@ const Revenue = () => {
                 symbolSize: 12,
                 lineStyle: {
                     width: 5
-                },
+                }
             },
             {
                 data: [20, 125, 100, 30, 150, 300, 90, 180],
@@ -89,16 +109,18 @@ const Revenue = () => {
                 symbolSize: 12,
                 lineStyle: {
                     width: 5
-                },
-            },
-        ],
+                }
+            }
+        ]
     };
+
 
     return (
         <Box sx={{
             backgroundColor: 'white',
             borderRadius: '20px',
-            padding: '20px',
+            // padding: '20px',
+            width: "100%",
             height: { xs: '460px', md: '100%', },
         }}>
             <EChartsReact option={option} style={{ height: '100%' }} />

@@ -41,6 +41,10 @@ const typography: TypographyOptions = {
     body2: {
         fontSize: '12px',
         fontWeight: 400,
+    },
+    allVariants: {
+        // overflow: 'auto',
+        // whiteSpace: 'wrap',
     }
 };
 
