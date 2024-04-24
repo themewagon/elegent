@@ -25,7 +25,7 @@ const TopSellingProduct = () => {
     useEffect(() => {
         console.log(data);
         console.log(dataRows);
-    }, [data])
+    }, [data]);
 
     return (
         <Box sx={{
@@ -34,7 +34,7 @@ const TopSellingProduct = () => {
             borderRadius: '20px',
             backgroundColor: '#FFF',
         }}>
-            <Typography variant="subtitle1" color={theme => theme.palette.text.primary} padding="30px">
+            <Typography variant="h5" color={theme => theme.palette.text.primary} padding="30px">
                 Top Selling Product
             </Typography>
             <Divider sx={{ borderColor: "#E1E1E1", }}/>
@@ -44,9 +44,14 @@ const TopSellingProduct = () => {
                     backgroundColor: '#FFF',
                     border: 'none',
                     height: '100%',
+                    '--DataGrid-rowBorderColor': '#FFF',
+                    '--DataGrid-containerBackground': '#FFF',
+                },
+                "& .MuiDataGrid-main": {
+                    padding: '0 20px',
                 },
                 "& .MuiDataGrid-container--top [role='row']": {
-                    // backgroundColor: '#FFF',
+                    backgroundColor: '#FFF',
                 },
                 "& .MuiDataGrid-columnHeaderRow": {
                     backgroundColor: '#FFF',
@@ -63,7 +68,9 @@ const TopSellingProduct = () => {
                 },
                 '& .MuiDataGrid-cell': {
                     border: "none",
-                    color: theme => theme.palette.text.secondary, 
+                    color: theme => theme.palette.text.secondary,
+                    display: 'flex',
+                    alignItems: 'center',
                 },
                 "& .MuiDataGrid-row": {
                     border: 'none',
@@ -73,7 +80,6 @@ const TopSellingProduct = () => {
                 },
                 '& .MuiDataGrid-footerContainer': {
                     minHeight: '100px',
-                    // padding: 0,
                 },
                 '& .MuiDataGrid-filler': {
                     height: 'auto',
@@ -82,6 +88,11 @@ const TopSellingProduct = () => {
                 '& .MuiDataGrid-virtualScrollerContent': {
                     height: '100%',
                 },
+                "& .MuiDataGrid-columnHeaderTitle": {
+                    fontSize: '16px',
+                    fontWeight: 500,
+                },
+                
             }}>
                 <DataGrid
                     pagination={true}
@@ -90,21 +101,18 @@ const TopSellingProduct = () => {
                         pagination: CustomPagination,
                         footer: GridFooter,
                     }}
-                    // {...data}
                     density="comfortable"
                     columns={columns}
                     rows={dataRows}
                     initialState={{
-                        ...data.initialState,
                         pagination: { paginationModel: { pageSize: 30 }, },
+                        columns: {
+                            columnVisibilityModel: {
+                                id: false,
+                            },
+                        },
                     }}
-                    // autosizeOnMount
-                    // autosizeOptions={{
-                        
-                    // }}
-                    sx={{
-                        
-                    }}
+                    scrollbarSize={1}
                 />
             </Box>
         </Box>

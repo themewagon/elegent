@@ -1,8 +1,8 @@
 import { Avatar, Stack, Typography } from "@mui/material";
 
-import nikeV22 from "assets/top-selling-products/nikeV22.jpg";
-import instaxCamera from "assets/top-selling-products/instaxCamera.jpg";
 import relaxingChair from "assets/top-selling-products/relaxingChair.jpg";
+import instaxCamera from "assets/top-selling-products/instaxCamera.jpg";
+import nikeV22 from "assets/top-selling-products/nikeV22.jpg";
 import laptop from "assets/top-selling-products/laptop.jpg";
 import watch from "assets/top-selling-products/watch.jpg";
 
@@ -114,6 +114,66 @@ export const rows = [
     },
     {
         id: 5,
+        product: {
+            avatar: watch,
+            title: "Watch",
+            subtitle: "Digital watch",
+        },
+        orders: 2000,
+        price: 15,
+        "ads-spent": 2.5,
+        refunds: -10,
+    },
+    {
+        id: 6,
+        product: {
+            avatar: nikeV22,
+            title: "Nike v22",
+            subtitle: "Running Shoes",
+        },
+        orders: 8000,
+        price: 130,
+        "ads-spent": 9.5,
+        refunds: 13,
+    },
+    {
+        id: 7,
+        product: {
+            avatar: instaxCamera,
+            title: "Instax Camera",
+            subtitle: "Portable Camera",
+        },
+        orders: 3000,
+        price: 45,
+        "ads-spent": 4.5,
+        refunds: 18,
+    },
+    {
+        id: 8,
+        product: {
+            avatar: relaxingChair,
+            title: "Chair ",
+            subtitle: "Relaxing chair",
+        },
+        orders: 6000,
+        price: 80,
+        "ads-spent": 5.8,
+        refunds: -11,
+    },
+    {
+        id: 9,
+        product: {
+            avatar: laptop,
+            title: "Laptop",
+            subtitle: "Macbook pro 13",
+        },
+        orders: 4000,
+        price: 500,
+        "ads-spent": 4.7,
+        refunds: 18,
+    },
+    {
+        id: 20,
         product: {
             avatar: watch,
             title: "Watch",
