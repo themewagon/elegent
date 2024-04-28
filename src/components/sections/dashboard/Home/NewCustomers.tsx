@@ -1,9 +1,9 @@
 import { Avatar, Box, IconButton, ListItem, Stack, Typography } from "@mui/material"
 import IconifyIcon from "components/base/IconifyIcon"
-import roselle from "assets/new-customers/roselle.jpg";
-import jone from "assets/new-customers/jone.png";
-import darron from "assets/new-customers/darron.png";
 import leatrice from "assets/new-customers/leatrice.png";
+import roselle from "assets/new-customers/roselle.jpg";
+import darron from "assets/new-customers/darron.png";
+import jone from "assets/new-customers/jone.png";
 
 const NewCustomers = () => {
     return (
@@ -20,6 +20,7 @@ const NewCustomers = () => {
             </Stack>
             <Stack direction="column" sx={{
                 // padding: '0 20px',
+                paddingBottom: '10px',
             }}>
                 <ListItem sx={{
                     display: 'flex',
@@ -28,7 +29,7 @@ const NewCustomers = () => {
                 }}>
                     <Box sx={{
                         display: 'flex',
-                        gap: '10px',
+                        gap: '12px',
                     }}>
                         <Avatar src={roselle} />
                         <Box component="div">

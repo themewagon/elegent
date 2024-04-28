@@ -7,14 +7,12 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
             return `Showing ${to-from + 1} of ${count} products`;
         },
         backIconButtonProps: {
-            
         },
         slotProps: {
             actions: {
                 nextButtonIcon: <h1>Next</h1>,
                 nextButton: {
-                    
-                }
+                },
             },
         },
     },
@@ -22,7 +20,6 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
         root: {
             width: '100%',
             ":last-child": {
-                // padding: '10px 0',
                 borderRadius: '20px',
             },
             borderRadius: '20px',
@@ -30,7 +27,7 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
         toolbar: {
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '20px 0'
+            padding: '20px 0',
         },
         spacer: {
             flex: 'none',
@@ -51,10 +48,8 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
             color: '#6F757E',
         },
         actions: {
-            // backgroundColor: 'orange',
         },
-        
-    }
+    },
 };
 
 export default TablePagination;

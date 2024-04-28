@@ -7,9 +7,8 @@ const Toolbar: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
         root: {
             display: 'flex',
             justifyContent: 'space-between',
-            // padding: '20px 0',
-        }
-    }
+        },
+    },
 };
 
 export default Toolbar;

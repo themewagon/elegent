@@ -6,11 +6,10 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
     styleOverrides: {
         root: {
             backgroundColor: '#FFF',
+            borderRadius: '30px',
+            color: '#6F757E',
             width: '330px',
             height: '45px',
-            color: '#6F757E',
-            // border: '1px solid #E1E1E1',
-            borderRadius: '30px',
             '&::before, &::after': {
                 border: 0,
                 borderBottom: 0,
@@ -34,8 +33,8 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
                 fontSize: '14px',
                 fontWeight: 400,
             },
-        }
-    }
+        },
+    },
 };
 
 export default OutlinedInput;

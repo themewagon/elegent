@@ -8,12 +8,13 @@ const Revenue = () => {
         title: {
             text: 'Revenue',
             textStyle: {
+                // fontFamily: 'Poppins',
                 fontSize: '20.25px',
                 fontWeight: 500,
-                color: '#050F24'
+                color: '#050F24',
             },
             top: 30,
-            left: 30
+            left: 30,
         },
         xAxis: {
             type: 'category',
@@ -33,18 +34,18 @@ const Revenue = () => {
                 lineStyle: {
                     color: '#E1E1E1',
                     width: 1,
-                    type: 'dashed'
+                    type: 'dashed',
                 }
             },
             axisLabel: {
                 show: true,
                 padding: 30,
                 color: '#6F757E',
-                formatter: (value) => value.slice(0, 3)
+                formatter: (value) => value.slice(0, 3),
             },
             axisTick: {
-                show: false
-            }
+                show: false,
+            },
         },
         yAxis: {
             type: 'value',
@@ -64,9 +65,9 @@ const Revenue = () => {
                 lineStyle: {
                     color: '#E1E1E1',
                     width: 1,
-                    type: 'dashed'
-                }
-            }
+                    type: 'dashed',
+                },
+            },
         },
 
         grid: {
@@ -80,11 +81,11 @@ const Revenue = () => {
             top: 30,
             right: 30,
             orient: 'horizontal',
-            icon: 'pin'
+            icon: 'pin',
         },
         tooltip: {
             show: true,
-            trigger: 'axis'
+            trigger: 'axis',
         },
         series: [
             {
@@ -96,8 +97,8 @@ const Revenue = () => {
                 legendHoverLink: true,
                 symbolSize: 12,
                 lineStyle: {
-                    width: 5
-                }
+                    width: 5,
+                },
             },
             {
                 data: [20, 125, 100, 30, 150, 300, 90, 180],
@@ -108,16 +109,16 @@ const Revenue = () => {
                 legendHoverLink: true,
                 symbolSize: 12,
                 lineStyle: {
-                    width: 5
-                }
-            }
-        ]
+                    width: 5,
+                },
+            },
+        ],
     };
 
 
     return (
         <Box sx={{
-            backgroundColor: 'white',
+            bgcolor: '#FFF',
             borderRadius: '20px',
             // padding: '20px',
             width: "100%",

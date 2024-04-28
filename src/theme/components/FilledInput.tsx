@@ -1,43 +1,42 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
-    defaultProps: {},
+    defaultProps: {
+        endAdornment: <IconifyIcon icon="mdi:search" />,
+    },
     styleOverrides: {
-        root: {
-            // padding: 0,
-            backgroundColor: 'transparent',
-            ":before": {
-                border: 0,
+        root: ({ theme }) => ({
+            borderRadius: 30,
+            backgroundColor: theme.palette.common.white,
+            "&:before": {
+                borderBottom: 'none',
             },
-            ":hover": {
-                border: 0,
-                backgroundColor: 'transparent',
+            "&:after": {
+                borderBottom: 'none',
             },
-            ":hover &:before": {
-                border: 0,
+            "&:hover": {
+                border: '1px solid black',
+                backgroundColor: theme.palette.common.white,
             },
             "&:hover:not(.Mui-disabled, .Mui-error):before": {
                 border: 0,
             },
-            ":focus" : {
-                border: 0
+            "&.Mui-focused": {
+                backgroundColor: theme.palette.common.white,
             },
-            ":after" : {
-                border: 0
+        }),
+        input: ({ theme }) => ({
+            padding: theme.spacing(1.5, 2.5),
+            "&::placeholder": {
+                opacity: 1,
             },
-            "&.Mui-focused" : {
-                backgroundColor: 'transparent',
-                ":before": {
-                    border: 0,
-                },
-                ":focus" : {
-                    border: 0
-                }
-            }
-        },
-        
-    }
+        }),
+        adornedEnd: ({ theme }) => ({
+            color: theme.palette.common.black,
+        }),
+    },
 };
 
 export default FilledInput;

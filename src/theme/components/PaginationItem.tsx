@@ -8,8 +8,7 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
     styleOverrides: {
         root: {
             color: '#050F24',
-            ":hover": {
-                
+            ":hover": {  
             },
         }
     }

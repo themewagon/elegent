@@ -21,7 +21,7 @@ export const columns = [
         renderCell: (params) => {
             console.log(params);
             return (
-                <Stack direction="row" spacing={1} alignItems='center'>
+                <Stack direction="row" spacing={1.5} alignItems='center'>
                     <Avatar src={params.value.avatar} />
                     <Stack direction="column" spacing={0.5} justifyContent="space-between">
                         <Typography variant="body1" color={theme => theme.palette.text.primary}>

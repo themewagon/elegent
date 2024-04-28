@@ -5,10 +5,10 @@ const InputAdornment: Components<Omit<Theme, 'components'>>['MuiInputAdornment']
     defaultProps: {},
     styleOverrides: {
         root: {
-            width: '25px',
-            height: '25px',
-        }
-    }
+            // width: '25px',
+            // height: '25px',
+        },
+    },
 };
 
 export default InputAdornment;

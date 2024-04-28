@@ -1,59 +1,51 @@
 import { createTheme } from "@mui/material";
 
-import typography from "./typography";
-import palette from "./palette";
-import { shadows } from "./shadows";
-import TextField from "./components/TextField";
-import InputBase from "./components/InputBase";
-import InputLabel from "./components/InputLabel";
-import FilledInput from "./components/FilledInput";
-import Card from "./components/Card";
-import OutlinedInput from "./components/OutlinedInput";
-import Input from "./components/Input";
-import Button from "./components/Button";
+import TablePagination from "./components/TablePagination";
+import PaginationItem from "./components/PaginationItem";
 import InputAdornment from "./components/InputAdornment";
 import ListItemButton from "./components/ListItemButton";
-import TablePagination from "./components/TablePagination";
-import Pagination from "./components/Pagination";
-import Paper from "./components/Paper";
-import Toolbar from "./components/Toolbar";
-import Badge from "./components/Badge";
-import PaginationItem from "./components/PaginationItem";
-import { DataGrid } from "@mui/x-data-grid";
+import OutlinedInput from "./components/OutlinedInput";
 import ListItemIcon from "./components/ListItemIcon";
+import FilledInput from "./components/FilledInput";
+import Pagination from "./components/Pagination";
+import InputLabel from "./components/InputLabel";
+import TextField from "./components/TextField";
+import InputBase from "./components/InputBase";
+import Toolbar from "./components/Toolbar";
+import Button from "./components/Button";
+import Badge from "./components/Badge";
+import Input from "./components/Input";
+import Paper from "./components/Paper";
+import Card from "./components/Card";
+
+import { shadows } from "./shadows";
+import typography from "./typography";
+import palette from "./palette";
+import CssBaseline from "./components/CssBaseline";
 
 export const theme = createTheme({
     typography: typography,
     palette: palette,
     components: {
-        MuiInput: Input,
-        MuiTextField: TextField,
-        MuiInputBase: InputBase,
-        MuiInputLabel: InputLabel,
-        MuiFilledInput: FilledInput,
-        MuiOutlinedInput: OutlinedInput,
-        MuiCard: Card,
-        MuiButton: Button,
+        MuiTablePagination: TablePagination,
         MuiInputAdornment: InputAdornment,
         MuiListItemButton: ListItemButton,
-        MuiListItemIcon: ListItemIcon, 
-        MuiTablePagination: TablePagination,
-        MuiPagination: Pagination,
         MuiPaginationItem: PaginationItem,
-        MuiPaper: Paper,
+        MuiOutlinedInput: OutlinedInput,
+        MuiListItemIcon: ListItemIcon, 
+        MuiCssBaseline: CssBaseline,
+        MuiFilledInput: FilledInput,
+        MuiPagination: Pagination,
+        MuiInputLabel: InputLabel,
+        MuiInputBase: InputBase,
+        MuiTextField: TextField,
         MuiToolbar: Toolbar,
+        MuiButton: Button,
+        MuiPaper: Paper,
+        MuiInput: Input,
         MuiBadge: Badge,
+        MuiCard: Card,
     },
-    mixins: {
-        // MuiDataGrid: {
-        //     containerBackground: '#FFF',
-        //     borderBottom: 'none',
-        // },
-        toolbar: {
-
-        },
-    },
-    
 });
 
 shadows.forEach((shadow, index) => {

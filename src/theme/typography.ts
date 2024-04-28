@@ -1,45 +1,45 @@
 import { TypographyOptions } from "@mui/material/styles/createTypography";
 
 const typography: TypographyOptions = {
-    fontFamily: ["IBM Plex Sans", "sans-serif"].join(','),
+    fontFamily: ["IBM Plex Sans", "Poppins", "sans-serif"].join(','),
     h1: {
-        fontSize: '40px',
+        fontSize: '2.5rem',
         fontWeight: 700,
     },
     h2: {
-        fontSize: '28px',
+        fontSize: '1.75rem',
         fontWeight: 700,
     },
     h3: {
-        fontSize: '25px',
+        fontSize: '1.563rem',
         fontWeight: 700,
     },
     h4: {
-        fontSize: '22px',
+        fontSize: '1.375rem',
         fontWeight: 700,
     },
     h5: {
-        fontSize: '20px',
+        fontSize: '1.25rem',
         fontWeight: 500,
     },
     h6: {
-        fontSize: '18px',
+        fontSize: '1.125rem',
         fontWeight: 500,
     },
     subtitle1: {
-        fontSize: '16px',
+        fontSize: '1rem',
         fontWeight: 500,
     },
     subtitle2: {
-        fontSize: '16px',
+        fontSize: '1rem',
         fontWeight: 400,
     },
     body1: {
-        fontSize: '14px',
+        fontSize: '0.875rem',
         fontWeight: 400,
     },
     body2: {
-        fontSize: '12px',
+        fontSize: '0.75rem',
         fontWeight: 400,
     },
     allVariants: {

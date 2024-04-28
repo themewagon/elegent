@@ -6,7 +6,7 @@ const Input: Components<Omit<Theme, 'components'>>['MuiInput'] = {
     styleOverrides: {
         input: {
             "&::placeholder": {
-                color: "blue"
+                // color: "blue"
             },
         },
     },

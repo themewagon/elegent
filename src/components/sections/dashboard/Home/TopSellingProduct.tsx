@@ -105,7 +105,7 @@ const TopSellingProduct = () => {
                     columns={columns}
                     rows={dataRows}
                     initialState={{
-                        pagination: { paginationModel: { pageSize: 30 }, },
+                        pagination: { paginationModel: { pageSize: 9, page: 0 }, },
                         columns: {
                             columnVisibilityModel: {
                                 id: false,

@@ -7,8 +7,8 @@ const ListItemIcon: Components<Omit<Theme, 'components'>>['MuiListItemIcon'] = {
         root: {
             color: 'inherit',
             minWidth: 'auto',
-        }
-    }
+        },
+    },
 };
 
 export default ListItemIcon;

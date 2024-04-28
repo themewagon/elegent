@@ -8,8 +8,8 @@ import SaleInfo from "components/sections/dashboard/Home/SaleInfo"
 import Revenue from "components/sections/dashboard/Home/Revenue";
 
 import avgRevenue from "assets/sale-info/avg-revenue.png";
-import sales from "assets/sale-info/sales.png";
 import customers from "assets/sale-info/customers.png";
+import sales from "assets/sale-info/sales.png";
 
 const Home = () => {
     return (

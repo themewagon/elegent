@@ -4,10 +4,10 @@ import { Components } from '@mui/material/styles/components';
 const Badge: Components<Omit<Theme, 'components'>>['MuiBadge'] = {
     defaultProps: {},
     styleOverrides: {
-        badge: {
-            color: 'white',
-        }
-    }
+        badge: ({ theme }) => ({
+            color: theme.palette.common.white,
+        }),
+    },
 };
 
 export default Badge;

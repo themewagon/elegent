@@ -3,42 +3,28 @@ import { Components } from '@mui/material/styles/components';
 
 const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
     defaultProps: {
-
     },
     styleOverrides: {
-        root: {
-            backgroundColor: 'transparent',
-            paddingTop: 0,
-            paddingBottom: 0,
-            'label + &': {
-                marginTop: '25px',
+        root: ({ theme }) => ({
+            backgroundColor: theme.palette.common.white,
+            border: '1px solid #e1e1e1',
+            "&:before": {
+                borderBottom: 'none',
             },
-            ":before": {
-                border: 0,
+            "&:after": {
+                borderBottom: 'none',
             },
-            ":hover :before": {
-                border: 0,
+            "&.Mui-focused": {
+                backgroundColor: theme.palette.common.white,
             },
-            "&:hover:not(.Mui-disabled, .Mui-error):before": {
-                border: 0,
+        }),
+        input: ({ theme }) => ({
+            padding: theme.spacing(1.5, 2.5),
+            "&::placeholder": {
+                opacity: 1,
             },
-            ":focus" : {
-                border: 0
-            },
-            "::after": {
-                border: 0,
-            },
-            "&.Mui-focused" : {
-                "::before": {
-                    border: 0,
-                },
-                ":focus" : {
-                    border: 0,
-                    borderColor: '#E1E1E1',
-                }
-            }
-        },
-    }
+        }),
+    },
 };
 
 export default InputBase;

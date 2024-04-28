@@ -5,10 +5,9 @@ const Card: Components<Omit<Theme, 'components'>>['MuiCard'] = {
     defaultProps: {},
     styleOverrides: {
         root: {
-            gridColumn: 'span 3',
-            
-        }
-    }
+            // gridColumn: 'span 3',   
+        },
+    },
 };
 
 export default Card;

@@ -1,10 +1,10 @@
-import { AppBar, Avatar, Badge, Box, CssBaseline, Divider, Drawer, Grid, IconButton, InputAdornment, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, OutlinedInput, Toolbar, Typography } from "@mui/material";
+import { Box, Drawer, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, } from "@mui/material";
 import { PropsWithChildren, forwardRef, useState } from "react"
 import IconifyIcon from "components/base/IconifyIcon";
-import profile from "assets/profile/profile.jpg";
 import logo from "assets/logo/elegant-logo.png";
 import { Link as Nav, useLocation } from "react-router-dom";
 import { theme } from "theme/theme";
+import Topbar from "components/sections/dashboard/common/Topbar";
 
 
 export const drawerWidth = 278;
@@ -150,6 +150,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                                 color: theme.palette.background.paper,
                             }
                         },
+
                     }}>
                         <ListItemIcon sx={{
                             ":hover": {
@@ -167,114 +168,14 @@ const MainLayout = ({ children }: PropsWithChildren) => {
 
     return (
         <Box sx={{ display: 'flex', minHeight: '100vh', backgroundColor: theme => theme.palette.background.default }}>
-            <CssBaseline />
-            <AppBar
-                position="fixed"
-                sx={{
-                    width: { sm: `calc(100% - ${drawerWidth}px + 24px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                    backgroundColor: theme => theme.palette.background.default,
-                    boxShadow: 0,
-                }}
-            >
-                <Toolbar sx={{
-                    py: '30px',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                }}>
-                    <IconButton
-                        color="inherit"
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, ml: 0, display: { sm: 'none' } }}
-                    >
-                        <IconifyIcon icon="mdi:menu" />
-                    </IconButton>
-                    <Box sx={{
-                        display: { xs: 'none', md: 'flex' },
-                        gap: 4,
-                        alignItems: 'center',
-                    }}>
-                        <Typography variant="h5" noWrap component="h5">
-                            Dashboard
-                        </Typography>
-                        <OutlinedInput placeholder="Search..." endAdornment={
-                            <InputAdornment position="end">
-                                <IconifyIcon icon="mdi:search" width="100%" height="100%" />
-                            </InputAdornment>
-                        } />
-                    </Box>
-                    <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto', }}>
-                        <IconifyIcon icon="mdi:search" width="24px" height="24px" />
-                    </IconButton>
-                    <Box sx={{
-                        display: 'flex',
-                        gap: 2,
-                        alignItems: 'center'
-                    }}>
-                        <IconButton color="inherit">
-                            <Badge badgeContent={1} color="primary">
-                                <IconifyIcon icon="carbon:notification-filled" width="24px" height="24px" />
-                            </Badge>
-                        </IconButton>
-                        <Avatar alt="Remy Sharp" src={profile} />
-                        <Typography variant="body1" component="p">Aiden Max</Typography>
-                        <IconButton
-                            color="inherit"
-                            id="basic-button"
-                            aria-controls={open ? 'basic-menu' : undefined}
-                            aria-haspopup="true"
-                            aria-expanded={open ? 'true' : undefined}
-                            onClick={handleClick}
-                        >
-                            <IconifyIcon icon="ion:caret-down-outline" width="24px" height="24px" />
-                        </IconButton>
-                        <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                                'aria-labelledby': 'basic-button',
-                            }}
-                            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                        >
-                            <MenuItem onClick={handleClose}>
-                                <ListItemIcon>
-                                    <IconifyIcon icon="ion:home-sharp" />
-                                </ListItemIcon>
-                                <ListItemText>Home</ListItemText>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose}>
-                                <ListItemIcon>
-                                    <IconifyIcon icon="mdi:account-outline" />
-                                </ListItemIcon>
-                                <ListItemText>Profile</ListItemText>
-                            </MenuItem>
-                            <MenuItem onClick={handleClose}>
-                                <ListItemIcon>
-                                    <IconifyIcon icon="material-symbols:settings" />
-                                </ListItemIcon>
-                                <ListItemText>Settings</ListItemText>
-                            </MenuItem>
-                            <Divider />
-                            <MenuItem
-                                onClick={handleClose}
-                                disableRipple
-                                disableTouchRipple
-                                sx={{ color: 'error.main' }}
-                            >
-                                <ListItemIcon>
-                                    <IconifyIcon icon="ri:logout-circle-line" color="#F54F5F" />
-                                </ListItemIcon>
-                                <ListItemText>Logout</ListItemText>
-                            </MenuItem>
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </AppBar>
+            {/* <CssBaseline /> */}
+            <Topbar 
+                handleDrawerToggle={handleDrawerToggle} 
+                open={open} 
+                handleClick={handleClick} 
+                anchorEl={anchorEl}
+                handleClose={handleClose}
+            />
             <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -311,9 +212,9 @@ const MainLayout = ({ children }: PropsWithChildren) => {
                 component="main"
                 sx={{ display: 'grid', gridTemplateColumns: "repeat(12, 1fr)", gap: '30px', flexGrow: 1, p: 3, mt: '90px', width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             ></Box> */}
-            <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} p={3} mt='85.125px' sx={{
+            <Grid container component="main" columns={12} columnSpacing={3.75} rowSpacing={3.75} flexGrow={1} pt={2.5} pr={3.75} mt='85.125px' sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
-                paddingLeft: { sm: 0 },
+                pl: { sm: 0 },
             }}>
                 {children}
             </Grid>

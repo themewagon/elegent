@@ -1,30 +1,31 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
-import { theme } from 'theme/theme';
 
 const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     defaultProps: {},
     styleOverrides: {
-        root: ({ownerState}) => ({
-            ...(ownerState.variant === 'contained' && {
-                textTransform: 'none',
-                color: '#FFF',
-                borderRadius: '30px',
+        root: ({ theme }) => ({
+            
+        }),
+        contained: ({ theme }) => ({
+            fontWeight: theme.typography.body1.fontWeight,
+            fontSize: theme.typography.body1.fontSize,
+            textTransform: 'none',
+            borderRadius: 30,
+            boxShadow: 'none',
+            paddingTop: 12,  
+            paddingBottom: 12,  
+            color: theme.palette.common.white,
+            ":hover": {
                 boxShadow: 'none',
-                fontSize: theme.typography.body1.fontSize,
-                fontWeight: theme.typography.body1.fontWeight,
-                height: '45px',
-                ":hover": {
-                    boxShadow: 'none',
-                },
-            }),
-            ...(ownerState.variant === 'text' && {
-                textTransform: 'none',
-                color: theme.palette.primary.main,
-                ":hover": {
-                    backgroundColor: 'transparent',
-                }
-            }),
+            }, 
+        }),
+        text: ({ theme }) => ({
+            color: theme.palette.primary.main,
+            textTransform: 'none',
+            ":hover": {
+                backgroundColor: 'transparent',
+            }
         }),
     },
 };

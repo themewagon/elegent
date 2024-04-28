@@ -5,7 +5,6 @@ const Paper: Components<Omit<Theme, 'components'>>['MuiPaper'] = {
     defaultProps: {},
     styleOverrides: {
         root: {
-            // borderRadius: '20px',
         }
     }
 };
