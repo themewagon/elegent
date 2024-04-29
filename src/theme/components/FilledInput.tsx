@@ -4,7 +4,8 @@ import IconifyIcon from 'components/base/IconifyIcon';
 
 const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
     defaultProps: {
-        endAdornment: <IconifyIcon icon="mdi:search" />,
+        // endAdornment: <IconifyIcon icon="mdi:search" />,
+        
     },
     styleOverrides: {
         root: ({ theme }) => ({
@@ -34,6 +35,9 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
             },
         }),
         adornedEnd: ({ theme }) => ({
+            color: theme.palette.common.black,
+        }),
+        inputAdornedEnd: ({ theme }) => ({
             color: theme.palette.common.black,
         }),
     },

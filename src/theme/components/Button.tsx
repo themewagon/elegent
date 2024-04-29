@@ -5,27 +5,38 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     defaultProps: {},
     styleOverrides: {
         root: ({ theme }) => ({
-            
+            fontSize: theme.typography.body1.fontSize,
+            fontWeight: theme.typography.body1.fontWeight,
+            paddingTop: theme.spacing(1.5),  
+            paddingBottom: theme.spacing(1.5),  
+            textTransform: 'none',
+            textAlign: 'center',
+            letterSpacing: 0,
+        }),
+        text: ({ theme }) => ({
+            color: theme.palette.primary.main,
+            padding: theme.spacing(1.5),
+            ":hover": {
+                backgroundColor: 'transparent',
+            },
+        }),
+        outlined: ({ theme }) => ({
+         
         }),
         contained: ({ theme }) => ({
-            fontWeight: theme.typography.body1.fontWeight,
-            fontSize: theme.typography.body1.fontSize,
-            textTransform: 'none',
             borderRadius: 30,
             boxShadow: 'none',
-            paddingTop: 12,  
-            paddingBottom: 12,  
             color: theme.palette.common.white,
             ":hover": {
                 boxShadow: 'none',
             }, 
         }),
-        text: ({ theme }) => ({
-            color: theme.palette.primary.main,
-            textTransform: 'none',
-            ":hover": {
-                backgroundColor: 'transparent',
-            }
+        icon: ({ theme }) => ({
+            paddingTop: 6,  
+            paddingBottom: 6,
+        }),
+        fullWidth: ({ theme }) => ({
+
         }),
     },
 };

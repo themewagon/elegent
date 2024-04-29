@@ -9,8 +9,8 @@ const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton']
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-        }
-    }
+        },
+    },
 };
 
 export default ListItemButton;

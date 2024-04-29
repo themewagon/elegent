@@ -13,15 +13,15 @@ type SaleInfoProps = {
 const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
     return (
         <Card sx={{
-            padding: '20px',
-            display: 'flex',
-            flexDirection: 'row', 
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '20px',
-            height: 'min-content',
-            borderRadius: '20px',
+            // padding: '20px',
+            // display: 'flex',
+            // flexDirection: 'row', 
+            // justifyContent: 'space-between',
+            // alignItems: 'center',
+            // flexWrap: 'wrap',
+            // gap: '20px',
+            // height: 'min-content',
+            // borderRadius: '20px',
             boxShadow: '0px 0px 4px 0px #FF8E291A',
         }}>
             <CardMedia

@@ -7,10 +7,12 @@ import ListItemButton from "./components/ListItemButton";
 import OutlinedInput from "./components/OutlinedInput";
 import ListItemIcon from "./components/ListItemIcon";
 import FilledInput from "./components/FilledInput";
+import CssBaseline from "./components/CssBaseline";
 import Pagination from "./components/Pagination";
 import InputLabel from "./components/InputLabel";
 import TextField from "./components/TextField";
 import InputBase from "./components/InputBase";
+import LinkComponent from "./components/Link";
 import Toolbar from "./components/Toolbar";
 import Button from "./components/Button";
 import Badge from "./components/Badge";
@@ -21,7 +23,8 @@ import Card from "./components/Card";
 import { shadows } from "./shadows";
 import typography from "./typography";
 import palette from "./palette";
-import CssBaseline from "./components/CssBaseline";
+import AppBar from "./components/AppBar";
+import IconButton from "./components/IconButton";
 
 export const theme = createTheme({
     typography: typography,
@@ -35,12 +38,15 @@ export const theme = createTheme({
         MuiListItemIcon: ListItemIcon, 
         MuiCssBaseline: CssBaseline,
         MuiFilledInput: FilledInput,
+        MuiIconButton: IconButton,
         MuiPagination: Pagination,
         MuiInputLabel: InputLabel,
         MuiInputBase: InputBase,
         MuiTextField: TextField,
+        MuiLink: LinkComponent,
         MuiToolbar: Toolbar,
         MuiButton: Button,
+        MuiAppBar: AppBar,
         MuiPaper: Paper,
         MuiInput: Input,
         MuiBadge: Badge,

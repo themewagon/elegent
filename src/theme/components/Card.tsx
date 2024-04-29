@@ -4,9 +4,17 @@ import { Components } from '@mui/material/styles/components';
 const Card: Components<Omit<Theme, 'components'>>['MuiCard'] = {
     defaultProps: {},
     styleOverrides: {
-        root: {
-            // gridColumn: 'span 3',   
-        },
+        root: ({ theme }) => ({
+            height: 'min-content',
+            padding: theme.spacing(2.5),
+            borderRadius: theme.spacing(2.5),
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: theme.spacing(2.5),
+        }),
     },
 };
 

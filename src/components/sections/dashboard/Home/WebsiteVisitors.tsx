@@ -1,6 +1,7 @@
 import { Box, Divider, Stack, Typography } from "@mui/material";
 import { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react"
+import { theme } from "theme/theme";
 
 const WebsiteVisitors = () => {
 
@@ -19,7 +20,7 @@ const WebsiteVisitors = () => {
                 itemStyle: {
                     borderRadius: 10,
                     borderColor: '#fff',
-                    borderWidth: 2
+                    borderWidth: 2,
                 },
                 color: ['#FF8E29', '#27D095', '#67CADF', '#F54F5F'],
                 label: {
@@ -33,10 +34,9 @@ const WebsiteVisitors = () => {
                         fontWeight: 'bold',
                         formatter: `{b}`,
                     },
-                    
                 },
                 labelLine: {
-                    show: false
+                    show: false,
                 },
                 data: [
                     { value: 7740, name: 'Direct' },
@@ -50,13 +50,13 @@ const WebsiteVisitors = () => {
 
     return (
         <Box sx={{
-            backgroundColor: 'white',
-            borderRadius: '20px',
+            bgcolor: theme.palette.common.white,
+            borderRadius: theme.spacing(2.5),
             height: 'min-content',
         }}>
-            <Typography variant="subtitle1" color={theme => theme.palette.text.primary} padding="20px">Website Visitors</Typography>
+            <Typography variant="subtitle1" color={theme => theme.palette.text.primary} p="20px">Website Visitors</Typography>
             <EChartsReact option={options} />
-            <Stack direction="column" spacing={1} divider={<Divider />} sx={{ padding: '20px'}}>
+            <Stack direction="column" spacing={1} divider={<Divider />} sx={{ p: 2.5}}>
                 <Stack direction="row" justifyContent="space-between">
                     <Typography variant="body1" color={theme => theme.palette.text.secondary} sx={{ display: 'flex', alignItems: 'baseline', gap: '10px'}}><Box sx={{ width: '10px', height: '10px', backgroundColor: '#FF8E29', borderRadius: '50%'}}></Box> Direct</Typography>
                     <Typography variant="body1" color={theme => theme.palette.text.primary}>43%</Typography>
@@ -75,7 +75,7 @@ const WebsiteVisitors = () => {
                 </Stack>
             </Stack>
         </Box>
-    )
-}
+    );
+};
 
-export default WebsiteVisitors
+export default WebsiteVisitors;

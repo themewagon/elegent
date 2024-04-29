@@ -1,26 +1,28 @@
-import { Avatar, Box, IconButton, ListItem, Stack, Typography } from "@mui/material"
-import IconifyIcon from "components/base/IconifyIcon"
+import { Avatar, Box, IconButton, ListItem, Stack, Typography } from "@mui/material";
 import leatrice from "assets/new-customers/leatrice.png";
 import roselle from "assets/new-customers/roselle.jpg";
 import darron from "assets/new-customers/darron.png";
 import jone from "assets/new-customers/jone.png";
 
+import IconifyIcon from "components/base/IconifyIcon";
+import { theme } from "theme/theme";
+
 const NewCustomers = () => {
     return (
         <Box sx={{
-            backgroundColor: 'white',
-            borderRadius: '20px',
+            bgcolor: theme.palette.common.white,
+            borderRadius: theme.spacing(2.5),
             marginTop: { xs: '70px', sm: 0},
         }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
                 <Typography variant="subtitle1" color={theme => theme.palette.text.primary}>New Customers</Typography>
                 <IconButton>
-                    <IconifyIcon icon="ph:dots-three-outline-fill" color="#6F757E" />
+                    <IconifyIcon icon="ph:dots-three-outline-fill" color={theme => theme.palette.text.secondary} />
                 </IconButton>
             </Stack>
             <Stack direction="column" sx={{
                 // padding: '0 20px',
-                paddingBottom: '10px',
+                pb: '10px',
             }}>
                 <ListItem sx={{
                     display: 'flex',
@@ -95,7 +97,7 @@ const NewCustomers = () => {
                         </Box>
                     </Box>
                     <IconButton>
-                        <IconifyIcon icon="mingcute:mail-fill" color="#FF8E29"/>
+                        <IconifyIcon icon="mingcute:mail-fill" color={theme => theme.palette.primary.main}/>
                     </IconButton>
                 </ListItem>
             </Stack>

@@ -42,10 +42,14 @@ const typography: TypographyOptions = {
         fontSize: '0.75rem',
         fontWeight: 400,
     },
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+    
     allVariants: {
         // overflow: 'auto',
         // whiteSpace: 'wrap',
-    }
+    },
 };
 
 export default typography;

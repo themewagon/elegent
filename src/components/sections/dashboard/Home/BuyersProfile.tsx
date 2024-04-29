@@ -1,7 +1,8 @@
 import { Box, IconButton, Stack, Typography } from "@mui/material";
 import IconifyIcon from "components/base/IconifyIcon";
-import { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react";
+import { EChartsOption } from "echarts";
+import { theme } from "theme/theme";
 
 const BuyersProfile = () => {
 
@@ -43,8 +44,8 @@ const BuyersProfile = () => {
 
     return (
         <Box sx={{
-            backgroundColor: 'white',
-            borderRadius: '20px',
+            bgcolor: theme.palette.common.white,
+            borderRadius: theme.spacing(2.5),
         }}>
             <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
                 <Typography variant="subtitle1" color={theme => theme.palette.text.primary}>Buyers Profile</Typography>

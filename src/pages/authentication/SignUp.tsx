@@ -1,8 +1,7 @@
 import { Box, Button, FormControl, InputAdornment, InputLabel, Link, OutlinedInput, Typography } from "@mui/material"
 import signupBanner from "assets/authentication-banners/signup.png";
-import logo from "assets/logo/elegant-logo.png";
 import IconifyIcon from "components/base/IconifyIcon";
-import { Link as Nav } from "react-router-dom";
+import logo from "assets/logo/elegant-logo.png";
 
 const SignUp = () => {
     return (
@@ -20,9 +19,9 @@ const SignUp = () => {
                 margin: '20px',
                 gap: 10
             }}>
-                <Nav to="/">
+                <Link href="/">
                     <Box component="img" src={logo} width="82.6px"/>
-                </Nav>
+                </Link>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -73,7 +72,7 @@ const SignUp = () => {
                         }}/>
                     </FormControl>
                     <Button variant="contained" fullWidth>Sign up</Button>
-                    <Typography variant="subtitle2" color={theme => theme.palette.text.secondary}>Already have an account ? <Link component={Nav} to="/authentication/login" underline="hover">Log in</Link></Typography>
+                    <Typography variant="subtitle2" color={theme => theme.palette.text.secondary}>Already have an account ? <Link href="/authentication/login" underline="hover">Log in</Link></Typography>
                 </Box>
             </Box>
             <Box

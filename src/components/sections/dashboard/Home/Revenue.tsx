@@ -1,6 +1,7 @@
 import { Box } from "@mui/material"
 import { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react"
+import { theme } from "theme/theme";
 
 const Revenue = () => {
 
@@ -26,7 +27,7 @@ const Revenue = () => {
                 'May',
                 'June',
                 'July',
-                'August'
+                'August',
             ],
             boundaryGap: false,
             axisLine: {
@@ -35,7 +36,7 @@ const Revenue = () => {
                     color: '#E1E1E1',
                     width: 1,
                     type: 'dashed',
-                }
+                },
             },
             axisLabel: {
                 show: true,
@@ -69,7 +70,6 @@ const Revenue = () => {
                 },
             },
         },
-
         grid: {
             left: 65,
             right: 32,
@@ -118,9 +118,8 @@ const Revenue = () => {
 
     return (
         <Box sx={{
-            bgcolor: '#FFF',
-            borderRadius: '20px',
-            // padding: '20px',
+            bgcolor: theme.palette.common.white,
+            borderRadius: theme.spacing(2.5),
             width: "100%",
             height: { xs: '460px', md: '100%', },
         }}>

@@ -4,15 +4,7 @@ import { useDemoData } from "@mui/x-data-grid-generator";
 import CustomPagination from "components/base/CustomPagination";
 import { columns, rows as dataRows } from "data/tableData";
 import { useEffect } from "react";
-
-// import IconifyIcon from "components/base/IconifyIcon";
-// import nikeV22 from "assets/topSellingProducts/nikeV22.jpg";
-// import instaxCamera from "assets/topSellingProducts/instaxCamera.jpg";
-// import relaxingChair from "assets/topSellingProducts/relaxingChair.jpg";
-// import laptop from "assets/topSellingProducts/laptop.jpg";
-// import watch from "assets/topSellingProducts/watch.jpg";
-// import iphone12 from "assets/topSellingProducts/iphone12.png";
-// import xerryPerfume from "assets/topSellingProducts/xerryPerfume.png";
+import { theme } from "theme/theme";
 
 const TopSellingProduct = () => {
     
@@ -29,10 +21,10 @@ const TopSellingProduct = () => {
 
     return (
         <Box sx={{
+            bgcolor: theme.palette.common.white,
+            borderRadius: theme.spacing(2.5),
             width: '100%',
             height: '100%',
-            borderRadius: '20px',
-            backgroundColor: '#FFF',
         }}>
             <Typography variant="h5" color={theme => theme.palette.text.primary} padding="30px">
                 Top Selling Product
@@ -92,7 +84,6 @@ const TopSellingProduct = () => {
                     fontSize: '16px',
                     fontWeight: 500,
                 },
-                
             }}>
                 <DataGrid
                     pagination={true}
@@ -117,6 +108,6 @@ const TopSellingProduct = () => {
             </Box>
         </Box>
     );
-}
+};
 
-export default TopSellingProduct
+export default TopSellingProduct;

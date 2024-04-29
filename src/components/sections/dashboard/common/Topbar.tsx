@@ -1,4 +1,4 @@
-import { AppBar, Avatar, Badge, Box, Divider, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, TextField, Toolbar, Typography } from "@mui/material";
+import { AppBar, Avatar, Badge, Box, Divider, IconButton, InputAdornment, ListItemIcon, ListItemText, Menu, MenuItem, TextField, Toolbar, Typography } from "@mui/material";
 import IconifyIcon from "components/base/IconifyIcon";
 import { drawerWidth } from "layouts/main-layout";
 
@@ -22,19 +22,12 @@ const Topbar = ({
   } : TopbarProps) => {
   return (
     <AppBar
-      position="fixed"
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px + 24px)` },
         ml: { sm: `${drawerWidth}px` },
-        backgroundColor: theme => theme.palette.background.default,
-        boxShadow: 0,
       }}
     >
-      <Toolbar sx={{
-        py: '30px',
-        display: 'flex',
-        justifyContent: 'space-between',
-      }}>
+      <Toolbar>
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -52,14 +45,11 @@ const Topbar = ({
           <Typography variant="h5" noWrap component="h5">
             Dashboard
           </Typography>
-          {/* <OutlinedInput placeholder="Search..." endAdornment={
-              <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:search" width="100%" height="100%" />
-              </InputAdornment>
-          } /> */}
-          <TextField placeholder="Search..." inputProps={{
+          <TextField placeholder="Search..." InputProps={{
             endAdornment: (
-              <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+              <InputAdornment position="end">
+                <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+              </InputAdornment>
             )
           }} />
         </Box>

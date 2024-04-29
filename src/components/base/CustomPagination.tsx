@@ -17,7 +17,6 @@ function Pagination({
             count={pageCount}
             page={page + 1}
             onChange={(event, newPage) => onPageChange(event as any, newPage - 1)}
-            
         />
     );
 }

@@ -10,8 +10,8 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
             color: '#050F24',
             ":hover": {  
             },
-        }
-    }
+        },
+    },
 };
 
 export default PaginationItem;

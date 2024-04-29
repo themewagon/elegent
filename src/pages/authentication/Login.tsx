@@ -1,8 +1,7 @@
 import { Box, Button, FormControl, InputAdornment, InputLabel, Link, OutlinedInput, Typography } from "@mui/material"
 import loginBanner from "assets/authentication-banners/login.png";
-import logo from "assets/logo/elegant-logo.png";
 import IconifyIcon from "components/base/IconifyIcon";
-import { Link as Nav } from "react-router-dom";
+import logo from "assets/logo/elegant-logo.png";
 
 const Login = () => {
     return (
@@ -20,9 +19,9 @@ const Login = () => {
                 margin: '20px',
                 gap: 10
             }}>
-                <Nav to="/">
+                <Link href="/">
                     <Box component="img" src={logo} width="82.6px"/>
-                </Nav>
+                </Link>
                 <Box sx={{
                     display: 'flex',
                     flexDirection: 'column',
@@ -62,10 +61,11 @@ const Login = () => {
                     <Typography variant="subtitle2" sx={{
                         alignSelf: 'flex-end'
                     }} >
-                        <Link component={Nav} to="#" underline="hover">Forget password</Link>
+                        {/* <Link component={Nav} to="#" underline="hover">Forget password</Link> */}
+                        <Link href="#" underline="hover">Forget password</Link>
                     </Typography>
                     <Button variant="contained" fullWidth>Log in</Button>
-                    <Typography variant="subtitle2" color={theme => theme.palette.text.secondary}>Don't have an account ? <Link component={Nav} to="/authentication/sign-up" underline="hover">Sign up</Link></Typography>
+                    <Typography variant="subtitle2" color={theme => theme.palette.text.secondary}>Don't have an account ? <Link href="/authentication/sign-up" underline="hover">Sign up</Link></Typography>
                 </Box>
             </Box>
             <Box
