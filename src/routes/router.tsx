@@ -1,64 +1,67 @@
 /* eslint-disable react-refresh/only-export-components */
-import { Suspense, lazy } from "react";
-import PageLoader from "../components/loading/PageLoader";
-import { Outlet, createBrowserRouter } from "react-router-dom";
-import paths, { rootPaths } from "./paths";
+import { Suspense, lazy } from 'react';
+import PageLoader from '../components/loading/PageLoader';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
+import paths, { rootPaths } from './paths';
 
-const App = lazy(() => import("App"));
-const MainLayout = lazy(() => import("layouts/main-layout"));
-const AuthLayout = lazy(() => import("layouts/auth-layout"));
-const Error404 = lazy(() => import("pages/errors/Error404"));
+const App = lazy(() => import('App'));
+const MainLayout = lazy(() => import('layouts/main-layout'));
+const AuthLayout = lazy(() => import('layouts/auth-layout'));
+const Error404 = lazy(() => import('pages/errors/Error404'));
 
-import Home from "pages/dashboard/Home";
-import Login from "pages/authentication/Login";
-import SignUp from "pages/authentication/SignUp";
-import Splash from "components/loading/Splash";
+import Home from 'pages/dashboard/Home';
+import Login from 'pages/authentication/Login';
+import SignUp from 'pages/authentication/SignUp';
+import Splash from 'components/loading/Splash';
 
 export const router = createBrowserRouter([
-    {
+  {
+    element: (
+      <Suspense fallback={<Splash />}>
+        <App />
+      </Suspense>
+    ),
+    children: [
+      {
+        path: '/',
         element: (
-            <Suspense fallback={<Splash />}>
-                <App />
+          <MainLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Outlet />
             </Suspense>
+          </MainLayout>
         ),
         children: [
-            {
-                path: '/',
-                element: (
-                    <MainLayout>
-                        <Suspense fallback={<PageLoader />}>
-                            <Outlet />
-                        </Suspense>
-                    </MainLayout>
-                ),
-                children: [
-                    {
-                        index: true,
-                        element: <Home />,
-                    },
-                    {
-
-                    },
-                ]
-            },
-            {
-                path: rootPaths.authRoot,
-                element: <AuthLayout> <Outlet/> </AuthLayout>,
-                children: [
-                    {
-                        path: paths.login,
-                        element: <Login />,
-                    },
-                    {
-                        path: paths.signup,
-                        element: <SignUp />,
-                    },
-                ],
-            },
-            {
-                path: '*',
-                element: <Error404 />
-            },
+          {
+            index: true,
+            element: <Home />,
+          },
+          {},
         ],
-    },
+      },
+      {
+        path: rootPaths.authRoot,
+        element: (
+          <AuthLayout>
+            {' '}
+            <Outlet />{' '}
+          </AuthLayout>
+        ),
+        children: [
+          {
+            path: paths.login,
+            element: <Login />,
+          },
+          {
+            path: paths.signup,
+            element: <SignUp />,
+          },
+        ],
+      },
+      {
+        path: '*',
+        element: <Error404 />,
+      },
+    ],
+  },
 ]);

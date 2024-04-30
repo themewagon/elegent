@@ -1,11 +1,11 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
-const CssBaseline: Components<Omit<Theme, 'components'>>['MuiCssBaseline'] = {
+const Stack: Components<Omit<Theme, 'components'>>['MuiStack'] = {
   defaultProps: {
-    // enableColorScheme: true,
+    useFlexGap: true,
   },
   styleOverrides: {},
 };
 
-export default CssBaseline;
+export default Stack;

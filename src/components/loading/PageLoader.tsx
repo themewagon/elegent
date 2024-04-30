@@ -1,11 +1,11 @@
-import { Box, CircularProgress } from "@mui/material"
+import { Box, CircularProgress } from '@mui/material';
 
 const PageLoader = () => {
-    return (
-        <Box sx={{ display: 'flex' }}>
-            <CircularProgress color="secondary" />
-        </Box>
-    )
-}
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CircularProgress color="secondary" />
+    </Box>
+  );
+};
 
-export default PageLoader
+export default PageLoader;

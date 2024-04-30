@@ -2,14 +2,13 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const AppBar: Components<Omit<Theme, 'components'>>['MuiAppBar'] = {
-    defaultProps: {
-    },
-    styleOverrides: {
-        root: ({ theme }) => ({
-            backgroundColor: theme.palette.background.default,
-            boxShadow: 'none',
-        }),
-    },
+  defaultProps: {},
+  styleOverrides: {
+    root: ({ theme }) => ({
+      backgroundColor: theme.palette.background.default,
+      boxShadow: 'none',
+    }),
+  },
 };
 
 export default AppBar;

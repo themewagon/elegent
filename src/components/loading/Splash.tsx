@@ -1,11 +1,11 @@
-import { Box, LinearProgress } from "@mui/material"
+import { Box, LinearProgress } from '@mui/material';
 
 const Splash = () => {
-    return (
-        <Box sx={{ width: '100%' }}>
-            <LinearProgress color="primary" />
-        </Box>
-    )
-}
+  return (
+    <Box sx={{ width: '100%' }}>
+      <LinearProgress color="primary" />
+    </Box>
+  );
+};
 
-export default Splash
+export default Splash;

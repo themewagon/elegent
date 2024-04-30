@@ -1,25 +1,34 @@
-import { AppBar, Avatar, Badge, Box, Divider, IconButton, InputAdornment, ListItemIcon, ListItemText, Menu, MenuItem, TextField, Toolbar, Typography } from "@mui/material";
-import IconifyIcon from "components/base/IconifyIcon";
-import { drawerWidth } from "layouts/main-layout";
+import {
+  AppBar,
+  Avatar,
+  Badge,
+  Box,
+  Divider,
+  IconButton,
+  InputAdornment,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
+  TextField,
+  Toolbar,
+  Typography,
+} from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
+import { drawerWidth } from 'layouts/main-layout';
 
-import profile from "assets/profile/profile.jpg";
-import { MouseEventHandler } from "react";
+import profile from 'assets/profile/profile.jpg';
+import { MouseEventHandler } from 'react';
 
 interface TopbarProps {
-  handleDrawerToggle: MouseEventHandler, 
-  open?: any, 
-  handleClick?: MouseEventHandler, 
-  anchorEl?: null | HTMLElement, 
-  handleClose?: () => void
+  handleDrawerToggle: MouseEventHandler;
+  open?: any;
+  handleClick?: MouseEventHandler;
+  anchorEl?: null | HTMLElement;
+  handleClose?: () => void;
 }
 
-const Topbar = ({
-    handleDrawerToggle, 
-    open, 
-    handleClick, 
-    anchorEl, 
-    handleClose 
-  } : TopbarProps) => {
+const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }: TopbarProps) => {
   return (
     <AppBar
       sx={{
@@ -37,37 +46,46 @@ const Topbar = ({
         >
           <IconifyIcon icon="mdi:menu" />
         </IconButton>
-        <Box sx={{
-          display: { xs: 'none', md: 'flex' },
-          gap: { sm: 3.125, md: 6.25 },
-          alignItems: 'center',
-        }}>
+        <Box
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            gap: { sm: 3.125, md: 6.25 },
+            alignItems: 'center',
+          }}
+        >
           <Typography variant="h5" noWrap component="h5">
             Dashboard
           </Typography>
-          <TextField placeholder="Search..." InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <IconifyIcon icon="mdi:search" width="100%" height="100%" />
-              </InputAdornment>
-            )
-          }} />
+          <TextField
+            placeholder="Search..."
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+                </InputAdornment>
+              ),
+            }}
+          />
         </Box>
-        <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto', }}>
+        <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto' }}>
           <IconifyIcon icon="mdi:search" width="24px" height="24px" />
         </IconButton>
-        <Box sx={{
-          display: 'flex',
-          gap: 2,
-          alignItems: 'center'
-        }}>
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 2,
+            alignItems: 'center',
+          }}
+        >
           <IconButton color="inherit">
             <Badge badgeContent={1} color="primary">
               <IconifyIcon icon="carbon:notification-filled" width="24px" height="24px" />
             </Badge>
           </IconButton>
           <Avatar alt="Remy Sharp" src={profile} />
-          <Typography variant="body1" component="p">Aiden Max</Typography>
+          <Typography variant="body1" component="p">
+            Aiden Max
+          </Typography>
           <IconButton
             color="inherit"
             id="basic-button"
@@ -127,4 +145,3 @@ const Topbar = ({
 };
 
 export default Topbar;
-
