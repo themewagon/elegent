@@ -6,13 +6,6 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     labelDisplayedRows: ({ from, to, count }) => {
       return `Showing ${to - from + 1} of ${count} products`;
     },
-    backIconButtonProps: {},
-    slotProps: {
-      actions: {
-        nextButtonIcon: <h1>Next</h1>,
-        nextButton: {},
-      },
-    },
   },
   styleOverrides: {
     root: {

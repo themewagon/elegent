@@ -3,6 +3,7 @@ import {
   Avatar,
   Badge,
   Box,
+  Button,
   Divider,
   IconButton,
   InputAdornment,
@@ -19,6 +20,7 @@ import { drawerWidth } from 'layouts/main-layout';
 
 import profile from 'assets/profile/profile.jpg';
 import { MouseEventHandler } from 'react';
+import { theme } from 'theme/theme';
 
 interface TopbarProps {
   handleDrawerToggle: MouseEventHandler;
@@ -51,9 +53,10 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             display: { xs: 'none', md: 'flex' },
             gap: { sm: 3.125, md: 6.25 },
             alignItems: 'center',
+            flex: '1 1 auto',
           }}
         >
-          <Typography variant="h5" noWrap component="h5">
+          <Typography variant="h5" component="h5">
             Dashboard
           </Typography>
           <TextField
@@ -65,6 +68,8 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
                 </InputAdornment>
               ),
             }}
+            fullWidth
+            sx={{ maxWidth: theme.spacing(41.25) }}
           />
         </Box>
         <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto' }}>
@@ -77,25 +82,31 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             alignItems: 'center',
           }}
         >
-          <IconButton color="inherit">
+          <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit' }}>
             <Badge badgeContent={1} color="primary">
               <IconifyIcon icon="carbon:notification-filled" width="24px" height="24px" />
             </Badge>
           </IconButton>
-          <Avatar alt="Remy Sharp" src={profile} />
-          <Typography variant="body1" component="p">
-            Aiden Max
-          </Typography>
-          <IconButton
+          <Button
             color="inherit"
             id="basic-button"
             aria-controls={open ? 'basic-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
+            sx={{ bgcolor: 'inherit', gap: 1.875 }}
           >
-            <IconifyIcon icon="ion:caret-down-outline" width="24px" height="24px" />
-          </IconButton>
+            <Avatar alt="Remy Sharp" src={profile} />
+            <Typography variant="body1" component="p" color={theme.palette.text.primary}>
+              Aiden Max
+            </Typography>
+            <IconifyIcon
+              icon="ion:caret-down-outline"
+              width="24px"
+              height="24px"
+              color={theme.palette.text.primary}
+            />
+          </Button>
           <Menu
             id="basic-menu"
             anchorEl={anchorEl}

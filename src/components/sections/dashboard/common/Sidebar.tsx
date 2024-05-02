@@ -1,5 +1,4 @@
 import {
-  Box,
   Link,
   List,
   ListItem,
@@ -11,13 +10,14 @@ import {
 
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
-import { useLocation } from 'react-router-dom';
 import { theme } from 'theme/theme';
 import { navItems } from 'data/navItems';
 import Image from 'components/base/Image';
+import CollapsibleNavButton from './CollapsibleNavButton';
+import { useState } from 'react';
 
 const Sidebar = () => {
-  const { pathname } = useLocation();
+  const [,] = useState(false);
 
   return (
     <Stack
@@ -46,31 +46,7 @@ const Sidebar = () => {
         }}
       >
         {navItems.map((navItem, index) => (
-          <ListItem
-            key={index}
-            disablePadding
-            sx={{
-              my: '10px',
-              borderRadius: '8px',
-              backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-              color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
-              ':hover': {
-                backgroundColor:
-                  pathname === navItem.path ? theme.palette.primary.main : 'lightgray',
-                opacity: 1.5,
-              },
-            }}
-          >
-            <ListItemButton LinkComponent={Link} href={navItem.path}>
-              <ListItemIcon>
-                <IconifyIcon icon={navItem.icon} />
-              </ListItemIcon>
-              <ListItemText>{navItem.title}</ListItemText>
-              <ListItemIcon>
-                {navItem.collapsible && <IconifyIcon icon="mingcute:down-fill" />}
-              </ListItemIcon>
-            </ListItemButton>
-          </ListItem>
+          <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
         ))}
       </List>
       <List

@@ -5,6 +5,7 @@ import instaxCamera from 'assets/top-selling-products/instaxCamera.jpg';
 import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
+import { GridComparatorFn } from '@mui/x-data-grid';
 
 export const columns = [
   {
@@ -33,6 +34,7 @@ export const columns = [
         </Stack>
       );
     },
+    sortComparator: (v1: any, v2: any) => v1.title.localeCompare(v2.title),
   },
   {
     field: 'orders',

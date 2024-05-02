@@ -50,6 +50,7 @@ const typography: TypographyOptions = {
     // overflow: 'auto',
     // whiteSpace: 'wrap',
   },
+
 };
 
 export default typography;

@@ -6,10 +6,9 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
     selected: true,
   },
   styleOverrides: {
-    root: {
-      color: '#050F24',
-      ':hover': {},
-    },
+    root: ({ theme }) => ({
+      color: theme.palette.primary.main,
+    }),
   },
 };
 

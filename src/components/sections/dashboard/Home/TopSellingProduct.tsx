@@ -1,5 +1,5 @@
 import { Box, Divider, Typography } from '@mui/material';
-import { DataGrid, GridFooter } from '@mui/x-data-grid';
+import { DataGrid, GridApi, GridFooter, useGridApiRef } from '@mui/x-data-grid';
 import { useDemoData } from '@mui/x-data-grid-generator';
 import CustomPagination from 'components/base/CustomPagination';
 import { columns, rows as dataRows } from 'data/TableData';
@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { theme } from 'theme/theme';
 
 const TopSellingProduct = () => {
+  const apiRef = useGridApiRef<GridApi>();
+
   const { data } = useDemoData({
     dataSet: 'Employee',
     rowLength: 100,
@@ -35,34 +37,36 @@ const TopSellingProduct = () => {
         sx={{
           height: '100%',
           '& .MuiDataGrid-root': {
-            backgroundColor: '#FFF',
+            backgroundColor: theme.palette.background.paper,
             border: 'none',
             height: '100%',
-            '--DataGrid-rowBorderColor': '#FFF',
-            '--DataGrid-containerBackground': '#FFF',
+            '--DataGrid-rowBorderColor': theme.palette.background.paper,
+            '--DataGrid-containerBackground': theme.palette.background.paper,
+            borderBottomLeftRadius: theme.spacing(2.5),
+            borderBottomRightRadius: theme.spacing(2.5),
           },
           '& .MuiDataGrid-main': {
-            padding: '0 20px',
+            padding: theme.spacing(0, 2.5),
           },
           "& .MuiDataGrid-container--top [role='row']": {
-            backgroundColor: '#FFF',
+            backgroundColor: theme.palette.background.paper,
           },
           '& .MuiDataGrid-columnHeaderRow': {
-            backgroundColor: '#FFF',
+            backgroundColor: theme.palette.background.paper,
           },
           '& .MuiDataGrid-topContainer::after': {
             content: 'none',
           },
           '& .MuiDataGrid-columnHeaders': {
             borderBottom: 'none',
-            backgroundColor: '#FFF !important',
+            backgroundColor: theme.palette.background.paper,
           },
           '& .MuiDataGrid-columnSeparator': {
             display: 'none',
           },
           '& .MuiDataGrid-cell': {
             border: 'none',
-            color: (theme) => theme.palette.text.secondary,
+            color: theme.palette.text.secondary,
             display: 'flex',
             alignItems: 'center',
           },
@@ -73,7 +77,9 @@ const TopSellingProduct = () => {
             borderColor: 'transparent',
           },
           '& .MuiDataGrid-footerContainer': {
-            minHeight: '100px',
+            minHeight: theme.spacing(12.5),
+            borderBottomLeftRadius: theme.spacing(2.5),
+            borderBottomRightRadius: theme.spacing(2.5),
           },
           '& .MuiDataGrid-filler': {
             height: 'auto',
@@ -83,18 +89,21 @@ const TopSellingProduct = () => {
             height: '100%',
           },
           '& .MuiDataGrid-columnHeaderTitle': {
-            fontSize: '16px',
-            fontWeight: 500,
+            fontSize: theme.typography.subtitle1?.fontSize,
+            fontWeight: theme.typography.subtitle1?.fontWeight,
           },
         }}
       >
         <DataGrid
           pagination={true}
+          apiRef={apiRef}
           disableRowSelectionOnClick
           slots={{
             pagination: CustomPagination,
             footer: GridFooter,
           }}
+          disableColumnMenu={true}
+          // autoHeight
           density="comfortable"
           columns={columns}
           rows={dataRows}
