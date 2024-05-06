@@ -47,6 +47,7 @@ const Sidebar = () => {
       >
         {navItems.map((navItem, index) => (
           <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
+          // <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
         ))}
       </List>
       <List

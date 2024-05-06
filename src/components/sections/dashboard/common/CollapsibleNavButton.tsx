@@ -1,14 +1,11 @@
 import {
   Collapse,
-  FormControl,
-  FormControlLabel,
   LinkTypeMap,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Switch,
 } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -19,10 +16,10 @@ import { theme } from 'theme/theme';
 interface NavItemProps {
   navItem?: any;
   Link: OverridableComponent<LinkTypeMap>;
-  open: boolean;
+  // open: boolean;
 }
 
-const CollapsibleNavButton = ({ navItem, Link, open }: NavItemProps) => {
+const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
 
@@ -104,15 +101,6 @@ const CollapsibleNavButton = ({ navItem, Link, open }: NavItemProps) => {
           </ListItemIcon>
         </ListItemButton>
       )}
-      {/* <ListItemButton LinkComponent={Link} href={navItem.path}>
-        <ListItemIcon>
-          <IconifyIcon icon={navItem.icon} />
-        </ListItemIcon>
-        <ListItemText>{navItem.title}</ListItemText>
-        <ListItemIcon>
-          {navItem.collapsible && <IconifyIcon icon="mingcute:down-fill" />}
-        </ListItemIcon>
-      </ListItemButton> */}
     </ListItem>
   );
 };

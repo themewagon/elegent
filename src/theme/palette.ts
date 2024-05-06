@@ -18,6 +18,7 @@ const palette: PaletteOptions = {
     default: '#FFF4EA',
     paper: '#FFF',
   },
+  divider: '#E1E1E1',
 };
 
 export default palette;

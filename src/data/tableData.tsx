@@ -5,7 +5,6 @@ import instaxCamera from 'assets/top-selling-products/instaxCamera.jpg';
 import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
-import { GridComparatorFn } from '@mui/x-data-grid';
 
 export const columns = [
   {
@@ -45,11 +44,17 @@ export const columns = [
     field: 'price',
     headerName: 'Price',
     flex: 1,
+    renderCell: ({ row: { price } }: any) => {
+      return `$${price}`;
+    },
   },
   {
-    field: 'ads-spent',
+    field: 'adsSpent',
     headerName: 'Ads Spent',
     flex: 1,
+    renderCell: ({ row: { adsSpent } }: any) => {
+      return `$${adsSpent}00`;
+    },
   },
   {
     field: 'refunds',
@@ -72,7 +77,7 @@ export const rows = [
     },
     orders: 8000,
     price: 130,
-    'ads-spent': 9.5,
+    adsSpent: 9.5,
     refunds: 13,
   },
   {
@@ -84,7 +89,7 @@ export const rows = [
     },
     orders: 3000,
     price: 45,
-    'ads-spent': 4.5,
+    adsSpent: 4.5,
     refunds: 18,
   },
   {
@@ -96,7 +101,7 @@ export const rows = [
     },
     orders: 6000,
     price: 80,
-    'ads-spent': 5.8,
+    adsSpent: 5.8,
     refunds: -11,
   },
   {
@@ -108,7 +113,7 @@ export const rows = [
     },
     orders: 4000,
     price: 500,
-    'ads-spent': 4.7,
+    adsSpent: 4.7,
     refunds: 18,
   },
   {
@@ -120,7 +125,7 @@ export const rows = [
     },
     orders: 2000,
     price: 15,
-    'ads-spent': 2.5,
+    adsSpent: 2.5,
     refunds: -10,
   },
   {
@@ -132,7 +137,7 @@ export const rows = [
     },
     orders: 8000,
     price: 130,
-    'ads-spent': 9.5,
+    adsSpent: 9.5,
     refunds: 13,
   },
   {
@@ -144,7 +149,7 @@ export const rows = [
     },
     orders: 3000,
     price: 45,
-    'ads-spent': 4.5,
+    adsSpent: 4.5,
     refunds: 18,
   },
   {
@@ -156,7 +161,7 @@ export const rows = [
     },
     orders: 6000,
     price: 80,
-    'ads-spent': 5.8,
+    adsSpent: 5.8,
     refunds: -11,
   },
   {
@@ -168,11 +173,11 @@ export const rows = [
     },
     orders: 4000,
     price: 500,
-    'ads-spent': 4.7,
+    adsSpent: 4.7,
     refunds: 18,
   },
   {
-    id: 20,
+    id: 10,
     product: {
       avatar: watch,
       title: 'Watch',
@@ -180,7 +185,7 @@ export const rows = [
     },
     orders: 2000,
     price: 15,
-    'ads-spent': 2.5,
+    adsSpent: 2.5,
     refunds: -10,
   },
 ];

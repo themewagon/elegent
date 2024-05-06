@@ -44,6 +44,7 @@ const TopSellingProduct = () => {
             '--DataGrid-containerBackground': theme.palette.background.paper,
             borderBottomLeftRadius: theme.spacing(2.5),
             borderBottomRightRadius: theme.spacing(2.5),
+            borderColor: theme.palette.divider,
           },
           '& .MuiDataGrid-main': {
             padding: theme.spacing(0, 2.5),
@@ -65,8 +66,10 @@ const TopSellingProduct = () => {
             display: 'none',
           },
           '& .MuiDataGrid-cell': {
-            border: 'none',
             color: theme.palette.text.secondary,
+            fontSize: theme.typography.body1.fontSize,
+            fontWeight: theme.typography.body1.fontWeight,
+            border: 'none',
             display: 'flex',
             alignItems: 'center',
           },
@@ -74,7 +77,7 @@ const TopSellingProduct = () => {
             border: 'none',
           },
           '& .MuiDataGrid-withBorderColor': {
-            borderColor: 'transparent',
+            borderColor: '#E1E1E1',
           },
           '& .MuiDataGrid-footerContainer': {
             minHeight: theme.spacing(12.5),

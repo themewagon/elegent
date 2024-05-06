@@ -4,10 +4,10 @@ import { Components } from '@mui/material/styles/components';
 const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] = {
   defaultProps: {},
   styleOverrides: {
-    root: {
-      backgroundColor: '#FFF',
+    root: ({ theme }) => ({
+      backgroundColor: theme.palette.background.paper,
       borderRadius: '30px',
-      color: '#6F757E',
+      color: theme.palette.text.secondary,
       width: '330px',
       height: '45px',
       '&::before, &::after': {
@@ -21,19 +21,19 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
         border: 0,
       },
       [`& .${outlinedInputClasses.notchedOutline}`]: {
-        borderColor: '#E1E1E1',
+        borderColor: theme.palette.divider,
       },
       '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
         border: '1px solid black',
       },
-    },
-    input: {
+    }),
+    input: ({ theme }) => ({
       '&::placeholder': {
-        color: '#6F757E',
-        fontSize: '14px',
-        fontWeight: 400,
+        color: theme.palette.text.secondary,
+        fontSize: theme.typography.body1.fontSize,
+        fontWeight: theme.typography.body1.fontWeight,
       },
-    },
+    }),
   },
 };
 
