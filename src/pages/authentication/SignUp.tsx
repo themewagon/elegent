@@ -1,52 +1,33 @@
 import {
-  Box,
   Button,
   FormControl,
   InputAdornment,
   InputLabel,
   Link,
   OutlinedInput,
+  Stack,
   Typography,
 } from '@mui/material';
 import signupBanner from 'assets/authentication-banners/signup.png';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
+import { theme } from 'theme/theme';
 
 const SignUp = () => {
   return (
-    <Box
-      sx={{
-        width: { md: '960px' },
-        height: '591px',
-        display: 'flex',
-        backgroundColor: '#FFF',
-        boxShadow: '0px 4px 4px 0px #00000040',
-      }}
+    <Stack
+      direction="row"
+      bgcolor={theme.palette.background.paper}
+      boxShadow={theme.shadows[3]}
+      height={591}
+      width={{ md: 960 }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          margin: '20px',
-          gap: 10,
-        }}
-      >
+      <Stack width="50%" m={theme.spacing(2.5)} gap={10}>
         <Link href="/">
           <Image src={logo} width="82.6px" />
         </Link>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 2.5,
-            width: '330px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
+        <Stack alignItems="center" gap={2.5} width={330} mx="auto">
           <Typography variant="h3">Signup</Typography>
           <FormControl variant="standard" fullWidth>
             <InputLabel shrink htmlFor="name-input1">
@@ -112,8 +93,8 @@ const SignUp = () => {
               Log in
             </Link>
           </Typography>
-        </Box>
-      </Box>
+        </Stack>
+      </Stack>
       <Image
         alt="Signup banner"
         src={signupBanner}
@@ -122,7 +103,7 @@ const SignUp = () => {
           display: { xs: 'none', md: 'block' },
         }}
       />
-    </Box>
+    </Stack>
   );
 };
 

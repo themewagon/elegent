@@ -1,5 +1,5 @@
 import { PaletteOptions } from '@mui/material';
-import { caribbeanGreen, orange } from './colors';
+import { caribbeanGreen, orange, downy, watermelon } from './colors';
 
 const palette: PaletteOptions = {
   primary: {
@@ -7,6 +7,12 @@ const palette: PaletteOptions = {
   },
   secondary: {
     main: caribbeanGreen[500],
+  },
+  info: {
+    main: downy[500],
+  },
+  error: {
+    main: watermelon[500],
   },
   text: {
     primary: '#050F24',

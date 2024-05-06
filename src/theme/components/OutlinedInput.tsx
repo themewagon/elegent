@@ -6,7 +6,7 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
-      borderRadius: '30px',
+      borderRadius: theme.shape.borderRadius * 7.5,
       color: theme.palette.text.secondary,
       width: '330px',
       height: '45px',

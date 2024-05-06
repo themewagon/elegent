@@ -10,13 +10,12 @@ export const columns = [
   {
     field: 'id',
     headerName: 'ID',
-    flex: 1,
+    // flex: 1,
   },
   {
     field: 'product',
     headerName: 'Product',
-    flex: 1.5,
-    // width: 200,
+    flex: 1.2,
     renderCell: (params: any) => {
       console.log(params);
       return (
@@ -38,12 +37,12 @@ export const columns = [
   {
     field: 'orders',
     headerName: 'Orders',
-    flex: 1,
+    flex: 0.8,
   },
   {
     field: 'price',
     headerName: 'Price',
-    flex: 1,
+    flex: 0.8,
     renderCell: ({ row: { price } }: any) => {
       return `$${price}`;
     },
@@ -51,7 +50,7 @@ export const columns = [
   {
     field: 'adsSpent',
     headerName: 'Ads Spent',
-    flex: 1,
+    flex: 0.8,
     renderCell: ({ row: { adsSpent } }: any) => {
       return `$${adsSpent}00`;
     },
@@ -59,7 +58,7 @@ export const columns = [
   {
     field: 'refunds',
     headerName: 'Refunds',
-    flex: 1,
+    flex: 0.8,
     renderCell: ({ row: { refunds } }: any) => {
       if (refunds > 0) return `> ${refunds}`;
       else return `< ${-refunds}`;

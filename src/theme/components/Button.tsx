@@ -21,10 +21,10 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
         backgroundColor: 'transparent',
       },
     }),
-    outlined: () => ({
+    outlined: ({ theme }) => ({
       border: 1,
       borderStyle: 'solid',
-      borderRadius: 30,
+      borderRadius: theme.shape.borderRadius * 7.5,
     }),
     sizeSmall: ({ theme }) => ({
       padding: theme.spacing(0.75, 3.375),
@@ -37,11 +37,11 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     }),
     contained: ({ theme }) => ({
       backgroundColor: theme.palette.primary.main,
-      borderRadius: 30,
-      boxShadow: 'none',
+      borderRadius: theme.shape.borderRadius * 7.5,
+      boxShadow: theme.shadows[0],
       color: theme.palette.common.white,
       ':hover': {
-        boxShadow: 'none',
+        boxShadow: theme.shadows[0],
       },
     }),
     containedSizeLarge: ({ theme }) => ({

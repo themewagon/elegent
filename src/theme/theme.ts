@@ -5,7 +5,9 @@ import PaginationItem from './components/PaginationItem';
 import InputAdornment from './components/InputAdornment';
 import ListItemButton from './components/ListItemButton';
 import OutlinedInput from './components/OutlinedInput';
+import DataGrid from './components/DataGrid/DataGrid';
 import ListItemIcon from './components/ListItemIcon';
+import ListItemText from './components/ListItemText';
 import FilledInput from './components/FilledInput';
 import CssBaseline from './components/CssBaseline';
 import Pagination from './components/Pagination';
@@ -24,9 +26,8 @@ import Card from './components/Card';
 import Link from './components/Link';
 
 import typography from './typography';
-import { shadows } from './shadows';
 import palette from './palette';
-import ListItemText from './components/ListItemText';
+import shadows from './shadows';
 
 export const theme = createTheme({
   typography: typography,
@@ -46,6 +47,7 @@ export const theme = createTheme({
     MuiInputLabel: InputLabel,
     MuiInputBase: InputBase,
     MuiTextField: TextField,
+    MuiDataGrid: DataGrid,
     MuiToolbar: Toolbar,
     MuiButton: Button,
     MuiAppBar: AppBar,
@@ -59,5 +61,5 @@ export const theme = createTheme({
 });
 
 shadows.forEach((shadow, index) => {
-  theme.shadows[index + 1] = shadow;
+  theme.shadows[index] = shadow;
 });

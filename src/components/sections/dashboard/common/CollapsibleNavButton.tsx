@@ -47,7 +47,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             // href={navItem.path}
             onClick={() => setChecked(!checked)}
             sx={{
-              width: '100%',
+              width: 1,
             }}
           >
             <ListItemIcon>
@@ -61,7 +61,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
           <Collapse
             in={checked}
             sx={{
-              width: '100%',
+              width: 1,
             }}
           >
             <List>
@@ -71,7 +71,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
                     LinkComponent={Link}
                     href={subListItem.path}
                     sx={{
-                      width: '100%',
+                      width: 1,
                     }}
                   >
                     <ListItemText>{subListItem.title}</ListItemText>
@@ -89,7 +89,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
           LinkComponent={Link}
           href={navItem.path}
           sx={{
-            width: '100%',
+            width: 1,
           }}
         >
           <ListItemIcon>

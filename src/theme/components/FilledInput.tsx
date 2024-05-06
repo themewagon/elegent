@@ -5,7 +5,7 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      borderRadius: 30,
+      borderRadius: theme.shape.borderRadius * 7.5,
       backgroundColor: theme.palette.common.white,
       '&:before': {
         borderBottom: 'none',

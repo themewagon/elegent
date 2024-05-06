@@ -13,7 +13,7 @@ import logo from 'assets/logo/elegant-logo.png';
 import { theme } from 'theme/theme';
 import { navItems } from 'data/navItems';
 import Image from 'components/base/Image';
-import CollapsibleNavButton from './CollapsibleNavButton';
+import CollapsibleNavButton from '../../components/sections/dashboard/common/CollapsibleNavButton';
 import { useState } from 'react';
 
 const Sidebar = () => {
@@ -23,22 +23,24 @@ const Sidebar = () => {
     <Stack
       justifyContent="space-between"
       bgcolor={theme.palette.background.paper}
-      height="100%"
+      height={1}
       sx={{
         overflowY: 'overlay',
         margin: { sm: theme.spacing(3.75) },
-        borderRadius: theme.spacing(2.5),
+        borderRadius: theme.shape.borderRadius * 1.25,
         scrollbarWidth: 'none',
       }}
     >
-      <Image
-        src={logo}
-        sx={{
-          marginTop: '50px',
-          mx: '40px',
-          mb: '30px',
-        }}
-      />
+      <Link href='/'>
+        <Image
+          src={logo}
+          sx={{
+            marginTop: '50px',
+            mx: '40px',
+            mb: '30px',
+          }}
+        />
+      </Link>
       <List
         sx={{
           mx: '20px',
@@ -47,7 +49,6 @@ const Sidebar = () => {
       >
         {navItems.map((navItem, index) => (
           <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
-          // <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
         ))}
       </List>
       <List

@@ -1,4 +1,4 @@
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
 import { Link as Nav } from 'react-router-dom';
 import logo from 'assets/logo/elegant-logo.png';
 import error404 from 'assets/404/404.jpg';
@@ -23,23 +23,18 @@ const Error404 = () => {
     <>
       {renderHeader}
       <Container>
-        <Box
-          sx={{
-            py: 12,
-            maxWidth: 480,
-            mx: 'auto',
-            display: 'flex',
-            minHeight: '100vh',
-            textAlign: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
+        <Stack
+          textAlign="center"
+          alignItems="center"
+          justifyContent="center"
+          minHeight="100vh"
+          mx="auto"
+          maxWidth={480}
+          py={12}
         >
           <Typography variant="h2" sx={{ mb: 3 }}>
             Sorry, page not found!
           </Typography>
-
           <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
             Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL? Be
             sure to check your spelling.
@@ -48,7 +43,7 @@ const Error404 = () => {
             src={error404}
             sx={{
               mx: 'auto',
-              width: '100%',
+              width: 1,
               height: 'auto',
               my: { xs: 5, sm: 10 },
             }}
@@ -56,7 +51,7 @@ const Error404 = () => {
           <Button component={Nav} to="/" size="large" variant="contained">
             Back to Home
           </Button>
-        </Box>
+        </Stack>
       </Container>
     </>
   );

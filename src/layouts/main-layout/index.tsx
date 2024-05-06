@@ -1,8 +1,8 @@
-import { Box, Drawer, Grid } from '@mui/material';
+import { Box, Drawer, Grid, Stack } from '@mui/material';
 import { PropsWithChildren, useState } from 'react';
 
-import Sidebar from 'components/sections/dashboard/common/Sidebar';
-import Topbar from 'components/sections/dashboard/common/Topbar';
+import Sidebar from 'layouts/main-layout/Sidebar';
+import Topbar from 'layouts/main-layout/Topbar';
 
 export const drawerWidth = 278;
 
@@ -35,13 +35,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        minHeight: '100vh',
-        backgroundColor: (theme) => theme.palette.background.default,
-      }}
-    >
+    <Stack direction="row" minHeight="100vh" bgcolor={(theme) => theme.palette.background.default}>
       <Topbar
         handleDrawerToggle={handleDrawerToggle}
         open={open}
@@ -104,10 +98,11 @@ const MainLayout = ({ children }: PropsWithChildren) => {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           pl: { sm: 0 },
         }}
+        pb={3.75}
       >
         {children}
       </Grid>
-    </Box>
+    </Stack>
   );
 };
 

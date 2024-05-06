@@ -4,48 +4,47 @@ import EChartsReact from 'echarts-for-react';
 import { EChartsOption } from 'echarts';
 import { theme } from 'theme/theme';
 
-const BuyersProfile = () => {
-  const option: EChartsOption = {
-    tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b} : {c}%',
-    },
-    series: [
-      {
-        name: 'Buyers Profile',
-        type: 'pie',
-        radius: ['75%', '95%'],
-        color: ['#FF8E29', '#27D095', '#F54F5F'],
-        avoidLabelOverlap: true,
-        startAngle: -30,
-        clockwise: false,
+const option: EChartsOption = {
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c}%',
+  },
+  series: [
+    {
+      name: 'Buyers Profile',
+      type: 'pie',
+      radius: ['75%', '95%'],
+      color: ['#FF8E29', '#27D095', '#F54F5F'],
+      avoidLabelOverlap: true,
+      startAngle: -30,
+      clockwise: false,
+      label: {
+        show: false,
+        position: 'center',
+      },
+      emphasis: {
         label: {
           show: false,
-          position: 'center',
         },
-        emphasis: {
-          label: {
-            show: false,
-          },
-          scaleSize: 0,
-        },
-        labelLine: {
-          show: true,
-        },
-        data: [
-          { value: 50, name: 'Male' },
-          { value: 35, name: 'Female' },
-          { value: 15, name: 'Others' },
-        ],
+        scaleSize: 0,
       },
-    ],
-  };
-
+      labelLine: {
+        show: true,
+      },
+      data: [
+        { value: 50, name: 'Male' },
+        { value: 35, name: 'Female' },
+        { value: 15, name: 'Others' },
+      ],
+    },
+  ],
+};
+const BuyersProfile = () => {
   return (
     <Box
       sx={{
         bgcolor: theme.palette.common.white,
-        borderRadius: theme.spacing(2.5),
+        borderRadius: theme.shape.borderRadius * 1.25,
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
@@ -61,11 +60,11 @@ const BuyersProfile = () => {
         justifyContent="space-between"
         alignItems="center"
         spacing={4}
-        padding="0 20px 20px"
+        padding={theme.spacing(0, 2.5, 2.5)}
       >
         <Box
           sx={{
-            width: '100%',
+            width: 1,
             flex: 1,
           }}
         >
@@ -74,7 +73,7 @@ const BuyersProfile = () => {
         <Stack
           spacing={2}
           sx={{
-            width: '100%',
+            width: 1,
             flex: 1,
           }}
         >

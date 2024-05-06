@@ -12,7 +12,7 @@ const NewCustomers = () => {
     <Box
       sx={{
         bgcolor: theme.palette.common.white,
-        borderRadius: theme.spacing(2.5),
+        borderRadius: theme.shape.borderRadius * 1.25,
         marginTop: { xs: '70px', sm: 0 },
       }}
     >

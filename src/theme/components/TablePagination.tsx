@@ -8,13 +8,13 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     },
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       width: '100%',
       ':last-child': {
-        borderRadius: '20px',
+        borderRadius: theme.shape.borderRadius * 5,
       },
-      borderRadius: '20px',
-    },
+      borderRadius: theme.shape.borderRadius * 5,
+    }),
     toolbar: {
       display: 'flex',
       justifyContent: 'space-between',

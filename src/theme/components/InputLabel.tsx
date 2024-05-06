@@ -10,7 +10,7 @@ const InputLabel: Components<Omit<Theme, 'components'>>['MuiInputLabel'] = {
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
       '&.Mui-focused': {
-        color: '#6F757E',
+        color: theme.palette.text.secondary,
       },
     }),
   },

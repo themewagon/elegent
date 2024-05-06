@@ -1,10 +1,10 @@
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Stack } from '@mui/material';
 
 const PageLoader = () => {
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Stack direction='row'>
       <CircularProgress color="secondary" />
-    </Box>
+    </Stack>
   );
 };
 

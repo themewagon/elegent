@@ -7,7 +7,7 @@ const Card: Components<Omit<Theme, 'components'>>['MuiCard'] = {
     root: ({ theme }) => ({
       height: 'min-content',
       padding: theme.spacing(2.5),
-      borderRadius: theme.spacing(2.5),
+      borderRadius: theme.shape.borderRadius * 5,
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'space-between',

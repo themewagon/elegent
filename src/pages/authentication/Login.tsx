@@ -1,52 +1,33 @@
 import {
-  Box,
   Button,
   FormControl,
   InputAdornment,
   InputLabel,
   Link,
   OutlinedInput,
+  Stack,
   Typography,
 } from '@mui/material';
 import loginBanner from 'assets/authentication-banners/login.png';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
+import { theme } from 'theme/theme';
 
 const Login = () => {
   return (
-    <Box
-      sx={{
-        width: { md: '960px' },
-        height: '560px',
-        display: 'flex',
-        backgroundColor: '#FFF',
-        boxShadow: '0px 4px 4px 0px #00000040',
-      }}
+    <Stack
+      direction="row"
+      bgcolor={theme.palette.background.paper}
+      boxShadow={theme.shadows[3]}
+      height={560}
+      width={{ md: 960 }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          margin: '20px',
-          gap: 10,
-        }}
-      >
+      <Stack width="50%" m={theme.spacing(2.5)} gap={10}>
         <Link href="/">
           <Image src={logo} width="82.6px" />
         </Link>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: 2.5,
-            width: '330px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
+        <Stack alignItems="center" gap={2.5} width={330} mx="auto">
           <Typography variant="h3">Login</Typography>
           <FormControl variant="standard" fullWidth>
             <InputLabel shrink htmlFor="email-input">
@@ -105,8 +86,8 @@ const Login = () => {
               Sign up
             </Link>
           </Typography>
-        </Box>
-      </Box>
+        </Stack>
+      </Stack>
       <Image
         alt="Login banner"
         src={loginBanner}
@@ -115,7 +96,7 @@ const Login = () => {
           display: { xs: 'none', md: 'block' },
         }}
       />
-    </Box>
+    </Stack>
   );
 };
 

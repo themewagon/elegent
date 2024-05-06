@@ -14,7 +14,7 @@ const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
   return (
     <Card
       sx={{
-        boxShadow: '0px 0px 4px 0px #FF8E291A',
+        boxShadow: theme.shadows[4],
       }}
     >
       <CardMedia>

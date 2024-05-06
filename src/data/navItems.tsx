@@ -119,7 +119,7 @@ export const navItems = [
     sublist: [
       {
         title: 'Products',
-        path: '/produts',
+        path: '/products',
         collapsible: true,
         sublist: [
           {

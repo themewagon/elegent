@@ -45,12 +45,6 @@ const typography: TypographyOptions = {
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightBold: 700,
-
-  allVariants: {
-    // overflow: 'auto',
-    // whiteSpace: 'wrap',
-  },
-
 };
 
 export default typography;

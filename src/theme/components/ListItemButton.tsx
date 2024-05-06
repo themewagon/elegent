@@ -4,12 +4,12 @@ import { Components } from '@mui/material/styles/components';
 const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton'] = {
   defaultProps: {},
   styleOverrides: {
-    root: {
-      borderRadius: '8px',
+    root: ({ theme }) => ({
+      borderRadius: theme.shape.borderRadius * 2,
       display: 'flex',
       alignItems: 'center',
-      gap: '10px',
-    },
+      gap: theme.spacing(1.25),
+    }),
   },
 };
 
