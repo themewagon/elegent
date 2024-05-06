@@ -116,6 +116,7 @@ const TopSellingProduct = () => {
             },
           }}
           scrollbarSize={1}
+          // autoHeight
         />
       </Box>
     </Box>

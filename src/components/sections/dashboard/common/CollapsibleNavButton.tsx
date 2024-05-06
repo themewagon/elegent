@@ -68,7 +68,7 @@ const CollapsibleNavButton = ({ navItem, Link, open }: NavItemProps) => {
             }}
           >
             <List>
-              {navItem.sublist.map((subListItem, idx) => (
+              {navItem.sublist.map((subListItem: any, idx: number) => (
                 <ListItem key={idx} disablePadding>
                   <ListItemButton
                     LinkComponent={Link}

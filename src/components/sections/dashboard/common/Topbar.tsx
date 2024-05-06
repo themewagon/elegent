@@ -44,7 +44,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, ml: 0, display: { sm: 'none' } }}
+          sx={{ mr: 2, ml: 0, display: { sm: 'none' }, bgcolor: 'inherit' }}
         >
           <IconifyIcon icon="mdi:menu" />
         </IconButton>
@@ -72,7 +72,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             sx={{ maxWidth: theme.spacing(41.25) }}
           />
         </Box>
-        <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto' }}>
+        <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto', bgcolor: 'inherit' }}>
           <IconifyIcon icon="mdi:search" width="24px" height="24px" />
         </IconButton>
         <Box
