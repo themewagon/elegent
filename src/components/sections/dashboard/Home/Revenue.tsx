@@ -7,7 +7,6 @@ const option: EChartsOption = {
   title: {
     text: 'Revenue',
     textStyle: {
-      // fontFamily: 'Poppins',
       fontSize: '20.25px',
       fontWeight: 500,
       color: '#050F24',
@@ -32,6 +31,7 @@ const option: EChartsOption = {
       padding: 30,
       color: '#6F757E',
       formatter: (value) => value.slice(0, 3),
+      fontFamily: 'Poppins',
     },
     axisTick: {
       show: false,
@@ -49,6 +49,7 @@ const option: EChartsOption = {
       color: '#6F757E',
       align: 'center',
       padding: [0, 20, 0, 0],
+      fontFamily: 'Poppins',
     },
     splitLine: {
       interval: 5,
@@ -71,11 +72,16 @@ const option: EChartsOption = {
     right: 30,
     orient: 'horizontal',
     icon: 'pin',
+    textStyle: {
+      fontFamily: 'Poppins',
+      fontSize: '0.75rem',
+      fontWeight: 400,
+      color: '#6F757E',
+    },
   },
   tooltip: {
     show: true,
     trigger: 'axis',
-    // backgroundColor: '#050F24',
   },
   series: [
     {

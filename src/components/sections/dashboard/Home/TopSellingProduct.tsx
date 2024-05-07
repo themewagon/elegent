@@ -14,10 +14,10 @@ const TopSellingProduct = () => {
     maxColumns: 6,
   });
 
-  useEffect(() => {
-    console.log(data);
-    console.log(rows);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(data);
+  //   console.log(rows);
+  // }, [data]);
 
   return (
     <Box

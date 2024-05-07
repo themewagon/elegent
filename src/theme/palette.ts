@@ -19,7 +19,9 @@ const palette: PaletteOptions = {
     secondary: '#6F757E',
     disabled: '#CCCDCD',
   },
-  action: {},
+  action: {
+    focus: '#F5F5F5',
+  },
   background: {
     default: '#FFF4EA',
     paper: '#FFF',

@@ -5,6 +5,7 @@ import instaxCamera from 'assets/top-selling-products/instaxCamera.jpg';
 import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
+import { theme } from 'theme/theme';
 
 export const columns = [
   {
@@ -17,15 +18,23 @@ export const columns = [
     headerName: 'Product',
     flex: 1.2,
     renderCell: (params: any) => {
-      console.log(params);
+      // console.log(params);
       return (
         <Stack direction="row" spacing={1.5} alignItems="center">
           <Avatar src={params.value.avatar} />
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography
+              variant="body1"
+              color={(theme) => theme.palette.text.primary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               {params.value.title}
             </Typography>
-            <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+            <Typography
+              variant="body2"
+              color={(theme) => theme.palette.text.secondary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               {params.value.subtitle}
             </Typography>
           </Stack>

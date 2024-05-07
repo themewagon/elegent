@@ -13,7 +13,7 @@ const NewCustomers = () => {
       sx={{
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        marginTop: { xs: '70px', sm: 0 },
+        marginTop: { xs: theme.spacing(8.75), sm: 0 },
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
@@ -31,22 +31,17 @@ const NewCustomers = () => {
         direction="column"
         sx={{
           // padding: '0 20px',
-          pb: '10px',
+          pb: theme.spacing(1.25),
         }}
       >
         <ListItem
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '10px 20px',
+            padding: theme.spacing(1.25, 2.5),
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '12px',
-            }}
-          >
+          <Stack direction="row" gap={1.5}>
             <Avatar src={roselle} />
             <Box component="div">
               <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
@@ -56,24 +51,19 @@ const NewCustomers = () => {
                 Brazil
               </Typography>
             </Box>
-          </Box>
+          </Stack>
           <IconButton>
-            <IconifyIcon icon="mingcute:mail-fill" color="#FF8E29" />
+            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
         <ListItem
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '10px 20px',
+            padding: theme.spacing(1.25, 2.5),
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '10px',
-            }}
-          >
+          <Stack direction="row" gap={1.5}>
             <Avatar src={jone} />
             <Box component="div">
               <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
@@ -83,24 +73,19 @@ const NewCustomers = () => {
                 Australia
               </Typography>
             </Box>
-          </Box>
+          </Stack>
           <IconButton>
-            <IconifyIcon icon="mingcute:mail-fill" color="#FF8E29" />
+            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
         <ListItem
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '10px 20px',
+            padding: theme.spacing(1.25, 2.5),
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '10px',
-            }}
-          >
+          <Stack direction="row" gap={1.5}>
             <Avatar src={darron} />
             <Box component="div">
               <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
@@ -110,24 +95,19 @@ const NewCustomers = () => {
                 Pakistan
               </Typography>
             </Box>
-          </Box>
+          </Stack>
           <IconButton>
-            <IconifyIcon icon="mingcute:mail-fill" color="#FF8E29" />
+            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
         <ListItem
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '10px 20px',
+            padding: theme.spacing(1.25, 2.5),
           }}
         >
-          <Box
-            sx={{
-              display: 'flex',
-              gap: '10px',
-            }}
-          >
+          <Stack direction="row" gap={1.5}>
             <Avatar src={leatrice} />
             <Box component="div">
               <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
@@ -137,7 +117,7 @@ const NewCustomers = () => {
                 Mascow
               </Typography>
             </Box>
-          </Box>
+          </Stack>
           <IconButton>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>

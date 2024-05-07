@@ -14,15 +14,23 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
         borderBottom: 'none',
       },
       '&:hover': {
-        border: '1px solid black',
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.palette.common.black,
         backgroundColor: theme.palette.common.white,
       },
       '&:hover:not(.Mui-disabled, .Mui-error):before': {
         border: 0,
       },
       '&.Mui-focused': {
+        borderWidth: 1,
+        borderStyle: 'solid',
+        borderColor: theme.palette.common.black,
         backgroundColor: theme.palette.common.white,
       },
+    }),
+    focused: () => ({
+      // backgroundColor: theme.palette.common.black,
     }),
     input: ({ theme }) => ({
       padding: theme.spacing(1.5, 2.5),

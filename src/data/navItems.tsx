@@ -7,11 +7,11 @@ export const navItems = [
     sublist: [
       {
         title: 'Dashboard',
-        path: '/dashboard',
+        path: '/',
       },
       {
         title: 'Sales',
-        path: '/sales',
+        path: '/',
       },
     ],
   },
@@ -23,65 +23,65 @@ export const navItems = [
     sublist: [
       {
         title: 'Profile',
-        path: '/profile',
+        path: 'profile',
         collapsible: true,
         sublist: [
           {
             title: 'Overview',
-            path: '/overview',
+            path: 'overview',
           },
           {
             title: 'All Projects',
-            path: '/all-projects',
+            path: 'all-projects',
           },
         ],
       },
       {
         title: 'Users',
-        path: '/users',
+        path: 'users',
         collapsible: true,
         sublist: [
           {
             title: 'All Users',
-            path: '/all-users',
+            path: 'all-users',
           },
           {
             title: 'Add user',
-            path: '/add-user',
+            path: 'add-user',
           },
         ],
       },
       {
         title: 'Account',
-        path: '/account',
+        path: 'account',
         collapsible: true,
         sublist: [
           {
             title: 'Setting',
-            path: '/setting',
+            path: 'setting',
           },
           {
             title: 'Billing',
-            path: '/billing',
+            path: 'billing',
           },
           {
             title: 'Invoice',
-            path: '/invoice',
+            path: 'invoice',
           },
         ],
       },
       {
         title: 'Projects',
-        path: '/projects',
+        path: 'projects',
         collapsible: true,
         sublist: [
           {
             title: 'All Projects',
-            path: '/all-projects',
+            path: 'all-projects',
           },
           {
             title: 'Timeline',
-            path: '/timeline',
+            path: 'timeline',
           },
         ],
       },
@@ -95,19 +95,19 @@ export const navItems = [
     sublist: [
       {
         title: 'Kanban',
-        path: '/kanban',
+        path: 'kanban',
       },
       {
         title: 'Wizard',
-        path: '/wizard',
+        path: 'wizard',
       },
       {
         title: 'Data Tables',
-        path: '/data-tables',
+        path: 'data-tables',
       },
       {
         title: 'Schedulea',
-        path: '/schedule',
+        path: 'schedule',
       },
     ],
   },
@@ -119,35 +119,35 @@ export const navItems = [
     sublist: [
       {
         title: 'Products',
-        path: '/products',
+        path: 'products',
         collapsible: true,
         sublist: [
           {
             title: 'All Products',
-            path: '/all products',
+            path: 'all-products',
           },
           {
             title: 'Edit Product',
-            path: '/edit-product',
+            path: 'edit-product',
           },
           {
-            title: 'New Products P',
-            path: '/data-tables',
+            title: 'New Product',
+            path: 'new-product',
           },
         ],
       },
       {
         title: 'Orders',
-        path: '/orders',
+        path: 'orders',
         collapsible: true,
         sublist: [
           {
             title: 'Order List',
-            path: '/order-list',
+            path: 'order-list',
           },
           {
             title: 'Order Detail',
-            path: '/order-detail',
+            path: 'order-detail',
           },
         ],
       },
@@ -155,21 +155,21 @@ export const navItems = [
   },
   {
     title: 'Authentication',
-    path: 'authentication/login',
+    path: 'authentication',
     icon: 'f7:exclamationmark-shield-fill',
     collapsible: true,
     sublist: [
       {
         title: 'Sign In',
-        path: '/login',
+        path: 'login',
       },
       {
         title: 'Sign Up',
-        path: '/sign-up',
+        path: 'sign-up',
       },
       {
         title: 'Reset password',
-        path: '/reset-password',
+        path: 'reset-password',
       },
     ],
   },

@@ -34,8 +34,8 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
   return (
     <AppBar
       sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px + 24px)` },
-        ml: { sm: `${drawerWidth}px` },
+        width: { md: `calc(100% - ${drawerWidth}px + 24px)` },
+        ml: { md: `${drawerWidth}px` },
       }}
     >
       <Toolbar>
@@ -44,7 +44,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, ml: 0, display: { sm: 'none' }, bgcolor: 'inherit' }}
+          sx={{ mr: 2, ml: 0, display: { md: 'none' }, bgcolor: 'inherit' }}
         >
           <IconifyIcon icon="mdi:menu" />
         </IconButton>
@@ -64,7 +64,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:search" width="100%" height="100%" />
+                  <IconifyIcon icon="mdi:search" width={1} height={1} />
                 </InputAdornment>
               ),
             }}
@@ -72,7 +72,10 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             sx={{ maxWidth: theme.spacing(41.25) }}
           />
         </Box>
-        <IconButton color="inherit" sx={{ display: { xs: 'flex', md: 'none' }, mr: 'auto', bgcolor: 'inherit' }}>
+        <IconButton
+          color="inherit"
+          sx={{ display: { xs: 'flex', lg: 'none' }, mr: 'auto', bgcolor: 'inherit' }}
+        >
           <IconifyIcon icon="mdi:search" width="24px" height="24px" />
         </IconButton>
         <Box
@@ -97,7 +100,12 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             sx={{ bgcolor: 'inherit', gap: 1.875 }}
           >
             <Avatar alt="Remy Sharp" src={profile} />
-            <Typography variant="body1" component="p" color={theme.palette.text.primary}>
+            <Typography
+              variant="body1"
+              component="p"
+              color={theme.palette.text.primary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               Aiden Max
             </Typography>
             <IconifyIcon

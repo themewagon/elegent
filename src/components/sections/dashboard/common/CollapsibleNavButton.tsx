@@ -9,19 +9,29 @@ import {
 } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { theme } from 'theme/theme';
+import { useEffect, useState } from 'react';
 
 interface NavItemProps {
   navItem?: any;
   Link: OverridableComponent<LinkTypeMap>;
-  // open: boolean;
 }
 
 const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
+  const [nestedChecked, setNestedChecked] = useState<boolean[]>([]);
+
+  const handleNestedChecked = (index: any, value: boolean) => {
+    const updatedBooleanArray = [...nestedChecked];
+    updatedBooleanArray[index] = value;
+    setNestedChecked(updatedBooleanArray);
+  };
+
+  useEffect(() => {
+    console.log(pathname);
+  }, [pathname]);
 
   return (
     <ListItem
@@ -30,12 +40,14 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
-        my: '10px',
-        borderRadius: '8px',
+        my: theme.spacing(1.25),
+        borderRadius: theme.shape.borderRadius * 0.5,
         backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-        color: pathname === navItem.path ? '#FFF' : theme.palette.text.secondary,
+        color:
+          pathname === navItem.path ? theme.palette.common.white : theme.palette.text.secondary,
         ':hover': {
-          backgroundColor: pathname === navItem.path ? theme.palette.primary.main : 'lightgray',
+          backgroundColor:
+            pathname === navItem.path ? theme.palette.primary.main : theme.palette.action.focus,
           opacity: 1.5,
         },
       }}
@@ -44,7 +56,6 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
         <>
           <ListItemButton
             LinkComponent={Link}
-            // href={navItem.path}
             onClick={() => setChecked(!checked)}
             sx={{
               width: 1,
@@ -55,7 +66,12 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             </ListItemIcon>
             <ListItemText>{navItem.title}</ListItemText>
             <ListItemIcon>
-              {navItem.collapsible && <IconifyIcon icon="mingcute:down-fill" />}
+              {navItem.collapsible &&
+                (checked ? (
+                  <IconifyIcon icon="mingcute:up-fill" />
+                ) : (
+                  <IconifyIcon icon="mingcute:down-fill" />
+                ))}
             </ListItemIcon>
           </ListItemButton>
           <Collapse
@@ -66,19 +82,106 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
           >
             <List>
               {navItem.sublist.map((subListItem: any, idx: number) => (
-                <ListItem key={idx} disablePadding>
-                  <ListItemButton
-                    LinkComponent={Link}
-                    href={subListItem.path}
-                    sx={{
-                      width: 1,
-                    }}
-                  >
-                    <ListItemText>{subListItem.title}</ListItemText>
-                    <ListItemIcon>
-                      {subListItem.collapsible && <IconifyIcon icon="mingcute:down-fill" />}
-                    </ListItemIcon>
-                  </ListItemButton>
+                <ListItem
+                  key={idx}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'start',
+                    backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
+                    color:
+                      pathname === navItem.path
+                        ? theme.palette.common.white
+                        : theme.palette.text.secondary,
+                    ':hover': {
+                      backgroundColor:
+                        pathname === navItem.path
+                          ? theme.palette.primary.main
+                          : theme.palette.action.focus,
+                      opacity: 1.5,
+                    },
+                  }}
+                  disablePadding
+                >
+                  {subListItem.collapsible ? (
+                    <>
+                      <ListItemButton
+                        LinkComponent={Link}
+                        onClick={() => handleNestedChecked(idx, !nestedChecked[idx])}
+                        sx={{
+                          width: 1,
+                        }}
+                      >
+                        <ListItemText sx={{ ml: theme.spacing(3) }}>
+                          {subListItem.title}
+                        </ListItemText>
+                        <ListItemIcon>
+                          {subListItem.collapsible &&
+                            (nestedChecked[idx] ? (
+                              <IconifyIcon icon="mingcute:up-fill" />
+                            ) : (
+                              <IconifyIcon icon="mingcute:down-fill" />
+                            ))}
+                        </ListItemIcon>
+                      </ListItemButton>
+                      <Collapse
+                        in={nestedChecked[idx]}
+                        sx={{
+                          width: 1,
+                        }}
+                      >
+                        <List>
+                          {subListItem?.sublist?.map(
+                            (nestedSubListItem: any, nestedIdx: number) => (
+                              <ListItem
+                                key={nestedIdx}
+                                sx={{
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  alignItems: 'start',
+                                }}
+                                disablePadding
+                              >
+                                <ListItemButton
+                                  LinkComponent={Link}
+                                  href={
+                                    navItem.path !== '/'
+                                      ? navItem.path +
+                                        '/' +
+                                        subListItem.path +
+                                        '/' +
+                                        nestedSubListItem.path
+                                      : nestedSubListItem.path
+                                  }
+                                  sx={{
+                                    width: 1,
+                                  }}
+                                >
+                                  <ListItemText sx={{ ml: theme.spacing(5) }}>
+                                    {nestedSubListItem.title}
+                                  </ListItemText>
+                                </ListItemButton>
+                              </ListItem>
+                            ),
+                          )}
+                        </List>
+                      </Collapse>
+                    </>
+                  ) : (
+                    <ListItemButton
+                      LinkComponent={Link}
+                      href={
+                        navItem.path !== '/'
+                          ? navItem.path + '/' + subListItem.path
+                          : subListItem.path
+                      }
+                      sx={{
+                        width: 1,
+                      }}
+                    >
+                      <ListItemText sx={{ ml: theme.spacing(3) }}>{subListItem.title}</ListItemText>
+                    </ListItemButton>
+                  )}
                 </ListItem>
               ))}
             </List>
@@ -96,9 +199,6 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             <IconifyIcon icon={navItem.icon} />
           </ListItemIcon>
           <ListItemText>{navItem.title}</ListItemText>
-          <ListItemIcon>
-            {navItem.collapsible && <IconifyIcon icon="mingcute:down-fill" />}
-          </ListItemIcon>
         </ListItemButton>
       )}
     </ListItem>

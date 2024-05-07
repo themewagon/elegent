@@ -15,11 +15,11 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
       },
       borderRadius: theme.shape.borderRadius * 5,
     }),
-    toolbar: {
+    toolbar: ({ theme }) => ({
       display: 'flex',
       justifyContent: 'space-between',
-      padding: '20px 0',
-    },
+      padding: theme.spacing(2.5, 0),
+    }),
     spacer: {
       flex: 'none',
     },
@@ -32,12 +32,12 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     input: {
       display: 'none',
     },
-    displayedRows: {
+    displayedRows: ({ theme }) => ({
       flex: 'auto',
-      fontSize: '12px',
-      fontWeight: 400,
-      color: '#6F757E',
-    },
+      fontSize: theme.typography.body2.fontSize,
+      fontWeight: theme.typography.body2.fontWeight,
+      color: theme.palette.text.secondary,
+    }),
     actions: {},
   },
 };

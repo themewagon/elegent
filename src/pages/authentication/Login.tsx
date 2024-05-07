@@ -23,7 +23,7 @@ const Login = () => {
       height={560}
       width={{ md: 960 }}
     >
-      <Stack width="50%" m={theme.spacing(2.5)} gap={10}>
+      <Stack width={0.5} m={theme.spacing(2.5)} gap={10}>
         <Link href="/">
           <Image src={logo} width="82.6px" />
         </Link>
@@ -38,12 +38,12 @@ const Login = () => {
               id="email-input"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-email" width="100%" height="100%" />
+                  <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
                 </InputAdornment>
               }
               sx={{
-                width: '100%',
-                backgroundColor: '#F5F5F5',
+                width: 1,
+                backgroundColor: theme.palette.action.focus,
               }}
             />
           </FormControl>
@@ -57,12 +57,12 @@ const Login = () => {
               id="password-input"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-key" width="100%" height="100%" />
+                  <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                 </InputAdornment>
               }
               sx={{
-                width: '100%',
-                backgroundColor: '#F5F5F5',
+                width: 1,
+                backgroundColor: theme.palette.action.focus,
               }}
             />
           </FormControl>
@@ -72,7 +72,6 @@ const Login = () => {
               alignSelf: 'flex-end',
             }}
           >
-            {/* <Link component={Nav} to="#" underline="hover">Forget password</Link> */}
             <Link href="#" underline="hover">
               Forget password
             </Link>
@@ -92,7 +91,7 @@ const Login = () => {
         alt="Login banner"
         src={loginBanner}
         sx={{
-          width: '50%',
+          width: 0.5,
           display: { xs: 'none', md: 'block' },
         }}
       />

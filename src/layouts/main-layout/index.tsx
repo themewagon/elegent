@@ -1,8 +1,8 @@
 import { Box, Drawer, Grid, Stack } from '@mui/material';
 import { PropsWithChildren, useState } from 'react';
 
-import Sidebar from 'layouts/main-layout/Sidebar';
-import Topbar from 'layouts/main-layout/Topbar';
+import Sidebar from 'layouts/main-layout/Sidebar/Sidebar';
+import Topbar from 'layouts/main-layout/Topbar/Topbar';
 
 export const drawerWidth = 278;
 
@@ -45,7 +45,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       />
       <Box
         component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
         aria-label="mailbox folders"
       >
         <Drawer
@@ -57,7 +57,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
+            display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
@@ -71,7 +71,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
+            display: { xs: 'none', md: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
@@ -95,8 +95,8 @@ const MainLayout = ({ children }: PropsWithChildren) => {
         pr={3.75}
         mt="85.125px"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          pl: { sm: 0 },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
+          // pl: { md: 0 },
         }}
         pb={3.75}
       >

@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Suspense, lazy } from 'react';
 import PageLoader from '../components/loading/PageLoader';
-import { Outlet, createBrowserRouter } from 'react-router-dom';
+import { Outlet, createBrowserRouter, redirect } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
 
 const App = lazy(() => import('App'));
@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: '',
         element: (
           <MainLayout>
             <Suspense fallback={<PageLoader />}>
@@ -38,6 +38,21 @@ export const router = createBrowserRouter([
           },
           {},
         ],
+      },
+      {
+        path: rootPaths.pagesRoot,
+        element: <></>,
+        children: [],
+      },
+      {
+        path: rootPaths.applicationsRoot,
+        element: <></>,
+        children: [],
+      },
+      {
+        path: rootPaths.ecommerceRoot,
+        element: <></>,
+        children: [],
       },
       {
         path: rootPaths.authRoot,
@@ -57,6 +72,18 @@ export const router = createBrowserRouter([
             element: <SignUp />,
           },
         ],
+      },
+      {
+        path: rootPaths.notificationsRoot,
+        element: <></>,
+      },
+      {
+        path: rootPaths.calendarRoot,
+        element: <></>,
+      },
+      {
+        path: rootPaths.messageRoot,
+        element: <></>,
       },
       {
         path: '*',

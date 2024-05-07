@@ -23,7 +23,7 @@ const SignUp = () => {
       height={591}
       width={{ md: 960 }}
     >
-      <Stack width="50%" m={theme.spacing(2.5)} gap={10}>
+      <Stack width={0.5} m={theme.spacing(2.5)} gap={10}>
         <Link href="/">
           <Image src={logo} width="82.6px" />
         </Link>
@@ -38,12 +38,12 @@ const SignUp = () => {
               id="name-input1"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:user" width="100%" height="100%" />
+                  <IconifyIcon icon="mdi:user" width={1} height={1} />
                 </InputAdornment>
               }
               sx={{
-                width: '100%',
-                backgroundColor: '#F5F5F5',
+                width: 1,
+                backgroundColor: theme.palette.action.focus,
               }}
             />
           </FormControl>
@@ -56,12 +56,12 @@ const SignUp = () => {
               id="email-input1"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-email" width="100%" height="100%" />
+                  <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
                 </InputAdornment>
               }
               sx={{
-                width: '100%',
-                backgroundColor: '#F5F5F5',
+                width: 1,
+                backgroundColor: theme.palette.action.focus,
               }}
             />
           </FormControl>
@@ -75,12 +75,12 @@ const SignUp = () => {
               id="password-input2"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-key" width="100%" height="100%" />
+                  <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                 </InputAdornment>
               }
               sx={{
-                width: '100%',
-                backgroundColor: '#F5F5F5',
+                width: 1,
+                backgroundColor: theme.palette.action.focus,
               }}
             />
           </FormControl>
@@ -99,7 +99,7 @@ const SignUp = () => {
         alt="Signup banner"
         src={signupBanner}
         sx={{
-          width: '50%',
+          width: 0.5,
           display: { xs: 'none', md: 'block' },
         }}
       />

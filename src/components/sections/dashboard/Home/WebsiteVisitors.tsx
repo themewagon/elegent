@@ -51,6 +51,7 @@ const WebsiteVisitors = () => {
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
         height: 'min-content',
+        // maxWidth: theme.spacing(40),
       }}
     >
       <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary} p="20px">
@@ -64,7 +65,7 @@ const WebsiteVisitors = () => {
               width: theme.spacing(1.25),
               height: theme.spacing(1.25),
               backgroundColor: theme.palette.primary.main,
-              borderRadius: '50%',
+              borderRadius: theme.shape.borderRadius * 100,
             }}
           ></Box>
           <Typography
@@ -84,7 +85,7 @@ const WebsiteVisitors = () => {
               width: theme.spacing(1.25),
               height: theme.spacing(1.25),
               backgroundColor: theme.palette.secondary.main,
-              borderRadius: '50%',
+              borderRadius: theme.shape.borderRadius * 100,
             }}
           ></Box>
           <Typography
@@ -104,7 +105,7 @@ const WebsiteVisitors = () => {
               width: theme.spacing(1.25),
               height: theme.spacing(1.25),
               backgroundColor: theme.palette.info.main,
-              borderRadius: '50%',
+              borderRadius: theme.shape.borderRadius * 100,
             }}
           ></Box>
           <Typography
@@ -124,7 +125,7 @@ const WebsiteVisitors = () => {
               width: theme.spacing(1.25),
               height: theme.spacing(1.25),
               backgroundColor: theme.palette.error.main,
-              borderRadius: '50%',
+              borderRadius: theme.shape.borderRadius * 100,
             }}
           ></Box>
           <Typography

@@ -12,8 +12,8 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     density: 'comfortable',
     scrollbarSize: 1,
     slots: {
-        pagination: CustomPagination,
-        footer: GridFooter,
+      pagination: CustomPagination,
+      footer: GridFooter,
     },
   },
   styleOverrides: {
@@ -51,12 +51,16 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       color: theme.palette.text.secondary,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
+      fontFamily: theme.typography.fontFamily?.split(',')[1],
       border: 'none',
       display: 'flex',
       alignItems: 'center',
     }),
     row: () => ({
       border: 'none',
+    }),
+    virtualScroller: () => ({
+      overflowX: 'scroll !important' as 'scroll',
     }),
     virtualScrollerContent: () => ({
       height: '100%',

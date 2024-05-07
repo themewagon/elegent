@@ -8,17 +8,14 @@ import {
   Stack,
 } from '@mui/material';
 
+import CollapsibleNavButton from '../../../components/sections/dashboard/common/CollapsibleNavButton';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
-import { theme } from 'theme/theme';
-import { navItems } from 'data/navItems';
 import Image from 'components/base/Image';
-import CollapsibleNavButton from '../../components/sections/dashboard/common/CollapsibleNavButton';
-import { useState } from 'react';
+import { navItems } from 'data/navItems';
+import { theme } from 'theme/theme';
 
 const Sidebar = () => {
-  const [,] = useState(false);
-
   return (
     <Stack
       justifyContent="space-between"
@@ -26,24 +23,24 @@ const Sidebar = () => {
       height={1}
       sx={{
         overflowY: 'overlay',
-        margin: { sm: theme.spacing(3.75) },
+        margin: { md: theme.spacing(3.75) },
         borderRadius: theme.shape.borderRadius * 1.25,
         scrollbarWidth: 'none',
       }}
     >
-      <Link href='/'>
+      <Link href="/">
         <Image
           src={logo}
           sx={{
-            marginTop: '50px',
-            mx: '40px',
-            mb: '30px',
+            marginTop: theme.spacing(6.25),
+            mx: theme.spacing(5),
+            mb: theme.spacing(3.75),
           }}
         />
       </Link>
       <List
         sx={{
-          mx: '20px',
+          mx: theme.spacing(2.5),
           flex: '1 1 auto',
         }}
       >
@@ -53,13 +50,13 @@ const Sidebar = () => {
       </List>
       <List
         sx={{
-          mx: '20px',
+          mx: theme.spacing(2.5),
         }}
       >
         <ListItem
           disablePadding
           sx={{
-            my: '20px',
+            my: theme.spacing(2.5),
             mx: 0,
           }}
         >
@@ -71,7 +68,7 @@ const Sidebar = () => {
               color: theme.palette.primary.main,
               ':hover': {
                 backgroundColor: theme.palette.primary.main,
-                color: '#FFF',
+                color: theme.palette.common.white,
                 opacity: 1.5,
                 '': {
                   color: theme.palette.background.paper,

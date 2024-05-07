@@ -52,7 +52,10 @@ const BuyersProfile = () => {
           Buyers Profile
         </Typography>
         <IconButton>
-          <IconifyIcon icon="ph:dots-three-outline-fill" color="#6F757E" />
+          <IconifyIcon
+            icon="ph:dots-three-outline-fill"
+            color={(theme) => theme.palette.text.secondary}
+          />
         </IconButton>
       </Stack>
       <Stack
@@ -77,60 +80,60 @@ const BuyersProfile = () => {
             flex: 1,
           }}
         >
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
+            <Box
+              sx={{
+                width: theme.spacing(1.25),
+                height: theme.spacing(1.25),
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: theme.shape.borderRadius * 100,
+              }}
+            ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
-              sx={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}
+              sx={{ flex: 1 }}
             >
-              <Box
-                sx={{
-                  width: '10px',
-                  height: '10px',
-                  backgroundColor: '#FF8E29',
-                  borderRadius: '50%',
-                }}
-              ></Box>{' '}
               Male
             </Typography>
             <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               50%
             </Typography>
           </Stack>
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
+            <Box
+              sx={{
+                width: theme.spacing(1.25),
+                height: theme.spacing(1.25),
+                backgroundColor: theme.palette.secondary.main,
+                borderRadius: theme.shape.borderRadius * 100,
+              }}
+            ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
-              sx={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}
+              sx={{ flex: 1 }}
             >
-              <Box
-                sx={{
-                  width: '10px',
-                  height: '10px',
-                  backgroundColor: '#27D095',
-                  borderRadius: '50%',
-                }}
-              ></Box>{' '}
               Female
             </Typography>
             <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               35%
             </Typography>
           </Stack>
-          <Stack direction="row" justifyContent="space-between">
+          <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
+            <Box
+              sx={{
+                width: theme.spacing(1.25),
+                height: theme.spacing(1.25),
+                backgroundColor: theme.palette.error.main,
+                borderRadius: theme.shape.borderRadius * 100,
+              }}
+            ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
-              sx={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}
+              sx={{ flex: 1 }}
             >
-              <Box
-                sx={{
-                  width: '10px',
-                  height: '10px',
-                  backgroundColor: '#F54F5F',
-                  borderRadius: '50%',
-                }}
-              ></Box>{' '}
               Others
             </Typography>
             <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
