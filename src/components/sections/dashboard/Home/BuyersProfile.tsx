@@ -47,7 +47,12 @@ const BuyersProfile = () => {
         borderRadius: theme.shape.borderRadius * 1.25,
       }}
     >
-      <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        padding={theme.spacing(2.5)}
+      >
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           Buyers Profile
         </Typography>
@@ -93,10 +98,15 @@ const BuyersProfile = () => {
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
             >
               Male
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography
+              variant="body1"
+              color={(theme) => theme.palette.text.primary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               50%
             </Typography>
           </Stack>
@@ -113,10 +123,15 @@ const BuyersProfile = () => {
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
             >
               Female
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography
+              variant="body1"
+              color={(theme) => theme.palette.text.primary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               35%
             </Typography>
           </Stack>
@@ -133,10 +148,15 @@ const BuyersProfile = () => {
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
             >
               Others
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography
+              variant="body1"
+              color={(theme) => theme.palette.text.primary}
+              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+            >
               15%
             </Typography>
           </Stack>

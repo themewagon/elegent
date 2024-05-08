@@ -7,6 +7,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     root: ({ theme }) => ({
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
+      fontFamily: theme.typography.fontFamily?.split(',')[1],
       paddingTop: theme.spacing(1.5),
       paddingBottom: theme.spacing(1.5),
       textTransform: 'none',

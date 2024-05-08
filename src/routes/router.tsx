@@ -3,16 +3,19 @@ import { Suspense, lazy } from 'react';
 import PageLoader from '../components/loading/PageLoader';
 import { Outlet, createBrowserRouter, redirect } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
+import sales from './paths';
 
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
 const Error404 = lazy(() => import('pages/errors/Error404'));
 
-import Home from 'pages/dashboard/Home';
+import Sales from 'pages/home/Sales';
 import Login from 'pages/authentication/Login';
 import SignUp from 'pages/authentication/SignUp';
 import Splash from 'components/loading/Splash';
+import Dashboard from 'pages/home/Dashboard';
+import ResetPassword from 'pages/authentication/ResetPassword';
 
 export const router = createBrowserRouter([
   {
@@ -33,10 +36,13 @@ export const router = createBrowserRouter([
         ),
         children: [
           {
-            index: true,
-            element: <Home />,
+            path: '',
+            element: <Sales />,
           },
-          {},
+          {
+            path: 'dashboard',
+            element: <Dashboard />,
+          },
         ],
       },
       {
@@ -70,6 +76,10 @@ export const router = createBrowserRouter([
           {
             path: paths.signup,
             element: <SignUp />,
+          },
+          {
+            path: paths.resetPassword,
+            element: <ResetPassword />,
           },
         ],
       },

@@ -1,5 +1,5 @@
 export const rootPaths = {
-  homeRoot: 'home',
+  homeRoot: '/',
   pagesRoot: 'pages',
   applicationsRoot: 'applications',
   ecommerceRoot: 'ecommerce',
@@ -16,5 +16,6 @@ export default {
   sales: `/${rootPaths.homeRoot}/sales`,
   login: `/${rootPaths.authRoot}/login`,
   signup: `/${rootPaths.authRoot}/sign-up`,
+  resetPassword: `/${rootPaths.authRoot}/reset-password`,
   404: `/${rootPaths.errorRoot}/404`,
 };

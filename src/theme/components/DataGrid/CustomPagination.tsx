@@ -27,8 +27,16 @@ function Pagination({
         <PaginationItem
           {...item}
           slots={{
-            previous: () => <Typography variant="body1">Prev</Typography>,
-            next: () => <Typography variant="body1">Next</Typography>,
+            previous: () => (
+              <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
+                Prev
+              </Typography>
+            ),
+            next: () => (
+              <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
+                Next
+              </Typography>
+            ),
           }}
           sx={{
             '&.Mui-selected': {

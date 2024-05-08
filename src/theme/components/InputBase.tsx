@@ -6,7 +6,9 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: theme.palette.common.white,
-      border: '1px solid #e1e1e1',
+      borderWidth: 1,
+      borderStyle: 'solid',
+      borderColor: theme.palette.divider,
       '&:before': {
         borderBottom: 'none',
       },
@@ -21,6 +23,7 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
       padding: theme.spacing(1.5, 2.5),
       '&::placeholder': {
         opacity: 1,
+        fontFamily: theme.typography.fontFamily?.split(',')[1],
       },
     }),
   },

@@ -9,6 +9,8 @@ const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton']
       display: 'flex',
       alignItems: 'center',
       gap: theme.spacing(1.25),
+      paddingLeft: theme.spacing(1.25),
+      paddingRight: theme.spacing(1.25),
     }),
   },
 };

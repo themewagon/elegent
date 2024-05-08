@@ -54,7 +54,11 @@ const WebsiteVisitors = () => {
         // maxWidth: theme.spacing(40),
       }}
     >
-      <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary} p="20px">
+      <Typography
+        variant="subtitle1"
+        color={(theme) => theme.palette.text.primary}
+        p={theme.spacing(2.5)}
+      >
         Website Visitors
       </Typography>
       <EChartsReact option={options} />
@@ -72,10 +76,15 @@ const WebsiteVisitors = () => {
             variant="body1"
             color={(theme) => theme.palette.text.secondary}
             sx={{ flex: 1 }}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
           >
             Direct
           </Typography>
-          <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+          <Typography
+            variant="body1"
+            color={(theme) => theme.palette.text.primary}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
+          >
             43%
           </Typography>
         </Stack>
@@ -92,10 +101,15 @@ const WebsiteVisitors = () => {
             variant="body1"
             color={(theme) => theme.palette.text.secondary}
             sx={{ flex: 1 }}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
           >
             Organic
           </Typography>
-          <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+          <Typography
+            variant="body1"
+            color={(theme) => theme.palette.text.primary}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
+          >
             27%
           </Typography>
         </Stack>
@@ -112,10 +126,15 @@ const WebsiteVisitors = () => {
             variant="body1"
             color={(theme) => theme.palette.text.secondary}
             sx={{ flex: 1 }}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
           >
             Paid
           </Typography>
-          <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+          <Typography
+            variant="body1"
+            color={(theme) => theme.palette.text.primary}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
+          >
             16%
           </Typography>
         </Stack>
@@ -132,10 +151,15 @@ const WebsiteVisitors = () => {
             variant="body1"
             color={(theme) => theme.palette.text.secondary}
             sx={{ flex: 1 }}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
           >
             Social
           </Typography>
-          <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+          <Typography
+            variant="body1"
+            color={(theme) => theme.palette.text.primary}
+            fontFamily={theme.typography.fontFamily?.split(',')[1]}
+          >
             33%
           </Typography>
         </Stack>

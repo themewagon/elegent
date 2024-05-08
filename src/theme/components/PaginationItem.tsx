@@ -8,6 +8,8 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
   styleOverrides: {
     root: ({ theme }) => ({
       color: theme.palette.primary.main,
+      fontSize: theme.typography.body1.fontSize,
+      fontWeight: theme.typography.subtitle1.fontWeight,
     }),
   },
 };

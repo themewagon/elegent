@@ -62,7 +62,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             }}
           >
             <ListItemIcon>
-              <IconifyIcon icon={navItem.icon} />
+              <IconifyIcon icon={navItem.icon} width={1} height={1} />
             </ListItemIcon>
             <ListItemText>{navItem.title}</ListItemText>
             <ListItemIcon>
@@ -112,15 +112,15 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
                           width: 1,
                         }}
                       >
-                        <ListItemText sx={{ ml: theme.spacing(3) }}>
+                        <ListItemText sx={{ ml: theme.spacing(3.5) }}>
                           {subListItem.title}
                         </ListItemText>
                         <ListItemIcon>
                           {subListItem.collapsible &&
                             (nestedChecked[idx] ? (
-                              <IconifyIcon icon="mingcute:up-fill" />
+                              <IconifyIcon icon="mingcute:up-fill" width={1} height={1} />
                             ) : (
-                              <IconifyIcon icon="mingcute:down-fill" />
+                              <IconifyIcon icon="mingcute:down-fill" width={1} height={1} />
                             ))}
                         </ListItemIcon>
                       </ListItemButton>

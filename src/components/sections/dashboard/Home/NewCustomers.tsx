@@ -13,10 +13,15 @@ const NewCustomers = () => {
       sx={{
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        marginTop: { xs: theme.spacing(8.75), sm: 0 },
+        mt: { xs: theme.spacing(8.75), md: 0 },
       }}
     >
-      <Stack direction="row" justifyContent="space-between" alignItems="center" padding="20px">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        padding={theme.spacing(2.5)}
+      >
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           New Customers
         </Typography>
@@ -27,13 +32,7 @@ const NewCustomers = () => {
           />
         </IconButton>
       </Stack>
-      <Stack
-        direction="column"
-        sx={{
-          // padding: '0 20px',
-          pb: theme.spacing(1.25),
-        }}
-      >
+      <Stack pb={theme.spacing(1.25)}>
         <ListItem
           sx={{
             display: 'flex',
@@ -44,10 +43,18 @@ const NewCustomers = () => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={roselle} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography
+                variant="body1"
+                color={(theme) => theme.palette.text.primary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Roselle Ehrman
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography
+                variant="body2"
+                color={(theme) => theme.palette.text.secondary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Brazil
               </Typography>
             </Box>
@@ -66,10 +73,18 @@ const NewCustomers = () => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={jone} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography
+                variant="body1"
+                color={(theme) => theme.palette.text.primary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Jone Smith
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography
+                variant="body2"
+                color={(theme) => theme.palette.text.secondary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Australia
               </Typography>
             </Box>
@@ -88,10 +103,18 @@ const NewCustomers = () => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={darron} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography
+                variant="body1"
+                color={(theme) => theme.palette.text.primary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Darron Handler
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography
+                variant="body2"
+                color={(theme) => theme.palette.text.secondary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Pakistan
               </Typography>
             </Box>
@@ -110,10 +133,18 @@ const NewCustomers = () => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={leatrice} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography
+                variant="body1"
+                color={(theme) => theme.palette.text.primary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Leatrice Kulik
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography
+                variant="body2"
+                color={(theme) => theme.palette.text.secondary}
+                fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              >
                 Mascow
               </Typography>
             </Box>

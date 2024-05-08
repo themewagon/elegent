@@ -17,14 +17,13 @@ const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
         boxShadow: theme.shadows[4],
       }}
     >
-      <CardMedia>
-        <Image
-          src={`${image}`}
-          sx={{
-            width: '70px',
-            height: '70px',
-          }}
-        />
+      <CardMedia
+        sx={{
+          maxWidth: theme.spacing(8.75),
+          maxHeight: theme.spacing(8.75),
+        }}
+      >
+        <Image src={`${image}`} width={1} height={1} />
       </CardMedia>
       <CardContent
         sx={{
@@ -61,7 +60,11 @@ const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
           ${subtitle}
         </Typography>
         <Stack direction="row" alignItems="center" gap={1} color={theme.palette.primary.main}>
-          <IconifyIcon icon="ph:trend-up-fill" width="18px" height="18px" />
+          <IconifyIcon
+            icon="ph:trend-up-fill"
+            width={theme.spacing(2.25)}
+            height={theme.spacing(2.25)}
+          />
           <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
             {`+${sales}%`} last month
           </Typography>

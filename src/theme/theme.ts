@@ -28,6 +28,7 @@ import Link from './components/Link';
 import typography from './typography';
 import palette from './palette';
 import shadows from './shadows';
+import Grid2 from './components/Grid2';
 
 export const theme = createTheme({
   typography: typography,
@@ -54,6 +55,7 @@ export const theme = createTheme({
     MuiPaper: Paper,
     MuiInput: Input,
     MuiBadge: Badge,
+    MuiGrid2: Grid2,
     MuiStack: Stack,
     MuiCard: Card,
     MuiLink: Link,

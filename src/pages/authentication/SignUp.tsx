@@ -87,7 +87,11 @@ const SignUp = () => {
           <Button variant="contained" fullWidth>
             Sign up
           </Button>
-          <Typography variant="subtitle2" color={(theme) => theme.palette.text.secondary}>
+          <Typography
+            variant="subtitle2"
+            color={(theme) => theme.palette.text.secondary}
+            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+          >
             Already have an account ?{' '}
             <Link href="/authentication/login" underline="hover">
               Log in

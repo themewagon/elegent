@@ -10,6 +10,7 @@ const option: EChartsOption = {
       fontSize: '20.25px',
       fontWeight: 500,
       color: '#050F24',
+      fontFamily: 'IBM Plex Sans',
     },
     top: 30,
     left: 30,

@@ -84,24 +84,7 @@ const MainLayout = ({ children }: PropsWithChildren) => {
           <Sidebar />
         </Drawer>
       </Box>
-      <Grid
-        container
-        component="main"
-        columns={12}
-        columnSpacing={3.75}
-        rowSpacing={3.75}
-        flexGrow={1}
-        pt={2.5}
-        pr={3.75}
-        mt="85.125px"
-        sx={{
-          width: { md: `calc(100% - ${drawerWidth}px)` },
-          // pl: { md: 0 },
-        }}
-        pb={3.75}
-      >
-        {children}
-      </Grid>
+      {children}
     </Stack>
   );
 };

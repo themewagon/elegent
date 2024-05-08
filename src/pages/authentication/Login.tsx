@@ -71,15 +71,20 @@ const Login = () => {
             sx={{
               alignSelf: 'flex-end',
             }}
+            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
           >
-            <Link href="#" underline="hover">
+            <Link href="/authentication/reset-password" underline="hover">
               Forget password
             </Link>
           </Typography>
           <Button variant="contained" fullWidth>
             Log in
           </Button>
-          <Typography variant="subtitle2" color={(theme) => theme.palette.text.secondary}>
+          <Typography
+            variant="subtitle2"
+            color={(theme) => theme.palette.text.secondary}
+            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+          >
             Don't have an account ?{' '}
             <Link href="/authentication/sign-up" underline="hover">
               Sign up
