@@ -12,18 +12,17 @@ import loginBanner from 'assets/authentication-banners/login.png';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
-import { theme } from 'theme/theme';
 
 const Login = () => {
   return (
     <Stack
       direction="row"
-      bgcolor={theme.palette.background.paper}
-      boxShadow={theme.shadows[3]}
+      bgcolor={(theme) => theme.palette.background.paper}
+      boxShadow={(theme) => theme.shadows[3]}
       height={560}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={theme.spacing(2.5)} gap={10}>
+      <Stack width={0.5} m={(theme) => theme.spacing(2.5)} gap={10}>
         <Link href="/">
           <Image src={logo} width="82.6px" />
         </Link>
@@ -41,10 +40,10 @@ const Login = () => {
                   <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
                 </InputAdornment>
               }
-              sx={{
+              sx={(theme) => ({
                 width: 1,
                 backgroundColor: theme.palette.action.focus,
-              }}
+              })}
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
@@ -60,10 +59,10 @@ const Login = () => {
                   <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                 </InputAdornment>
               }
-              sx={{
+              sx={(theme) => ({
                 width: 1,
                 backgroundColor: theme.palette.action.focus,
-              }}
+              })}
             />
           </FormControl>
           <Typography

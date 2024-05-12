@@ -1,5 +1,5 @@
 import { Theme } from '@mui/material';
-import { GridFooter } from '@mui/x-data-grid';
+import { GridFooter, GridSkeletonCell } from '@mui/x-data-grid';
 
 import type { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
 import CustomPagination from 'theme/components/DataGrid/CustomPagination';
@@ -14,13 +14,13 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     slots: {
       pagination: CustomPagination,
       footer: GridFooter,
+      skeletonCell: GridSkeletonCell,
     },
   },
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
       border: 'none',
-      height: '100%',
       borderColor: theme.palette.divider,
       '--DataGrid-rowBorderColor': theme.palette.background.paper,
       '--DataGrid-containerBackground': theme.palette.background.paper,
@@ -66,8 +66,10 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       height: '100%',
     }),
     filler: () => ({
-      height: 'auto',
-      flex: 1,
+      display: 'none',
+      height: 0,
+      flex: 0,
+      flexGrow: 0,
     }),
     withBorderColor: ({ theme }) => ({
       borderColor: theme.palette.divider,

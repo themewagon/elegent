@@ -20,7 +20,8 @@ import { drawerWidth } from 'layouts/main-layout';
 
 import profile from 'assets/profile/profile.jpg';
 import { MouseEventHandler } from 'react';
-import { theme } from 'theme/theme';
+import { useLocation } from 'react-router-dom';
+import capitalizePathname from 'helpers/capitalizePathname';
 
 interface TopbarProps {
   handleDrawerToggle: MouseEventHandler;
@@ -31,6 +32,9 @@ interface TopbarProps {
 }
 
 const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }: TopbarProps) => {
+  const { pathname } = useLocation();
+  // const title = capitalizePathname(pathname);
+
   return (
     <AppBar
       sx={{
@@ -57,6 +61,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
           }}
         >
           <Typography variant="h5" component="h5">
+            {/* {title || 'Dashboard'} */}
             Dashboard
           </Typography>
           <TextField
@@ -69,7 +74,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
               ),
             }}
             fullWidth
-            sx={{ maxWidth: theme.spacing(41.25) }}
+            sx={(theme) => ({ maxWidth: theme.spacing(41.25) })}
           />
         </Box>
         <IconButton
@@ -103,8 +108,8 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
             <Typography
               variant="body1"
               component="p"
-              color={theme.palette.text.primary}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              color={(theme) => theme.palette.text.primary}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               Aiden Max
             </Typography>
@@ -112,7 +117,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
               icon="ion:caret-down-outline"
               width="24px"
               height="24px"
-              color={theme.palette.text.primary}
+              color={(theme) => theme.palette.text.primary}
             />
           </Button>
           <Menu
@@ -149,7 +154,7 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
               onClick={handleClose}
               disableRipple
               disableTouchRipple
-              sx={{ color: 'error.main' }}
+              sx={(theme) => ({ color: theme.palette.error.main })}
             >
               <ListItemIcon>
                 <IconifyIcon icon="ri:logout-circle-line" color="#F54F5F" />

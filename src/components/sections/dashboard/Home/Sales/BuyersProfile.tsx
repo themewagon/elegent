@@ -2,7 +2,6 @@ import { Box, IconButton, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EChartsReact from 'echarts-for-react';
 import { EChartsOption } from 'echarts';
-import { theme } from 'theme/theme';
 
 const option: EChartsOption = {
   tooltip: {
@@ -13,7 +12,7 @@ const option: EChartsOption = {
     {
       name: 'Buyers Profile',
       type: 'pie',
-      radius: ['75%', '95%'],
+      radius: ['65%', '90%'],
       color: ['#FF8E29', '#27D095', '#F54F5F'],
       avoidLabelOverlap: true,
       startAngle: -30,
@@ -41,17 +40,18 @@ const option: EChartsOption = {
 };
 const BuyersProfile = () => {
   return (
-    <Box
-      sx={{
+    <Stack
+      sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-      }}
+        height: 0.5,
+      })}
     >
       <Stack
         direction="row"
         justifyContent="space-between"
         alignItems="center"
-        padding={theme.spacing(2.5)}
+        padding={(theme) => theme.spacing(2.5)}
       >
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           Buyers Profile
@@ -64,105 +64,113 @@ const BuyersProfile = () => {
         </IconButton>
       </Stack>
       <Stack
-        direction={{ xs: 'row', sm: 'column', lg: 'row' }}
-        justifyContent="space-between"
+        direction={{ xs: 'row', md: 'column', lg: 'row' }}
         alignItems="center"
-        spacing={4}
-        padding={theme.spacing(0, 2.5, 2.5)}
+        flex={1}
+        gap={4}
+        padding={(theme) => theme.spacing(0, 2.5, 2.5)}
       >
         <Box
           sx={{
-            width: 1,
-            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            flex: '1 1 0%',
+            width: 0.5,
           }}
         >
-          <EChartsReact option={option} />
+          <Box
+            sx={{
+              width: 'fit-content',
+            }}
+          >
+            <EChartsReact option={option} style={{ width: '177px', height: '177px' }} lazyUpdate />
+          </Box>
         </Box>
         <Stack
           spacing={2}
           sx={{
-            width: 1,
-            flex: 1,
+            width: 0.5,
+            // flex: 1,
           }}
         >
           <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
             <Box
-              sx={{
+              sx={(theme) => ({
                 width: theme.spacing(1.25),
                 height: theme.spacing(1.25),
                 backgroundColor: theme.palette.primary.main,
                 borderRadius: theme.shape.borderRadius * 100,
-              }}
+              })}
             ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               Male
             </Typography>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.primary}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               50%
             </Typography>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
             <Box
-              sx={{
+              sx={(theme) => ({
                 width: theme.spacing(1.25),
                 height: theme.spacing(1.25),
                 backgroundColor: theme.palette.secondary.main,
                 borderRadius: theme.shape.borderRadius * 100,
-              }}
+              })}
             ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               Female
             </Typography>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.primary}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               35%
             </Typography>
           </Stack>
           <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
             <Box
-              sx={{
+              sx={(theme) => ({
                 width: theme.spacing(1.25),
                 height: theme.spacing(1.25),
                 backgroundColor: theme.palette.error.main,
                 borderRadius: theme.shape.borderRadius * 100,
-              }}
+              })}
             ></Box>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.secondary}
               sx={{ flex: 1 }}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               Others
             </Typography>
             <Typography
               variant="body1"
               color={(theme) => theme.palette.text.primary}
-              fontFamily={theme.typography.fontFamily?.split(',')[1]}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
             >
               15%
             </Typography>
           </Stack>
         </Stack>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

@@ -1,27 +1,27 @@
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
-import { theme } from 'theme/theme';
 
 type SaleInfoProps = {
   image?: string;
   title: string;
   subtitle: string;
   sales: number;
+  date?: boolean;
 };
 
-const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
+const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps) => {
   return (
     <Card
-      sx={{
+      sx={(theme) => ({
         boxShadow: theme.shadows[4],
-      }}
+      })}
     >
       <CardMedia
-        sx={{
+        sx={(theme) => ({
           maxWidth: theme.spacing(8.75),
           maxHeight: theme.spacing(8.75),
-        }}
+        })}
       >
         <Image src={`${image}`} width={1} height={1} />
       </CardMedia>
@@ -42,30 +42,40 @@ const SaleInfo = ({ image, title, subtitle, sales }: SaleInfoProps) => {
           >
             {title}
           </Typography>
-          <Typography
-            variant="body2"
-            component="p"
-            color={(theme) => theme.palette.text.secondary}
-            fontFamily={theme.typography.fontFamily?.split(',')[1]}
-          >
-            May 2022
-          </Typography>
+          {date && (
+            <Typography
+              variant="body2"
+              component="p"
+              color={(theme) => theme.palette.text.secondary}
+              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+            >
+              May 2022
+            </Typography>
+          )}
         </Stack>
         <Typography
           variant="body1"
           component="p"
           color={(theme) => theme.palette.text.secondary}
-          fontFamily={theme.typography.fontFamily?.split(',')[1]}
+          fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
         >
           ${subtitle}
         </Typography>
-        <Stack direction="row" alignItems="center" gap={1} color={theme.palette.primary.main}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          gap={1}
+          color={(theme) => theme.palette.primary.main}
+        >
           <IconifyIcon
             icon="ph:trend-up-fill"
-            width={theme.spacing(2.25)}
-            height={theme.spacing(2.25)}
+            width={(theme) => theme.spacing(2.25)}
+            height={(theme) => theme.spacing(2.25)}
           />
-          <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
+          <Typography
+            variant="body1"
+            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+          >
             {`+${sales}%`} last month
           </Typography>
         </Stack>

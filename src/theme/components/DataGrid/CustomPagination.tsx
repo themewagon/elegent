@@ -1,4 +1,4 @@
-import { PaginationItem, TablePaginationProps, Typography } from '@mui/material';
+import { Button, PaginationItem, TablePaginationProps } from '@mui/material';
 import {
   GridPagination,
   gridPageCountSelector,
@@ -6,7 +6,6 @@ import {
   useGridSelector,
 } from '@mui/x-data-grid';
 import MuiPagination from '@mui/material/Pagination';
-import { theme } from 'theme/theme';
 
 function Pagination({
   page,
@@ -27,25 +26,17 @@ function Pagination({
         <PaginationItem
           {...item}
           slots={{
-            previous: () => (
-              <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
-                Prev
-              </Typography>
-            ),
-            next: () => (
-              <Typography variant="body1" fontFamily={theme.typography.fontFamily?.split(',')[1]}>
-                Next
-              </Typography>
-            ),
+            previous: () => <Button variant="text">Prev</Button>,
+            next: () => <Button variant="text">Next</Button>,
           }}
-          sx={{
+          sx={(theme) => ({
             '&.Mui-selected': {
               color: theme.palette.common.white,
             },
             '&.Mui-disabled': {
               color: theme.palette.text.secondary,
             },
-          }}
+          })}
         />
       )}
     />

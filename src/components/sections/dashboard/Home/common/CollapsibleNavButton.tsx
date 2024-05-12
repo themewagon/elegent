@@ -10,7 +10,6 @@ import {
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useLocation } from 'react-router-dom';
-import { theme } from 'theme/theme';
 import { useEffect, useState } from 'react';
 
 interface NavItemProps {
@@ -36,7 +35,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
   return (
     <ListItem
       disablePadding
-      sx={{
+      sx={(theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'start',
@@ -50,7 +49,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             pathname === navItem.path ? theme.palette.primary.main : theme.palette.action.focus,
           opacity: 1.5,
         },
-      }}
+      })}
     >
       {navItem.collapsible ? (
         <>
@@ -68,9 +67,9 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
             <ListItemIcon>
               {navItem.collapsible &&
                 (checked ? (
-                  <IconifyIcon icon="mingcute:up-fill" />
+                  <IconifyIcon icon="mingcute:up-fill" width={1} height={1} />
                 ) : (
-                  <IconifyIcon icon="mingcute:down-fill" />
+                  <IconifyIcon icon="mingcute:down-fill" width={1} height={1} />
                 ))}
             </ListItemIcon>
           </ListItemButton>
@@ -84,7 +83,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
               {navItem.sublist.map((subListItem: any, idx: number) => (
                 <ListItem
                   key={idx}
-                  sx={{
+                  sx={(theme) => ({
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'start',
@@ -100,19 +99,21 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
                           : theme.palette.action.focus,
                       opacity: 1.5,
                     },
-                  }}
+                  })}
                   disablePadding
                 >
                   {subListItem.collapsible ? (
                     <>
                       <ListItemButton
                         LinkComponent={Link}
-                        onClick={() => handleNestedChecked(idx, !nestedChecked[idx])}
+                        onClick={() => {
+                          handleNestedChecked(idx, !nestedChecked[idx]);
+                        }}
                         sx={{
                           width: 1,
                         }}
                       >
-                        <ListItemText sx={{ ml: theme.spacing(3.5) }}>
+                        <ListItemText sx={(theme) => ({ ml: theme.spacing(3.5) })}>
                           {subListItem.title}
                         </ListItemText>
                         <ListItemIcon>
@@ -157,7 +158,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
                                     width: 1,
                                   }}
                                 >
-                                  <ListItemText sx={{ ml: theme.spacing(5) }}>
+                                  <ListItemText sx={(theme) => ({ ml: theme.spacing(5) })}>
                                     {nestedSubListItem.title}
                                   </ListItemText>
                                 </ListItemButton>
@@ -179,7 +180,9 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
                         width: 1,
                       }}
                     >
-                      <ListItemText sx={{ ml: theme.spacing(3) }}>{subListItem.title}</ListItemText>
+                      <ListItemText sx={(theme) => ({ ml: theme.spacing(3) })}>
+                        {subListItem.title}
+                      </ListItemText>
                     </ListItemButton>
                   )}
                 </ListItem>
@@ -196,7 +199,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
           }}
         >
           <ListItemIcon>
-            <IconifyIcon icon={navItem.icon} />
+            <IconifyIcon icon={navItem.icon} width={1} height={1} />
           </ListItemIcon>
           <ListItemText>{navItem.title}</ListItemText>
         </ListItemButton>

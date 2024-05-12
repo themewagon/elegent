@@ -1,14 +1,18 @@
-import { Box, Drawer, Grid, Stack } from '@mui/material';
-import { PropsWithChildren, useState } from 'react';
+import { Box, Drawer, Stack } from '@mui/material';
+import { PropsWithChildren, useEffect, useState } from 'react';
 
 import Sidebar from 'layouts/main-layout/Sidebar/Sidebar';
 import Topbar from 'layouts/main-layout/Topbar/Topbar';
+import { useLocation } from 'react-router-dom';
 
 export const drawerWidth = 278;
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => console.log(location), [location]);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -56,29 +60,29 @@ const MainLayout = ({ children }: PropsWithChildren) => {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={{
+          sx={(theme) => ({
             display: { xs: 'block', md: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
               border: 0,
-              backgroundColor: (theme) => theme.palette.background.paper,
+              backgroundColor: theme.palette.background.paper,
             },
-          }}
+          })}
         >
           <Sidebar />
         </Drawer>
         <Drawer
           variant="permanent"
-          sx={{
+          sx={(theme) => ({
             display: { xs: 'none', md: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
               border: 0,
-              backgroundColor: (theme) => theme.palette.background.default,
+              backgroundColor: theme.palette.background.default,
             },
-          }}
+          })}
           open
         >
           <Sidebar />

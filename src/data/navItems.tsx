@@ -76,10 +76,6 @@ export const navItems = [
         collapsible: true,
         sublist: [
           {
-            title: 'All Projects',
-            path: 'all-projects',
-          },
-          {
             title: 'Timeline',
             path: 'timeline',
           },
@@ -106,7 +102,7 @@ export const navItems = [
         path: 'data-tables',
       },
       {
-        title: 'Schedulea',
+        title: 'Schedule',
         path: 'schedule',
       },
     ],

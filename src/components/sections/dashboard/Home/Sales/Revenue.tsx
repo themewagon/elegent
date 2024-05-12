@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
-import { theme } from 'theme/theme';
 
 const option: EChartsOption = {
   title: {
@@ -79,6 +78,7 @@ const option: EChartsOption = {
       fontWeight: 400,
       color: '#6F757E',
     },
+    itemGap: 20,
   },
   tooltip: {
     show: true,
@@ -115,12 +115,13 @@ const option: EChartsOption = {
 const Revenue = () => {
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
+        minHeight: theme.spacing(67.8),
         width: 1,
-        height: { xs: '460px', md: 1 },
-      }}
+        height: 1,
+      })}
     >
       <EChartsReact option={option} style={{ height: '100%' }} />
     </Box>

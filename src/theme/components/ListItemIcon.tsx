@@ -9,6 +9,7 @@ const ListItemIcon: Components<Omit<Theme, 'components'>>['MuiListItemIcon'] = {
       height: theme.spacing(2.25),
       color: 'inherit',
       minWidth: 'auto',
+      alignItems: 'center',
     }),
   },
 };
