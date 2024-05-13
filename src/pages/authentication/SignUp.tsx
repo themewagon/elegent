@@ -13,7 +13,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 
-const SignUp = () => {
+const SignUp = (): React.ReactElement => {
   return (
     <Stack
       direction="row"
@@ -23,8 +23,8 @@ const SignUp = () => {
       width={{ md: 960 }}
     >
       <Stack width={0.5} m={(theme) => theme.spacing(2.5)} gap={10}>
-        <Link href="/">
-          <Image src={logo} width="82.6px" />
+        <Link href="/" width="fit-content">
+          <Image src={logo} width={82.6} />
         </Link>
         <Stack alignItems="center" gap={2.5} width={330} mx="auto">
           <Typography variant="h3">Signup</Typography>
@@ -87,12 +87,16 @@ const SignUp = () => {
             Sign up
           </Button>
           <Typography
-            variant="subtitle2"
+            variant="body2"
             color={(theme) => theme.palette.text.secondary}
             fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
           >
             Already have an account ?{' '}
-            <Link href="/authentication/login" underline="hover">
+            <Link
+              href="/authentication/login"
+              underline="hover"
+              fontSize={(theme) => theme.typography.body1.fontSize}
+            >
               Log in
             </Link>
           </Typography>

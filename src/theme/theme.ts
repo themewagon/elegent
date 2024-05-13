@@ -30,6 +30,7 @@ import palette from './palette';
 import shadows from './shadows';
 import Grid2 from './components/Grid2';
 import Menu from './components/Menu';
+import Switch from './components/Switch';
 
 export const theme = createTheme({
   typography: typography,
@@ -51,8 +52,9 @@ export const theme = createTheme({
     MuiTextField: TextField,
     MuiDataGrid: DataGrid,
     MuiToolbar: Toolbar,
-    MuiButton: Button,
     MuiAppBar: AppBar,
+    MuiButton: Button,
+    MuiSwitch: Switch,
     MuiPaper: Paper,
     MuiInput: Input,
     MuiBadge: Badge,

@@ -14,7 +14,7 @@ import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 import { navItems } from 'data/navItems';
 
-const Sidebar = () => {
+const Sidebar = (): React.ReactElement => {
   return (
     <Stack
       justifyContent="space-between"

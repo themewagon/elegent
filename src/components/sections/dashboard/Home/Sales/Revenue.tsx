@@ -112,7 +112,7 @@ const option: EChartsOption = {
   ],
 };
 
-const Revenue = () => {
+const Revenue = (): React.ReactElement => {
   return (
     <Box
       sx={(theme) => ({

@@ -6,7 +6,7 @@ import jone from 'assets/new-customers/jone.png';
 
 import IconifyIcon from 'components/base/IconifyIcon';
 
-const NewCustomers = () => {
+const NewCustomers = (): React.ReactElement => {
   return (
     <Box
       sx={(theme) => ({

@@ -31,9 +31,15 @@ interface TopbarProps {
   handleClose?: () => void;
 }
 
-const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }: TopbarProps) => {
+const Topbar = ({
+  handleDrawerToggle,
+  open,
+  handleClick,
+  anchorEl,
+  handleClose,
+}: TopbarProps): React.ReactElement => {
   const { pathname } = useLocation();
-  // const title = capitalizePathname(pathname);
+  const title = capitalizePathname(pathname);
 
   return (
     <AppBar
@@ -61,8 +67,8 @@ const Topbar = ({ handleDrawerToggle, open, handleClick, anchorEl, handleClose }
           }}
         >
           <Typography variant="h5" component="h5">
-            {/* {title || 'Dashboard'} */}
-            Dashboard
+            {pathname === '/' ? 'Dashboard' : title}
+            {/* Dashboard */}
           </Typography>
           <TextField
             placeholder="Search..."

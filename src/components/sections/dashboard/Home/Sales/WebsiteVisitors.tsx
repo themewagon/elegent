@@ -43,7 +43,7 @@ const options: EChartsOption = {
     },
   ],
 };
-const WebsiteVisitors = () => {
+const WebsiteVisitors = (): React.ReactElement => {
   return (
     <Box
       sx={(theme) => ({

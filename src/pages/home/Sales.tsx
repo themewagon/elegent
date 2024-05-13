@@ -13,7 +13,7 @@ import customers from 'assets/sale-info/customers.png';
 import sales from 'assets/sale-info/sales.png';
 import { drawerWidth } from 'layouts/main-layout';
 
-const Sales = () => {
+const Sales = (): React.ReactElement => {
   return (
     <Grid
       container

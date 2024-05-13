@@ -38,7 +38,7 @@ const option: EChartsOption = {
     },
   ],
 };
-const BuyersProfile = () => {
+const BuyersProfile = (): React.ReactElement => {
   return (
     <Stack
       sx={(theme) => ({

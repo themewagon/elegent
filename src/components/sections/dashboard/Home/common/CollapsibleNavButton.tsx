@@ -17,7 +17,7 @@ interface NavItemProps {
   Link: OverridableComponent<LinkTypeMap>;
 }
 
-const CollapsibleNavButton = ({ navItem, Link }: NavItemProps) => {
+const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): React.ReactElement => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
   const [nestedChecked, setNestedChecked] = useState<boolean[]>([]);

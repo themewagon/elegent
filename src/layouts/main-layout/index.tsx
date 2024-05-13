@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 export const drawerWidth = 278;
 
-const MainLayout = ({ children }: PropsWithChildren) => {
+const MainLayout = ({ children }: PropsWithChildren): React.ReactElement => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();

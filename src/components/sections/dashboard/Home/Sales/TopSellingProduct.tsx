@@ -2,7 +2,7 @@ import { Divider, Stack, Typography } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
 import { columns, rows } from 'data/tableData';
 
-const TopSellingProduct = () => {
+const TopSellingProduct = (): React.ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
 
   // const { data } = useDemoData({

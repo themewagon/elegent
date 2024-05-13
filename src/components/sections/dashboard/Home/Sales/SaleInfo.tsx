@@ -10,7 +10,7 @@ type SaleInfoProps = {
   date?: boolean;
 };
 
-const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps) => {
+const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React.ReactElement => {
   return (
     <Card
       sx={(theme) => ({

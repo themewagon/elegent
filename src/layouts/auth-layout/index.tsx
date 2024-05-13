@@ -2,7 +2,7 @@ import { Stack } from '@mui/material';
 import { PropsWithChildren, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-const AuthLayout = ({ children }: PropsWithChildren) => {
+const AuthLayout = ({ children }: PropsWithChildren): React.ReactElement => {
   const location = useLocation();
 
   useEffect(() => console.log(location), [location]);

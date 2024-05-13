@@ -4,8 +4,8 @@ import logo from 'assets/logo/elegant-logo.png';
 import error404 from 'assets/404/404.jpg';
 import Image from 'components/base/Image';
 
-const Error404 = () => {
-  const renderHeader = (
+const Error404 = (): React.ReactElement => {
+  const renderHeader: React.ReactElement = (
     <Box
       component="header"
       sx={{
