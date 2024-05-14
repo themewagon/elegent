@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { Avatar, Box, IconButton, ListItem, Stack, Typography } from '@mui/material';
 import leatrice from 'assets/new-customers/leatrice.png';
 import roselle from 'assets/new-customers/roselle.jpg';
@@ -6,7 +7,7 @@ import jone from 'assets/new-customers/jone.png';
 
 import IconifyIcon from 'components/base/IconifyIcon';
 
-const NewCustomers = (): React.ReactElement => {
+const NewCustomers = (): ReactElement => {
   return (
     <Box
       sx={(theme) => ({

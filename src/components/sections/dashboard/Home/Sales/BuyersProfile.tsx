@@ -2,6 +2,7 @@ import { Box, IconButton, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EChartsReact from 'echarts-for-react';
 import { EChartsOption } from 'echarts';
+import { ReactElement } from 'react';
 
 const option: EChartsOption = {
   tooltip: {
@@ -38,7 +39,7 @@ const option: EChartsOption = {
     },
   ],
 };
-const BuyersProfile = (): React.ReactElement => {
+const BuyersProfile = (): ReactElement => {
   return (
     <Stack
       sx={(theme) => ({

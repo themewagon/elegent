@@ -12,8 +12,9 @@ import avgRevenue from 'assets/sale-info/avg-revenue.png';
 import customers from 'assets/sale-info/customers.png';
 import sales from 'assets/sale-info/sales.png';
 import { drawerWidth } from 'layouts/main-layout';
+import { ReactElement } from 'react';
 
-const Sales = (): React.ReactElement => {
+const Sales = (): ReactElement => {
   return (
     <Grid
       container

@@ -68,7 +68,6 @@ const Topbar = ({
         >
           <Typography variant="h5" component="h5">
             {pathname === '/' ? 'Dashboard' : title}
-            {/* Dashboard */}
           </Typography>
           <TextField
             placeholder="Search..."

@@ -1,9 +1,11 @@
-import { Box, CircularProgress, Stack } from '@mui/material';
+import { Box, CircularProgress, Stack, StackOwnProps } from '@mui/material';
 
-const PageLoader = () => {
+const PageLoader = (props: StackOwnProps) => {
   return (
-    <Stack direction='row'>
-      <CircularProgress color="secondary" />
+    <Stack alignItems="center" justifyContent="center" height={1} {...props}>
+      <Box height={'25vw'} width={'25vw'}>
+        <CircularProgress color="secondary" />
+      </Box>
     </Stack>
   );
 };

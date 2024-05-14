@@ -39,6 +39,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     columnHeaders: ({ theme }) => ({
       borderBottom: 'none',
       backgroundColor: theme.palette.background.paper,
+      // minWidth: theme.spacing(18.75),
     }),
     columnHeaderTitle: ({ theme }) => ({
       fontSize: theme.typography.subtitle1.fontSize,
@@ -52,12 +53,14 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
       fontFamily: theme.typography.fontFamily?.split(',')[1],
+      // minWidth: theme.spacing(18.75),
       border: 'none',
       display: 'flex',
       alignItems: 'center',
     }),
     row: () => ({
       border: 'none',
+      width: 1,
     }),
     virtualScroller: () => ({
       overflowX: 'scroll !important' as 'scroll',

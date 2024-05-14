@@ -8,13 +8,15 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import profile from 'assets/profile/profile.jpg';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
+
+import profile from 'assets/profile/profile.jpg';
 
 const UserInfo = (): React.ReactElement => {
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <Stack
@@ -32,8 +34,16 @@ const UserInfo = (): React.ReactElement => {
       gap={3.75}
     >
       <Stack gap={3.75} flex={1}>
-        <Stack direction="row" gap={3.75} alignItems="center">
-          <Box maxWidth={(theme) => theme.spacing(12.5)} height={(theme) => theme.spacing(12.5)}>
+        <Stack
+          direction={{ xs: 'row', md: 'column', lg: 'row' }}
+          gap={3.75}
+          alignItems={{ xs: 'center', md: 'flex-start', lg: 'center' }}
+        >
+          <Box
+            maxWidth={(theme) => theme.spacing(12.5)}
+            height={(theme) => theme.spacing(12.5)}
+            borderRadius={9999}
+          >
             <Image
               src={profile}
               alt="Aiden Max"
@@ -137,6 +147,9 @@ const UserInfo = (): React.ReactElement => {
                   height: theme.spacing(3),
                   padding: 0,
                   backgroundColor: theme.palette.common.white,
+                  ':hover': {
+                    backgroundColor: theme.palette.common.white,
+                  },
                 })}
               >
                 <IconifyIcon
@@ -152,6 +165,9 @@ const UserInfo = (): React.ReactElement => {
                   height: theme.spacing(3),
                   padding: 0,
                   backgroundColor: theme.palette.common.white,
+                  ':hover': {
+                    backgroundColor: theme.palette.common.white,
+                  },
                 })}
               >
                 <IconifyIcon
@@ -167,6 +183,9 @@ const UserInfo = (): React.ReactElement => {
                   height: theme.spacing(3),
                   padding: 0,
                   backgroundColor: theme.palette.common.white,
+                  ':hover': {
+                    backgroundColor: theme.palette.common.white,
+                  },
                 })}
               >
                 <IconifyIcon

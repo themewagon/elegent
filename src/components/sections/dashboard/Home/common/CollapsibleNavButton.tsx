@@ -1,3 +1,4 @@
+import { ReactElement, useEffect, useState } from 'react';
 import {
   Collapse,
   LinkTypeMap,
@@ -10,14 +11,13 @@ import {
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
 interface NavItemProps {
   navItem?: any;
   Link: OverridableComponent<LinkTypeMap>;
 }
 
-const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): React.ReactElement => {
+const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
   const [nestedChecked, setNestedChecked] = useState<boolean[]>([]);

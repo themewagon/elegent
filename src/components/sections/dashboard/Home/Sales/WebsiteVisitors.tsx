@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { Box, Divider, Stack, Typography } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
@@ -43,14 +44,13 @@ const options: EChartsOption = {
     },
   ],
 };
-const WebsiteVisitors = (): React.ReactElement => {
+const WebsiteVisitors = (): ReactElement => {
   return (
     <Box
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
         height: 'min-content',
-        // maxWidth: theme.spacing(40),
       })}
     >
       <Typography

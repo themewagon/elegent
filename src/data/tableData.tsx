@@ -15,9 +15,9 @@ export const columns = [
   {
     field: 'product',
     headerName: 'Product',
-    flex: 1.2,
+    flex: 1,
+    minWidth: 182.9625,
     renderCell: (params: any) => {
-      // console.log(params);
       return (
         <Stack direction="row" spacing={1.5} alignItems="center">
           <Avatar src={params.value.avatar} />
@@ -45,12 +45,14 @@ export const columns = [
   {
     field: 'orders',
     headerName: 'Orders',
-    flex: 0.8,
+    flex: 0.75,
+    minWidth: 137.221875,
   },
   {
     field: 'price',
     headerName: 'Price',
-    flex: 0.8,
+    flex: 0.75,
+    minWidth: 137.221875,
     renderCell: ({ row: { price } }: any) => {
       return `$${price}`;
     },
@@ -58,7 +60,8 @@ export const columns = [
   {
     field: 'adsSpent',
     headerName: 'Ads Spent',
-    flex: 0.8,
+    flex: 0.75,
+    minWidth: 137.221875,
     renderCell: ({ row: { adsSpent } }: any) => {
       return `$${adsSpent}00`;
     },
@@ -66,7 +69,8 @@ export const columns = [
   {
     field: 'refunds',
     headerName: 'Refunds',
-    flex: 0.8,
+    flex: 0.75,
+    minWidth: 137.221875,
     renderCell: ({ row: { refunds } }: any) => {
       if (refunds > 0) return `> ${refunds}`;
       else return `< ${-refunds}`;

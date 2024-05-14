@@ -1,4 +1,12 @@
-import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
@@ -11,10 +19,15 @@ type SaleInfoProps = {
 };
 
 const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React.ReactElement => {
+  const theme = useTheme();
+  const betweenMdAndLg = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+
   return (
     <Card
       sx={(theme) => ({
         boxShadow: theme.shadows[4],
+        flexDirection: betweenMdAndLg ? 'column' : 'row',
+        alignItems: betweenMdAndLg ? 'flex-start' : 'center',
       })}
     >
       <CardMedia
@@ -28,6 +41,7 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
       <CardContent
         sx={{
           flex: '1 1 auto',
+          // width: 1,
           padding: 0,
           ':last-child': {
             paddingBottom: 0,

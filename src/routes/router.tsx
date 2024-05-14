@@ -1,21 +1,22 @@
 /* eslint-disable react-refresh/only-export-components */
 import { Suspense, lazy } from 'react';
-import PageLoader from '../components/loading/PageLoader';
-import { Navigate, Outlet, createBrowserRouter, redirect } from 'react-router-dom';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
-import sales from './paths';
+// import sales from './paths';
+
+import Splash from 'components/loading/Splash';
+import PageLoader from '../components/loading/PageLoader';
 
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
 const Error404 = lazy(() => import('pages/errors/Error404'));
 
-import Sales from 'pages/home/Sales';
-import Login from 'pages/authentication/Login';
-import SignUp from 'pages/authentication/SignUp';
-import Splash from 'components/loading/Splash';
-import Dashboard from 'pages/home/Dashboard';
-import ResetPassword from 'pages/authentication/ResetPassword';
+const Sales = lazy(() => import('pages/home/Sales'));
+const Login = lazy(() => import('pages/authentication/Login'));
+const SignUp = lazy(() => import('pages/authentication/SignUp'));
+const Dashboard = lazy(() => import('pages/home/Dashboard'));
+const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
 import Overview from 'pages/pages/profile/Overview';
 import AllProjects from 'pages/pages/profile/AllProjects';
 import AllUsers from 'pages/pages/users/AllUsers';
@@ -70,6 +71,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'pages',
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            ),
             children: [
               {
                 path: 'profile',
@@ -127,6 +133,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'applications',
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            ),
             children: [
               {
                 path: 'kanban',
@@ -148,6 +159,11 @@ export const router = createBrowserRouter([
           },
           {
             path: 'ecommerce',
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            ),
             children: [
               {
                 path: 'products',
@@ -183,15 +199,27 @@ export const router = createBrowserRouter([
           },
           {
             path: 'notifications',
-            element: <Notification />,
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Notification />
+              </Suspense>
+            ),
           },
           {
             path: 'calendar',
-            element: <Calendar />,
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Calendar />
+              </Suspense>
+            ),
           },
           {
             path: 'messages',
-            element: <Message />,
+            element: (
+              <Suspense fallback={<PageLoader />}>
+                <Message />
+              </Suspense>
+            ),
           },
         ],
       },
@@ -214,8 +242,9 @@ export const router = createBrowserRouter([
         path: rootPaths.authRoot,
         element: (
           <AuthLayout>
-            {' '}
-            <Outlet />{' '}
+            <Suspense fallback={<PageLoader />}>
+              <Outlet />
+            </Suspense>
           </AuthLayout>
         ),
         children: [

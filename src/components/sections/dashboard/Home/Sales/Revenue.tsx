@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { Box } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
@@ -112,7 +113,7 @@ const option: EChartsOption = {
   ],
 };
 
-const Revenue = (): React.ReactElement => {
+const Revenue = (): ReactElement => {
   return (
     <Box
       sx={(theme) => ({

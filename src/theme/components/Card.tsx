@@ -10,7 +10,6 @@ const Card: Components<Omit<Theme, 'components'>>['MuiCard'] = {
       borderRadius: theme.shape.borderRadius * 5,
       display: 'flex',
       flexDirection: 'row',
-      // justifyContent: 'space-between',
       alignItems: 'center',
       flexWrap: 'wrap',
       gap: theme.spacing(2.5),

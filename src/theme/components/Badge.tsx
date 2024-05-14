@@ -6,6 +6,7 @@ const Badge: Components<Omit<Theme, 'components'>>['MuiBadge'] = {
   styleOverrides: {
     badge: ({ theme }) => ({
       color: theme.palette.common.white,
+      padding: 0,
     }),
   },
 };
