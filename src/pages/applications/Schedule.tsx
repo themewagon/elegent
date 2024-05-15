@@ -1,4 +1,6 @@
-const Schedule = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Schedule = (): ReactElement => {
   return <div>Schedule</div>;
 };
 

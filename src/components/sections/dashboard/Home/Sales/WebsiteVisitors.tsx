@@ -16,7 +16,7 @@ const options: EChartsOption = {
       startAngle: 0,
       itemStyle: {
         borderRadius: 10,
-        borderColor: '#fff',
+        borderColor: '#FFF',
         borderWidth: 2,
       },
       color: ['#FF8E29', '#27D095', '#67CADF', '#F54F5F'],
@@ -27,7 +27,7 @@ const options: EChartsOption = {
       emphasis: {
         label: {
           show: true,
-          fontSize: 40,
+          fontSize: 30,
           fontWeight: 'bold',
           formatter: `{b}`,
         },
@@ -60,7 +60,15 @@ const WebsiteVisitors = (): ReactElement => {
       >
         Website Visitors
       </Typography>
-      <EChartsReact option={options} />
+      <Box
+        sx={(theme) => ({
+          maxWidth: theme.spacing(27.75),
+          maxHeight: theme.spacing(27.75),
+          mx: 'auto',
+        })}
+      >
+        <EChartsReact option={options} style={{ height: '222px' }} />
+      </Box>
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
           <Box

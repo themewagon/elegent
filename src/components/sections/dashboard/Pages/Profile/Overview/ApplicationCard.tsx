@@ -1,7 +1,7 @@
+import { ReactElement, useState } from 'react';
 import { FormControlLabel, FormGroup, Stack, Switch, Typography } from '@mui/material';
-import { useState } from 'react';
 
-const Application = (): React.ReactElement => {
+const Application = (): ReactElement => {
   const [state, setState] = useState({
     1: true,
     2: false,

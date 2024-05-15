@@ -1,4 +1,6 @@
-const OrderDetail = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const OrderDetail = (): ReactElement => {
   return <div>OrderDetail</div>;
 };
 

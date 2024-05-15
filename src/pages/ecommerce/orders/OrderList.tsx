@@ -1,4 +1,6 @@
-const OrderList = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const OrderList = (): ReactElement => {
   return <div>OrderList</div>;
 };
 

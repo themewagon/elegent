@@ -1,4 +1,6 @@
-const Setting = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Setting = (): ReactElement => {
   return <div>Setting</div>;
 };
 

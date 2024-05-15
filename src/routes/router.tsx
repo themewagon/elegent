@@ -3,40 +3,47 @@ import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
 // import sales from './paths';
-
 import Splash from 'components/loading/Splash';
 import PageLoader from '../components/loading/PageLoader';
 
 const App = lazy(() => import('App'));
 const MainLayout = lazy(() => import('layouts/main-layout'));
 const AuthLayout = lazy(() => import('layouts/auth-layout'));
+
 const Error404 = lazy(() => import('pages/errors/Error404'));
 
+const Dashboard = lazy(() => import('pages/home/Dashboard'));
 const Sales = lazy(() => import('pages/home/Sales'));
+
 const Login = lazy(() => import('pages/authentication/Login'));
 const SignUp = lazy(() => import('pages/authentication/SignUp'));
-const Dashboard = lazy(() => import('pages/home/Dashboard'));
 const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
-import Overview from 'pages/pages/profile/Overview';
-import AllProjects from 'pages/pages/profile/AllProjects';
-import AllUsers from 'pages/pages/users/AllUsers';
-import AddUser from 'pages/pages/users/AddUser';
-import Setting from 'pages/pages/account/Setting';
-import Billing from 'pages/pages/account/Billing';
-import Invoice from 'pages/pages/account/Invoice';
-import Timeline from 'pages/pages/projects/Timeline';
-import Kanban from 'pages/applications/Kanban';
-import Wizard from 'pages/applications/Wizard';
-import DataTables from 'pages/applications/DataTables';
-import Schedule from 'pages/applications/Schedule';
-import AllProducts from 'pages/ecommerce/products/AllProducts';
-import EditProduct from 'pages/ecommerce/products/EditProduct';
-import NewProduct from 'pages/ecommerce/products/NewProduct';
-import OrderList from 'pages/ecommerce/orders/OrderList';
-import OrderDetail from 'pages/ecommerce/orders/OrderDetail';
-import Notification from 'pages/notification/Notification';
-import Calendar from 'pages/calendar/Calendar';
-import Message from 'pages/message/Message';
+
+const Overview = lazy(() => import('pages/pages/profile/Overview'));
+const AllProjects = lazy(() => import('pages/pages/profile/AllProjects'));
+const AllUsers = lazy(() => import('pages/pages/users/AllUsers'));
+const AddUser = lazy(() => import('pages/pages/users/AddUser'));
+const Setting = lazy(() => import('pages/pages/account/Setting'));
+const Billing = lazy(() => import('pages/pages/account/Billing'));
+const Invoice = lazy(() => import('pages/pages/account/Invoice'));
+const Timeline = lazy(() => import('pages/pages/projects/Timeline'));
+
+const Kanban = lazy(() => import('pages/applications/Kanban'));
+const Wizard = lazy(() => import('pages/applications/Wizard'));
+const DataTables = lazy(() => import('pages/applications/DataTables'));
+const Schedule = lazy(() => import('pages/applications/Schedule'));
+
+const AllProducts = lazy(() => import('pages/ecommerce/products/AllProducts'));
+const EditProduct = lazy(() => import('pages/ecommerce/products/EditProduct'));
+const NewProduct = lazy(() => import('pages/ecommerce/products/NewProduct'));
+const OrderList = lazy(() => import('pages/ecommerce/orders/OrderList'));
+const OrderDetail = lazy(() => import('pages/ecommerce/orders/OrderDetail'));
+
+const Notification = lazy(() => import('pages/notification/Notification'));
+
+const Calendar = lazy(() => import('pages/calendar/Calendar'));
+
+const Message = lazy(() => import('pages/message/Message'));
 
 export const router = createBrowserRouter([
   {

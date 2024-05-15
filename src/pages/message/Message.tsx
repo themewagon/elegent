@@ -1,4 +1,6 @@
-const Message = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Message = (): ReactElement => {
   return <div>Message</div>;
 };
 

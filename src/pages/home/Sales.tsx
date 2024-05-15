@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material';
+import { Stack, useMediaQuery, useTheme } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct';
@@ -15,6 +15,11 @@ import { drawerWidth } from 'layouts/main-layout';
 import { ReactElement } from 'react';
 
 const Sales = (): ReactElement => {
+  const theme = useTheme();
+
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  // const belowMedium = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <Grid
       container
@@ -22,7 +27,7 @@ const Sales = (): ReactElement => {
       columns={12}
       spacing={3.75}
       flexGrow={1}
-      mt="85.125px"
+      // mt="94px"
       pt={4.375}
       pr={1.875}
       pb={1.875}
@@ -46,11 +51,16 @@ const Sales = (): ReactElement => {
       <Grid xs={12} md={4}>
         <WebsiteVisitors />
       </Grid>
-      <Grid xs={12} md={8}>
+      <Grid xs={12} lg={8} minHeight={(theme) => theme.spacing(77.75)}>
         <TopSellingProduct />
       </Grid>
-      <Grid xs={12} md={4}>
-        <Stack gap={(theme) => theme.spacing(3.75)} height={1}>
+      <Grid xs={12} lg={4} minHeight={(theme) => (isMediumScreen ? theme.spacing(77.75) : 'auto')}>
+        <Stack
+          direction={{ xs: 'column', md: 'row', lg: 'column' }}
+          gap={(theme) => theme.spacing(3.75)}
+          height={1}
+          width={1}
+        >
           <NewCustomers />
           <BuyersProfile />
         </Stack>

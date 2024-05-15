@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +14,7 @@ import Image from 'components/base/Image';
 
 import profile from 'assets/profile/profile.jpg';
 
-const UserInfo = (): React.ReactElement => {
+const UserInfo = (): ReactElement => {
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));

@@ -119,7 +119,7 @@ const Revenue = (): ReactElement => {
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        minHeight: theme.spacing(67.8),
+        minHeight: theme.spacing(57.5),
         width: 1,
         height: 1,
       })}

@@ -45,7 +45,8 @@ const BuyersProfile = (): ReactElement => {
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        height: 0.5,
+        height: 1,
+        flex: '1 1 auto',
       })}
     >
       <Stack
@@ -57,7 +58,14 @@ const BuyersProfile = (): ReactElement => {
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           Buyers Profile
         </Typography>
-        <IconButton>
+        <IconButton
+          sx={(theme) => ({
+            bgcolor: 'transparent',
+            padding: 0,
+            width: theme.spacing(3),
+            height: theme.spacing(3),
+          })}
+        >
           <IconifyIcon
             icon="ph:dots-three-outline-fill"
             color={(theme) => theme.palette.text.secondary}
@@ -65,27 +73,24 @@ const BuyersProfile = (): ReactElement => {
         </IconButton>
       </Stack>
       <Stack
-        direction={{ xs: 'row', md: 'column', lg: 'row' }}
+        // direction={{ xs: 'row', md: 'column', lg: 'row' }}
+        direction={'row'}
         alignItems="center"
         flex={1}
-        gap={4}
+        gap={2}
         padding={(theme) => theme.spacing(0, 2.5, 2.5)}
       >
         <Box
-          sx={{
+          sx={(theme) => ({
             display: 'flex',
             justifyContent: 'center',
             flex: '1 1 0%',
             width: 0.5,
-          }}
+            maxWidth: theme.spacing(22.125),
+            maxHeight: theme.spacing(22.125),
+          })}
         >
-          <Box
-            sx={{
-              width: 'fit-content',
-            }}
-          >
-            <EChartsReact option={option} style={{ width: '177px', height: '177px' }} lazyUpdate />
-          </Box>
+          <EChartsReact option={option} style={{ width: '100%', height: '177px' }} lazyUpdate />
         </Box>
         <Stack
           spacing={2}

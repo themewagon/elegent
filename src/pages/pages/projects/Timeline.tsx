@@ -1,4 +1,6 @@
-const Timeline = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Timeline = (): ReactElement => {
   return <div>Timeline</div>;
 };
 

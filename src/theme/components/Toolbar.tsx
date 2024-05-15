@@ -2,12 +2,15 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const Toolbar: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
-  defaultProps: {},
+  defaultProps: {
+    disableGutters: true,
+  },
   styleOverrides: {
-    root: ({ theme }) => ({
+    root: () => ({
       display: 'flex',
       justifyContent: 'space-between',
-      padding: theme.spacing(3.75),
+      // paddingLeft: 0,
+      // paddingRight: 0,
     }),
   },
 };

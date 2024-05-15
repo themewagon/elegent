@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import {
   Link,
   List,
@@ -14,7 +15,7 @@ import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 import { navItems } from 'data/navItems';
 
-const Sidebar = (): React.ReactElement => {
+const Sidebar = (): ReactElement => {
   return (
     <Stack
       justifyContent="space-between"
@@ -35,7 +36,7 @@ const Sidebar = (): React.ReactElement => {
           mb: theme.spacing(3.75),
         })}
       >
-        <Image src={logo} />
+        <Image src={logo} width={1} />
       </Link>
       <List
         sx={(theme) => ({

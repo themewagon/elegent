@@ -1,4 +1,6 @@
-const DataTables = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const DataTables = (): ReactElement => {
   return <div>DataTables</div>;
 };
 

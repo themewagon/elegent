@@ -1,4 +1,6 @@
-const Notification = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Notification = (): ReactElement => {
   return <div>Notification</div>;
 };
 

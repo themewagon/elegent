@@ -5,8 +5,9 @@ import Conversations from 'components/sections/dashboard/Pages/Profile/Overview/
 import ProjectsCards from 'components/sections/dashboard/Pages/Profile/Overview/ProjectsOverview';
 import UserInfo from 'components/sections/dashboard/Pages/Profile/Overview/UserCard';
 import { drawerWidth } from 'layouts/main-layout';
+import { ReactElement } from 'react';
 
-const Overview = (): React.ReactElement => {
+const Overview = (): ReactElement => {
   return (
     <Grid
       container

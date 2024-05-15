@@ -1,4 +1,6 @@
-const AddUser = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const AddUser = (): ReactElement => {
   return <div>AddUser</div>;
 };
 

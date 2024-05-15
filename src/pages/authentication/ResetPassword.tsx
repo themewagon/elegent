@@ -1,3 +1,4 @@
+import { ReactElement, useState } from 'react';
 import {
   Button,
   FormControl,
@@ -13,10 +14,9 @@ import resetPassword from 'assets/authentication-banners/reset-password.png';
 import passwordUpdated from 'assets/authentication-banners/password-updated.png';
 import successTick from 'assets/authentication-banners/successTick.png';
 import Image from 'components/base/Image';
-import { useState } from 'react';
 import IconifyIcon from 'components/base/IconifyIcon';
 
-const ResetPassword = (): React.ReactElement => {
+const ResetPassword = (): ReactElement => {
   const [resetSuccessful, setResetSuccessful] = useState(false);
 
   const handleResetPassword = () => {

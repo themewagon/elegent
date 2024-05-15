@@ -1,4 +1,6 @@
-const Invoice = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Invoice = (): ReactElement => {
   return <div>Invoice</div>;
 };
 

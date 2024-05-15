@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import {
   Button,
   FormControl,
@@ -13,7 +14,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 
-const SignUp = (): React.ReactElement => {
+const SignUp = (): ReactElement => {
   return (
     <Stack
       direction="row"

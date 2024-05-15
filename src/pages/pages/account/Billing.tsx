@@ -1,4 +1,6 @@
-const Billing = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Billing = (): ReactElement => {
   return <div>Billing</div>;
 };
 

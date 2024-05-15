@@ -13,7 +13,8 @@ const NewCustomers = (): ReactElement => {
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        height: 0.5,
+        height: 1,
+        flex: '1 1 auto',
       })}
     >
       <Stack
@@ -25,7 +26,14 @@ const NewCustomers = (): ReactElement => {
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           New Customers
         </Typography>
-        <IconButton>
+        <IconButton
+          sx={(theme) => ({
+            bgcolor: 'transparent',
+            padding: 0,
+            width: theme.spacing(3),
+            height: theme.spacing(3),
+          })}
+        >
           <IconifyIcon
             icon="ph:dots-three-outline-fill"
             color={(theme) => theme.palette.text.secondary}
@@ -59,7 +67,7 @@ const NewCustomers = (): ReactElement => {
               </Typography>
             </Box>
           </Stack>
-          <IconButton>
+          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
@@ -89,7 +97,7 @@ const NewCustomers = (): ReactElement => {
               </Typography>
             </Box>
           </Stack>
-          <IconButton>
+          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
@@ -119,7 +127,7 @@ const NewCustomers = (): ReactElement => {
               </Typography>
             </Box>
           </Stack>
-          <IconButton>
+          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
@@ -149,7 +157,7 @@ const NewCustomers = (): ReactElement => {
               </Typography>
             </Box>
           </Stack>
-          <IconButton>
+          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem>
@@ -179,7 +187,7 @@ const NewCustomers = (): ReactElement => {
               </Typography>
             </Box>
           </Stack>
-          <IconButton>
+          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
             <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
           </IconButton>
         </ListItem> */}

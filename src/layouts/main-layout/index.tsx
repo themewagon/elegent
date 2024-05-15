@@ -1,5 +1,5 @@
-import { Box, Drawer, Stack } from '@mui/material';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
+import { Box, Drawer, Stack, Toolbar } from '@mui/material';
 
 import Sidebar from 'layouts/main-layout/Sidebar/Sidebar';
 import Topbar from 'layouts/main-layout/Topbar/Topbar';
@@ -7,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 export const drawerWidth = 278;
 
-const MainLayout = ({ children }: PropsWithChildren): React.ReactElement => {
+const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const location = useLocation();
@@ -88,7 +88,13 @@ const MainLayout = ({ children }: PropsWithChildren): React.ReactElement => {
           <Sidebar />
         </Drawer>
       </Box>
-      {children}
+      <Toolbar
+        sx={(theme) => ({
+          p: theme.spacing(12, 0, 0, 0),
+        })}
+      >
+        {children}
+      </Toolbar>
     </Stack>
   );
 };

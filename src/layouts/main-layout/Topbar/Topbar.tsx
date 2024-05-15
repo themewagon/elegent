@@ -1,3 +1,4 @@
+import { MouseEventHandler, ReactElement } from 'react';
 import {
   AppBar,
   Avatar,
@@ -19,7 +20,6 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { drawerWidth } from 'layouts/main-layout';
 
 import profile from 'assets/profile/profile.jpg';
-import { MouseEventHandler } from 'react';
 import { useLocation } from 'react-router-dom';
 import capitalizePathname from 'helpers/capitalizePathname';
 
@@ -37,7 +37,7 @@ const Topbar = ({
   handleClick,
   anchorEl,
   handleClose,
-}: TopbarProps): React.ReactElement => {
+}: TopbarProps): ReactElement => {
   const { pathname } = useLocation();
   const title = capitalizePathname(pathname);
 
@@ -48,7 +48,11 @@ const Topbar = ({
         ml: { md: `${drawerWidth}px` },
       }}
     >
-      <Toolbar>
+      <Toolbar
+        sx={(theme) => ({
+          p: theme.spacing(3.75),
+        })}
+      >
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -109,7 +113,11 @@ const Topbar = ({
             onClick={handleClick}
             sx={{ bgcolor: 'inherit', gap: 1.875 }}
           >
-            <Avatar alt="Remy Sharp" src={profile} />
+            <Avatar
+              alt="Remy Sharp"
+              src={profile}
+              sx={(theme) => ({ width: theme.spacing(5.625), height: theme.spacing(5.625) })}
+            />
             <Typography
               variant="body1"
               component="p"

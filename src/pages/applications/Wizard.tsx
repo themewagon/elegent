@@ -1,4 +1,6 @@
-const Wizard = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Wizard = (): ReactElement => {
   return <div>Wizard</div>;
 };
 

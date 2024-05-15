@@ -1,4 +1,6 @@
-const Calendar = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const Calendar = (): ReactElement => {
   return <div>Calendar</div>;
 };
 

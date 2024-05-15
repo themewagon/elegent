@@ -1,4 +1,6 @@
-const AllProjects = (): React.ReactElement => {
+import { ReactElement } from 'react';
+
+const AllProjects = (): ReactElement => {
   return <div>AllProjects</div>;
 };
 

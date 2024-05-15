@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import {
   Card,
   CardContent,
@@ -18,7 +19,7 @@ type SaleInfoProps = {
   date?: boolean;
 };
 
-const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React.ReactElement => {
+const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): ReactElement => {
   const theme = useTheme();
   const betweenMdAndLg = useMediaQuery(theme.breakpoints.between('md', 'lg'));
 

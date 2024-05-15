@@ -1,10 +1,11 @@
+import { ReactElement } from 'react';
 import { Avatar, Box, IconButton, ListItem, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 import roselle from 'assets/new-customers/roselle.jpg';
 import jone from 'assets/new-customers/jone.png';
 
-const Conversations = (): React.ReactElement => {
+const Conversations = (): ReactElement => {
   return (
     <Stack
       padding={(theme) => theme.spacing(2.5, 3.375, 2, 2.5)}
