@@ -22,6 +22,7 @@ type SaleInfoProps = {
 const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): ReactElement => {
   const theme = useTheme();
   const betweenMdAndLg = useMediaQuery(theme.breakpoints.between('md', 'lg'));
+  // const belowLg = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <Card
@@ -42,7 +43,6 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
       <CardContent
         sx={{
           flex: '1 1 auto',
-          // width: 1,
           padding: 0,
           ':last-child': {
             paddingBottom: 0,
@@ -53,6 +53,7 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
           <Typography
             variant="subtitle1"
             component="p"
+            minWidth={(theme) => theme.spacing(12.5)}
             color={(theme) => theme.palette.text.primary}
           >
             {title}
@@ -80,6 +81,7 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
           direction="row"
           alignItems="center"
           gap={1}
+          minWidth={(theme) => theme.spacing(18.75)}
           color={(theme) => theme.palette.primary.main}
         >
           <IconifyIcon

@@ -66,6 +66,9 @@ export const theme = createTheme({
     MuiLink: Link,
     MuiMenu: Menu,
   },
+  zIndex: {
+    appBar: 1100,
+  },
 });
 
 shadows.forEach((shadow, index) => {

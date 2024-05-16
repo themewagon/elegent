@@ -22,6 +22,7 @@ const TopSellingProduct = (): ReactElement => {
       bgcolor={(theme) => theme.palette.background.paper}
       borderRadius={(theme) => theme.shape.borderRadius * 1.25}
       width={1}
+      // maxWidth={(theme) => theme.spacing(110)}
       height={1}
     >
       <Typography
@@ -32,11 +33,12 @@ const TopSellingProduct = (): ReactElement => {
         Top Selling Product
       </Typography>
       <Divider />
-      <Stack height={1}>
+      <Stack height={1} overflow={'hidden'}>
         <DataGrid
           apiRef={apiRef}
           columns={columns}
           rows={rows}
+          sx={{ display: 'grid', gridTemplateRows: 'auto 1f auto' }}
           initialState={{
             pagination: { paginationModel: { pageSize: 5, page: 0 } },
             columns: {
@@ -50,9 +52,6 @@ const TopSellingProduct = (): ReactElement => {
               showQuickFilter: true,
             },
           }}
-          // autoHeight
-          // autoPageSize
-          style={{ height: 'fit-content' }}
         />
       </Stack>
     </Stack>

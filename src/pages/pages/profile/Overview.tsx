@@ -15,8 +15,7 @@ const Overview = (): ReactElement => {
       columns={12}
       spacing={3.75}
       flexGrow={1}
-      m={0}
-      mt="85.125px"
+      // mt="85.125px"
       pt={4.375}
       pr={1.875}
       pb={1.875}

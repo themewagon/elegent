@@ -1,4 +1,4 @@
-import { Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Stack } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct';
@@ -15,9 +15,9 @@ import { drawerWidth } from 'layouts/main-layout';
 import { ReactElement } from 'react';
 
 const Sales = (): ReactElement => {
-  const theme = useTheme();
+  // const theme = useTheme();
 
-  const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  // const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   // const belowMedium = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
@@ -36,13 +36,13 @@ const Sales = (): ReactElement => {
         pl: { xs: 3.75, md: 0 },
       }}
     >
-      <Grid xs={12} sm={6} md={4} lg={4}>
+      <Grid xs={12} sm={6} md={4}>
         <SaleInfo image={sales} title="Sales" subtitle="230,220" sales={55} date />
       </Grid>
-      <Grid xs={12} sm={6} md={4} lg={4}>
+      <Grid xs={12} sm={6} md={4}>
         <SaleInfo image={customers} title="Customers" subtitle="3,200" sales={12} date />
       </Grid>
-      <Grid xs={12} sm={6} md={4} lg={4}>
+      <Grid xs={12} sm={6} md={4}>
         <SaleInfo image={avgRevenue} title="Avg Revenue" subtitle="2,300" sales={210} date />
       </Grid>
       <Grid xs={12} md={8}>
@@ -51,12 +51,21 @@ const Sales = (): ReactElement => {
       <Grid xs={12} md={4}>
         <WebsiteVisitors />
       </Grid>
-      <Grid xs={12} lg={8} minHeight={(theme) => theme.spacing(77.75)}>
+      <Grid
+        xs={12}
+        lg={8}
+        minHeight={(theme) => theme.spacing(77.75)}
+        // maxWidth={(theme) => theme.spacing(110)}
+      >
         <TopSellingProduct />
       </Grid>
-      <Grid xs={12} lg={4} minHeight={(theme) => (isMediumScreen ? theme.spacing(77.75) : 'auto')}>
+      <Grid
+        xs={12}
+        lg={4}
+        // minHeight={(theme) => (isMediumScreen ? theme.spacing(77.75) : 'auto')}
+      >
         <Stack
-          direction={{ xs: 'column', md: 'row', lg: 'column' }}
+          direction={{ xs: 'column', sm: 'row', lg: 'column' }}
           gap={(theme) => theme.spacing(3.75)}
           height={1}
           width={1}

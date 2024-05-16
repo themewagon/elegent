@@ -9,8 +9,6 @@ const Toolbar: Components<Omit<Theme, 'components'>>['MuiToolbar'] = {
     root: () => ({
       display: 'flex',
       justifyContent: 'space-between',
-      // paddingLeft: 0,
-      // paddingRight: 0,
     }),
   },
 };

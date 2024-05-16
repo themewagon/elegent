@@ -6,6 +6,7 @@ const Avatar: Components<Omit<Theme, 'components'>>['MuiAvatar'] = {
   styleOverrides: {
     img: () => ({
       objectFit: 'cover',
+      overflow: 'visible',
     }),
   },
 };

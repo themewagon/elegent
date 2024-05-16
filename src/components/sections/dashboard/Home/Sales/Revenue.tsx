@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { Box } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
 
@@ -93,6 +93,7 @@ const option: EChartsOption = {
       color: '#27D095',
       name: 'Google ads',
       legendHoverLink: true,
+      showSymbol: true,
       symbolSize: 12,
       lineStyle: {
         width: 5,
@@ -105,6 +106,7 @@ const option: EChartsOption = {
       color: '#FF8E29',
       name: 'Facebook ads',
       legendHoverLink: true,
+      showSymbol: false,
       symbolSize: 12,
       lineStyle: {
         width: 5,
@@ -114,17 +116,29 @@ const option: EChartsOption = {
 };
 
 const Revenue = (): ReactElement => {
+  const theme = useTheme();
   return (
     <Box
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
         minHeight: theme.spacing(57.5),
-        width: 1,
+        // width: 1,
         height: 1,
+        mx: 'auto',
       })}
     >
-      <EChartsReact option={option} style={{ height: '100%' }} />
+      <EChartsReact
+        option={option}
+        ref={(e) => e?.render()}
+        style={{ height: '100%' }}
+        opts={{
+          width: 'auto',
+          renderer: 'svg',
+        }}
+        lazyUpdate
+        theme={theme}
+      />
     </Box>
   );
 };

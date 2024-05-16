@@ -82,6 +82,10 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       borderBottomLeftRadius: theme.spacing(2.5),
       borderBottomRightRadius: theme.spacing(2.5),
     }),
+    cellEmpty: ({ theme }) => ({
+      width: theme.spacing(0),
+      maxWidth: theme.spacing(0),
+    }),
   },
 };
 
