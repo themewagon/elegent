@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import { Stack } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 
@@ -12,7 +13,6 @@ import avgRevenue from 'assets/sale-info/avg-revenue.png';
 import customers from 'assets/sale-info/customers.png';
 import sales from 'assets/sale-info/sales.png';
 import { drawerWidth } from 'layouts/main-layout';
-import { ReactElement } from 'react';
 
 const Sales = (): ReactElement => {
   // const theme = useTheme();

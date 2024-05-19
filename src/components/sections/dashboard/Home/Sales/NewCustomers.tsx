@@ -44,6 +44,7 @@ const NewCustomers = (): ReactElement => {
         <ListItem
           sx={(theme) => ({
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'space-between',
             padding: theme.spacing(1.25, 2.5),
           })}
@@ -74,6 +75,7 @@ const NewCustomers = (): ReactElement => {
         <ListItem
           sx={(theme) => ({
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'space-between',
             padding: theme.spacing(1.25, 2.5),
           })}
@@ -104,6 +106,7 @@ const NewCustomers = (): ReactElement => {
         <ListItem
           sx={(theme) => ({
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'space-between',
             padding: theme.spacing(1.25, 2.5),
           })}
@@ -134,6 +137,7 @@ const NewCustomers = (): ReactElement => {
         <ListItem
           sx={(theme) => ({
             display: 'flex',
+            flexDirection: 'row',
             justifyContent: 'space-between',
             padding: theme.spacing(1.25, 2.5),
           })}

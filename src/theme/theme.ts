@@ -33,6 +33,7 @@ import typography from './typography';
 import palette from './palette';
 import shadows from './shadows';
 import Collapse from './components/Collapse';
+import ListItem from './components/ListItem';
 
 export const theme = createTheme({
   typography: typography,
@@ -54,6 +55,7 @@ export const theme = createTheme({
     MuiTextField: TextField,
     MuiCollapse: Collapse,
     MuiDataGrid: DataGrid,
+    MuiListItem: ListItem,
     MuiToolbar: Toolbar,
     MuiAppBar: AppBar,
     MuiAvatar: Avatar,

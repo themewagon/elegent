@@ -54,7 +54,6 @@ const Sidebar = (): ReactElement => {
         })}
       >
         <ListItem
-          disablePadding
           sx={(theme) => ({
             my: theme.spacing(2.5),
             mx: 0,

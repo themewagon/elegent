@@ -34,11 +34,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
 
   return (
     <ListItem
-      disablePadding
       sx={(theme) => ({
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'start',
         my: theme.spacing(1.25),
         borderRadius: theme.shape.borderRadius * 0.5,
         backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
@@ -73,9 +69,6 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                 <ListItem
                   key={idx}
                   sx={(theme) => ({
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'start',
                     backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
                     color:
                       pathname === navItem.path
@@ -89,7 +82,6 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                       opacity: 1.5,
                     },
                   })}
-                  disablePadding
                 >
                   {subListItem.collapsible ? (
                     <>
@@ -115,15 +107,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                         <List>
                           {subListItem?.sublist?.map(
                             (nestedSubListItem: any, nestedIdx: number) => (
-                              <ListItem
-                                key={nestedIdx}
-                                sx={{
-                                  display: 'flex',
-                                  flexDirection: 'column',
-                                  alignItems: 'start',
-                                }}
-                                disablePadding
-                              >
+                              <ListItem key={nestedIdx}>
                                 <ListItemButton
                                   LinkComponent={Link}
                                   href={
