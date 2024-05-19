@@ -111,7 +111,12 @@ const Topbar = ({
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
             onClick={handleClick}
-            sx={{ bgcolor: 'inherit', gap: 1.875 }}
+            sx={(theme) => ({
+              borderRadius: theme.shape.borderRadius * 0.5,
+              bgcolor: 'inherit',
+              gap: 1.875,
+              ':hover': { bgcolor: '#0000000A' },
+            })}
           >
             <Avatar
               alt="Remy Sharp"

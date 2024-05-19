@@ -4,7 +4,8 @@ import { Components } from '@mui/material/styles/components';
 const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination'] = {
   defaultProps: {
     labelDisplayedRows: ({ from, to, count }) => {
-      return `Showing ${to - from + 1} of ${count} products`;
+      // return `Showing ${to - from + 1} of ${count} products`;
+      return `Showing ${from} to ${to} of ${count} products`;
     },
   },
   styleOverrides: {

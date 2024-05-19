@@ -17,7 +17,7 @@ import profile from 'assets/profile/profile.jpg';
 const UserInfo = (): ReactElement => {
   const theme = useTheme();
   const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
+  // const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
     <Stack

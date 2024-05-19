@@ -6,6 +6,7 @@ const Menu: Components<Omit<Theme, 'components'>>['MuiMenu'] = {
   styleOverrides: {
     paper: ({ theme }) => ({
       minWidth: theme.spacing(23.75),
+      borderRadius: theme.shape.borderRadius * 2,
     }),
   },
 };

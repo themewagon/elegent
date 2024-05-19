@@ -53,13 +53,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
     >
       {navItem.collapsible ? (
         <>
-          <ListItemButton
-            LinkComponent={Link}
-            onClick={() => setChecked(!checked)}
-            sx={{
-              width: 1,
-            }}
-          >
+          <ListItemButton LinkComponent={Link} onClick={() => setChecked(!checked)}>
             <ListItemIcon>
               <IconifyIcon icon={navItem.icon} width={1} height={1} />
             </ListItemIcon>
@@ -73,12 +67,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                 ))}
             </ListItemIcon>
           </ListItemButton>
-          <Collapse
-            in={checked}
-            sx={{
-              width: 1,
-            }}
-          >
+          <Collapse in={checked}>
             <List>
               {navItem.sublist.map((subListItem: any, idx: number) => (
                 <ListItem
@@ -109,9 +98,6 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                         onClick={() => {
                           handleNestedChecked(idx, !nestedChecked[idx]);
                         }}
-                        sx={{
-                          width: 1,
-                        }}
                       >
                         <ListItemText sx={(theme) => ({ ml: theme.spacing(3.5) })}>
                           {subListItem.title}
@@ -125,12 +111,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                             ))}
                         </ListItemIcon>
                       </ListItemButton>
-                      <Collapse
-                        in={nestedChecked[idx]}
-                        sx={{
-                          width: 1,
-                        }}
-                      >
+                      <Collapse in={nestedChecked[idx]}>
                         <List>
                           {subListItem?.sublist?.map(
                             (nestedSubListItem: any, nestedIdx: number) => (
@@ -146,17 +127,15 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                                 <ListItemButton
                                   LinkComponent={Link}
                                   href={
-                                    navItem.path !== '/'
-                                      ? navItem.path +
-                                        '/' +
-                                        subListItem.path +
-                                        '/' +
-                                        nestedSubListItem.path
-                                      : nestedSubListItem.path
+                                    // navItem.path !== '/'
+                                    //   ? navItem.path +
+                                    //     '/' +
+                                    //     subListItem.path +
+                                    //     '/' +
+                                    //     nestedSubListItem.path
+                                    //   : nestedSubListItem.path
+                                    '#!'
                                   }
-                                  sx={{
-                                    width: 1,
-                                  }}
                                 >
                                   <ListItemText sx={(theme) => ({ ml: theme.spacing(5) })}>
                                     {nestedSubListItem.title}
@@ -172,13 +151,10 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                     <ListItemButton
                       LinkComponent={Link}
                       href={
-                        navItem.path !== '/'
+                        navItem.path === 'authentication'
                           ? navItem.path + '/' + subListItem.path
-                          : subListItem.path
+                          : '#!'
                       }
-                      sx={{
-                        width: 1,
-                      }}
                     >
                       <ListItemText sx={(theme) => ({ ml: theme.spacing(3) })}>
                         {subListItem.title}
@@ -193,10 +169,8 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
       ) : (
         <ListItemButton
           LinkComponent={Link}
-          href={navItem.path}
-          sx={{
-            width: 1,
-          }}
+          // href={navItem.path}
+          href={'#!'}
         >
           <ListItemIcon>
             <IconifyIcon icon={navItem.icon} width={1} height={1} />

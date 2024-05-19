@@ -11,6 +11,7 @@ const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton']
       gap: theme.spacing(1.25),
       paddingLeft: theme.spacing(1.25),
       paddingRight: theme.spacing(1.25),
+      width: '100%',
     }),
   },
 };

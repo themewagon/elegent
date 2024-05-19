@@ -1,9 +1,9 @@
 import { Box, Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import ProjectCard from './ProjectCard';
-import modern from 'assets/projects-overview/Modern.png';
 import scandinavian from 'assets/projects-overview/Scandinavian.png';
 import minimalist from 'assets/projects-overview/Minimalist.png';
+import modern from 'assets/projects-overview/Modern.png';
 import gothic from 'assets/projects-overview/Gothic.png';
 
 const ProjectsOverview = () => {
