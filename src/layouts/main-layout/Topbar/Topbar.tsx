@@ -44,8 +44,8 @@ const Topbar = ({
   return (
     <AppBar
       sx={{
-        width: { md: `calc(100% - ${drawerWidth}px + 24px)` },
-        ml: { md: `${drawerWidth}px` },
+        width: { lg: `calc(100% - ${drawerWidth}px + 24px)` },
+        ml: { lg: `${drawerWidth}px` },
       }}
     >
       <Toolbar
@@ -58,13 +58,13 @@ const Topbar = ({
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, ml: 0, display: { md: 'none' }, bgcolor: 'inherit' }}
+          sx={{ mr: 2, ml: 0, display: { lg: 'none' }, bgcolor: 'inherit' }}
         >
           <IconifyIcon icon="mdi:menu" />
         </IconButton>
         <Box
           sx={{
-            display: { xs: 'none', md: 'flex' },
+            display: { xs: 'none', lg: 'flex' },
             gap: { sm: 3.125, md: 6.25 },
             alignItems: 'center',
             flex: '1 1 auto',
@@ -90,7 +90,11 @@ const Topbar = ({
           color="inherit"
           sx={{ display: { xs: 'flex', lg: 'none' }, mr: 'auto', bgcolor: 'inherit' }}
         >
-          <IconifyIcon icon="mdi:search" width="24px" height="24px" />
+          <IconifyIcon
+            icon="mdi:search"
+            width={(theme) => theme.spacing(3)}
+            height={(theme) => theme.spacing(3)}
+          />
         </IconButton>
         <Box
           sx={{
@@ -101,7 +105,11 @@ const Topbar = ({
         >
           <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit' }}>
             <Badge badgeContent={1} color="primary">
-              <IconifyIcon icon="carbon:notification-filled" width="24px" height="24px" />
+              <IconifyIcon
+                icon="carbon:notification-filled"
+                width={(theme) => theme.spacing(3)}
+                height={(theme) => theme.spacing(3)}
+              />
             </Badge>
           </IconButton>
           <Button
@@ -113,7 +121,7 @@ const Topbar = ({
             onClick={handleClick}
             sx={(theme) => ({
               borderRadius: theme.shape.borderRadius * 0.5,
-              bgcolor: 'inherit',
+              bgcolor: open ? '#0000000A' : 'inherit',
               gap: 1.875,
               ':hover': { bgcolor: '#0000000A' },
             })}
@@ -133,8 +141,8 @@ const Topbar = ({
             </Typography>
             <IconifyIcon
               icon="ion:caret-down-outline"
-              width="24px"
-              height="24px"
+              width={(theme) => theme.spacing(3)}
+              height={(theme) => theme.spacing(3)}
               color={(theme) => theme.palette.text.primary}
             />
           </Button>
@@ -175,7 +183,10 @@ const Topbar = ({
               sx={(theme) => ({ color: theme.palette.error.main })}
             >
               <ListItemIcon>
-                <IconifyIcon icon="ri:logout-circle-line" color="#F54F5F" />
+                <IconifyIcon
+                  icon="ri:logout-circle-line"
+                  color={(theme) => theme.palette.error.main}
+                />
               </ListItemIcon>
               <ListItemText>Logout</ListItemText>
             </MenuItem>

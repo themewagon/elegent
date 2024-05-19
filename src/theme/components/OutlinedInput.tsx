@@ -8,8 +8,8 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
       backgroundColor: theme.palette.background.paper,
       borderRadius: theme.shape.borderRadius * 7.5,
       color: theme.palette.text.secondary,
-      width: '330px',
-      height: '45px',
+      width: theme.spacing(41.25),
+      height: theme.spacing(5.625),
       '&::before, &::after': {
         border: 0,
         borderBottom: 0,

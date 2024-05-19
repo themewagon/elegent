@@ -27,13 +27,12 @@ const Sales = (): ReactElement => {
       columns={12}
       spacing={3.75}
       flexGrow={1}
-      // mt="94px"
       pt={4.375}
       pr={1.875}
       pb={1.875}
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
-        pl: { xs: 3.75, md: 0 },
+        pl: { xs: 3.75, lg: 0 },
       }}
     >
       <Grid xs={12} sm={6} md={4}>

@@ -49,7 +49,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
       />
       <Box
         component="nav"
-        sx={{ width: { md: drawerWidth }, flexShrink: { md: 0 } }}
+        sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}
         aria-label="mailbox folders"
       >
         <Drawer
@@ -61,7 +61,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={(theme) => ({
-            display: { xs: 'block', md: 'none' },
+            display: { xs: 'block', lg: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
@@ -75,7 +75,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
         <Drawer
           variant="permanent"
           sx={(theme) => ({
-            display: { xs: 'none', md: 'block' },
+            display: { xs: 'none', lg: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
@@ -91,6 +91,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
       <Toolbar
         sx={(theme) => ({
           p: theme.spacing(12, 0, 0, 0),
+          width: 1,
         })}
       >
         {children}

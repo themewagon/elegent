@@ -7,17 +7,37 @@ import Splash from 'components/loading/Splash';
 import PageLoader from '../components/loading/PageLoader';
 
 const App = lazy(() => import('App'));
-const MainLayout = lazy(() => import('layouts/main-layout'));
-const AuthLayout = lazy(() => import('layouts/auth-layout'));
+const MainLayout = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('layouts/main-layout');
+});
+const AuthLayout = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('layouts/auth-layout');
+});
 
 const Error404 = lazy(() => import('pages/errors/Error404'));
 
 const Dashboard = lazy(() => import('pages/home/Dashboard'));
-const Sales = lazy(() => import('pages/home/Sales'));
 
-const Login = lazy(() => import('pages/authentication/Login'));
-const SignUp = lazy(() => import('pages/authentication/SignUp'));
-const ResetPassword = lazy(() => import('pages/authentication/ResetPassword'));
+const Sales = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('pages/home/Sales');
+});
+
+const Login = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('pages/authentication/Login');
+});
+const SignUp = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('pages/authentication/SignUp');
+});
+
+const ResetPassword = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+  return import('pages/authentication/ResetPassword');
+});
 
 const Overview = lazy(() => import('pages/pages/profile/Overview'));
 const AllProjects = lazy(() => import('pages/pages/profile/AllProjects'));
