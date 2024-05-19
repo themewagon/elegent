@@ -2,18 +2,21 @@
 import { Suspense, lazy } from 'react';
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 import paths, { rootPaths } from './paths';
-// import sales from './paths';
 import Splash from 'components/loading/Splash';
 import PageLoader from '../components/loading/PageLoader';
 
 const App = lazy(() => import('App'));
 const MainLayout = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return import('layouts/main-layout');
+  return Promise.all([
+    import('layouts/main-layout'),
+    new Promise((resolve) => setTimeout(resolve, 1000)),
+  ]).then(([moduleExports]) => moduleExports);
 });
 const AuthLayout = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  return import('layouts/auth-layout');
+  return Promise.all([
+    import('layouts/auth-layout'),
+    new Promise((resolve) => setTimeout(resolve, 1000)),
+  ]).then(([moduleExports]) => moduleExports);
 });
 
 const Error404 = lazy(async () => {
@@ -24,8 +27,10 @@ const Error404 = lazy(async () => {
 const Dashboard = lazy(() => import('pages/home/Dashboard'));
 
 const Sales = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return import('pages/home/Sales');
+  return Promise.all([
+    import('pages/home/Sales'),
+    new Promise((resolve) => setTimeout(resolve, 500)),
+  ]).then(([moduleExports]) => moduleExports);
 });
 
 const Login = lazy(async () => {

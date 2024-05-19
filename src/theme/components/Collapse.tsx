@@ -4,8 +4,9 @@ import { Components } from '@mui/material/styles/components';
 const Collapse: Components<Omit<Theme, 'components'>>['MuiCollapse'] = {
   defaultProps: {},
   styleOverrides: {
-    root: ({}) => ({
+    root: ({ theme }) => ({
       width: '100%',
+      borderRadius: theme.shape.borderRadius * 2,
     }),
   },
 };
