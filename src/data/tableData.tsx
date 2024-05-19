@@ -142,14 +142,14 @@ export const rows = [
   {
     id: 6,
     product: {
-      avatar: nikeV22,
-      title: 'Nike v22',
-      subtitle: 'Running Shoes',
+      avatar: relaxingChair,
+      title: 'Chair ',
+      subtitle: 'Relaxing chair',
     },
-    orders: 8000,
-    price: 130,
-    adsSpent: 9.5,
-    refunds: 13,
+    orders: 6000,
+    price: 80,
+    adsSpent: 5.8,
+    refunds: -11,
   },
   {
     id: 7,
@@ -166,17 +166,29 @@ export const rows = [
   {
     id: 8,
     product: {
-      avatar: relaxingChair,
-      title: 'Chair ',
-      subtitle: 'Relaxing chair',
+      avatar: watch,
+      title: 'Watch',
+      subtitle: 'Digital watch',
     },
-    orders: 6000,
-    price: 80,
-    adsSpent: 5.8,
-    refunds: -11,
+    orders: 2000,
+    price: 15,
+    adsSpent: 2.5,
+    refunds: -10,
   },
   {
     id: 9,
+    product: {
+      avatar: nikeV22,
+      title: 'Nike v22',
+      subtitle: 'Running Shoes',
+    },
+    orders: 8000,
+    price: 130,
+    adsSpent: 9.5,
+    refunds: 13,
+  },
+  {
+    id: 10,
     product: {
       avatar: laptop,
       title: 'Laptop',
@@ -186,17 +198,5 @@ export const rows = [
     price: 500,
     adsSpent: 4.7,
     refunds: 18,
-  },
-  {
-    id: 10,
-    product: {
-      avatar: watch,
-      title: 'Watch',
-      subtitle: 'Digital watch',
-    },
-    orders: 2000,
-    price: 15,
-    adsSpent: 2.5,
-    refunds: -10,
   },
 ];

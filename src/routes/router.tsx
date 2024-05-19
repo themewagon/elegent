@@ -16,26 +16,29 @@ const AuthLayout = lazy(async () => {
   return import('layouts/auth-layout');
 });
 
-const Error404 = lazy(() => import('pages/errors/Error404'));
+const Error404 = lazy(async () => {
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  return import('pages/errors/Error404');
+});
 
 const Dashboard = lazy(() => import('pages/home/Dashboard'));
 
 const Sales = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return import('pages/home/Sales');
 });
 
 const Login = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return import('pages/authentication/Login');
 });
 const SignUp = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return import('pages/authentication/SignUp');
 });
 
 const ResetPassword = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+  await new Promise((resolve) => setTimeout(resolve, 500));
   return import('pages/authentication/ResetPassword');
 });
 

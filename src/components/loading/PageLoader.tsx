@@ -4,7 +4,7 @@ const PageLoader = (props: StackOwnProps) => {
   return (
     <Stack alignItems="center" width={1} justifyContent="center" height={1} {...props}>
       <Box height={'10vh'} width={'25vw'} textAlign={'center'}>
-        <CircularProgress color="secondary" />
+        <CircularProgress color="secondary" size={100} thickness={3} />
       </Box>
     </Stack>
   );
