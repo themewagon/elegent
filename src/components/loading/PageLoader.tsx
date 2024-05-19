@@ -1,5 +1,5 @@
 import { Box, CircularProgress, Stack, StackOwnProps } from '@mui/material';
-import { caribbeanGreen, orange } from 'theme/colors';
+import { caribbeanGreen, downy, orange, watermelon } from 'theme/colors';
 
 const PageLoader = (props: StackOwnProps) => {
   return (
@@ -9,7 +9,9 @@ const PageLoader = (props: StackOwnProps) => {
           <defs>
             <linearGradient id="my_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor={orange[500]} />
-              <stop offset="100%" stopColor={caribbeanGreen[500]} />
+              <stop offset="33%" stopColor={caribbeanGreen[500]} />
+              <stop offset="67%" stopColor={downy[500]} />
+              <stop offset="100%" stopColor={watermelon[500]} />
             </linearGradient>
           </defs>
         </svg>
