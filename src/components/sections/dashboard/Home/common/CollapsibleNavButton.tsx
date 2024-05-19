@@ -153,6 +153,8 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                       href={
                         navItem.path === 'authentication'
                           ? navItem.path + '/' + subListItem.path
+                          : navItem.path === '/'
+                          ? navItem.path
                           : '#!'
                       }
                     >
