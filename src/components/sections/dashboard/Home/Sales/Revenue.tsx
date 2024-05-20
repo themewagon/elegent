@@ -1,11 +1,11 @@
 import { ReactElement } from 'react';
-import { Box, useMediaQuery, useTheme } from '@mui/material';
+import { Box } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const Revenue = (): ReactElement => {
-  const theme = useTheme();
-  const aboveSmallScreen: boolean = useMediaQuery(theme.breakpoints.up('sm'));
+  const { up } = useBreakpoints();
   const option: EChartsOption = {
     title: {
       text: 'Revenue',
@@ -72,9 +72,9 @@ const Revenue = (): ReactElement => {
     },
     legend: {
       show: true,
-      top: aboveSmallScreen ? 30 : 70,
-      right: aboveSmallScreen ? 30 : 'auto',
-      left: aboveSmallScreen ? 'auto' : 30,
+      top: up('sm') ? 30 : 70,
+      right: up('sm') ? 30 : 'auto',
+      left: up('sm') ? 'auto' : 30,
       orient: 'horizontal',
       icon: 'pin',
       textStyle: {
@@ -138,7 +138,6 @@ const Revenue = (): ReactElement => {
           renderer: 'canvas',
         }}
         lazyUpdate
-        theme={theme}
       />
     </Box>
   );

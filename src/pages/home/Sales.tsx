@@ -15,11 +15,6 @@ import sales from 'assets/sale-info/sales.png';
 import { drawerWidth } from 'layouts/main-layout';
 
 const Sales = (): ReactElement => {
-  // const theme = useTheme();
-
-  // const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  // const belowMedium = useMediaQuery(theme.breakpoints.down('md'));
-
   return (
     <Grid
       container
@@ -50,19 +45,10 @@ const Sales = (): ReactElement => {
       <Grid xs={12} md={4}>
         <WebsiteVisitors />
       </Grid>
-      <Grid
-        xs={12}
-        lg={8}
-        minHeight={(theme) => theme.spacing(77.75)}
-        // maxWidth={(theme) => theme.spacing(110)}
-      >
+      <Grid xs={12} lg={8} minHeight={(theme) => theme.spacing(77.75)}>
         <TopSellingProduct />
       </Grid>
-      <Grid
-        xs={12}
-        lg={4}
-        // minHeight={(theme) => (isMediumScreen ? theme.spacing(77.75) : 'auto')}
-      >
+      <Grid xs={12} lg={4}>
         <Stack
           direction={{ xs: 'column', sm: 'row', lg: 'column' }}
           gap={(theme) => theme.spacing(3.75)}

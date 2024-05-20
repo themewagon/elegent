@@ -1,15 +1,8 @@
 import { ReactElement } from 'react';
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 type SaleInfoProps = {
   image?: string;
@@ -20,16 +13,14 @@ type SaleInfoProps = {
 };
 
 const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): ReactElement => {
-  const theme = useTheme();
-  const betweenMdAndLg = useMediaQuery(theme.breakpoints.between('md', 'lg'));
-  // const belowLg = useMediaQuery(theme.breakpoints.down('lg'));
+  const { between } = useBreakpoints();
 
   return (
     <Card
       sx={(theme) => ({
         boxShadow: theme.shadows[4],
-        flexDirection: betweenMdAndLg ? 'column' : 'row',
-        alignItems: betweenMdAndLg ? 'flex-start' : 'center',
+        flexDirection: between('md', 'lg') ? 'column' : 'row',
+        alignItems: between('md', 'lg') ? 'flex-start' : 'center',
       })}
     >
       <CardMedia

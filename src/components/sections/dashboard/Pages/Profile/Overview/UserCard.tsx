@@ -1,33 +1,19 @@
 import { ReactElement } from 'react';
-import {
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  Stack,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material';
+import { Box, Button, Divider, IconButton, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
 
 import profile from 'assets/profile/profile.jpg';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const UserInfo = (): ReactElement => {
-  const theme = useTheme();
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down('md'));
-  // const isLargeScreen = useMediaQuery(theme.breakpoints.down('lg'));
+  const { down } = useBreakpoints();
 
   return (
     <Stack
       direction={{ md: 'row' }}
       divider={
-        <Divider
-          orientation={isMediumScreen ? 'horizontal' : 'vertical'}
-          variant="middle"
-          flexItem
-        />
+        <Divider orientation={down('md') ? 'horizontal' : 'vertical'} variant="middle" flexItem />
       }
       padding={(theme) => theme.spacing(3.75)}
       bgcolor={(theme) => theme.palette.background.paper}

@@ -1,10 +1,12 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { Divider, Stack, Typography } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
 import { columns, rows } from 'data/tableData';
 
 const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
+
+  const [dataRows, setDataRows] = useState<any[]>(rows);
 
   // const { data } = useDemoData({
   //   dataSet: 'Employee',
@@ -25,19 +27,35 @@ const TopSellingProduct = (): ReactElement => {
       // maxWidth={(theme) => theme.spacing(110)}
       height={1}
     >
-      <Typography
-        variant="h5"
-        color={(theme) => theme.palette.text.primary}
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
         padding={(theme) => theme.spacing(3.75)}
       >
-        Top Selling Product
-      </Typography>
+        <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
+          Top Selling Product
+        </Typography>
+        {/* <OutlinedInput
+          placeholder="Search..."
+          id="search-input"
+          endAdornment={
+            <InputAdornment position="end">
+              <IconifyIcon icon="mdi:search" width={1} height={1} />
+            </InputAdornment>
+          }
+          sx={(theme) => ({
+            // width: 1,
+            backgroundColor: theme.palette.action.focus,
+          })}
+        /> */}
+      </Stack>
       <Divider />
       <Stack height={1} overflow={'hidden'}>
         <DataGrid
           apiRef={apiRef}
           columns={columns}
-          rows={rows}
+          rows={dataRows}
           sx={{ display: 'grid', gridTemplateRows: 'auto 1f auto' }}
           initialState={{
             pagination: { paginationModel: { pageSize: 5, page: 0 } },
