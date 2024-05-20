@@ -1,122 +1,123 @@
 import { ReactElement } from 'react';
-import { Box, useTheme } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
 
-const option: EChartsOption = {
-  title: {
-    text: 'Revenue',
-    textStyle: {
-      fontSize: '20.25px',
-      fontWeight: 500,
-      color: '#050F24',
-      fontFamily: 'IBM Plex Sans',
-    },
-    top: 30,
-    left: 30,
-  },
-  xAxis: {
-    type: 'category',
-    data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
-    boundaryGap: false,
-    axisLine: {
-      show: true,
-      lineStyle: {
-        color: '#E1E1E1',
-        width: 1,
-        type: 'dashed',
-      },
-    },
-    axisLabel: {
-      show: true,
-      padding: 30,
-      color: '#6F757E',
-      formatter: (value) => value.slice(0, 3),
-      fontFamily: 'Poppins',
-    },
-    axisTick: {
-      show: false,
-    },
-  },
-  yAxis: {
-    type: 'value',
-    max: 400,
-    splitNumber: 4,
-    axisLine: {
-      show: false,
-    },
-    axisLabel: {
-      show: true,
-      color: '#6F757E',
-      align: 'center',
-      padding: [0, 20, 0, 0],
-      fontFamily: 'Poppins',
-    },
-    splitLine: {
-      interval: 5,
-      lineStyle: {
-        color: '#E1E1E1',
-        width: 1,
-        type: 'dashed',
-      },
-    },
-  },
-  grid: {
-    left: 65,
-    right: 32,
-    top: 123,
-    bottom: 87,
-  },
-  legend: {
-    show: true,
-    top: 30,
-    right: 30,
-    orient: 'horizontal',
-    icon: 'pin',
-    textStyle: {
-      fontFamily: 'Poppins',
-      fontSize: '0.75rem',
-      fontWeight: 400,
-      color: '#6F757E',
-    },
-    itemGap: 20,
-  },
-  tooltip: {
-    show: true,
-    trigger: 'axis',
-  },
-  series: [
-    {
-      data: [65, 210, 175, 140, 105, 20, 120, 20],
-      type: 'line',
-      smooth: true,
-      color: '#27D095',
-      name: 'Google ads',
-      legendHoverLink: true,
-      showSymbol: true,
-      symbolSize: 12,
-      lineStyle: {
-        width: 5,
-      },
-    },
-    {
-      data: [20, 125, 100, 30, 150, 300, 90, 180],
-      type: 'line',
-      smooth: true,
-      color: '#FF8E29',
-      name: 'Facebook ads',
-      legendHoverLink: true,
-      showSymbol: false,
-      symbolSize: 12,
-      lineStyle: {
-        width: 5,
-      },
-    },
-  ],
-};
-
 const Revenue = (): ReactElement => {
   const theme = useTheme();
+  const aboveSmallScreen: boolean = useMediaQuery(theme.breakpoints.up('sm'));
+  const option: EChartsOption = {
+    title: {
+      text: 'Revenue',
+      textStyle: {
+        fontSize: '20.25px',
+        fontWeight: 500,
+        color: '#050F24',
+        fontFamily: 'IBM Plex Sans',
+      },
+      top: 30,
+      left: 30,
+    },
+    xAxis: {
+      type: 'category',
+      data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
+      boundaryGap: false,
+      axisLine: {
+        show: true,
+        lineStyle: {
+          color: '#E1E1E1',
+          width: 1,
+          type: 'dashed',
+        },
+      },
+      axisLabel: {
+        show: true,
+        padding: 30,
+        color: '#6F757E',
+        formatter: (value) => value.slice(0, 3),
+        fontFamily: 'Poppins',
+      },
+      axisTick: {
+        show: false,
+      },
+    },
+    yAxis: {
+      type: 'value',
+      max: 400,
+      splitNumber: 4,
+      axisLine: {
+        show: false,
+      },
+      axisLabel: {
+        show: true,
+        color: '#6F757E',
+        align: 'center',
+        padding: [0, 20, 0, 0],
+        fontFamily: 'Poppins',
+      },
+      splitLine: {
+        interval: 5,
+        lineStyle: {
+          color: '#E1E1E1',
+          width: 1,
+          type: 'dashed',
+        },
+      },
+    },
+    grid: {
+      left: 65,
+      right: 32,
+      top: 123,
+      bottom: 87,
+    },
+    legend: {
+      show: true,
+      top: aboveSmallScreen ? 30 : 70,
+      right: aboveSmallScreen ? 30 : 'auto',
+      left: aboveSmallScreen ? 'auto' : 30,
+      orient: 'horizontal',
+      icon: 'pin',
+      textStyle: {
+        fontFamily: 'Poppins',
+        fontSize: '0.75rem',
+        fontWeight: 400,
+        color: '#6F757E',
+      },
+      itemGap: 20,
+    },
+    tooltip: {
+      show: true,
+      trigger: 'axis',
+    },
+    series: [
+      {
+        data: [65, 210, 175, 140, 105, 20, 120, 20],
+        type: 'line',
+        smooth: true,
+        color: '#27D095',
+        name: 'Google ads',
+        legendHoverLink: true,
+        showSymbol: true,
+        symbolSize: 12,
+        lineStyle: {
+          width: 5,
+        },
+      },
+      {
+        data: [20, 125, 100, 30, 150, 300, 90, 180],
+        type: 'line',
+        smooth: true,
+        color: '#FF8E29',
+        name: 'Facebook ads',
+        legendHoverLink: true,
+        showSymbol: false,
+        symbolSize: 12,
+        lineStyle: {
+          width: 5,
+        },
+      },
+    ],
+  };
   return (
     <Box
       sx={(theme) => ({
@@ -134,7 +135,7 @@ const Revenue = (): ReactElement => {
         style={{ height: '100%' }}
         opts={{
           width: 'auto',
-          renderer: 'svg',
+          renderer: 'canvas',
         }}
         lazyUpdate
         theme={theme}

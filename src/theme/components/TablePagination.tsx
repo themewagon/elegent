@@ -19,8 +19,9 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     toolbar: ({ theme }) => ({
       display: 'flex',
       justifyContent: 'space-between',
-      padding: theme.spacing(2.5, 0),
-      paddingLeft: theme.spacing(2.5),
+      flexWrap: 'wrap',
+      padding: theme.spacing(2.5, 2.5),
+      paddingRight: `${theme.spacing(2.5)} !important`,
     }),
     spacer: {
       flex: 'none',
@@ -40,8 +41,14 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
       fontWeight: theme.typography.body2.fontWeight,
       color: theme.palette.text.secondary,
       fontFamily: theme.typography.fontFamily?.split(',')[1],
+      textAlign: 'left',
+      [theme.breakpoints.down('sm')]: {
+        textAlign: 'center',
+      },
     }),
-    actions: {},
+    actions: {
+      margin: 'auto',
+    },
   },
 };
 
