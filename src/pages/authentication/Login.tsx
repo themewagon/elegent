@@ -97,7 +97,16 @@ const Login = (): ReactElement => {
           </Typography>
         </Stack>
       </Stack>
-      <Suspense fallback={<Skeleton variant="rectangular" height={1} />}>
+      <Suspense
+        fallback={
+          <Skeleton
+            variant="rectangular"
+            height={1}
+            width={1}
+            sx={(theme) => ({ bgcolor: theme.palette.primary.main })}
+          />
+        }
+      >
         <Image
           alt="Login banner"
           src={loginBanner}

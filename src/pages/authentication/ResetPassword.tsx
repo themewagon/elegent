@@ -123,7 +123,16 @@ const ResetPassword = (): ReactElement => {
           </Stack>
         )}
       </Stack>
-      <Suspense fallback={<Skeleton variant="rectangular" height={1} />}>
+      <Suspense
+        fallback={
+          <Skeleton
+            variant="rectangular"
+            height={1}
+            width={1}
+            sx={(theme) => ({ bgcolor: theme.palette.primary.main })}
+          />
+        }
+      >
         <Image
           alt={resetSuccessful ? 'Reset done' : 'Login banner'}
           src={resetSuccessful ? passwordUpdated : resetPassword}

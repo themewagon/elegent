@@ -41,6 +41,7 @@ const Sidebar = (): ReactElement => {
       <List
         sx={(theme) => ({
           mx: theme.spacing(2.5),
+          py: theme.spacing(1.25),
           flex: '1 1 auto',
         })}
       >
