@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 import {
   Button,
   FormControl,
@@ -6,6 +6,7 @@ import {
   InputLabel,
   Link,
   OutlinedInput,
+  Skeleton,
   Stack,
   Typography,
 } from '@mui/material';
@@ -96,14 +97,16 @@ const Login = (): ReactElement => {
           </Typography>
         </Stack>
       </Stack>
-      <Image
-        alt="Login banner"
-        src={loginBanner}
-        sx={{
-          width: 0.5,
-          display: { xs: 'none', md: 'block' },
-        }}
-      />
+      <Suspense fallback={<Skeleton variant="rectangular" height={1} />}>
+        <Image
+          alt="Login banner"
+          src={loginBanner}
+          sx={{
+            width: 0.5,
+            display: { xs: 'none', md: 'block' },
+          }}
+        />
+      </Suspense>
     </Stack>
   );
 };

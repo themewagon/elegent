@@ -1,4 +1,4 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, Suspense, useState } from 'react';
 import {
   Button,
   FormControl,
@@ -6,6 +6,7 @@ import {
   InputLabel,
   Link,
   OutlinedInput,
+  Skeleton,
   Stack,
   Typography,
 } from '@mui/material';
@@ -122,14 +123,16 @@ const ResetPassword = (): ReactElement => {
           </Stack>
         )}
       </Stack>
-      <Image
-        alt={resetSuccessful ? 'Reset done' : 'Login banner'}
-        src={resetSuccessful ? passwordUpdated : resetPassword}
-        sx={{
-          width: 0.5,
-          display: { xs: 'none', md: 'block' },
-        }}
-      />
+      <Suspense fallback={<Skeleton variant="rectangular" height={1} />}>
+        <Image
+          alt={resetSuccessful ? 'Reset done' : 'Login banner'}
+          src={resetSuccessful ? passwordUpdated : resetPassword}
+          sx={{
+            width: 0.5,
+            display: { xs: 'none', md: 'block' },
+          }}
+        />
+      </Suspense>
     </Stack>
   );
 };
