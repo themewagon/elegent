@@ -5,6 +5,7 @@ const scrollbar = (theme: Theme) => ({
     scrollbarColor: `${theme.palette.grey[300]} transparent`,
   },
   '*::-webkit-scrollbar': {
+    position: 'absolute',
     visibility: 'hidden',
     WebkitAppearance: 'none',
     width: 6,

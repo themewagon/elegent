@@ -9,7 +9,7 @@ const LinkBehavior = forwardRef<any, Omit<RouterLinkProps, 'to'> & { href?: stri
 
 const Link: Components<Omit<Theme, 'components'>>['MuiLink'] = {
   defaultProps: {
-    underline: 'hover',
+    underline: 'none',
     component: LinkBehavior,
   },
   styleOverrides: {},

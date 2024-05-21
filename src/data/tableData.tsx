@@ -1,4 +1,4 @@
-import { Avatar, Stack, Typography } from '@mui/material';
+import { Avatar, Stack, Tooltip, Typography } from '@mui/material';
 
 import relaxingChair from 'assets/top-selling-products/relaxingChair.jpg';
 import instaxCamera from 'assets/top-selling-products/instaxCamera.jpg';
@@ -20,7 +20,9 @@ export const columns = [
     renderCell: (params: any) => {
       return (
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar src={params.value.avatar} sx={{ objectFit: 'cover' }} />
+          <Tooltip title={params.value.title} placement="top" arrow>
+            <Avatar src={params.value.avatar} sx={{ objectFit: 'cover' }} />
+          </Tooltip>
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
             <Typography
               variant="body1"

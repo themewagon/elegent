@@ -53,7 +53,7 @@ const TopSellingProduct = (): ReactElement => {
         <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
           Top Selling Product
         </Typography>
-        <OutlinedInput
+        {/* <OutlinedInput
           placeholder="Search..."
           id="search-input"
           name="table-search-input"
@@ -67,7 +67,7 @@ const TopSellingProduct = (): ReactElement => {
             backgroundColor: theme.palette.action.focus,
             maxWidth: theme.spacing(30),
           })}
-        />
+        /> */}
       </Stack>
       <Divider />
       <Stack height={1} overflow={'hidden'}>

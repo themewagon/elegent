@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { Avatar, Box, IconButton, ListItem, Stack, Typography } from '@mui/material';
+import { Avatar, Box, IconButton, Link, ListItem, Stack, Tooltip, Typography } from '@mui/material';
 import leatrice from 'assets/new-customers/leatrice.png';
 import roselle from 'assets/new-customers/roselle.jpg';
 import darron from 'assets/new-customers/darron.png';
@@ -49,8 +49,10 @@ const NewCustomers = (): ReactElement => {
             padding: theme.spacing(1.25, 2.5),
           })}
         >
-          <Stack direction="row" gap={1.5}>
-            <Avatar src={roselle} />
+          <Stack direction="row" gap={1.5} component={Link}>
+            <Tooltip title="Roselle" placement="top" arrow>
+              <Avatar src={roselle} />
+            </Tooltip>
             <Box component="div">
               <Typography
                 variant="body1"
@@ -80,8 +82,10 @@ const NewCustomers = (): ReactElement => {
             padding: theme.spacing(1.25, 2.5),
           })}
         >
-          <Stack direction="row" gap={1.5}>
-            <Avatar src={jone} />
+          <Stack direction="row" gap={1.5} component={Link}>
+            <Tooltip title="Jone" placement="top" arrow>
+              <Avatar src={jone} />
+            </Tooltip>
             <Box component="div">
               <Typography
                 variant="body1"
@@ -111,8 +115,10 @@ const NewCustomers = (): ReactElement => {
             padding: theme.spacing(1.25, 2.5),
           })}
         >
-          <Stack direction="row" gap={1.5}>
-            <Avatar src={darron} />
+          <Stack direction="row" gap={1.5} component={Link}>
+            <Tooltip title="Darron" placement="top" arrow>
+              <Avatar src={darron} />
+            </Tooltip>
             <Box component="div">
               <Typography
                 variant="body1"
@@ -142,8 +148,10 @@ const NewCustomers = (): ReactElement => {
             padding: theme.spacing(1.25, 2.5),
           })}
         >
-          <Stack direction="row" gap={1.5}>
-            <Avatar src={leatrice} />
+          <Stack direction="row" gap={1.5} component={Link}>
+            <Tooltip title="Leatrice" placement="top" arrow>
+              <Avatar src={leatrice} />
+            </Tooltip>
             <Box component="div">
               <Typography
                 variant="body1"

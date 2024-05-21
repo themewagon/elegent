@@ -79,6 +79,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     footerContainer: ({ theme }) => ({
       minHeight: theme.spacing(12.5),
+      maxHeight: theme.spacing(12.5),
       borderBottomLeftRadius: theme.spacing(2.5),
       borderBottomRightRadius: theme.spacing(2.5),
     }),
