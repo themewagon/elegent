@@ -19,9 +19,12 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     toolbar: ({ theme }) => ({
       display: 'flex',
       justifyContent: 'space-between',
-      flexWrap: 'wrap',
+      flexDirection: 'row',
       padding: theme.spacing(2.5, 3.75),
       paddingRight: `${theme.spacing(3.75)} !important`,
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+      },
     }),
     spacer: {
       flex: 'none',

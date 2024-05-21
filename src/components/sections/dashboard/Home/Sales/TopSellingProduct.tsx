@@ -1,7 +1,8 @@
-import { ReactElement, useState } from 'react';
-import { Divider, Stack, Typography } from '@mui/material';
+import { ChangeEvent, ReactElement, useState } from 'react';
+import { Divider, InputAdornment, OutlinedInput, Stack, Typography } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
 import { columns, rows } from 'data/tableData';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
@@ -18,6 +19,21 @@ const TopSellingProduct = (): ReactElement => {
   //   console.log(data);
   //   console.log(rows);
   // }, [data]);
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = event.currentTarget.value;
+    const filteredRows = rows.filter((row) => {
+      return (
+        row.product.title.toLowerCase().includes(searchValue) ||
+        row.product.subtitle.toLowerCase().includes(searchValue) ||
+        row.orders.toString().includes(searchValue) ||
+        row.price.toString().includes(searchValue) ||
+        row.adsSpent.toString().includes(searchValue) ||
+        row.refunds.toString().includes(searchValue)
+      );
+    });
+    console.log(filteredRows);
+    setDataRows(filteredRows);
+  };
 
   return (
     <Stack
@@ -28,27 +44,30 @@ const TopSellingProduct = (): ReactElement => {
       height={1}
     >
       <Stack
-        direction="row"
+        direction={{ sm: 'row' }}
         justifyContent="space-between"
-        alignItems="center"
+        alignItems={{ sm: 'center' }}
         padding={(theme) => theme.spacing(3.75)}
+        gap={3.75}
       >
         <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
           Top Selling Product
         </Typography>
-        {/* <OutlinedInput
+        <OutlinedInput
           placeholder="Search..."
           id="search-input"
+          name="table-search-input"
+          onChange={handleChange}
           endAdornment={
             <InputAdornment position="end">
               <IconifyIcon icon="mdi:search" width={1} height={1} />
             </InputAdornment>
           }
           sx={(theme) => ({
-            // width: 1,
             backgroundColor: theme.palette.action.focus,
+            maxWidth: theme.spacing(30),
           })}
-        /> */}
+        />
       </Stack>
       <Divider />
       <Stack height={1} overflow={'hidden'}>

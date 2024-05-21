@@ -63,7 +63,7 @@ export const columns = [
     flex: 0.75,
     minWidth: 137.221875,
     renderCell: ({ row: { adsSpent } }: any) => {
-      return `$${adsSpent}00`;
+      return `$${adsSpent.toFixed(3)}`;
     },
   },
   {
@@ -143,7 +143,7 @@ export const rows = [
     id: 6,
     product: {
       avatar: relaxingChair,
-      title: 'Chair ',
+      title: 'Chair',
       subtitle: 'Relaxing chair',
     },
     orders: 6000,

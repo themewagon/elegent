@@ -88,6 +88,7 @@ const Revenue = (): ReactElement => {
     tooltip: {
       show: true,
       trigger: 'axis',
+      valueFormatter: (value: any) => '$' + value.toFixed(0),
     },
     series: [
       {
