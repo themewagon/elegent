@@ -25,7 +25,7 @@ const Sidebar = (): ReactElement => {
         overflowY: 'overlay',
         margin: { md: theme.spacing(3.75) },
         borderRadius: theme.shape.borderRadius * 1.25,
-        scrollbarWidth: 'none',
+        // scrollbarWidth: 'none',
       })}
     >
       <Link
