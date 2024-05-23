@@ -75,7 +75,7 @@ const TopSellingProduct = (): ReactElement => {
           apiRef={apiRef}
           columns={columns}
           rows={dataRows}
-          sx={{ display: 'grid', gridTemplateRows: 'auto 1f auto' }}
+          sx={{ display: 'flex' }}
           initialState={{
             pagination: { paginationModel: { pageSize: 5, page: 0 } },
             columns: {

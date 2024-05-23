@@ -6,6 +6,7 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const Revenue = (): ReactElement => {
   const { up } = useBreakpoints();
+  // const chartRef = useRef()
   const option: EChartsOption = {
     title: {
       text: 'Revenue',
@@ -133,6 +134,7 @@ const Revenue = (): ReactElement => {
       <EChartsReact
         option={option}
         ref={(e) => e?.render()}
+        // ref={}
         style={{ height: '100%' }}
         opts={{
           width: 'auto',

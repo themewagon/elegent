@@ -1,11 +1,22 @@
-import { ReactElement } from 'react';
-import { Box, Divider, Stack, Typography } from '@mui/material';
+import { ReactElement, useMemo, useRef, useState } from 'react';
+import { Box, Button, Divider, Stack, Typography } from '@mui/material';
 import { EChartsOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
+import * as echarts from 'echarts';
+import EChartsReactCore from 'echarts-for-react/lib/core';
 
 const options: EChartsOption = {
   tooltip: {
     trigger: 'item',
+  },
+  legend: {
+    show: false,
+    data: [
+      { name: 'Direct', icon: 'circle' },
+      { name: 'Organic', icon: 'circle' },
+      { name: 'Paid', icon: 'circle' },
+      { name: 'Social', icon: 'circle' },
+    ],
   },
   series: [
     {
@@ -36,28 +47,52 @@ const options: EChartsOption = {
         show: false,
       },
       data: [
-        { value: 7740, name: 'Direct' },
-        { value: 4860, name: 'Organic' },
-        { value: 2880, name: 'Paid' },
-        { value: 5940, name: 'Social' },
+        { value: 6840, name: 'Direct' },
+        { value: 3960, name: 'Organic' },
+        { value: 2160, name: 'Paid' },
+        { value: 5040, name: 'Social' },
       ],
     },
   ],
 };
 const WebsiteVisitors = (): ReactElement => {
+  const chartRef = useRef<EChartsReactCore | null>(null);
+  const onChartLegendSelectChanged = (name: string) => {
+    if (chartRef.current) {
+      const instance = chartRef.current.getEchartsInstance();
+      instance.dispatchAction({
+        type: 'legendToggleSelect',
+        name: name,
+      });
+    }
+  };
+  const [clicked, setClicked] = useState<any>({
+    Direct: false,
+    Organic: false,
+    Paid: false,
+    Social: false,
+  });
+
+  const toggleClicked = (name: string) => {
+    setClicked((prevState: any) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
+  };
+  const totalVisitors = useMemo(
+    () => options.series[0].data.reduce((acc: number, next: any) => acc + next.value, 0),
+    [],
+  );
+
   return (
     <Box
       sx={(theme) => ({
-        bgcolor: theme.palette.common.white,
+        bgcolor: 'common.white',
         borderRadius: theme.shape.borderRadius * 1.25,
         height: 'min-content',
       })}
     >
-      <Typography
-        variant="subtitle1"
-        color={(theme) => theme.palette.text.primary}
-        p={(theme) => theme.spacing(2.5)}
-      >
+      <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary} p={2.5}>
         Website Visitors
       </Typography>
       <Box
@@ -67,109 +102,65 @@ const WebsiteVisitors = (): ReactElement => {
           mx: 'auto',
         })}
       >
-        <EChartsReact option={options} style={{ height: '222px' }} />
+        <EChartsReact
+          echarts={echarts}
+          ref={chartRef}
+          option={options}
+          style={{ height: '222px' }}
+        />
       </Box>
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-          <Box
-            sx={(theme) => ({
-              width: theme.spacing(1.25),
-              height: theme.spacing(1.25),
-              backgroundColor: theme.palette.primary.main,
-              borderRadius: theme.shape.borderRadius * 100,
-            })}
-          ></Box>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.secondary}
-            sx={{ flex: 1 }}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            Direct
-          </Typography>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.primary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            43%
-          </Typography>
-        </Stack>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-          <Box
-            sx={(theme) => ({
-              width: theme.spacing(1.25),
-              height: theme.spacing(1.25),
-              backgroundColor: theme.palette.secondary.main,
-              borderRadius: theme.shape.borderRadius * 100,
-            })}
-          ></Box>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.secondary}
-            sx={{ flex: 1 }}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            Organic
-          </Typography>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.primary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            27%
-          </Typography>
-        </Stack>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-          <Box
-            sx={(theme) => ({
-              width: theme.spacing(1.25),
-              height: theme.spacing(1.25),
-              backgroundColor: theme.palette.info.main,
-              borderRadius: theme.shape.borderRadius * 100,
-            })}
-          ></Box>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.secondary}
-            sx={{ flex: 1 }}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            Paid
-          </Typography>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.primary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            16%
-          </Typography>
-        </Stack>
-        <Stack direction="row" justifyContent="space-between" alignItems="center" gap={1}>
-          <Box
-            sx={(theme) => ({
-              width: theme.spacing(1.25),
-              height: theme.spacing(1.25),
-              backgroundColor: theme.palette.error.main,
-              borderRadius: theme.shape.borderRadius * 100,
-            })}
-          ></Box>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.secondary}
-            sx={{ flex: 1 }}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            Social
-          </Typography>
-          <Typography
-            variant="body1"
-            color={(theme) => theme.palette.text.primary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            33%
-          </Typography>
-        </Stack>
+        {Array.isArray(options.series) &&
+          Array.isArray(options.series[0].data) &&
+          options.series[0].data.map((dataItem, index) => (
+            <Button
+              key={dataItem.name}
+              variant="text"
+              fullWidth
+              onClick={() => {
+                toggleClicked(dataItem.name as string);
+                onChartLegendSelectChanged(dataItem.name as string);
+              }}
+              sx={{
+                justifyContent: 'flex-start',
+                padding: 0,
+                px: 1,
+                borderRadius: 1,
+                bgcolor: clicked[dataItem.name] ? 'action.focus' : 'background.paper',
+                ':hover': {
+                  bgcolor: 'action.hover',
+                },
+              }}
+              disableRipple
+            >
+              <Stack direction="row" alignItems="center" gap={1} width={1}>
+                <Box
+                  sx={(theme) => ({
+                    width: theme.spacing(1.25),
+                    height: theme.spacing(1.25),
+                    backgroundColor: options?.series[0]?.color[index],
+                    borderRadius: theme.shape.borderRadius * 100,
+                  })}
+                ></Box>
+                <Typography
+                  variant="body1"
+                  color="text.secondary"
+                  flex={1}
+                  textAlign={'left'}
+                  fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+                >
+                  {dataItem.name}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  color="text.primary"
+                  fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
+                >
+                  {((dataItem.value / totalVisitors) * 100).toFixed(0)}%
+                </Typography>
+              </Stack>
+            </Button>
+          ))}
       </Stack>
     </Box>
   );

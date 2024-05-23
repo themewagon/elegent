@@ -1,5 +1,16 @@
-import { ReactElement } from 'react';
-import { Avatar, Box, IconButton, Link, ListItem, Stack, Tooltip, Typography } from '@mui/material';
+import { ReactElement, useState } from 'react';
+import {
+  Avatar,
+  Box,
+  IconButton,
+  Link,
+  ListItem,
+  Menu,
+  MenuItem,
+  Stack,
+  Tooltip,
+  Typography,
+} from '@mui/material';
 import leatrice from 'assets/new-customers/leatrice.png';
 import roselle from 'assets/new-customers/roselle.jpg';
 import darron from 'assets/new-customers/darron.png';
@@ -8,6 +19,15 @@ import jone from 'assets/new-customers/jone.png';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const NewCustomers = (): ReactElement => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: any) => {
+    setAnchorEl(event.target);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box
       sx={(theme) => ({
@@ -27,6 +47,11 @@ const NewCustomers = (): ReactElement => {
           New Customers
         </Typography>
         <IconButton
+          id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}
           sx={(theme) => ({
             bgcolor: 'transparent',
             padding: 0,
@@ -39,6 +64,33 @@ const NewCustomers = (): ReactElement => {
             color={(theme) => theme.palette.text.secondary}
           />
         </IconButton>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          MenuListProps={{
+            'aria-labelledby': 'basic-button',
+          }}
+          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+        >
+          <MenuItem onClick={handleClose}>
+            <Typography variant="body1" component="p">
+              Item 1
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Typography variant="body1" component="p">
+              Item 2
+            </Typography>
+          </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <Typography variant="body1" component="p">
+              Item 3
+            </Typography>
+          </MenuItem>
+        </Menu>
       </Stack>
       <Stack pb={(theme) => theme.spacing(1.25)}>
         <ListItem
@@ -50,7 +102,7 @@ const NewCustomers = (): ReactElement => {
           })}
         >
           <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Roselle" placement="top" arrow>
+            <Tooltip title="Roselle" placement="top" arrow enterDelay={0} leaveDelay={0}>
               <Avatar src={roselle} />
             </Tooltip>
             <Box component="div">
@@ -83,7 +135,7 @@ const NewCustomers = (): ReactElement => {
           })}
         >
           <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Jone" placement="top" arrow>
+            <Tooltip title="Jone" placement="top" arrow enterDelay={0} leaveDelay={0}>
               <Avatar src={jone} />
             </Tooltip>
             <Box component="div">
@@ -116,7 +168,7 @@ const NewCustomers = (): ReactElement => {
           })}
         >
           <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Darron" placement="top" arrow>
+            <Tooltip title="Darron" placement="top" arrow enterDelay={0} leaveDelay={0}>
               <Avatar src={darron} />
             </Tooltip>
             <Box component="div">
@@ -149,7 +201,7 @@ const NewCustomers = (): ReactElement => {
           })}
         >
           <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Leatrice" placement="top" arrow>
+            <Tooltip title="Leatrice" placement="top" arrow enterDelay={0} leaveDelay={0}>
               <Avatar src={leatrice} />
             </Tooltip>
             <Box component="div">

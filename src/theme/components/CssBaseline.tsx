@@ -3,9 +3,7 @@ import { Components } from '@mui/material/styles/components';
 import scrollbar from 'theme/styles/scrollbar';
 
 const CssBaseline: Components<Omit<Theme, 'components'>>['MuiCssBaseline'] = {
-  defaultProps: {
-    // enableColorScheme: true,
-  },
+  defaultProps: {},
   styleOverrides: (theme) => ({
     body: {
       ...scrollbar(theme),
