@@ -138,7 +138,9 @@ const WebsiteVisitors = (): ReactElement => {
                   sx={(theme) => ({
                     width: theme.spacing(1.25),
                     height: theme.spacing(1.25),
-                    backgroundColor: options?.series[0]?.color[index],
+                    backgroundColor: clicked[dataItem.name]
+                      ? 'action.disabled'
+                      : options.series[0].color[index],
                     borderRadius: theme.shape.borderRadius * 100,
                   })}
                 ></Box>

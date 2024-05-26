@@ -91,12 +91,7 @@ const BuyersProfile = (): ReactElement => {
         flex: '1 1 auto',
       })}
     >
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        padding={(theme) => theme.spacing(2.5)}
-      >
+      <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
         <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
           Buyers Profile
         </Typography>
@@ -131,17 +126,12 @@ const BuyersProfile = (): ReactElement => {
         >
           <MenuItem onClick={handleClose}>
             <Typography variant="body1" component="p">
-              Item 1
+              Edit
             </Typography>
           </MenuItem>
           <MenuItem onClick={handleClose}>
-            <Typography variant="body1" component="p">
-              Item 2
-            </Typography>
-          </MenuItem>
-          <MenuItem onClick={handleClose}>
-            <Typography variant="body1" component="p">
-              Item 3
+            <Typography variant="body1" component="p" color="error.main">
+              Delete
             </Typography>
           </MenuItem>
         </Menu>
@@ -206,7 +196,9 @@ const BuyersProfile = (): ReactElement => {
                     sx={(theme) => ({
                       width: theme.spacing(1.25),
                       height: theme.spacing(1.25),
-                      backgroundColor: option.series[0].color[index],
+                      backgroundColor: clicked[dataItem.name]
+                        ? 'action.disabled'
+                        : option.series[0].color[index],
                       borderRadius: theme.shape.borderRadius * 100,
                     })}
                   ></Box>

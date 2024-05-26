@@ -77,17 +77,17 @@ const NewCustomers = (): ReactElement => {
         >
           <MenuItem onClick={handleClose}>
             <Typography variant="body1" component="p">
-              Item 1
+              Last Week
             </Typography>
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <Typography variant="body1" component="p">
-              Item 2
+              Last Month
             </Typography>
           </MenuItem>
           <MenuItem onClick={handleClose}>
             <Typography variant="body1" component="p">
-              Item 3
+              Last Year
             </Typography>
           </MenuItem>
         </Menu>

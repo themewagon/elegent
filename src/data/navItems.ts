@@ -1,4 +1,12 @@
-export const navItems = [
+interface NavItem {
+  title: string;
+  path: string;
+  icon?: string;
+  collapsible: boolean;
+  sublist?: NavItem[];
+}
+
+export const navItems: NavItem[] = [
   {
     title: 'Home',
     path: '/',
@@ -8,10 +16,12 @@ export const navItems = [
       {
         title: 'Dashboard',
         path: '/',
+        collapsible: false,
       },
       {
         title: 'Sales',
         path: '/',
+        collapsible: false,
       },
     ],
   },
@@ -29,10 +39,12 @@ export const navItems = [
           {
             title: 'Overview',
             path: 'overview',
+            collapsible: false,
           },
           {
             title: 'All Projects',
             path: 'all-projects',
+            collapsible: false,
           },
         ],
       },
@@ -44,10 +56,12 @@ export const navItems = [
           {
             title: 'All Users',
             path: 'all-users',
+            collapsible: false,
           },
           {
             title: 'Add user',
             path: 'add-user',
+            collapsible: false,
           },
         ],
       },
@@ -59,14 +73,17 @@ export const navItems = [
           {
             title: 'Setting',
             path: 'setting',
+            collapsible: false,
           },
           {
             title: 'Billing',
             path: 'billing',
+            collapsible: false,
           },
           {
             title: 'Invoice',
             path: 'invoice',
+            collapsible: false,
           },
         ],
       },
@@ -78,6 +95,7 @@ export const navItems = [
           {
             title: 'Timeline',
             path: 'timeline',
+            collapsible: false,
           },
         ],
       },
@@ -92,18 +110,22 @@ export const navItems = [
       {
         title: 'Kanban',
         path: 'kanban',
+        collapsible: false,
       },
       {
         title: 'Wizard',
         path: 'wizard',
+        collapsible: false,
       },
       {
         title: 'Data Tables',
         path: 'data-tables',
+        collapsible: false,
       },
       {
         title: 'Schedule',
         path: 'schedule',
+        collapsible: false,
       },
     ],
   },
@@ -121,14 +143,17 @@ export const navItems = [
           {
             title: 'All Products',
             path: 'all-products',
+            collapsible: false,
           },
           {
             title: 'Edit Product',
             path: 'edit-product',
+            collapsible: false,
           },
           {
             title: 'New Product',
             path: 'new-product',
+            collapsible: false,
           },
         ],
       },
@@ -140,10 +165,12 @@ export const navItems = [
           {
             title: 'Order List',
             path: 'order-list',
+            collapsible: false,
           },
           {
             title: 'Order Detail',
             path: 'order-detail',
+            collapsible: false,
           },
         ],
       },
@@ -158,14 +185,17 @@ export const navItems = [
       {
         title: 'Sign In',
         path: 'login',
+        collapsible: false,
       },
       {
         title: 'Sign Up',
         path: 'sign-up',
+        collapsible: false,
       },
       {
         title: 'Reset password',
         path: 'reset-password',
+        collapsible: false,
       },
     ],
   },
