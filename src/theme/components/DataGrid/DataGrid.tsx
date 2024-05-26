@@ -45,6 +45,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       fontSize: theme.typography.subtitle1.fontSize,
       fontWeight: theme.typography.subtitle1.fontWeight,
     }),
+    columnHeaderTitleContainer: () => ({
+      gap: 5,
+    }),
     columnSeparator: () => ({
       display: 'none',
     }),
@@ -86,6 +89,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     cellEmpty: ({ theme }) => ({
       width: theme.spacing(0),
       maxWidth: theme.spacing(0),
+    }),
+    sortIcon: () => ({
+      color: 'initial',
     }),
   },
 };
