@@ -91,11 +91,7 @@ const ResetPassword = (): ReactElement => {
             <Button variant="contained" fullWidth onClick={handleResetPassword}>
               Reset Password
             </Button>
-            <Typography
-              variant="body2"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
               Back to{' '}
               <Link
                 href="/authentication/login"

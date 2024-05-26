@@ -72,7 +72,6 @@ const Login = (): ReactElement => {
             sx={{
               alignSelf: 'flex-end',
             }}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
           >
             <Link href="/authentication/reset-password" underline="hover">
               Forget password
@@ -81,11 +80,7 @@ const Login = (): ReactElement => {
           <Button variant="contained" fullWidth>
             Log in
           </Button>
-          <Typography
-            variant="body2"
-            color={(theme) => theme.palette.text.secondary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
+          <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
             Don't have an account ?{' '}
             <Link
               href="/authentication/sign-up"

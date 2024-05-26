@@ -1,11 +1,12 @@
 import { ReactElement, useMemo, useRef, useState } from 'react';
 import { Box, Button, Divider, Stack, Typography } from '@mui/material';
-import { EChartsOption } from 'echarts';
+import { EChartsOption, SeriesOption } from 'echarts';
 import EChartsReact from 'echarts-for-react';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
+import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
 
-const options: EChartsOption = {
+const pieChartOptions: EChartsOption = {
   tooltip: {
     trigger: 'item',
   },
@@ -55,6 +56,11 @@ const options: EChartsOption = {
     },
   ],
 };
+
+const pieChartSeries = pieChartOptions.series as SeriesOption[];
+const pieChartData = pieChartSeries[0].data as PieDataItemOption[];
+const pieChartColors = pieChartSeries[0].color as string[];
+
 const WebsiteVisitors = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
   const onChartLegendSelectChanged = (name: string) => {
@@ -80,7 +86,7 @@ const WebsiteVisitors = (): ReactElement => {
     }));
   };
   const totalVisitors = useMemo(
-    () => options.series[0].data.reduce((acc: number, next: any) => acc + next.value, 0),
+    () => pieChartData.reduce((acc: number, next: any) => acc + next.value, 0),
     [],
   );
 
@@ -105,14 +111,14 @@ const WebsiteVisitors = (): ReactElement => {
         <EChartsReact
           echarts={echarts}
           ref={chartRef}
-          option={options}
+          option={pieChartOptions}
           style={{ height: '222px' }}
         />
       </Box>
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
-        {Array.isArray(options.series) &&
-          Array.isArray(options.series[0].data) &&
-          options.series[0].data.map((dataItem, index) => (
+        {Array.isArray(pieChartSeries) &&
+          Array.isArray(pieChartSeries[0].data) &&
+          pieChartSeries[0].data.map((dataItem, index) => (
             <Button
               key={dataItem.name}
               variant="text"
@@ -128,7 +134,7 @@ const WebsiteVisitors = (): ReactElement => {
                 borderRadius: 1,
                 bgcolor: clicked[dataItem.name] ? 'action.focus' : 'background.paper',
                 ':hover': {
-                  bgcolor: 'action.hover',
+                  bgcolor: 'action.active',
                 },
               }}
               disableRipple
@@ -140,24 +146,14 @@ const WebsiteVisitors = (): ReactElement => {
                     height: theme.spacing(1.25),
                     backgroundColor: clicked[dataItem.name]
                       ? 'action.disabled'
-                      : options.series[0].color[index],
+                      : pieChartColors[index],
                     borderRadius: theme.shape.borderRadius * 100,
                   })}
                 ></Box>
-                <Typography
-                  variant="body1"
-                  color="text.secondary"
-                  flex={1}
-                  textAlign={'left'}
-                  fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-                >
+                <Typography variant="body1" color="text.secondary" flex={1} textAlign={'left'}>
                   {dataItem.name}
                 </Typography>
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-                >
+                <Typography variant="body1" color="text.primary">
                   {((dataItem.value / totalVisitors) * 100).toFixed(0)}%
                 </Typography>
               </Stack>

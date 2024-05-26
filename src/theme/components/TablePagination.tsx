@@ -43,7 +43,7 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
       fontSize: theme.typography.body2.fontSize,
       fontWeight: theme.typography.body2.fontWeight,
       color: theme.palette.text.secondary,
-      fontFamily: theme.typography.fontFamily?.split(',')[1],
+      fontFamily: 'Poppins',
       textAlign: 'left',
       [theme.breakpoints.down('sm')]: {
         textAlign: 'center',

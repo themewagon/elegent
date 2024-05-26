@@ -37,13 +37,8 @@ const NewCustomers = (): ReactElement => {
         flex: '1 1 auto',
       })}
     >
-      <Stack
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-        padding={(theme) => theme.spacing(2.5)}
-      >
-        <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
+        <Typography variant="subtitle1" color="text.primary">
           New Customers
         </Typography>
         <IconButton
@@ -52,17 +47,17 @@ const NewCustomers = (): ReactElement => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={(theme) => ({
-            bgcolor: 'transparent',
+          sx={{
+            bgcolor: open ? 'action.active' : 'transparent',
             padding: 0,
-            width: theme.spacing(3),
-            height: theme.spacing(3),
-          })}
+            width: 24,
+            height: 24,
+            ':hover': {
+              bgcolor: 'action.active',
+            },
+          }}
         >
-          <IconifyIcon
-            icon="ph:dots-three-outline-fill"
-            color={(theme) => theme.palette.text.secondary}
-          />
+          <IconifyIcon icon="ph:dots-three-outline-fill" color="text.secondary" />
         </IconButton>
         <Menu
           id="basic-menu"
@@ -92,7 +87,7 @@ const NewCustomers = (): ReactElement => {
           </MenuItem>
         </Menu>
       </Stack>
-      <Stack pb={(theme) => theme.spacing(1.25)}>
+      <Stack pb={1.25}>
         <ListItem
           sx={(theme) => ({
             display: 'flex',
@@ -106,24 +101,16 @@ const NewCustomers = (): ReactElement => {
               <Avatar src={roselle} />
             </Tooltip>
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color="text.primary">
                 Roselle Ehrman
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color="text.secondary">
                 Brazil
               </Typography>
             </Box>
           </Stack>
           <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
           </IconButton>
         </ListItem>
         <ListItem
@@ -139,24 +126,16 @@ const NewCustomers = (): ReactElement => {
               <Avatar src={jone} />
             </Tooltip>
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color="text.primary">
                 Jone Smith
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color="text.secondary">
                 Australia
               </Typography>
             </Box>
           </Stack>
           <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
           </IconButton>
         </ListItem>
         <ListItem
@@ -172,24 +151,16 @@ const NewCustomers = (): ReactElement => {
               <Avatar src={darron} />
             </Tooltip>
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color="text.primary">
                 Darron Handler
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color="text.secondary">
                 Pakistan
               </Typography>
             </Box>
           </Stack>
           <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
           </IconButton>
         </ListItem>
         <ListItem
@@ -205,24 +176,16 @@ const NewCustomers = (): ReactElement => {
               <Avatar src={leatrice} />
             </Tooltip>
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color="text.primary">
                 Leatrice Kulik
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color="text.secondary">
                 Mascow
               </Typography>
             </Box>
           </Stack>
           <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
           </IconButton>
         </ListItem>
         {/* <ListItem
@@ -238,14 +201,12 @@ const NewCustomers = (): ReactElement => {
               <Typography
                 variant="body1"
                 color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
               >
                 Leatrice Kulik
               </Typography>
               <Typography
                 variant="body2"
                 color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
               >
                 Mascow
               </Typography>

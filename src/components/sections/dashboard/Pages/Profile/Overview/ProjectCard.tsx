@@ -23,12 +23,7 @@ const ProjectCard = ({ image, title, subtitle }: ProjectCardProps) => {
           <Typography variant="h6" component="h6" color={(theme) => theme.palette.text.primary}>
             {title}
           </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            color={(theme) => theme.palette.text.secondary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
+          <Typography variant="body1" component="p" color={(theme) => theme.palette.text.secondary}>
             {subtitle}
           </Typography>
           <Stack direction="row" justifyContent="space-between" alignItems="center">

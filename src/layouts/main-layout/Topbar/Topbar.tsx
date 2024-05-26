@@ -131,12 +131,7 @@ const Topbar = ({
               src={profile}
               sx={(theme) => ({ width: theme.spacing(5.625), height: theme.spacing(5.625) })}
             />
-            <Typography
-              variant="body1"
-              component="p"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" component="p" color={(theme) => theme.palette.text.primary}>
               Aiden Max
             </Typography>
             <IconifyIcon

@@ -1,12 +1,12 @@
 import { Box, Button, IconButton, Menu, MenuItem, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import EChartsReact from 'echarts-for-react';
-import { EChartsOption } from 'echarts';
+import { EChartsOption, SeriesOption } from 'echarts';
 import { ReactElement, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 
-const option: EChartsOption = {
+const pieChartOptions: EChartsOption = {
   tooltip: {
     trigger: 'item',
     formatter: '{a} <br/>{b} : {c}%',
@@ -24,7 +24,7 @@ const option: EChartsOption = {
       name: 'Buyers Profile',
       type: 'pie',
       radius: ['65%', '90%'],
-      color: Array.from(['#FF8E29', '#27D095', '#F54F5F']),
+      color: ['#FF8E29', '#27D095', '#F54F5F'],
       avoidLabelOverlap: true,
       startAngle: -30,
       clockwise: false,
@@ -49,6 +49,10 @@ const option: EChartsOption = {
     },
   ],
 };
+
+const pieChartSeries = pieChartOptions.series as SeriesOption[];
+const pieChartColors = pieChartSeries[0].color as string[];
+
 const BuyersProfile = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -92,7 +96,7 @@ const BuyersProfile = (): ReactElement => {
       })}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
-        <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary}>
+        <Typography variant="subtitle1" color="text.primary">
           Buyers Profile
         </Typography>
         <IconButton
@@ -102,16 +106,16 @@ const BuyersProfile = (): ReactElement => {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
           sx={(theme) => ({
-            bgcolor: 'transparent',
+            bgcolor: open ? 'action.active' : 'transparent',
             padding: 0,
             width: theme.spacing(3),
             height: theme.spacing(3),
+            ':hover': {
+              bgcolor: 'action.active',
+            },
           })}
         >
-          <IconifyIcon
-            icon="ph:dots-three-outline-fill"
-            color={(theme) => theme.palette.text.secondary}
-          />
+          <IconifyIcon icon="ph:dots-three-outline-fill" color="text.secondary" />
         </IconButton>
         <Menu
           id="basic-menu"
@@ -157,7 +161,7 @@ const BuyersProfile = (): ReactElement => {
           <EChartsReact
             echarts={echarts}
             ref={chartRef}
-            option={option}
+            option={pieChartOptions}
             style={{ width: '100%', height: '177px' }}
             lazyUpdate
           />
@@ -168,9 +172,9 @@ const BuyersProfile = (): ReactElement => {
             width: 0.5,
           }}
         >
-          {Array.isArray(option.series) &&
-            Array.isArray(option.series[0].data) &&
-            option.series[0].data.map((dataItem, index) => (
+          {Array.isArray(pieChartSeries) &&
+            Array.isArray(pieChartSeries[0].data) &&
+            pieChartSeries[0].data.map((dataItem, index) => (
               <Button
                 key={dataItem.name}
                 variant="text"
@@ -186,7 +190,7 @@ const BuyersProfile = (): ReactElement => {
                   borderRadius: 1,
                   bgcolor: clicked[dataItem.name] ? 'action.focus' : 'background.paper',
                   ':hover': {
-                    bgcolor: 'action.hover',
+                    bgcolor: 'action.active',
                   },
                 }}
                 disableRipple
@@ -198,24 +202,14 @@ const BuyersProfile = (): ReactElement => {
                       height: theme.spacing(1.25),
                       backgroundColor: clicked[dataItem.name]
                         ? 'action.disabled'
-                        : option.series[0].color[index],
+                        : pieChartColors[index],
                       borderRadius: theme.shape.borderRadius * 100,
                     })}
                   ></Box>
-                  <Typography
-                    variant="body1"
-                    color={(theme) => theme.palette.text.secondary}
-                    textAlign={'left'}
-                    flex={1}
-                    fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-                  >
+                  <Typography variant="body1" color="text.secondary" textAlign="left" flex={1}>
                     {dataItem.name}
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    color={(theme) => theme.palette.text.primary}
-                    fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-                  >
+                  <Typography variant="body1" color="text.primary">
                     {dataItem.value}%
                   </Typography>
                 </Stack>

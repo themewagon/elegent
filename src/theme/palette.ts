@@ -27,6 +27,7 @@ const palette: PaletteOptions = {
     focus: smoke[100],
     // hover: white[300],
     disabled: smoke[400],
+    active: white[300],
   },
   background: {
     default: cream[500],

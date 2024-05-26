@@ -52,7 +52,6 @@ const UserInfo = (): ReactElement => {
           variant="body1"
           color={(theme) => theme.palette.text.secondary}
           maxWidth={(theme) => theme.spacing(47.5)}
-          fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
         >
           Hi, I'm Aiden Max: If you can't decide, the answer is no. If two equally difficult paths,
           choose the one more painful in the short term (pain avoidance is creating an illusion of
@@ -62,69 +61,33 @@ const UserInfo = (): ReactElement => {
       <Stack gap={3.75} flex={1}>
         <Stack direction="row" gap={6.25}>
           <Stack gap={3.75}>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               Email:
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               Mobile:
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               Age:
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               Location:
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               Social:
             </Typography>
           </Stack>
           <Stack gap={3.75}>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
               aidenmax451@gmail.com
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
               (44) 123 1234 123
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
               27
             </Typography>
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
               USA
             </Typography>
             <Stack direction="row" gap={1.875}>

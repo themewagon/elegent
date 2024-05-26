@@ -88,11 +88,7 @@ const SignUp = (): ReactElement => {
           <Button variant="contained" fullWidth>
             Sign up
           </Button>
-          <Typography
-            variant="body2"
-            color={(theme) => theme.palette.text.secondary}
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
+          <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
             Already have an account ?{' '}
             <Link
               href="/authentication/login"

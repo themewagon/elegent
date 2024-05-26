@@ -37,14 +37,13 @@ const typography: TypographyOptions = {
   body1: {
     fontSize: '0.875rem',
     fontWeight: 400,
+    fontFamily: 'Poppins',
   },
   body2: {
     fontSize: '0.75rem',
     fontWeight: 400,
+    fontFamily: 'Poppins',
   },
-  fontWeightRegular: 400,
-  fontWeightMedium: 500,
-  fontWeightBold: 700,
 };
 
 export default typography;

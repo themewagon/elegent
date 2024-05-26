@@ -73,13 +73,7 @@ const Sidebar = (): ReactElement => {
               },
             }}
           >
-            <ListItemIcon
-              sx={{
-                ':hover': {
-                  color: 'background.paper',
-                },
-              }}
-            >
+            <ListItemIcon>
               <IconifyIcon icon="ri:logout-circle-line" />
             </ListItemIcon>
             <ListItemText>Log out</ListItemText>

@@ -30,7 +30,6 @@ const Account = (): ReactElement => {
           label={
             <Typography
               variant="body1"
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
               color={(theme) =>
                 state[1] ? theme.palette.text.primary : theme.palette.text.secondary
               }
@@ -44,7 +43,6 @@ const Account = (): ReactElement => {
           label={
             <Typography
               variant="body1"
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
               color={(theme) =>
                 state[2] ? theme.palette.text.primary : theme.palette.text.secondary
               }
@@ -58,7 +56,6 @@ const Account = (): ReactElement => {
           label={
             <Typography
               variant="body1"
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
               color={(theme) =>
                 state[3] ? theme.palette.text.primary : theme.palette.text.secondary
               }

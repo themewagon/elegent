@@ -45,27 +45,17 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
             variant="subtitle1"
             component="p"
             minWidth={(theme) => theme.spacing(12.5)}
-            color={(theme) => theme.palette.text.primary}
+            color="text.primary"
           >
             {title}
           </Typography>
           {date && (
-            <Typography
-              variant="body2"
-              component="p"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body2" component="p" color="text.secondary">
               May 2022
             </Typography>
           )}
         </Stack>
-        <Typography
-          variant="body1"
-          component="p"
-          color={(theme) => theme.palette.text.secondary}
-          fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-        >
+        <Typography variant="body1" component="p" color="text.secondary">
           ${subtitle}
         </Typography>
         <Stack
@@ -75,17 +65,8 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
           minWidth={(theme) => theme.spacing(18.75)}
           color={(theme) => theme.palette.primary.main}
         >
-          <IconifyIcon
-            icon="ph:trend-up-fill"
-            width={(theme) => theme.spacing(2.25)}
-            height={(theme) => theme.spacing(2.25)}
-          />
-          <Typography
-            variant="body1"
-            fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-          >
-            {`+${sales}%`} last month
-          </Typography>
+          <IconifyIcon icon="ph:trend-up-fill" width={18} height={18} />
+          <Typography variant="body1">{`+${sales}%`} last month</Typography>
         </Stack>
       </CardContent>
     </Card>

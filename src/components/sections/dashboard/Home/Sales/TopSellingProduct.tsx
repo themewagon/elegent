@@ -1,17 +1,21 @@
-import { ChangeEvent, ReactElement, useState } from 'react';
+import {
+  // ChangeEvent,
+  ReactElement,
+  useState,
+} from 'react';
 import {
   Avatar,
   Divider,
-  InputAdornment,
+  // InputAdornment,
   Link,
-  OutlinedInput,
+  // OutlinedInput,
   Stack,
   Tooltip,
   Typography,
 } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
 import { rows } from 'data/products';
-import IconifyIcon from 'components/base/IconifyIcon';
+// import IconifyIcon from 'components/base/IconifyIcon';
 
 const columns = [
   {
@@ -31,18 +35,10 @@ const columns = [
             <Avatar src={params.value.avatar} sx={{ objectFit: 'cover' }} />
           </Tooltip>
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
-            <Typography
-              variant="body1"
-              color={(theme) => theme.palette.text.primary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
               {params.value.title}
             </Typography>
-            <Typography
-              variant="body2"
-              color={(theme) => theme.palette.text.secondary}
-              fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-            >
+            <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
               {params.value.subtitle}
             </Typography>
           </Stack>
@@ -90,7 +86,10 @@ const columns = [
 const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
 
-  const [dataRows, setDataRows] = useState<any[]>(rows);
+  const [
+    dataRows,
+    // setDataRows
+  ] = useState<any[]>(rows);
 
   // const { data } = useDemoData({
   //   dataSet: 'Employee',
@@ -102,21 +101,21 @@ const TopSellingProduct = (): ReactElement => {
   //   console.log(data);
   //   console.log(rows);
   // }, [data]);
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const searchValue = event.currentTarget.value;
-    const filteredRows = rows.filter((row) => {
-      return (
-        row.product.title.toLowerCase().includes(searchValue) ||
-        row.product.subtitle.toLowerCase().includes(searchValue) ||
-        row.orders.toString().includes(searchValue) ||
-        row.price.toString().includes(searchValue) ||
-        row.adsSpent.toString().includes(searchValue) ||
-        row.refunds.toString().includes(searchValue)
-      );
-    });
-    console.log(filteredRows);
-    setDataRows(filteredRows);
-  };
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const searchValue = event.currentTarget.value;
+  //   const filteredRows = rows.filter((row) => {
+  //     return (
+  //       row.product.title.toLowerCase().includes(searchValue) ||
+  //       row.product.subtitle.toLowerCase().includes(searchValue) ||
+  //       row.orders.toString().includes(searchValue) ||
+  //       row.price.toString().includes(searchValue) ||
+  //       row.adsSpent.toString().includes(searchValue) ||
+  //       row.refunds.toString().includes(searchValue)
+  //     );
+  //   });
+  //   console.log(filteredRows);
+  //   setDataRows(filteredRows);
+  // };
 
   return (
     <Stack

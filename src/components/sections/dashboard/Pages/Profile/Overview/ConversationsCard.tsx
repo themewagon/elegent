@@ -27,18 +27,10 @@ const Conversations = (): ReactElement => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={roselle} />
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
                 Roselle Ehrman
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
                 Hi! I need more info
               </Typography>
             </Box>
@@ -58,18 +50,10 @@ const Conversations = (): ReactElement => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={jone} />
             <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
                 Jone Smith
               </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-                fontFamily={(theme) => theme.typography.fontFamily?.split(',')[1]}
-              >
+              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
                 About files I Can
               </Typography>
             </Box>
