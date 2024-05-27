@@ -46,7 +46,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       fontWeight: theme.typography.subtitle1.fontWeight,
     }),
     columnHeaderTitleContainer: () => ({
-      gap: 5,
+      gap: 8,
     }),
     columnSeparator: () => ({
       display: 'none',
@@ -55,7 +55,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       color: theme.palette.text.secondary,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
-      fontFamily: theme.typography.fontFamily?.split(',')[1],
+      fontFamily: theme.typography.body1.fontFamily,
       // minWidth: theme.spacing(18.75),
       border: 'none',
       display: 'flex',

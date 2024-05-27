@@ -1,67 +1,16 @@
 import { ReactElement, useMemo, useRef, useState } from 'react';
 import { Box, Button, Divider, Stack, Typography } from '@mui/material';
-import { EChartsOption, SeriesOption } from 'echarts';
-import EChartsReact from 'echarts-for-react';
+import { SeriesOption } from 'echarts';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
-
-const pieChartOptions: EChartsOption = {
-  tooltip: {
-    trigger: 'item',
-  },
-  legend: {
-    show: false,
-    data: [
-      { name: 'Direct', icon: 'circle' },
-      { name: 'Organic', icon: 'circle' },
-      { name: 'Paid', icon: 'circle' },
-      { name: 'Social', icon: 'circle' },
-    ],
-  },
-  series: [
-    {
-      name: 'Website Visitors',
-      type: 'pie',
-      radius: ['65%', '80%'],
-      avoidLabelOverlap: true,
-      startAngle: 0,
-      itemStyle: {
-        borderRadius: 10,
-        borderColor: '#FFF',
-        borderWidth: 2,
-      },
-      color: ['#FF8E29', '#27D095', '#67CADF', '#F54F5F'],
-      label: {
-        show: false,
-        position: 'center',
-      },
-      emphasis: {
-        label: {
-          show: true,
-          fontSize: 30,
-          fontWeight: 'bold',
-          formatter: `{b}`,
-        },
-      },
-      labelLine: {
-        show: false,
-      },
-      data: [
-        { value: 6840, name: 'Direct' },
-        { value: 3960, name: 'Organic' },
-        { value: 2160, name: 'Paid' },
-        { value: 5040, name: 'Social' },
-      ],
-    },
-  ],
-};
-
-const pieChartSeries = pieChartOptions.series as SeriesOption[];
-const pieChartData = pieChartSeries[0].data as PieDataItemOption[];
-const pieChartColors = pieChartSeries[0].color as string[];
+import { visitorsPieChartOptions } from 'data/chart-data';
+import ReactEchart from 'components/base/ReactEchart';
 
 const WebsiteVisitors = (): ReactElement => {
+  const pieChartSeries = visitorsPieChartOptions.series as SeriesOption[];
+  const pieChartData = pieChartSeries[0].data as PieDataItemOption[];
+  const pieChartColors = pieChartSeries[0].color as string[];
   const chartRef = useRef<EChartsReactCore | null>(null);
   const onChartLegendSelectChanged = (name: string) => {
     if (chartRef.current) {
@@ -98,23 +47,15 @@ const WebsiteVisitors = (): ReactElement => {
         height: 'min-content',
       })}
     >
-      <Typography variant="subtitle1" color={(theme) => theme.palette.text.primary} p={2.5}>
+      <Typography variant="subtitle1" color="text.primary" p={2.5}>
         Website Visitors
       </Typography>
-      <Box
-        sx={(theme) => ({
-          maxWidth: theme.spacing(27.75),
-          maxHeight: theme.spacing(27.75),
-          mx: 'auto',
-        })}
-      >
-        <EChartsReact
-          echarts={echarts}
-          ref={chartRef}
-          option={pieChartOptions}
-          style={{ height: '222px' }}
-        />
-      </Box>
+      <ReactEchart
+        option={visitorsPieChartOptions}
+        echarts={echarts}
+        ref={chartRef}
+        sx={{ maxWidth: 222, maxHeight: 222, mx: 'auto' }}
+      />
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
         {Array.isArray(pieChartSeries) &&
           Array.isArray(pieChartSeries[0].data) &&

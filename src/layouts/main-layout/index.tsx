@@ -29,24 +29,9 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
     }
   };
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <Stack direction="row" minHeight="100vh" bgcolor={(theme) => theme.palette.background.default}>
-      <Topbar
-        handleDrawerToggle={handleDrawerToggle}
-        open={open}
-        handleClick={handleClick}
-        anchorEl={anchorEl}
-        handleClose={handleClose}
-      />
+      <Topbar handleDrawerToggle={handleDrawerToggle} />
       <Box
         component="nav"
         sx={{ width: { lg: drawerWidth }, flexShrink: { lg: 0 } }}

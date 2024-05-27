@@ -1,21 +1,17 @@
-import {
-  // ChangeEvent,
-  ReactElement,
-  useState,
-} from 'react';
+import { ChangeEvent, ReactElement, useState, useTransition } from 'react';
 import {
   Avatar,
   Divider,
-  // InputAdornment,
+  InputAdornment,
   Link,
-  // OutlinedInput,
+  OutlinedInput,
   Stack,
   Tooltip,
   Typography,
 } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
-import { rows } from 'data/products';
-// import IconifyIcon from 'components/base/IconifyIcon';
+import { rows } from 'data/Products';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const columns = [
   {
@@ -86,10 +82,8 @@ const columns = [
 const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
 
-  const [
-    dataRows,
-    // setDataRows
-  ] = useState<any[]>(rows);
+  const [dataRows, setDataRows] = useState<any[]>(rows);
+  const [isPending, startTransition] = useTransition();
 
   // const { data } = useDemoData({
   //   dataSet: 'Employee',
@@ -101,21 +95,23 @@ const TopSellingProduct = (): ReactElement => {
   //   console.log(data);
   //   console.log(rows);
   // }, [data]);
-  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const searchValue = event.currentTarget.value;
-  //   const filteredRows = rows.filter((row) => {
-  //     return (
-  //       row.product.title.toLowerCase().includes(searchValue) ||
-  //       row.product.subtitle.toLowerCase().includes(searchValue) ||
-  //       row.orders.toString().includes(searchValue) ||
-  //       row.price.toString().includes(searchValue) ||
-  //       row.adsSpent.toString().includes(searchValue) ||
-  //       row.refunds.toString().includes(searchValue)
-  //     );
-  //   });
-  //   console.log(filteredRows);
-  //   setDataRows(filteredRows);
-  // };
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = event.currentTarget.value;
+    startTransition(() => {
+      const filteredRows = rows.filter((row) => {
+        return (
+          row.product.title.toLowerCase().includes(searchValue) ||
+          row.product.subtitle.toLowerCase().includes(searchValue) ||
+          row.orders.toString().includes(searchValue) ||
+          row.price.toString().includes(searchValue) ||
+          row.adsSpent.toString().includes(searchValue) ||
+          row.refunds.toString().includes(searchValue)
+        );
+      });
+      console.log(filteredRows);
+      setDataRows(filteredRows);
+    });
+  };
 
   return (
     <Stack
@@ -135,7 +131,7 @@ const TopSellingProduct = (): ReactElement => {
         <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
           Top Selling Product
         </Typography>
-        {/* <OutlinedInput
+        <OutlinedInput
           placeholder="Search..."
           id="search-input"
           name="table-search-input"
@@ -149,7 +145,7 @@ const TopSellingProduct = (): ReactElement => {
             backgroundColor: theme.palette.action.focus,
             maxWidth: theme.spacing(30),
           })}
-        /> */}
+        />
       </Stack>
       <Divider />
       <Stack height={1} overflow={'hidden'}>
@@ -157,7 +153,9 @@ const TopSellingProduct = (): ReactElement => {
           apiRef={apiRef}
           columns={columns}
           rows={dataRows}
-          sx={{ display: 'flex' }}
+          sx={{
+            display: 'flex',
+          }}
           initialState={{
             pagination: { paginationModel: { pageSize: 5, page: 0 } },
             columns: {
@@ -166,11 +164,16 @@ const TopSellingProduct = (): ReactElement => {
               },
             },
           }}
+          slots={{
+            loadingOverlay: () => (isPending ? <h1>Loading...</h1> : ''),
+            noRowsOverlay: () => <h1>NO RESULTS</h1>,
+          }}
           slotProps={{
             toolbar: {
               showQuickFilter: true,
             },
           }}
+          loading={isPending}
         />
       </Stack>
     </Stack>

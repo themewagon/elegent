@@ -1,8 +1,10 @@
 import { ReactElement } from 'react';
 import { Box } from '@mui/material';
 import { EChartsOption } from 'echarts';
-import EChartsReact from 'echarts-for-react';
+// import EChartsReact from 'echarts-for-react';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
+import ReactEchart from 'components/base/ReactEchart';
+import * as echarts from 'echarts';
 
 const Revenue = (): ReactElement => {
   const { up } = useBreakpoints();
@@ -131,17 +133,7 @@ const Revenue = (): ReactElement => {
         mx: 'auto',
       })}
     >
-      <EChartsReact
-        option={option}
-        ref={(e) => e?.render()}
-        // ref={}
-        style={{ height: '100%' }}
-        opts={{
-          width: 'auto',
-          renderer: 'canvas',
-        }}
-        lazyUpdate
-      />
+      <ReactEchart option={option} echarts={echarts} sx={{ height: '100% !important' }} />
     </Box>
   );
 };

@@ -6,7 +6,7 @@ const Input: Components<Omit<Theme, 'components'>>['MuiInput'] = {
   styleOverrides: {
     input: ({ theme }) => ({
       '&::placeholder': {
-        fontFamily: theme.typography.fontFamily?.split(',')[1],
+        fontFamily: theme.typography.body1.fontFamily,
       },
     }),
   },

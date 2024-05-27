@@ -1,59 +1,15 @@
 import { Box, Button, IconButton, Menu, MenuItem, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import EChartsReact from 'echarts-for-react';
-import { EChartsOption, SeriesOption } from 'echarts';
+import { SeriesOption } from 'echarts';
 import { ReactElement, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-
-const pieChartOptions: EChartsOption = {
-  tooltip: {
-    trigger: 'item',
-    formatter: '{a} <br/>{b} : {c}%',
-  },
-  legend: {
-    show: false,
-    data: [
-      { name: 'Male', icon: 'circle' },
-      { name: 'Female', icon: 'circle' },
-      { name: 'Others', icon: 'circle' },
-    ],
-  },
-  series: [
-    {
-      name: 'Buyers Profile',
-      type: 'pie',
-      radius: ['65%', '90%'],
-      color: ['#FF8E29', '#27D095', '#F54F5F'],
-      avoidLabelOverlap: true,
-      startAngle: -30,
-      clockwise: false,
-      label: {
-        show: false,
-        position: 'center',
-      },
-      emphasis: {
-        label: {
-          show: false,
-        },
-        scaleSize: 0,
-      },
-      labelLine: {
-        show: true,
-      },
-      data: [
-        { value: 50, name: 'Male' },
-        { value: 35, name: 'Female' },
-        { value: 15, name: 'Others' },
-      ],
-    },
-  ],
-};
-
-const pieChartSeries = pieChartOptions.series as SeriesOption[];
-const pieChartColors = pieChartSeries[0].color as string[];
+import { buyersChartOptions } from 'data/chart-data';
+import ReactEchart from 'components/base/ReactEchart';
 
 const BuyersProfile = (): ReactElement => {
+  const pieChartSeries = buyersChartOptions.series as SeriesOption[];
+  const pieChartColors = pieChartSeries[0].color as string[];
   const chartRef = useRef<EChartsReactCore | null>(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -148,24 +104,19 @@ const BuyersProfile = (): ReactElement => {
         gap={2}
         padding={(theme) => theme.spacing(0, 2.5, 2.5)}
       >
-        <Box
-          sx={(theme) => ({
+        <ReactEchart
+          option={buyersChartOptions}
+          echarts={echarts}
+          ref={chartRef}
+          sx={{
             display: 'flex',
             justifyContent: 'center',
             flex: '1 1 0%',
             width: 0.5,
-            maxWidth: theme.spacing(22.125),
-            maxHeight: theme.spacing(22.125),
-          })}
-        >
-          <EChartsReact
-            echarts={echarts}
-            ref={chartRef}
-            option={pieChartOptions}
-            style={{ width: '100%', height: '177px' }}
-            lazyUpdate
-          />
-        </Box>
+            maxWidth: 177,
+            maxHeight: 177,
+          }}
+        />
         <Stack
           spacing={2}
           sx={{

@@ -13,7 +13,7 @@ import CollapsibleNavButton from './CollapsibleNavButton';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
-import { navItems } from 'data/navItems';
+import { navItems } from 'data/nav-items';
 
 const Sidebar = (): ReactElement => {
   return (
@@ -31,6 +31,8 @@ const Sidebar = (): ReactElement => {
       <Link
         href="/"
         sx={{
+          // position: 'absolute',
+          // zIndex: 5,
           mt: 6.25,
           mx: 5,
           mb: 3.75,
@@ -41,6 +43,7 @@ const Sidebar = (): ReactElement => {
       <List
         sx={{
           mx: 2.5,
+          // mt: 16.25,
           py: 1.25,
           flex: '1 1 auto',
         }}
