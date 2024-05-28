@@ -37,6 +37,12 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       '&::placeholder': {
         opacity: 1,
       },
+      ':-webkit-autofill': {
+        borderTopLeftRadius: 'inherit',
+        borderBottomLeftRadius: 'inherit',
+        borderTopRightRadius: 'initial',
+        borderBottomRightRadius: 'initial',
+      },
     }),
     adornedEnd: ({ theme }) => ({
       color: theme.palette.common.black,

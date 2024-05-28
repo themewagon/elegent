@@ -127,13 +127,13 @@ const Revenue = (): ReactElement => {
       sx={(theme) => ({
         bgcolor: theme.palette.common.white,
         borderRadius: theme.shape.borderRadius * 1.25,
-        minHeight: theme.spacing(57.5),
+        minHeight: 460,
         // width: 1,
         height: 1,
         mx: 'auto',
       })}
     >
-      <ReactEchart option={option} echarts={echarts} sx={{ height: '100% !important' }} />
+      <ReactEchart option={option} echarts={echarts} sx={{ minHeight: 1 }} />
     </Box>
   );
 };

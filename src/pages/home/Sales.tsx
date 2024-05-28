@@ -45,7 +45,7 @@ const Sales = (): ReactElement => {
       <Grid xs={12} md={4}>
         <WebsiteVisitors />
       </Grid>
-      <Grid xs={12} lg={8} minHeight={(theme) => theme.spacing(77.75)}>
+      <Grid xs={12} lg={8} minHeight={622}>
         <TopSellingProduct />
       </Grid>
       <Grid xs={12} lg={4}>

@@ -61,15 +61,15 @@ const BuyersProfile = (): ReactElement => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          sx={(theme) => ({
+          sx={{
             bgcolor: open ? 'action.active' : 'transparent',
-            padding: 0,
-            width: theme.spacing(3),
-            height: theme.spacing(3),
+            padding: 1,
+            width: 36,
+            height: 36,
             ':hover': {
               bgcolor: 'action.active',
             },
-          })}
+          }}
         >
           <IconifyIcon icon="ph:dots-three-outline-fill" color="text.secondary" />
         </IconButton>

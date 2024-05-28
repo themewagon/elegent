@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactElement, useState, useTransition } from 'react';
+import { ChangeEvent, ReactElement, useMemo, useState } from 'react';
 import {
   Avatar,
   Divider,
@@ -8,16 +8,21 @@ import {
   Stack,
   Tooltip,
   Typography,
+  debounce,
 } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
 import { rows } from 'data/Products';
 import IconifyIcon from 'components/base/IconifyIcon';
+import {
+  getApplyQuickFilterFnAdsSpentField,
+  getApplyQuickFilterFnPriceField,
+  getApplyQuickFilterFnProductField,
+} from 'helpers/datagrid-filter-functions';
 
 const columns = [
   {
     field: 'id',
     headerName: 'ID',
-    // flex: 1,
   },
   {
     field: 'product',
@@ -31,10 +36,10 @@ const columns = [
             <Avatar src={params.value.avatar} sx={{ objectFit: 'cover' }} />
           </Tooltip>
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               {params.value.title}
             </Typography>
-            <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body2" color="text.secondary">
               {params.value.subtitle}
             </Typography>
           </Stack>
@@ -81,36 +86,54 @@ const columns = [
 
 const TopSellingProduct = (): ReactElement => {
   const apiRef = useGridApiRef<GridApi>();
+  const [search, setSearch] = useState('');
 
-  const [dataRows, setDataRows] = useState<any[]>(rows);
-  const [isPending, startTransition] = useTransition();
+  const visibleColumns = useMemo(
+    () =>
+      columns
+        .filter((column) => column.field !== 'id')
+        .map((column) => {
+          if (column.field === 'product') {
+            return {
+              ...column,
+              getApplyQuickFilterFn: getApplyQuickFilterFnProductField,
+            };
+          }
+          if (column.field === 'price') {
+            return {
+              ...column,
+              getApplyQuickFilterFn: getApplyQuickFilterFnPriceField,
+            };
+          }
+          if (column.field === 'adsSpent') {
+            return {
+              ...column,
+              getApplyQuickFilterFn: getApplyQuickFilterFnAdsSpentField,
+            };
+          }
+          if (column.field === 'refunds') {
+            return {
+              ...column,
+              getApplyQuickFilterFn: undefined,
+            };
+          }
+          return column;
+        }),
+    [columns],
+  );
 
-  // const { data } = useDemoData({
-  //   dataSet: 'Employee',
-  //   rowLength: 100,
-  //   maxColumns: 6,
-  // });
+  const handleGridSearch = useMemo(() => {
+    return debounce((searchValue) => {
+      apiRef.current.setQuickFilterValues(
+        searchValue.split(' ').filter((word: any) => word !== ''),
+      );
+    }, 350);
+  }, [apiRef]);
 
-  // useEffect(() => {
-  //   console.log(data);
-  //   console.log(rows);
-  // }, [data]);
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.currentTarget.value;
-    startTransition(() => {
-      const filteredRows = rows.filter((row) => {
-        return (
-          row.product.title.toLowerCase().includes(searchValue) ||
-          row.product.subtitle.toLowerCase().includes(searchValue) ||
-          row.orders.toString().includes(searchValue) ||
-          row.price.toString().includes(searchValue) ||
-          row.adsSpent.toString().includes(searchValue) ||
-          row.refunds.toString().includes(searchValue)
-        );
-      });
-      console.log(filteredRows);
-      setDataRows(filteredRows);
-    });
+    setSearch(searchValue);
+    handleGridSearch(searchValue);
   };
 
   return (
@@ -136,6 +159,7 @@ const TopSellingProduct = (): ReactElement => {
           id="search-input"
           name="table-search-input"
           onChange={handleChange}
+          value={search}
           endAdornment={
             <InputAdornment position="end">
               <IconifyIcon icon="mdi:search" width={1} height={1} />
@@ -148,11 +172,11 @@ const TopSellingProduct = (): ReactElement => {
         />
       </Stack>
       <Divider />
-      <Stack height={1} overflow={'hidden'}>
+      <Stack height={1}>
         <DataGrid
           apiRef={apiRef}
-          columns={columns}
-          rows={dataRows}
+          columns={visibleColumns}
+          rows={rows}
           sx={{
             display: 'flex',
           }}
@@ -163,17 +187,20 @@ const TopSellingProduct = (): ReactElement => {
                 id: false,
               },
             },
+            filter: {
+              filterModel: {
+                items: [],
+              },
+            },
           }}
-          slots={{
-            loadingOverlay: () => (isPending ? <h1>Loading...</h1> : ''),
-            noRowsOverlay: () => <h1>NO RESULTS</h1>,
-          }}
+          disableVirtualization
+          slots={{}}
           slotProps={{
             toolbar: {
               showQuickFilter: true,
             },
           }}
-          loading={isPending}
+          disableColumnFilter
         />
       </Stack>
     </Stack>

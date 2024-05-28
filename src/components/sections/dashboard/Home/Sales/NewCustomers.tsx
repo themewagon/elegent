@@ -49,9 +49,9 @@ const NewCustomers = (): ReactElement => {
           onClick={handleClick}
           sx={{
             bgcolor: open ? 'action.active' : 'transparent',
-            padding: 0,
-            width: 24,
-            height: 24,
+            padding: 1,
+            width: 36,
+            height: 36,
             ':hover': {
               bgcolor: 'action.active',
             },

@@ -13,7 +13,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { drawerWidth } from 'layouts/main-layout';
 
 import { useLocation } from 'react-router-dom';
-import capitalizePathname from 'helpers/capitalizePathname';
+import capitalizePathname from 'helpers/capitalize-pathname';
 import AccountDropdown from './AccountDropdown';
 import LanguageDropdown from './LanguageDropdown';
 

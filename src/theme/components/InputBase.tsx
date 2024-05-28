@@ -25,6 +25,12 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
         opacity: 1,
         fontFamily: theme.typography.body1.fontFamily,
       },
+      ':-webkit-autofill': {
+        borderTopLeftRadius: 'inherit',
+        borderBottomLeftRadius: 'inherit',
+        borderTopRightRadius: 'initial',
+        borderBottomRightRadius: 'initial',
+      },
     }),
   },
 };

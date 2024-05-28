@@ -24,10 +24,10 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
       })}
     >
       <CardMedia
-        sx={(theme) => ({
-          maxWidth: theme.spacing(8.75),
-          maxHeight: theme.spacing(8.75),
-        })}
+        sx={{
+          maxWidth: 70,
+          maxHeight: 70,
+        }}
       >
         <Image src={`${image}`} width={1} height={1} />
       </CardMedia>
@@ -41,12 +41,7 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
         }}
       >
         <Stack direction="row" justifyContent="space-between" alignItems="center">
-          <Typography
-            variant="subtitle1"
-            component="p"
-            minWidth={(theme) => theme.spacing(12.5)}
-            color="text.primary"
-          >
+          <Typography variant="subtitle1" component="p" minWidth={100} color="text.primary">
             {title}
           </Typography>
           {date && (
@@ -62,7 +57,7 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
           direction="row"
           alignItems="center"
           gap={1}
-          minWidth={(theme) => theme.spacing(18.75)}
+          minWidth={150}
           color={(theme) => theme.palette.primary.main}
         >
           <IconifyIcon icon="ph:trend-up-fill" width={18} height={18} />

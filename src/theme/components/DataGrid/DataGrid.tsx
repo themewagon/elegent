@@ -69,11 +69,16 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       overflowX: 'scroll !important' as 'scroll',
     }),
     virtualScrollerContent: () => ({
+      width: 'auto',
+      minHeight: 'fit-content',
+    }),
+    virtualScrollerRenderZone: () => ({
+      width: 'auto',
       height: '100%',
     }),
     filler: () => ({
       display: 'none',
-      height: 0,
+      height: '0 !important',
       flex: 0,
       flexGrow: 0,
     }),
@@ -92,6 +97,12 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     sortIcon: () => ({
       color: 'initial',
+    }),
+    overlay: ({ theme }) => ({
+      backgroundColor: theme.palette.background.paper,
+      fontSize: theme.typography.subtitle1.fontSize,
+      fontWeight: theme.typography.subtitle1.fontWeight,
+      fontFamily: theme.typography.body1.fontFamily,
     }),
   },
 };
