@@ -2,7 +2,9 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
-  defaultProps: {},
+  defaultProps: {
+    size: 'medium',
+  },
   styleOverrides: {
     root: ({ theme }) => ({
       fontSize: theme.typography.body1.fontSize,
@@ -15,7 +17,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     }),
     text: ({ theme }) => ({
       color: theme.palette.primary.main,
-      padding: theme.spacing(1.5),
+      padding: theme.spacing(1.5, 2),
       borderRadius: 0,
       '&:hover': {
         backgroundColor: 'transparent',
@@ -57,6 +59,24 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
     }),
     disabled: () => ({
       cursor: 'not-allowed',
+    }),
+    containedSecondary: ({ theme }) => ({
+      backgroundColor: theme.palette.secondary.main,
+    }),
+    textSecondary: ({ theme }) => ({
+      color: theme.palette.info.main,
+    }),
+    containedInfo: ({ theme }) => ({
+      backgroundColor: theme.palette.info.main,
+    }),
+    textInfo: ({ theme }) => ({
+      color: theme.palette.info.main,
+    }),
+    containedError: ({ theme }) => ({
+      backgroundColor: theme.palette.error.main,
+    }),
+    textError: ({ theme }) => ({
+      color: theme.palette.error.main,
     }),
   },
 };

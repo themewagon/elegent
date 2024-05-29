@@ -39,6 +39,7 @@ const BuyersProfile = (): ReactElement => {
   const onChartLegendSelectChanged = (name: string) => {
     if (chartRef.current) {
       const instance = chartRef.current.getEchartsInstance();
+      console.log(instance.getOption());
       instance.dispatchAction({
         type: 'legendToggleSelect',
         name: name,

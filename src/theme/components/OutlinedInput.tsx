@@ -2,7 +2,9 @@ import { Theme, outlinedInputClasses } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] = {
-  defaultProps: {},
+  defaultProps: {
+    autoComplete: 'off',
+  },
   styleOverrides: {
     root: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,

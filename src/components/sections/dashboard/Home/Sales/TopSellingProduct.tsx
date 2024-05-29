@@ -10,7 +10,7 @@ import {
   Typography,
   debounce,
 } from '@mui/material';
-import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
+import { DataGrid, GridApi, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
 import {
   getApplyQuickFilterFnAdsSpentField,
@@ -19,7 +19,7 @@ import {
 } from 'helpers/datagrid-filter-functions';
 import { rows } from 'data/Products';
 
-const columns = [
+const columns: GridColDef[] = [
   {
     field: 'id',
     headerName: 'ID',

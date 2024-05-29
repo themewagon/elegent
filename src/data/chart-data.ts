@@ -17,10 +17,10 @@ export const useChartData = () => {
     title: {
       text: 'Revenue',
       textStyle: {
-        fontSize: '20.25px',
-        fontWeight: 500,
-        color: '#050F24',
-        fontFamily: 'IBM Plex Sans',
+        fontSize: theme.typography.h5.fontSize,
+        fontWeight: theme.typography.h5.fontWeight,
+        color: theme.palette.text.primary,
+        fontFamily: theme.typography.h5.fontFamily,
       },
       top: 30,
       left: 30,
@@ -32,7 +32,7 @@ export const useChartData = () => {
       axisLine: {
         show: true,
         lineStyle: {
-          color: '#E1E1E1',
+          color: theme.palette.divider,
           width: 1,
           type: 'dashed',
         },
@@ -40,9 +40,9 @@ export const useChartData = () => {
       axisLabel: {
         show: true,
         padding: 30,
-        color: '#6F757E',
+        color: theme.palette.text.secondary,
         formatter: (value: any) => value.slice(0, 3),
-        fontFamily: 'Poppins',
+        fontFamily: theme.typography.body1.fontFamily,
       },
       axisTick: {
         show: false,
@@ -57,15 +57,15 @@ export const useChartData = () => {
       },
       axisLabel: {
         show: true,
-        color: '#6F757E',
+        color: theme.palette.text.secondary,
         align: 'center',
         padding: [0, 20, 0, 0],
-        fontFamily: 'Poppins',
+        fontFamily: theme.typography.body1.fontFamily,
       },
       splitLine: {
         interval: 5,
         lineStyle: {
-          color: '#E1E1E1',
+          color: theme.palette.divider,
           width: 1,
           type: 'dashed',
         },
@@ -88,7 +88,7 @@ export const useChartData = () => {
         fontFamily: 'Poppins',
         fontSize: '0.75rem',
         fontWeight: 400,
-        color: '#6F757E',
+        color: theme.palette.text.secondary,
       },
       itemGap: 20,
     },
@@ -99,10 +99,11 @@ export const useChartData = () => {
     },
     series: [
       {
+        id: 1,
         data: [65, 210, 175, 140, 105, 20, 120, 20],
         type: 'line',
         smooth: true,
-        color: '#27D095',
+        color: theme.palette.secondary.main,
         name: 'Google ads',
         legendHoverLink: true,
         showSymbol: true,
@@ -112,10 +113,11 @@ export const useChartData = () => {
         },
       },
       {
+        id: 2,
         data: [20, 125, 100, 30, 150, 300, 90, 180],
         type: 'line',
         smooth: true,
-        color: '#FF8E29',
+        color: theme.palette.primary.main,
         name: 'Facebook ads',
         legendHoverLink: true,
         showSymbol: false,
@@ -149,7 +151,7 @@ export const useChartData = () => {
         startAngle: 0,
         itemStyle: {
           borderRadius: 10,
-          borderColor: '#FFF',
+          borderColor: theme.palette.common.white,
           borderWidth: 2,
         },
         color: [
