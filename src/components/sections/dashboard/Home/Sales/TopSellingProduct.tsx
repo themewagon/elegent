@@ -17,7 +17,7 @@ import {
   getApplyQuickFilterFnPriceField,
   getApplyQuickFilterFnProductField,
 } from 'helpers/datagrid-filter-functions';
-import { rows } from '../../../../../data/Products';
+import { rows } from 'data/Products';
 
 const columns = [
   {
