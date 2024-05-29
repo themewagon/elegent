@@ -11,13 +11,13 @@ import {
   debounce,
 } from '@mui/material';
 import { DataGrid, GridApi, useGridApiRef } from '@mui/x-data-grid';
-import { rows } from 'data/Products';
 import IconifyIcon from 'components/base/IconifyIcon';
 import {
   getApplyQuickFilterFnAdsSpentField,
   getApplyQuickFilterFnPriceField,
   getApplyQuickFilterFnProductField,
 } from 'helpers/datagrid-filter-functions';
+import { rows } from 'data/Products';
 
 const columns = [
   {
