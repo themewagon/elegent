@@ -1,14 +1,18 @@
 import { Box, Button, IconButton, Menu, MenuItem, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { SeriesOption } from 'echarts';
-import { ReactElement, useRef, useState } from 'react';
+import { ReactElement, useCallback, useRef, useState } from 'react';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import { buyersChartOptions } from 'data/chart-data';
+import { useChartData } from 'data/chart-data';
 import ReactEchart from 'components/base/ReactEchart';
 
 const BuyersProfile = (): ReactElement => {
-  const pieChartSeries = buyersChartOptions.series as SeriesOption[];
+  const { buyersChartOptions } = useChartData();
+
+  const getOptions = useCallback(() => buyersChartOptions(), []);
+
+  const pieChartSeries = getOptions().series as SeriesOption[];
   const pieChartColors = pieChartSeries[0].color as string[];
   const chartRef = useRef<EChartsReactCore | null>(null);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -105,7 +109,7 @@ const BuyersProfile = (): ReactElement => {
         padding={(theme) => theme.spacing(0, 2.5, 2.5)}
       >
         <ReactEchart
-          option={buyersChartOptions}
+          option={getOptions()}
           echarts={echarts}
           ref={chartRef}
           sx={{

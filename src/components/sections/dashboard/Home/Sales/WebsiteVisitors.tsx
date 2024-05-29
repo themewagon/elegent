@@ -1,14 +1,17 @@
-import { ReactElement, useMemo, useRef, useState } from 'react';
+import { ReactElement, useCallback, useMemo, useRef, useState } from 'react';
 import { Box, Button, Divider, Stack, Typography } from '@mui/material';
 import { SeriesOption } from 'echarts';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
-import { visitorsPieChartOptions } from 'data/chart-data';
+import { useChartData } from 'data/chart-data';
 import ReactEchart from 'components/base/ReactEchart';
 
 const WebsiteVisitors = (): ReactElement => {
-  const pieChartSeries = visitorsPieChartOptions.series as SeriesOption[];
+  const { visitorsPieChartOptions } = useChartData();
+  const getOptions = useCallback(() => visitorsPieChartOptions(), []);
+
+  const pieChartSeries = getOptions().series as SeriesOption[];
   const pieChartData = pieChartSeries[0].data as PieDataItemOption[];
   const pieChartColors = pieChartSeries[0].color as string[];
   const chartRef = useRef<EChartsReactCore | null>(null);
@@ -51,7 +54,7 @@ const WebsiteVisitors = (): ReactElement => {
         Website Visitors
       </Typography>
       <ReactEchart
-        option={visitorsPieChartOptions}
+        option={getOptions()}
         echarts={echarts}
         ref={chartRef}
         sx={{ maxWidth: 222, maxHeight: 222, mx: 'auto' }}
