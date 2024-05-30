@@ -1,11 +1,11 @@
-import { Button, Stack } from '@mui/material';
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
+import { Button, Stack, TextField } from '@mui/material';
 import { ReactElement } from 'react';
+import Grid from '@mui/material/Unstable_Grid2';
 
 const Kanban = (): ReactElement => {
   return (
-    <Grid2 container sx={{ '& button': { m: 1 } }} columns={12}>
-      <Grid2 xs={4}>
+    <Grid container sx={{ '& button': { m: 1 } }} columns={12}>
+      <Grid xs={4}>
         <Stack>
           <h3>Primary</h3>
           <div>
@@ -36,8 +36,8 @@ const Kanban = (): ReactElement => {
             </Button>
           </div>
         </Stack>
-      </Grid2>
-      <Grid2 xs={4}>
+      </Grid>
+      <Grid xs={4}>
         <Stack>
           <h3>Secondary</h3>
           <div>
@@ -74,8 +74,8 @@ const Kanban = (): ReactElement => {
             </Button>
           </div>
         </Stack>
-      </Grid2>
-      <Grid2 xs={4}>
+      </Grid>
+      <Grid xs={4}>
         <Stack>
           <h3>Info</h3>
           <div>
@@ -112,8 +112,8 @@ const Kanban = (): ReactElement => {
             </Button>
           </div>
         </Stack>
-      </Grid2>
-      <Grid2 xs={4}>
+      </Grid>
+      <Grid xs={4}>
         <Stack>
           <h3>Error</h3>
           <div>
@@ -150,8 +150,16 @@ const Kanban = (): ReactElement => {
             </Button>
           </div>
         </Stack>
-      </Grid2>
-    </Grid2>
+      </Grid>
+      <Grid xs={4}>
+        <Stack>
+          <h3>TextField</h3>
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField id="filled-basic" label="Filled" variant="filled" />
+          <TextField id="standard-basic" label="Standard" variant="standard" />
+        </Stack>
+      </Grid>
+    </Grid>
   );
 };
 

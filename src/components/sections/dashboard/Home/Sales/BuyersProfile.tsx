@@ -1,19 +1,37 @@
-import { Box, Button, IconButton, Menu, MenuItem, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  Menu,
+  MenuItem,
+  Stack,
+  Typography,
+  useTheme,
+} from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { SeriesOption } from 'echarts';
-import { ReactElement, useCallback, useRef, useState } from 'react';
-import * as echarts from 'echarts';
+import { ReactElement, useRef, useState } from 'react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import { useChartData } from 'data/chart-data';
-import ReactEchart from 'components/base/ReactEchart';
+import BuyersProfileChart from './BuyersProfileChart';
+import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
 
 const BuyersProfile = (): ReactElement => {
-  const { buyersChartOptions } = useChartData();
+  const theme = useTheme();
+  const seriesData: PieDataItemOption[] = [
+    { value: 50, name: 'Male' },
+    { value: 35, name: 'Female' },
+    { value: 15, name: 'Others' },
+  ];
+  const legendData = [
+    { name: 'Male', icon: 'circle' },
+    { name: 'Female', icon: 'circle' },
+    { name: 'Others', icon: 'circle' },
+  ];
+  const pieChartColors = [
+    theme.palette.primary.main,
+    theme.palette.secondary.main,
+    theme.palette.error.main,
+  ];
 
-  const getOptions = useCallback(() => buyersChartOptions(), []);
-
-  const pieChartSeries = getOptions().series as SeriesOption[];
-  const pieChartColors = pieChartSeries[0].color as string[];
   const chartRef = useRef<EChartsReactCore | null>(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -109,10 +127,11 @@ const BuyersProfile = (): ReactElement => {
         gap={2}
         padding={(theme) => theme.spacing(0, 2.5, 2.5)}
       >
-        <ReactEchart
-          option={getOptions()}
-          echarts={echarts}
-          ref={chartRef}
+        <BuyersProfileChart
+          chartRef={chartRef}
+          seriesData={seriesData}
+          legendData={legendData}
+          colors={pieChartColors}
           sx={{
             display: 'flex',
             justifyContent: 'center',
@@ -128,9 +147,8 @@ const BuyersProfile = (): ReactElement => {
             width: 0.5,
           }}
         >
-          {Array.isArray(pieChartSeries) &&
-            Array.isArray(pieChartSeries[0].data) &&
-            pieChartSeries[0].data.map((dataItem, index) => (
+          {Array.isArray(seriesData) &&
+            seriesData.map((dataItem, index) => (
               <Button
                 key={dataItem.name}
                 variant="text"
@@ -144,7 +162,7 @@ const BuyersProfile = (): ReactElement => {
                   padding: 0,
                   px: 1,
                   borderRadius: 1,
-                  bgcolor: clicked[dataItem.name] ? 'action.focus' : 'background.paper',
+                  bgcolor: clicked[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
                   ':hover': {
                     bgcolor: 'action.active',
                   },
@@ -156,7 +174,7 @@ const BuyersProfile = (): ReactElement => {
                     sx={(theme) => ({
                       width: theme.spacing(1.25),
                       height: theme.spacing(1.25),
-                      backgroundColor: clicked[dataItem.name]
+                      backgroundColor: clicked[`${dataItem.name}`]
                         ? 'action.disabled'
                         : pieChartColors[index],
                       borderRadius: theme.shape.borderRadius * 100,

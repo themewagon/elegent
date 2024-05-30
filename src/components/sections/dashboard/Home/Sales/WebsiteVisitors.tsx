@@ -1,23 +1,39 @@
-import { ReactElement, useCallback, useMemo, useRef, useState } from 'react';
-import { Box, Button, Divider, Stack, Typography } from '@mui/material';
-import { SeriesOption } from 'echarts';
-import * as echarts from 'echarts';
+import { ReactElement, useMemo, useRef, useState } from 'react';
+import { Box, Button, Divider, Stack, Typography, useTheme } from '@mui/material';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
-import { useChartData } from 'data/chart-data';
-import ReactEchart from 'components/base/ReactEchart';
+import WebsiteVisitorsChart from './WebsiteVisitorsChart';
 
 const WebsiteVisitors = (): ReactElement => {
-  const { visitorsPieChartOptions } = useChartData();
-  const getOptions = useCallback(() => visitorsPieChartOptions(), []);
+  const theme = useTheme();
 
-  const pieChartSeries = getOptions().series as SeriesOption[];
-  const pieChartData = pieChartSeries[0].data as PieDataItemOption[];
-  const pieChartColors = pieChartSeries[0].color as string[];
+  const seriesData: PieDataItemOption[] = [
+    { value: 6840, name: 'Direct' },
+    { value: 3960, name: 'Organic' },
+    { value: 2160, name: 'Paid' },
+    { value: 5040, name: 'Social' },
+  ];
+
+  const legendData = [
+    { name: 'Direct', icon: 'circle' },
+    { name: 'Organic', icon: 'circle' },
+    { name: 'Paid', icon: 'circle' },
+    { name: 'Social', icon: 'circle' },
+  ];
+
+  const pieChartColors = [
+    theme.palette.primary.main,
+    theme.palette.secondary.main,
+    theme.palette.info.main,
+    theme.palette.error.main,
+  ];
+
   const chartRef = useRef<EChartsReactCore | null>(null);
   const onChartLegendSelectChanged = (name: string) => {
+    console.log(chartRef.current?.getEchartsInstance().getOption());
     if (chartRef.current) {
       const instance = chartRef.current.getEchartsInstance();
+      console.log(instance.getOption());
       instance.dispatchAction({
         type: 'legendToggleSelect',
         name: name,
@@ -38,7 +54,7 @@ const WebsiteVisitors = (): ReactElement => {
     }));
   };
   const totalVisitors = useMemo(
-    () => pieChartData.reduce((acc: number, next: any) => acc + next.value, 0),
+    () => seriesData.reduce((acc: number, next: any) => acc + next.value, 0),
     [],
   );
 
@@ -53,16 +69,16 @@ const WebsiteVisitors = (): ReactElement => {
       <Typography variant="subtitle1" color="text.primary" p={2.5}>
         Website Visitors
       </Typography>
-      <ReactEchart
-        option={getOptions()}
-        echarts={echarts}
-        ref={chartRef}
+      <WebsiteVisitorsChart
+        chartRef={chartRef}
+        seriesData={seriesData}
+        colors={pieChartColors}
+        legendData={legendData}
         sx={{ maxWidth: 222, maxHeight: 222, mx: 'auto' }}
       />
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
-        {Array.isArray(pieChartSeries) &&
-          Array.isArray(pieChartSeries[0].data) &&
-          pieChartSeries[0].data.map((dataItem, index) => (
+        {Array.isArray(seriesData) &&
+          seriesData.map((dataItem, index) => (
             <Button
               key={dataItem.name}
               variant="text"
@@ -76,7 +92,7 @@ const WebsiteVisitors = (): ReactElement => {
                 padding: 0,
                 px: 1,
                 borderRadius: 1,
-                bgcolor: clicked[dataItem.name] ? 'action.focus' : 'background.paper',
+                bgcolor: clicked[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
                 ':hover': {
                   bgcolor: 'action.active',
                 },
@@ -88,7 +104,7 @@ const WebsiteVisitors = (): ReactElement => {
                   sx={(theme) => ({
                     width: theme.spacing(1.25),
                     height: theme.spacing(1.25),
-                    backgroundColor: clicked[dataItem.name]
+                    backgroundColor: clicked[`${dataItem.name}`]
                       ? 'action.disabled'
                       : pieChartColors[index],
                     borderRadius: theme.shape.borderRadius * 100,
@@ -98,7 +114,7 @@ const WebsiteVisitors = (): ReactElement => {
                   {dataItem.name}
                 </Typography>
                 <Typography variant="body1" color="text.primary">
-                  {((dataItem.value / totalVisitors) * 100).toFixed(0)}%
+                  {((parseInt(`${dataItem.value}`) / totalVisitors) * 100).toFixed(0)}%
                 </Typography>
               </Stack>
             </Button>

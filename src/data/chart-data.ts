@@ -6,7 +6,7 @@ import * as echarts from 'echarts/core';
 import { LabelLayout } from 'echarts/features';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 
-type EChartOption = ComposeOption<LineSeriesOption | PieSeriesOption>;
+export type EChartOption = ComposeOption<LineSeriesOption | PieSeriesOption>;
 
 echarts.use([LineChart, PieChart, LabelLayout]);
 

@@ -1,7 +1,8 @@
-import { ReactElement, Suspense } from 'react';
+import { ReactElement, Suspense, useState } from 'react';
 import {
   Button,
   FormControl,
+  IconButton,
   InputAdornment,
   InputLabel,
   Link,
@@ -16,6 +17,10 @@ import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 
 const Login = (): ReactElement => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+
   return (
     <Stack
       direction="row"
@@ -54,16 +59,30 @@ const Login = (): ReactElement => {
             </InputLabel>
             <OutlinedInput
               placeholder="********"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               id="password-input"
               endAdornment={
                 <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    edge="end"
+                    sx={{
+                      color: 'text.secondary',
+                    }}
+                  >
+                    {showPassword ? (
+                      <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
+                    ) : (
+                      <IconifyIcon icon="ic:baseline-key-off" width={1} height={1} />
+                    )}
+                  </IconButton>
                 </InputAdornment>
               }
               sx={(theme) => ({
                 width: 1,
                 backgroundColor: theme.palette.action.focus,
+                paddingRight: 3,
               })}
             />
           </FormControl>

@@ -64,7 +64,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       backgroundColor: theme.palette.secondary.main,
     }),
     textSecondary: ({ theme }) => ({
-      color: theme.palette.info.main,
+      color: theme.palette.secondary.main,
     }),
     containedInfo: ({ theme }) => ({
       backgroundColor: theme.palette.info.main,

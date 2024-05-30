@@ -1,19 +1,11 @@
-import { ReactElement, useCallback, useRef } from 'react';
+import { ReactElement, useRef } from 'react';
 import { Box } from '@mui/material';
-import ReactEchart from 'components/base/ReactEchart';
-import * as echarts from 'echarts';
-import { useChartData } from 'data/chart-data';
 import EChartsReactCore from 'echarts-for-react/lib/core';
+import RevenueChart from './RevenueChart';
 
 const Revenue = (): ReactElement => {
-  const { revenueLineChartOptions } = useChartData();
-
   const chartRef = useRef<EChartsReactCore | null>(null);
-  const getOptions = useCallback(() => revenueLineChartOptions(), []);
 
-  // chartRef.current?.getEchartsInstance().on('mouseover', { seriesIndex: 2 }, () => {
-  //   console.log(chartRef.current?.getEchartsInstance().getHeight());
-  // });
   return (
     <Box
       sx={(theme) => ({
@@ -25,7 +17,8 @@ const Revenue = (): ReactElement => {
         mx: 'auto',
       })}
     >
-      <ReactEchart option={getOptions()} ref={chartRef} echarts={echarts} sx={{ minHeight: 1 }} />
+      <RevenueChart chartRef={chartRef} sx={{ minHeight: 1 }} />
+      {/* <ReactEchart option={getOptions()} ref={chartRef} echarts={echarts} sx={{ minHeight: 1 }} /> */}
     </Box>
   );
 };
