@@ -7,14 +7,9 @@ import WebsiteVisitors from 'components/sections/dashboard/Home/Sales/WebsiteVis
 import SaleInfoCards from 'components/sections/dashboard/Home/Sales/SaleInfoCards';
 import BuyersProfile from 'components/sections/dashboard/Home/Sales/BuyersProfile';
 import NewCustomers from 'components/sections/dashboard/Home/Sales/NewCustomers';
-import SaleInfo from 'components/sections/dashboard/Home/Sales/SaleInfo';
 import Revenue from 'components/sections/dashboard/Home/Sales/Revenue';
 
 import { drawerWidth } from 'layouts/main-layout';
-
-import avgRevenue from 'assets/sale-info/avg-revenue.png';
-import customers from 'assets/sale-info/customers.png';
-import sales from 'assets/sale-info/sales.png';
 
 const Sales = (): ReactElement => {
   return (
