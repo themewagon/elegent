@@ -19,12 +19,12 @@ const SignUp = (): ReactElement => {
   return (
     <Stack
       direction="row"
-      bgcolor={(theme) => theme.palette.background.paper}
+      bgcolor="background.paper"
       boxShadow={(theme) => theme.shadows[3]}
       height={591}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={(theme) => theme.spacing(2.5)} gap={10}>
+      <Stack width={0.5} m={2.5} gap={10}>
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
@@ -42,10 +42,10 @@ const SignUp = (): ReactElement => {
                   <IconifyIcon icon="mdi:user" width={1} height={1} />
                 </InputAdornment>
               }
-              sx={(theme) => ({
+              sx={{
                 width: 1,
-                backgroundColor: theme.palette.action.focus,
-              })}
+                backgroundColor: 'action.focus',
+              }}
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
@@ -60,10 +60,10 @@ const SignUp = (): ReactElement => {
                   <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
                 </InputAdornment>
               }
-              sx={(theme) => ({
+              sx={{
                 width: 1,
-                backgroundColor: theme.palette.action.focus,
-              })}
+                backgroundColor: 'action.focus',
+              }}
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
@@ -79,16 +79,16 @@ const SignUp = (): ReactElement => {
                   <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                 </InputAdornment>
               }
-              sx={(theme) => ({
+              sx={{
                 width: 1,
-                backgroundColor: theme.palette.action.focus,
-              })}
+                backgroundColor: 'action.focus',
+              }}
             />
           </FormControl>
           <Button variant="contained" fullWidth>
             Sign up
           </Button>
-          <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+          <Typography variant="body2" color="text.secondary">
             Already have an account ?{' '}
             <Link
               href="/authentication/login"
@@ -102,12 +102,7 @@ const SignUp = (): ReactElement => {
       </Stack>
       <Suspense
         fallback={
-          <Skeleton
-            variant="rectangular"
-            height={1}
-            width={1}
-            sx={(theme) => ({ bgcolor: theme.palette.primary.main })}
-          />
+          <Skeleton variant="rectangular" height={1} width={1} sx={{ bgcolor: 'primary.main' }} />
         }
       >
         <Image

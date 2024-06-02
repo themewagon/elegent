@@ -1,22 +1,9 @@
 import { ReactElement, useState } from 'react';
-import {
-  Avatar,
-  Box,
-  IconButton,
-  Link,
-  ListItem,
-  Menu,
-  MenuItem,
-  Stack,
-  Tooltip,
-  Typography,
-} from '@mui/material';
-import leatrice from 'assets/new-customers/leatrice.png';
-import roselle from 'assets/new-customers/roselle.jpg';
-import darron from 'assets/new-customers/darron.png';
-import jone from 'assets/new-customers/jone.png';
+import { Box, IconButton, Menu, MenuItem, Stack, Typography } from '@mui/material';
 
 import IconifyIcon from 'components/base/IconifyIcon';
+import { customerList } from 'data/customers-list';
+import CustomerItem from './CustomerItem';
 
 const NewCustomers = (): ReactElement => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -30,12 +17,12 @@ const NewCustomers = (): ReactElement => {
 
   return (
     <Box
-      sx={(theme) => ({
-        bgcolor: theme.palette.common.white,
-        borderRadius: theme.shape.borderRadius * 1.25,
+      sx={{
+        bgcolor: 'common.white',
+        borderRadius: 5,
         height: 1,
         flex: '1 1 auto',
-      })}
+      }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
         <Typography variant="subtitle1" color="text.primary">
@@ -88,134 +75,14 @@ const NewCustomers = (): ReactElement => {
         </Menu>
       </Stack>
       <Stack pb={1.25}>
-        <ListItem
-          sx={(theme) => ({
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: theme.spacing(1.25, 2.5),
-          })}
-        >
-          <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Roselle" placement="top" arrow enterDelay={0} leaveDelay={0}>
-              <Avatar src={roselle} />
-            </Tooltip>
-            <Box component="div">
-              <Typography variant="body1" color="text.primary">
-                Roselle Ehrman
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Brazil
-              </Typography>
-            </Box>
-          </Stack>
-          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
-          </IconButton>
-        </ListItem>
-        <ListItem
-          sx={(theme) => ({
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: theme.spacing(1.25, 2.5),
-          })}
-        >
-          <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Jone" placement="top" arrow enterDelay={0} leaveDelay={0}>
-              <Avatar src={jone} />
-            </Tooltip>
-            <Box component="div">
-              <Typography variant="body1" color="text.primary">
-                Jone Smith
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Australia
-              </Typography>
-            </Box>
-          </Stack>
-          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
-          </IconButton>
-        </ListItem>
-        <ListItem
-          sx={(theme) => ({
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: theme.spacing(1.25, 2.5),
-          })}
-        >
-          <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Darron" placement="top" arrow enterDelay={0} leaveDelay={0}>
-              <Avatar src={darron} />
-            </Tooltip>
-            <Box component="div">
-              <Typography variant="body1" color="text.primary">
-                Darron Handler
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Pakistan
-              </Typography>
-            </Box>
-          </Stack>
-          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
-          </IconButton>
-        </ListItem>
-        <ListItem
-          sx={(theme) => ({
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: theme.spacing(1.25, 2.5),
-          })}
-        >
-          <Stack direction="row" gap={1.5} component={Link}>
-            <Tooltip title="Leatrice" placement="top" arrow enterDelay={0} leaveDelay={0}>
-              <Avatar src={leatrice} />
-            </Tooltip>
-            <Box component="div">
-              <Typography variant="body1" color="text.primary">
-                Leatrice Kulik
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Mascow
-              </Typography>
-            </Box>
-          </Stack>
-          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
-          </IconButton>
-        </ListItem>
-        {/* <ListItem
-          sx={(theme) => ({
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: theme.spacing(1.25, 2.5),
-          })}
-        >
-          <Stack direction="row" gap={1.5}>
-            <Avatar src={leatrice} />
-            <Box component="div">
-              <Typography
-                variant="body1"
-                color={(theme) => theme.palette.text.primary}
-              >
-                Leatrice Kulik
-              </Typography>
-              <Typography
-                variant="body2"
-                color={(theme) => theme.palette.text.secondary}
-              >
-                Mascow
-              </Typography>
-            </Box>
-          </Stack>
-          <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
-          </IconButton>
-        </ListItem> */}
+        {customerList.map((customer, index) => (
+          <CustomerItem
+            key={index}
+            name={customer.name}
+            country={customer.country}
+            avatar={customer.avatar}
+          />
+        ))}
       </Stack>
     </Box>
   );

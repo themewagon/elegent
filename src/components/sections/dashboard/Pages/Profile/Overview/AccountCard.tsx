@@ -18,8 +18,8 @@ const Account = (): ReactElement => {
   return (
     <Stack
       padding={(theme) => theme.spacing(2.5, 3.375, 2, 2.5)}
-      bgcolor={(theme) => theme.palette.background.paper}
-      borderRadius={(theme) => theme.shape.borderRadius * 1.25}
+      bgcolor="background.paper"
+      borderRadius={5}
       gap={2.625}
       height={1}
     >
@@ -28,12 +28,7 @@ const Account = (): ReactElement => {
         <FormControlLabel
           control={<Switch checked={state[1]} onChange={handleChange} name={'1'} />}
           label={
-            <Typography
-              variant="body1"
-              color={(theme) =>
-                state[1] ? theme.palette.text.primary : theme.palette.text.secondary
-              }
-            >
+            <Typography variant="body1" color={state[1] ? 'text.primary' : 'text.secondary'}>
               Email me when someone follow me
             </Typography>
           }
@@ -41,12 +36,7 @@ const Account = (): ReactElement => {
         <FormControlLabel
           control={<Switch checked={state[2]} onChange={handleChange} name={'2'} />}
           label={
-            <Typography
-              variant="body1"
-              color={(theme) =>
-                state[2] ? theme.palette.text.primary : theme.palette.text.secondary
-              }
-            >
+            <Typography variant="body1" color={state[2] ? 'text.primary' : 'text.secondary'}>
               Email me when someone answer on my post
             </Typography>
           }
@@ -54,12 +44,7 @@ const Account = (): ReactElement => {
         <FormControlLabel
           control={<Switch checked={state[3]} onChange={handleChange} name={'3'} />}
           label={
-            <Typography
-              variant="body1"
-              color={(theme) =>
-                state[3] ? theme.palette.text.primary : theme.palette.text.secondary
-              }
-            >
+            <Typography variant="body1" color={state[3] ? 'text.primary' : 'text.secondary'}>
               Email me when someone mention me
             </Typography>
           }

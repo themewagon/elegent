@@ -30,25 +30,16 @@ const AccountDropdown = (): ReactElement => {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
-        sx={(theme) => ({
-          borderRadius: theme.shape.borderRadius * 0.5,
+        sx={{
+          borderRadius: 2,
           gap: 1.875,
-        })}
+        }}
       >
-        <Avatar
-          alt="Remy Sharp"
-          src={profile}
-          sx={(theme) => ({ width: theme.spacing(5.625), height: theme.spacing(5.625) })}
-        />
-        <Typography variant="body1" component="p" color={(theme) => theme.palette.text.primary}>
+        <Avatar alt="Remy Sharp" src={profile} sx={{ width: 45, height: 45 }} />
+        <Typography variant="body1" component="p" color="text.primary">
           Aiden Max
         </Typography>
-        <IconifyIcon
-          icon="ion:caret-down-outline"
-          width={(theme) => theme.spacing(3)}
-          height={(theme) => theme.spacing(3)}
-          color={(theme) => theme.palette.text.primary}
-        />
+        <IconifyIcon icon="ion:caret-down-outline" width={24} height={24} color="text.primary" />
       </Button>
       <Menu
         id="basic-menu"
@@ -84,10 +75,10 @@ const AccountDropdown = (): ReactElement => {
           onClick={handleClose}
           disableRipple
           disableTouchRipple
-          sx={(theme) => ({ color: theme.palette.error.main })}
+          sx={{ color: 'error.main' }}
         >
           <ListItemIcon>
-            <IconifyIcon icon="ri:logout-circle-line" color={(theme) => theme.palette.error.main} />
+            <IconifyIcon icon="ri:logout-circle-line" color="error.main" />
           </ListItemIcon>
           <ListItemText>Logout</ListItemText>
         </MenuItem>

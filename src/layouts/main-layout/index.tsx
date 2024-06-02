@@ -30,7 +30,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   };
 
   return (
-    <Stack direction="row" minHeight="100vh" bgcolor={(theme) => theme.palette.background.default}>
+    <Stack direction="row" minHeight="100vh" bgcolor="background.default">
       <Topbar handleDrawerToggle={handleDrawerToggle} />
       <Box
         component="nav"
@@ -45,39 +45,39 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={(theme) => ({
+          sx={{
             display: { xs: 'block', lg: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
               border: 0,
-              backgroundColor: theme.palette.background.paper,
+              backgroundColor: 'background.paper',
             },
-          })}
+          }}
         >
           <Sidebar />
         </Drawer>
         <Drawer
           variant="permanent"
-          sx={(theme) => ({
+          sx={{
             display: { xs: 'none', lg: 'block' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
               border: 0,
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: 'background.default',
             },
-          })}
+          }}
           open
         >
           <Sidebar />
         </Drawer>
       </Box>
       <Toolbar
-        sx={(theme) => ({
-          p: theme.spacing(12, 0, 0, 0),
+        sx={{
+          pt: 12,
           width: 1,
-        })}
+        }}
       >
         {children}
       </Toolbar>

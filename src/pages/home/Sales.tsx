@@ -4,15 +4,17 @@ import { ReactElement } from 'react';
 
 import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct';
 import WebsiteVisitors from 'components/sections/dashboard/Home/Sales/WebsiteVisitors';
+import SaleInfoCards from 'components/sections/dashboard/Home/Sales/SaleInfoCards';
 import BuyersProfile from 'components/sections/dashboard/Home/Sales/BuyersProfile';
 import NewCustomers from 'components/sections/dashboard/Home/Sales/NewCustomers';
 import SaleInfo from 'components/sections/dashboard/Home/Sales/SaleInfo';
 import Revenue from 'components/sections/dashboard/Home/Sales/Revenue';
 
+import { drawerWidth } from 'layouts/main-layout';
+
 import avgRevenue from 'assets/sale-info/avg-revenue.png';
 import customers from 'assets/sale-info/customers.png';
 import sales from 'assets/sale-info/sales.png';
-import { drawerWidth } from 'layouts/main-layout';
 
 const Sales = (): ReactElement => {
   return (
@@ -30,14 +32,29 @@ const Sales = (): ReactElement => {
         pl: { xs: 3.75, lg: 0 },
       }}
     >
-      <Grid xs={12} sm={6} md={4}>
-        <SaleInfo image={sales} title="Sales" subtitle="230,220" sales={55} date />
+      {/* <Grid xs={12} sm={6} md={4}>
+        <SaleInfo image={sales} title="Sales" sales="230,220" increment={55} date="May 2022" />
       </Grid>
       <Grid xs={12} sm={6} md={4}>
-        <SaleInfo image={customers} title="Customers" subtitle="3,200" sales={12} date />
+        <SaleInfo
+          image={customers}
+          title="Customers"
+          sales="3,200"
+          increment={12}
+          date="May 2022"
+        />
       </Grid>
       <Grid xs={12} sm={6} md={4}>
-        <SaleInfo image={avgRevenue} title="Avg Revenue" subtitle="2,300" sales={210} date />
+        <SaleInfo
+          image={avgRevenue}
+          title="Avg Revenue"
+          sales="2,300"
+          increment={210}
+          date="May 2022"
+        />
+      </Grid> */}
+      <Grid xs={12}>
+        <SaleInfoCards />
       </Grid>
       <Grid xs={12} md={8}>
         <Revenue />
@@ -51,7 +68,7 @@ const Sales = (): ReactElement => {
       <Grid xs={12} lg={4}>
         <Stack
           direction={{ xs: 'column', sm: 'row', lg: 'column' }}
-          gap={(theme) => theme.spacing(3.75)}
+          gap={3.75}
           height={1}
           width={1}
         >

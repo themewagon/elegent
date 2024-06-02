@@ -2,25 +2,26 @@ import { ReactElement } from 'react';
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
-import { useBreakpoints } from 'providers/BreakpointsProvider';
+// import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 type SaleInfoProps = {
   image?: string;
   title: string;
-  subtitle: string;
-  sales: number;
-  date?: boolean;
+  sales: string;
+  increment: number;
+  date?: string;
 };
 
-const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): ReactElement => {
-  const { between } = useBreakpoints();
+const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): ReactElement => {
+  // const { between } = useBreakpoints();
 
   return (
     <Card
       sx={(theme) => ({
         boxShadow: theme.shadows[4],
-        flexDirection: between('md', 'lg') ? 'column' : 'row',
-        alignItems: between('md', 'lg') ? 'flex-start' : 'center',
+        // flexDirection: between('md', 'lg') ? 'column' : 'row',
+        // alignItems: between('md', 'lg') ? 'flex-start' : 'center',
+        width: 1,
       })}
     >
       <CardMedia
@@ -40,28 +41,27 @@ const SaleInfo = ({ image, title, subtitle, sales, date }: SaleInfoProps): React
           },
         }}
       >
-        <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Stack direction="row" justifyContent="space-between" alignItems="center" flexWrap="wrap">
           <Typography variant="subtitle1" component="p" minWidth={100} color="text.primary">
             {title}
           </Typography>
-          {date && (
-            <Typography variant="body2" component="p" color="text.secondary">
-              May 2022
-            </Typography>
-          )}
+          <Typography variant="body2" component="p" color="text.secondary">
+            {date}
+          </Typography>
         </Stack>
         <Typography variant="body1" component="p" color="text.secondary">
-          ${subtitle}
+          ${sales}
         </Typography>
         <Stack
-          direction="row"
-          alignItems="center"
+          direction={{ xs: 'row', sm: 'column', md: 'row' }}
+          alignItems={{ md: 'center' }}
+          mt={{ xs: 0, sm: 1, md: 0 }}
           gap={1}
           minWidth={150}
-          color={(theme) => theme.palette.primary.main}
+          color="primary.main"
         >
           <IconifyIcon icon="ph:trend-up-fill" width={18} height={18} />
-          <Typography variant="body1">{`+${sales}%`} last month</Typography>
+          <Typography variant="body1">{`+${increment}%`} last month</Typography>
         </Stack>
       </CardContent>
     </Card>

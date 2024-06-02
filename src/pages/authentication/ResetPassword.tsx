@@ -38,12 +38,12 @@ const ResetPassword = (): ReactElement => {
   return (
     <Stack
       direction="row"
-      bgcolor={(theme) => theme.palette.background.paper}
+      bgcolor="background.paper"
       boxShadow={(theme) => theme.shadows[3]}
       height={560}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={(theme) => theme.spacing(2.5)} gap={10}>
+      <Stack width={0.5} m={2.5} gap={10}>
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
@@ -63,10 +63,10 @@ const ResetPassword = (): ReactElement => {
                     <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                   </InputAdornment>
                 }
-                sx={(theme) => ({
+                sx={{
                   width: 1,
-                  backgroundColor: theme.palette.action.focus,
-                })}
+                  backgroundColor: 'action.focus',
+                }}
               />
             </FormControl>
             <FormControl variant="standard" fullWidth>
@@ -82,16 +82,16 @@ const ResetPassword = (): ReactElement => {
                     <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
                   </InputAdornment>
                 }
-                sx={(theme) => ({
+                sx={{
                   width: 1,
-                  backgroundColor: theme.palette.action.focus,
-                })}
+                  backgroundColor: 'action.focus',
+                }}
               />
             </FormControl>
             <Button variant="contained" fullWidth onClick={handleResetPassword}>
               Reset Password
             </Button>
-            <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body2" color="text.secondary">
               Back to{' '}
               <Link
                 href="/authentication/login"
@@ -106,11 +106,7 @@ const ResetPassword = (): ReactElement => {
           <Stack alignItems="center" gap={3.75} width={330} mx="auto">
             <Image src={successTick} />
             <Typography variant="h3">Reset Successfully</Typography>
-            <Typography
-              variant="body1"
-              textAlign="center"
-              color={(theme) => theme.palette.text.secondary}
-            >
+            <Typography variant="body1" textAlign="center" color="text.secndary">
               Your Elegent log in password has been updated successfully
             </Typography>
             <Button variant="contained" fullWidth LinkComponent={Link} href="/authentication/login">
@@ -121,12 +117,7 @@ const ResetPassword = (): ReactElement => {
       </Stack>
       <Suspense
         fallback={
-          <Skeleton
-            variant="rectangular"
-            height={1}
-            width={1}
-            sx={(theme) => ({ bgcolor: theme.palette.primary.main })}
-          />
+          <Skeleton variant="rectangular" height={1} width={1} sx={{ bgcolor: 'primary.main' }} />
         }
       >
         <Image

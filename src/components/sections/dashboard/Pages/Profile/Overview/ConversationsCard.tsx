@@ -9,8 +9,8 @@ const Conversations = (): ReactElement => {
   return (
     <Stack
       padding={(theme) => theme.spacing(2.5, 3.375, 2, 2.5)}
-      bgcolor={(theme) => theme.palette.background.paper}
-      borderRadius={(theme) => theme.shape.borderRadius * 1.25}
+      bgcolor="background.paper"
+      borderRadius={5}
       gap={2.625}
       height={1}
     >
@@ -27,16 +27,16 @@ const Conversations = (): ReactElement => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={roselle} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography variant="body1" color="text.primary">
                 Roselle Ehrman
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography variant="body2" color="text.secondary">
                 Hi! I need more info
               </Typography>
             </Box>
           </Stack>
           <IconButton>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
           </IconButton>
         </ListItem>
         <ListItem
@@ -50,16 +50,16 @@ const Conversations = (): ReactElement => {
           <Stack direction="row" gap={1.5}>
             <Avatar src={jone} />
             <Box component="div">
-              <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+              <Typography variant="body1" color="text.primary">
                 Jone Smith
               </Typography>
-              <Typography variant="body2" color={(theme) => theme.palette.text.secondary}>
+              <Typography variant="body2" color="text.secondary">
                 About files I Can
               </Typography>
             </Box>
           </Stack>
           <IconButton>
-            <IconifyIcon icon="mingcute:mail-fill" color={(theme) => theme.palette.primary.main} />
+            <IconifyIcon icon="mingcute:mail-fill" color="text.primary" />
           </IconButton>
         </ListItem>
       </Stack>

@@ -81,10 +81,10 @@ const LanguageDropdown = (): ReactElement => {
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        sx={(theme) => ({
+        sx={{
           backgroundColor: 'inherit',
-          borderRadius: theme.shape.borderRadius * 0.5,
-        })}
+          borderRadius: 2,
+        }}
       >
         <IconifyIcon icon={languages[selectedIndex].icon} />
       </IconButton>

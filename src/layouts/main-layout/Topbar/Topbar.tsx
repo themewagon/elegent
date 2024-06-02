@@ -33,9 +33,9 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
       }}
     >
       <Toolbar
-        sx={(theme) => ({
-          p: theme.spacing(3.75),
-        })}
+        sx={{
+          p: 3.75,
+        }}
       >
         <IconButton
           color="inherit"
@@ -67,18 +67,14 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
               ),
             }}
             fullWidth
-            sx={(theme) => ({ maxWidth: theme.spacing(41.25) })}
+            sx={{ maxWidth: 330 }}
           />
         </Box>
         <IconButton
           color="inherit"
           sx={{ display: { xs: 'flex', lg: 'none' }, mr: 'auto', bgcolor: 'inherit' }}
         >
-          <IconifyIcon
-            icon="mdi:search"
-            width={(theme) => theme.spacing(3)}
-            height={(theme) => theme.spacing(3)}
-          />
+          <IconifyIcon icon="mdi:search" width={24} height={24} />
         </IconButton>
         <Box
           sx={{
@@ -90,11 +86,7 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
           <LanguageDropdown />
           <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit' }}>
             <Badge badgeContent={1} color="primary">
-              <IconifyIcon
-                icon="carbon:notification-filled"
-                width={(theme) => theme.spacing(3)}
-                height={(theme) => theme.spacing(3)}
-              />
+              <IconifyIcon icon="carbon:notification-filled" width={24} height={24} />
             </Badge>
           </IconButton>
           <AccountDropdown />

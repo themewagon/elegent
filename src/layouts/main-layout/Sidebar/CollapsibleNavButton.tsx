@@ -34,18 +34,16 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
 
   return (
     <ListItem
-      sx={(theme) => ({
-        my: theme.spacing(1.25),
-        borderRadius: theme.shape.borderRadius * 0.5,
-        backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-        color:
-          pathname === navItem.path ? theme.palette.common.white : theme.palette.text.secondary,
+      sx={{
+        my: 1.25,
+        borderRadius: 2,
+        backgroundColor: pathname === navItem.path ? 'primary.main' : '',
+        color: pathname === navItem.path ? 'common.white' : 'text.secondary',
         ':hover': {
-          backgroundColor:
-            pathname === navItem.path ? theme.palette.primary.main : theme.palette.action.focus,
+          backgroundColor: pathname === navItem.path ? 'primary.main' : 'action.focus',
           opacity: 1.5,
         },
-      })}
+      }}
     >
       {navItem.collapsible ? (
         <>
@@ -68,20 +66,14 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
               {navItem.sublist.map((subListItem: any, idx: number) => (
                 <ListItem
                   key={idx}
-                  sx={(theme) => ({
-                    backgroundColor: pathname === navItem.path ? theme.palette.primary.main : '',
-                    color:
-                      pathname === navItem.path
-                        ? theme.palette.common.white
-                        : theme.palette.text.secondary,
+                  sx={{
+                    backgroundColor: pathname === navItem.path ? 'primary.main' : '',
+                    color: pathname === navItem.path ? 'common.white' : 'text.secondary',
                     ':hover': {
-                      backgroundColor:
-                        pathname === navItem.path
-                          ? theme.palette.primary.main
-                          : theme.palette.action.focus,
+                      backgroundColor: pathname === navItem.path ? 'primary.main' : 'action.focus',
                       opacity: 1.5,
                     },
-                  })}
+                  }}
                 >
                   {subListItem.collapsible ? (
                     <>
@@ -91,9 +83,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                           handleNestedChecked(idx, !nestedChecked[idx]);
                         }}
                       >
-                        <ListItemText sx={(theme) => ({ ml: theme.spacing(3.5) })}>
-                          {subListItem.title}
-                        </ListItemText>
+                        <ListItemText sx={{ ml: 3.5 }}>{subListItem.title}</ListItemText>
                         <ListItemIcon>
                           {subListItem.collapsible &&
                             (nestedChecked[idx] ? (
@@ -121,7 +111,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                                     '#!'
                                   }
                                 >
-                                  <ListItemText sx={(theme) => ({ ml: theme.spacing(5) })}>
+                                  <ListItemText sx={{ ml: 5 }}>
                                     {nestedSubListItem.title}
                                   </ListItemText>
                                 </ListItemButton>
@@ -142,9 +132,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                           : '#!'
                       }
                     >
-                      <ListItemText sx={(theme) => ({ ml: theme.spacing(3) })}>
-                        {subListItem.title}
-                      </ListItemText>
+                      <ListItemText sx={{ ml: 3 }}>{subListItem.title}</ListItemText>
                     </ListItemButton>
                   )}
                 </ListItem>

@@ -57,7 +57,6 @@ const BuyersProfile = (): ReactElement => {
   const onChartLegendSelectChanged = (name: string) => {
     if (chartRef.current) {
       const instance = chartRef.current.getEchartsInstance();
-      console.log(instance.getOption());
       instance.dispatchAction({
         type: 'legendToggleSelect',
         name: name,
@@ -67,12 +66,12 @@ const BuyersProfile = (): ReactElement => {
 
   return (
     <Stack
-      sx={(theme) => ({
-        bgcolor: theme.palette.common.white,
-        borderRadius: theme.shape.borderRadius * 1.25,
+      sx={{
+        bgcolor: 'common.white',
+        borderRadius: 5,
         height: 1,
         flex: '1 1 auto',
-      })}
+      }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
         <Typography variant="subtitle1" color="text.primary">
@@ -171,14 +170,14 @@ const BuyersProfile = (): ReactElement => {
               >
                 <Stack direction="row" alignItems="center" gap={1} width={1}>
                   <Box
-                    sx={(theme) => ({
-                      width: theme.spacing(1.25),
-                      height: theme.spacing(1.25),
+                    sx={{
+                      width: 10,
+                      height: 10,
                       backgroundColor: clicked[`${dataItem.name}`]
                         ? 'action.disabled'
                         : pieChartColors[index],
-                      borderRadius: theme.shape.borderRadius * 100,
-                    })}
+                      borderRadius: 400,
+                    }}
                   ></Box>
                   <Typography variant="body1" color="text.secondary" textAlign="left" flex={1}>
                     {dataItem.name}

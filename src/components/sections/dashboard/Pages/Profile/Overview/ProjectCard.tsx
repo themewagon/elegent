@@ -12,7 +12,7 @@ const ProjectCard = ({ image, title, subtitle }: ProjectCardProps) => {
     <Paper
       sx={(theme) => ({
         boxShadow: theme.shadows[5],
-        borderRadius: theme.shape.borderRadius * 0.625,
+        borderRadius: 2.5,
       })}
     >
       <Stack>
@@ -20,41 +20,41 @@ const ProjectCard = ({ image, title, subtitle }: ProjectCardProps) => {
           <Image src={image} width={1} height={1} />
         </Box>
         <Stack gap={1.25} padding={(theme) => theme.spacing(2.5, 0, 2.5, 2.5)}>
-          <Typography variant="h6" component="h6" color={(theme) => theme.palette.text.primary}>
+          <Typography variant="h6" component="h6" color="text.primary">
             {title}
           </Typography>
-          <Typography variant="body1" component="p" color={(theme) => theme.palette.text.secondary}>
+          <Typography variant="body1" component="p" color="text.secondary">
             {subtitle}
           </Typography>
           <Stack direction="row" justifyContent="space-between" alignItems="center">
             <AvatarGroup max={4}>
               <Avatar
                 src=""
-                sx={(theme) => ({
-                  width: theme.spacing(3.125),
-                  height: theme.spacing(3.125),
-                })}
+                sx={{
+                  width: 25,
+                  height: 25,
+                }}
               />
               <Avatar
                 src=""
-                sx={(theme) => ({
-                  width: theme.spacing(3.125),
-                  height: theme.spacing(3.125),
-                })}
+                sx={{
+                  width: 25,
+                  height: 25,
+                }}
               />
               <Avatar
                 src=""
-                sx={(theme) => ({
-                  width: theme.spacing(3.125),
-                  height: theme.spacing(3.125),
-                })}
+                sx={{
+                  width: 25,
+                  height: 25,
+                }}
               />
               <Avatar
                 src=""
-                sx={(theme) => ({
-                  width: theme.spacing(3.125),
-                  height: theme.spacing(3.125),
-                })}
+                sx={{
+                  width: 25,
+                  height: 25,
+                }}
               />
             </AvatarGroup>
             <Button variant="text">View Project</Button>

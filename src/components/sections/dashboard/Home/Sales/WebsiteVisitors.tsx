@@ -60,11 +60,11 @@ const WebsiteVisitors = (): ReactElement => {
 
   return (
     <Box
-      sx={(theme) => ({
+      sx={{
         bgcolor: 'common.white',
-        borderRadius: theme.shape.borderRadius * 1.25,
+        borderRadius: 5,
         height: 'min-content',
-      })}
+      }}
     >
       <Typography variant="subtitle1" color="text.primary" p={2.5}>
         Website Visitors
@@ -101,14 +101,14 @@ const WebsiteVisitors = (): ReactElement => {
             >
               <Stack direction="row" alignItems="center" gap={1} width={1}>
                 <Box
-                  sx={(theme) => ({
-                    width: theme.spacing(1.25),
-                    height: theme.spacing(1.25),
+                  sx={{
+                    width: 10,
+                    height: 10,
                     backgroundColor: clicked[`${dataItem.name}`]
                       ? 'action.disabled'
                       : pieChartColors[index],
-                    borderRadius: theme.shape.borderRadius * 100,
-                  })}
+                    borderRadius: 400,
+                  }}
                 ></Box>
                 <Typography variant="body1" color="text.secondary" flex={1} textAlign={'left'}>
                   {dataItem.name}

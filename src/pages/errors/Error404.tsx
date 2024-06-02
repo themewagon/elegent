@@ -17,7 +17,7 @@ const Error404 = (): ReactElement => {
         lineHeight: 0,
       }}
     >
-      <Image src={logo} width="82.6px" />
+      <Image src={logo} width={82.6} />
     </Box>
   );
   return (

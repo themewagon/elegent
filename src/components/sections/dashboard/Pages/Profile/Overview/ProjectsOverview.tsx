@@ -9,18 +9,18 @@ import gothic from 'assets/projects-overview/Gothic.png';
 const ProjectsOverview = () => {
   return (
     <Box
-      sx={(theme) => ({
-        p: theme.spacing(3.75),
-        bgcolor: theme.palette.background.paper,
+      sx={{
+        p: 3.75,
+        bgcolor: 'background.paper',
         height: 1,
-        borderRadius: theme.shape.borderRadius * 1.25,
-      })}
+        borderRadius: 5,
+      }}
     >
       <Stack gap={2}>
-        <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
+        <Typography variant="h5" color="text.primary">
           Projects
         </Typography>
-        <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
+        <Typography variant="body1" color="text.secondary">
           Architects design houses
         </Typography>
       </Stack>

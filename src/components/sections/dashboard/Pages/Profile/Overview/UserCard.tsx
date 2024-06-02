@@ -15,9 +15,9 @@ const UserInfo = (): ReactElement => {
       divider={
         <Divider orientation={down('md') ? 'horizontal' : 'vertical'} variant="middle" flexItem />
       }
-      padding={(theme) => theme.spacing(3.75)}
-      bgcolor={(theme) => theme.palette.background.paper}
-      borderRadius={(theme) => theme.shape.borderRadius * 1.25}
+      padding={3.75}
+      bgcolor="background.paper"
+      borderRadius={5}
       gap={3.75}
     >
       <Stack gap={3.75} flex={1}>
@@ -26,11 +26,7 @@ const UserInfo = (): ReactElement => {
           gap={3.75}
           alignItems={{ xs: 'center', md: 'flex-start', lg: 'center' }}
         >
-          <Box
-            maxWidth={(theme) => theme.spacing(12.5)}
-            height={(theme) => theme.spacing(12.5)}
-            borderRadius={9999}
-          >
+          <Box maxWidth={100} height={100} borderRadius={9999}>
             <Image
               src={profile}
               alt="Aiden Max"
@@ -40,10 +36,10 @@ const UserInfo = (): ReactElement => {
             />
           </Box>
           <Stack gap={0.625}>
-            <Typography variant="h4" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="h4" color="text.primary">
               Aiden Max
             </Typography>
-            <Typography variant="subtitle1" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="subtitle1" color="text.secondary">
               CEO / Co-Founder
             </Typography>
           </Stack>
@@ -61,89 +57,74 @@ const UserInfo = (): ReactElement => {
       <Stack gap={3.75} flex={1}>
         <Stack direction="row" gap={6.25}>
           <Stack gap={3.75}>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               Email:
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               Mobile:
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               Age:
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               Location:
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.primary}>
+            <Typography variant="body1" color="text.primary">
               Social:
             </Typography>
           </Stack>
           <Stack gap={3.75}>
-            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body1" color="text.secondary">
               aidenmax451@gmail.com
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body1" color="text.secondary">
               (44) 123 1234 123
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body1" color="text.secondary">
               27
             </Typography>
-            <Typography variant="body1" color={(theme) => theme.palette.text.secondary}>
+            <Typography variant="body1" color="text.secondary">
               USA
             </Typography>
             <Stack direction="row" gap={1.875}>
               <IconButton
-                sx={(theme) => ({
-                  width: theme.spacing(3),
-                  height: theme.spacing(3),
+                sx={{
+                  width: 24,
+                  height: 24,
                   padding: 0,
-                  backgroundColor: theme.palette.common.white,
+                  backgroundColor: 'common.white',
                   ':hover': {
-                    backgroundColor: theme.palette.common.white,
+                    backgroundColor: 'common.white',
                   },
-                })}
+                }}
               >
-                <IconifyIcon
-                  icon="mdi:facebook"
-                  width={1}
-                  height={1}
-                  color={(theme) => theme.palette.primary.main}
-                />
+                <IconifyIcon icon="mdi:facebook" width={1} height={1} color="primary.main" />
               </IconButton>
               <IconButton
-                sx={(theme) => ({
-                  width: theme.spacing(3),
-                  height: theme.spacing(3),
+                sx={{
+                  width: 24,
+                  height: 24,
                   padding: 0,
-                  backgroundColor: theme.palette.common.white,
+                  backgroundColor: 'common.white',
                   ':hover': {
-                    backgroundColor: theme.palette.common.white,
+                    backgroundColor: 'common.white',
                   },
-                })}
+                }}
               >
-                <IconifyIcon
-                  icon="mdi:instagram"
-                  width={1}
-                  height={1}
-                  color={(theme) => theme.palette.primary.main}
-                />
+                <IconifyIcon icon="mdi:instagram" width={1} height={1} color="primary.main" />
               </IconButton>
               <IconButton
-                sx={(theme) => ({
-                  width: theme.spacing(3),
-                  height: theme.spacing(3),
+                sx={{
+                  width: 24,
+                  height: 24,
                   padding: 0,
-                  backgroundColor: theme.palette.common.white,
+                  backgroundColor: 'common.white',
                   ':hover': {
-                    backgroundColor: theme.palette.common.white,
+                    backgroundColor: 'common.white',
                   },
-                })}
+                }}
               >
-                <IconifyIcon
-                  icon="mdi:twitter"
-                  width={1}
-                  height={1}
-                  color={(theme) => theme.palette.primary.main}
-                />
+                <IconifyIcon icon="mdi:twitter" width={1} height={1} color="primary.main" />
               </IconButton>
             </Stack>
           </Stack>

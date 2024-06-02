@@ -21,12 +21,12 @@ const Sidebar = (): ReactElement => {
       justifyContent="space-between"
       bgcolor="background.paper"
       height={1}
-      sx={(theme) => ({
+      sx={{
         overflowY: 'overlay',
         margin: { md: 3.75 },
-        borderRadius: theme.shape.borderRadius * 1.25,
+        borderRadius: 5,
         // scrollbarWidth: 'none',
-      })}
+      }}
     >
       <Link
         href="/"

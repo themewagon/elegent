@@ -138,8 +138,8 @@ const TopSellingProduct = (): ReactElement => {
 
   return (
     <Stack
-      bgcolor={(theme) => theme.palette.background.paper}
-      borderRadius={(theme) => theme.shape.borderRadius * 1.25}
+      bgcolor="background.paper"
+      borderRadius={5}
       width={1}
       // maxWidth={(theme) => theme.spacing(110)}
       height={1}
@@ -148,10 +148,10 @@ const TopSellingProduct = (): ReactElement => {
         direction={{ sm: 'row' }}
         justifyContent="space-between"
         alignItems={{ sm: 'center' }}
-        padding={(theme) => theme.spacing(3.75)}
+        padding={3.75}
         gap={3.75}
       >
-        <Typography variant="h5" color={(theme) => theme.palette.text.primary}>
+        <Typography variant="h5" color="text.primary">
           Top Selling Product
         </Typography>
         <OutlinedInput
@@ -165,10 +165,10 @@ const TopSellingProduct = (): ReactElement => {
               <IconifyIcon icon="mdi:search" width={1} height={1} />
             </InputAdornment>
           }
-          sx={(theme) => ({
-            backgroundColor: theme.palette.action.focus,
-            maxWidth: theme.spacing(30),
-          })}
+          sx={{
+            backgroundColor: 'action.focus',
+            maxWidth: 240,
+          }}
         />
       </Stack>
       <Divider />
