@@ -3,6 +3,7 @@ import {
   Avatar,
   Divider,
   InputAdornment,
+  LinearProgress,
   Link,
   Stack,
   TextField,
@@ -10,17 +11,17 @@ import {
   Typography,
   debounce,
 } from '@mui/material';
-import { DataGrid, GridApi, GridColDef, useGridApiRef } from '@mui/x-data-grid';
+import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
-import {
-  getApplyQuickFilterFnAdsSpentField,
-  getApplyQuickFilterFnPriceField,
-  getApplyQuickFilterFnProductField,
-} from 'helpers/datagrid-filter-functions';
-import { rows } from 'data/products';
+// import {
+//   // getApplyQuickFilterFnAdsSpentField,
+//   // getApplyQuickFilterFnPriceField,
+//   // getApplyQuickFilterFnProductField,
+// } from 'helpers/datagrid-filter-functions';
+import { dataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
 
-const columns: GridColDef[] = [
+const columns: GridColDef<dataRow>[] = [
   {
     field: 'id',
     headerName: 'ID',
@@ -30,18 +31,21 @@ const columns: GridColDef[] = [
     headerName: 'Product',
     flex: 1,
     minWidth: 182.9625,
+    valueGetter: (params: any) => {
+      return params.title + params.subtitle;
+    },
     renderCell: (params: any) => {
       return (
         <Stack direction="row" spacing={1.5} alignItems="center" component={Link} href="#!">
-          <Tooltip title={params.value.title} placement="top" arrow>
-            <Avatar src={params.value.avatar} sx={{ objectFit: 'cover' }} />
+          <Tooltip title={params.row.product.title} placement="top" arrow>
+            <Avatar src={params.row.product.avatar} sx={{ objectFit: 'cover' }} />
           </Tooltip>
           <Stack direction="column" spacing={0.5} justifyContent="space-between">
             <Typography variant="body1" color="text.primary">
-              {params.value.title}
+              {params.row.product.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {params.value.subtitle}
+              {params.row.product.subtitle}
             </Typography>
           </Stack>
         </Stack>
@@ -94,24 +98,24 @@ const TopSellingProduct = (): ReactElement => {
       columns
         .filter((column) => column.field !== 'id')
         .map((column) => {
-          if (column.field === 'product') {
-            return {
-              ...column,
-              getApplyQuickFilterFn: getApplyQuickFilterFnProductField,
-            };
-          }
-          if (column.field === 'price') {
-            return {
-              ...column,
-              getApplyQuickFilterFn: getApplyQuickFilterFnPriceField,
-            };
-          }
-          if (column.field === 'adsSpent') {
-            return {
-              ...column,
-              getApplyQuickFilterFn: getApplyQuickFilterFnAdsSpentField,
-            };
-          }
+          // if (column.field === 'product') {
+          //   return {
+          //     ...column,
+          //     getApplyQuickFilterFn: getApplyQuickFilterFnProductField,
+          //   };
+          // }
+          // if (column.field === 'price') {
+          //   return {
+          //     ...column,
+          //     getApplyQuickFilterFn: getApplyQuickFilterFnPriceField,
+          //   };
+          // }
+          // if (column.field === 'adsSpent') {
+          //   return {
+          //     ...column,
+          //     getApplyQuickFilterFn: getApplyQuickFilterFnAdsSpentField,
+          //   };
+          // }
           if (column.field === 'refunds') {
             return {
               ...column,
@@ -177,9 +181,12 @@ const TopSellingProduct = (): ReactElement => {
           apiRef={apiRef}
           columns={visibleColumns}
           rows={rows}
-          sx={{
-            display: 'flex',
-          }}
+          getRowHeight={() => 70}
+          hideFooterSelectedRowCount
+          disableColumnResize
+          disableColumnSelector
+          disableRowSelectionOnClick
+          rowSelection={false}
           initialState={{
             pagination: { paginationModel: { pageSize: 5, page: 0 } },
             columns: {
@@ -188,8 +195,20 @@ const TopSellingProduct = (): ReactElement => {
               },
             },
           }}
+          onResize={() => {
+            apiRef.current.autosizeColumns({
+              includeOutliers: true,
+              expand: true,
+            });
+          }}
           slots={{
+            loadingOverlay: LinearProgress as GridSlots['loadingOverlay'],
             pagination: CustomPagination,
+            noRowsOverlay: () => <section>No rows available</section>,
+          }}
+          sx={{
+            height: 1,
+            width: 1,
           }}
         />
       </Stack>

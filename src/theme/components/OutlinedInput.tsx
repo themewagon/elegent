@@ -20,12 +20,13 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
         width: 0,
       },
     }),
-    input: () => ({
+    input: ({ theme }) => ({
       paddingLeft: pxToRem(20),
       paddingTop: pxToRem(12),
       paddingBottom: pxToRem(12),
       '&::placeholder': {
         opacity: 1,
+        color: theme.palette.text.secondary,
       },
     }),
     notchedOutline: ({ theme }) => ({

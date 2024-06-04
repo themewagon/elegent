@@ -4,7 +4,7 @@ import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
 
-interface dataRow {
+export interface dataRow {
   id: number;
   product: {
     avatar: string;

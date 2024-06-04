@@ -84,6 +84,8 @@ const LanguageDropdown = (): ReactElement => {
         sx={{
           backgroundColor: 'inherit',
           borderRadius: 2,
+          paddingLeft: 0.75,
+          paddingRight: 0.75,
         }}
       >
         <IconifyIcon icon={languages[selectedIndex].icon} />

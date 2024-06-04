@@ -8,8 +8,8 @@ const scrollbar = (theme: Theme) => ({
     position: 'absolute',
     visibility: 'hidden',
     WebkitAppearance: 'none',
-    width: 6,
-    height: 6,
+    width: 5,
+    height: 5,
     backgroundColor: 'transparent',
   },
   // '*::-webkit-scrollbar-track': {

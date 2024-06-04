@@ -19,9 +19,13 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       '--DataGrid-containerBackground': theme.palette.background.paper,
       borderBottomLeftRadius: theme.spacing(2.5),
       borderBottomRightRadius: theme.spacing(2.5),
+      '& .MuiDataGrid-filler': {
+        flex: 0,
+      },
     }),
-    main: ({ theme }) => ({
-      padding: theme.spacing(0, 2.5),
+    main: () => ({
+      marginLeft: 20,
+      marginRight: 20,
     }),
     'container--top': ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
@@ -53,20 +57,30 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       border: 'none',
       display: 'flex',
       alignItems: 'center',
+      ':focus': {
+        outline: 'none',
+      },
     }),
-    row: () => ({
+    row: ({ theme }) => ({
       border: 'none',
-      width: 1,
+      width: '100%',
+      ':hover': {
+        backgroundColor: theme.palette.background.default,
+      },
     }),
     virtualScroller: () => ({
       overflowX: 'scroll !important' as 'scroll',
+      display: 'flex',
+      flexDirection: 'column',
     }),
     virtualScrollerContent: () => ({
       width: 'auto',
-      minHeight: 'fit-content',
+      // minHeight: 'fit-content',
+      // height: '100%',
     }),
     virtualScrollerRenderZone: () => ({
       width: 'auto',
+      position: 'static',
       height: '100%',
     }),
     filler: () => ({

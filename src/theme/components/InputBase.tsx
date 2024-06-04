@@ -10,11 +10,13 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
       color: theme.palette.text.primary,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
+      maxWidth: 330,
     }),
     input: ({ theme }) => ({
       '&::placeholder': {
         opacity: 1,
         fontFamily: theme.typography.body1.fontFamily,
+        color: theme.palette.text.secondary,
       },
       ':-webkit-autofill': {
         borderTopLeftRadius: 'inherit',
