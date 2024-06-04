@@ -4,8 +4,8 @@ import {
   Divider,
   InputAdornment,
   Link,
-  OutlinedInput,
   Stack,
+  TextField,
   Tooltip,
   Typography,
   debounce,
@@ -18,6 +18,7 @@ import {
   getApplyQuickFilterFnProductField,
 } from 'helpers/datagrid-filter-functions';
 import { rows } from 'data/products';
+import CustomPagination from './CustomPagination';
 
 const columns: GridColDef[] = [
   {
@@ -127,7 +128,7 @@ const TopSellingProduct = (): ReactElement => {
       apiRef.current.setQuickFilterValues(
         searchValue.split(' ').filter((word: any) => word !== ''),
       );
-    }, 350);
+    }, 250);
   }, [apiRef]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -154,20 +155,19 @@ const TopSellingProduct = (): ReactElement => {
         <Typography variant="h5" color="text.primary">
           Top Selling Product
         </Typography>
-        <OutlinedInput
+        <TextField
+          variant="filled"
           placeholder="Search..."
           id="search-input"
           name="table-search-input"
           onChange={handleChange}
           value={search}
-          endAdornment={
-            <InputAdornment position="end">
-              <IconifyIcon icon="mdi:search" width={1} height={1} />
-            </InputAdornment>
-          }
-          sx={{
-            backgroundColor: 'action.focus',
-            maxWidth: 240,
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconifyIcon icon="mdi:search" />
+              </InputAdornment>
+            ),
           }}
         />
       </Stack>
@@ -187,20 +187,10 @@ const TopSellingProduct = (): ReactElement => {
                 id: false,
               },
             },
-            filter: {
-              filterModel: {
-                items: [],
-              },
-            },
           }}
-          disableVirtualization
-          slots={{}}
-          slotProps={{
-            toolbar: {
-              showQuickFilter: true,
-            },
+          slots={{
+            pagination: CustomPagination,
           }}
-          disableColumnFilter
         />
       </Stack>
     </Stack>

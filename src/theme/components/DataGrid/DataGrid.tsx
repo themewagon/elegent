@@ -1,8 +1,6 @@
 import { Theme } from '@mui/material';
-import { GridFooter, GridSkeletonCell } from '@mui/x-data-grid';
 
 import type { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
-import CustomPagination from 'theme/components/DataGrid/CustomPagination';
 
 const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   defaultProps: {
@@ -11,11 +9,6 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     pagination: true,
     density: 'comfortable',
     scrollbarSize: 1,
-    slots: {
-      pagination: CustomPagination,
-      footer: GridFooter,
-      skeletonCell: GridSkeletonCell,
-    },
   },
   styleOverrides: {
     root: ({ theme }) => ({
@@ -86,8 +79,8 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       borderColor: theme.palette.divider,
     }),
     footerContainer: ({ theme }) => ({
-      minHeight: theme.spacing(12.5),
-      maxHeight: theme.spacing(12.5),
+      // minHeight: theme.spacing(12.5),
+      // maxHeight: theme.spacing(12.5),
       borderBottomLeftRadius: theme.spacing(2.5),
       borderBottomRightRadius: theme.spacing(2.5),
     }),
@@ -97,6 +90,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     sortIcon: () => ({
       color: 'initial',
+      width: 20,
     }),
     overlay: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,

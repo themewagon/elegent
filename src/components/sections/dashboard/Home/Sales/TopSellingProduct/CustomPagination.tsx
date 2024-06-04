@@ -11,7 +11,7 @@ function Pagination({
   page,
   onPageChange,
   className,
-}: Pick<TablePaginationProps, 'page' | 'onPageChange' | 'className'>) {
+}: Pick<TablePaginationProps, 'page' | 'onPageChange' | 'className' | 'ref'>) {
   const apiRef = useGridApiContext();
   const pageCount = useGridSelector(apiRef, gridPageCountSelector);
 

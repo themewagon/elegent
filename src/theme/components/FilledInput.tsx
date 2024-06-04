@@ -1,39 +1,42 @@
 import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
+import pxToRem from 'theme/functions/px-to-rem';
 
 const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      borderRadius: theme.shape.borderRadius * 7.5,
-      backgroundColor: theme.palette.common.white,
-      '&:before': {
-        borderBottom: 'none',
+      borderRadius: 999,
+      borderWidth: pxToRem(1),
+      borderStyle: 'solid',
+      borderColor: theme.palette.divider,
+      backgroundColor: theme.palette.action.focus,
+      ':hover': {
+        backgroundColor: theme.palette.action.focus,
       },
-      '&:after': {
-        borderBottom: 'none',
-      },
-      '&:hover': {
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: theme.palette.common.black,
-        backgroundColor: theme.palette.common.white,
-      },
-      '&:hover:not(.Mui-disabled, .Mui-error):before': {
-        border: 0,
+      ':focus': {
+        backgroundColor: theme.palette.action.focus,
       },
       '&.Mui-focused': {
-        borderWidth: 1,
-        borderStyle: 'solid',
-        borderColor: theme.palette.common.black,
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.action.focus,
+      },
+      '::before': {
+        border: 'none',
+      },
+      '::after': {
+        border: 'none',
+      },
+      ':hover:not(.Mui-disabled,.Mui-error):before': {
+        border: 'none',
       },
     }),
-    focused: () => ({
-      // backgroundColor: theme.palette.common.black,
+    focused: ({ theme }) => ({
+      backgroundColor: theme.palette.action.focus,
     }),
-    input: ({ theme }) => ({
-      padding: theme.spacing(1.5, 2.5),
+    input: () => ({
+      paddingLeft: pxToRem(20),
+      paddingTop: pxToRem(12),
+      paddingBottom: pxToRem(12),
       '&::placeholder': {
         opacity: 1,
       },
@@ -44,11 +47,22 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
         borderBottomRightRadius: 'initial',
       },
     }),
+    error: ({ theme }) => ({
+      borderColor: theme.palette.error.main,
+    }),
     adornedEnd: ({ theme }) => ({
       color: theme.palette.common.black,
     }),
     inputAdornedEnd: ({ theme }) => ({
       color: theme.palette.common.black,
+    }),
+    multiline: () => ({
+      alignItems: 'start',
+      minHeight: pxToRem(90),
+      paddingTop: 0,
+      paddingBottom: pxToRem(0),
+      paddingLeft: 0,
+      borderRadius: pxToRem(30),
     }),
   },
 };

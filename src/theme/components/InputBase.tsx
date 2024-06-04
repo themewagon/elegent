@@ -7,22 +7,11 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
   },
   styleOverrides: {
     root: ({ theme }) => ({
-      backgroundColor: theme.palette.common.white,
-      borderWidth: 1,
-      borderStyle: 'solid',
-      borderColor: theme.palette.divider,
-      '&:before': {
-        borderBottom: 'none',
-      },
-      '&:after': {
-        borderBottom: 'none',
-      },
-      '&.Mui-focused': {
-        backgroundColor: theme.palette.common.white,
-      },
+      color: theme.palette.text.primary,
+      fontSize: theme.typography.body1.fontSize,
+      fontWeight: theme.typography.body1.fontWeight,
     }),
     input: ({ theme }) => ({
-      padding: theme.spacing(1.5, 2.5),
       '&::placeholder': {
         opacity: 1,
         fontFamily: theme.typography.body1.fontFamily,

@@ -152,11 +152,10 @@ const Kanban = (): ReactElement => {
         </Stack>
       </Grid>
       <Grid xs={4}>
-        <Stack>
-          <h3>TextField</h3>
+        <Stack gap={2}>
+          <h3>TextFields</h3>
           <TextField id="outlined-basic" label="Outlined" variant="outlined" />
           <TextField id="filled-basic" label="Filled" variant="filled" />
-          <TextField id="standard-basic" label="Standard" variant="standard" />
         </Stack>
       </Grid>
     </Grid>

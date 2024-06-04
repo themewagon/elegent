@@ -5,18 +5,18 @@ const IconButton: Components<Omit<Theme, 'components'>>['MuiIconButton'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      width: theme.spacing(5),
-      height: theme.spacing(5),
+      maxWidth: 40,
+      maxHeight: 40,
+      padding: theme.spacing(1.5),
       backgroundColor: theme.palette.action.focus,
       ':hover': {
         backgroundColor: theme.palette.action.active,
       },
     }),
-    sizeSmall: ({ theme }) => ({
-      width: theme.spacing(3.5),
-      height: theme.spacing(3.5),
+    sizeSmall: () => ({
+      maxWidth: 20,
+      maxHeight: 20,
     }),
-    sizeMedium: ({}) => ({}),
   },
 };
 

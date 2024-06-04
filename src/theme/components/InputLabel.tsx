@@ -5,14 +5,20 @@ const InputLabel: Components<Omit<Theme, 'components'>>['MuiInputLabel'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      position: 'relative',
-      color: theme.palette.text.secondary,
+      position: 'static',
+      transform: 'none',
+      transition: 'none',
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
-      fontFamily: theme.typography.body1.fontFamily,
       '&.Mui-focused': {
         color: theme.palette.text.secondary,
       },
+    }),
+    focused: ({ theme }) => ({
+      color: theme.palette.text.secondary,
+      position: 'static',
+      transform: 'none',
+      transition: 'none',
     }),
   },
 };

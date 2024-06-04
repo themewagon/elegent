@@ -35,6 +35,7 @@ import shadows from './shadows';
 import Collapse from './components/Collapse';
 import ListItem from './components/ListItem';
 import Tooltip from './components/Tooltip';
+import FormControl from './components/FormControl';
 
 export const theme = createTheme({
   typography: typography,
@@ -49,6 +50,7 @@ export const theme = createTheme({
     MuiListItemText: ListItemText,
     MuiCssBaseline: CssBaseline,
     MuiFilledInput: FilledInput,
+    MuiFormControl: FormControl,
     MuiIconButton: IconButton,
     MuiPagination: Pagination,
     MuiInputLabel: InputLabel,

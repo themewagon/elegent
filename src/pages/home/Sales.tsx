@@ -2,12 +2,12 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Stack } from '@mui/material';
 import { ReactElement } from 'react';
 
-import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct';
-import WebsiteVisitors from 'components/sections/dashboard/Home/Sales/WebsiteVisitors';
-import SaleInfoCards from 'components/sections/dashboard/Home/Sales/SaleInfoCards';
-import BuyersProfile from 'components/sections/dashboard/Home/Sales/BuyersProfile';
-import NewCustomers from 'components/sections/dashboard/Home/Sales/NewCustomers';
-import Revenue from 'components/sections/dashboard/Home/Sales/Revenue';
+import TopSellingProduct from 'components/sections/dashboard/Home/Sales/TopSellingProduct/TopSellingProduct';
+import WebsiteVisitors from 'components/sections/dashboard/Home/Sales/WebsiteVisitors/WebsiteVisitors';
+import SaleInfoCards from 'components/sections/dashboard/Home/Sales/SaleInfoSection/SaleInfoCards';
+import BuyersProfile from 'components/sections/dashboard/Home/Sales/BuyersProfile/BuyersProfile';
+import NewCustomers from 'components/sections/dashboard/Home/Sales/NewCustomers/NewCustomers';
+import Revenue from 'components/sections/dashboard/Home/Sales/Revenue/Revenue';
 
 import { drawerWidth } from 'layouts/main-layout';
 
@@ -27,27 +27,6 @@ const Sales = (): ReactElement => {
         pl: { xs: 3.75, lg: 0 },
       }}
     >
-      {/* <Grid xs={12} sm={6} md={4}>
-        <SaleInfo image={sales} title="Sales" sales="230,220" increment={55} date="May 2022" />
-      </Grid>
-      <Grid xs={12} sm={6} md={4}>
-        <SaleInfo
-          image={customers}
-          title="Customers"
-          sales="3,200"
-          increment={12}
-          date="May 2022"
-        />
-      </Grid>
-      <Grid xs={12} sm={6} md={4}>
-        <SaleInfo
-          image={avgRevenue}
-          title="Avg Revenue"
-          sales="2,300"
-          increment={210}
-          date="May 2022"
-        />
-      </Grid> */}
       <Grid xs={12}>
         <SaleInfoCards />
       </Grid>
@@ -57,7 +36,7 @@ const Sales = (): ReactElement => {
       <Grid xs={12} md={4}>
         <WebsiteVisitors />
       </Grid>
-      <Grid xs={12} lg={8} minHeight={622}>
+      <Grid xs={12} lg={8}>
         <TopSellingProduct />
       </Grid>
       <Grid xs={12} lg={4}>

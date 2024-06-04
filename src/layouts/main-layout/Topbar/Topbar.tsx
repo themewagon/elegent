@@ -58,11 +58,12 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
             {pathname === '/' ? 'Dashboard' : title}
           </Typography>
           <TextField
+            variant="outlined"
             placeholder="Search..."
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:search" width={1} height={1} />
+                  <IconifyIcon icon="mdi:search" />
                 </InputAdornment>
               ),
             }}

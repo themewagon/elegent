@@ -6,9 +6,9 @@ import {
   InputAdornment,
   InputLabel,
   Link,
-  OutlinedInput,
   Skeleton,
   Stack,
+  TextField,
   Typography,
 } from '@mui/material';
 import loginBanner from 'assets/authentication-banners/login.png';
@@ -39,7 +39,7 @@ const Login = (): ReactElement => {
             <InputLabel shrink htmlFor="email-input">
               Email
             </InputLabel>
-            <OutlinedInput
+            {/* <OutlinedInput
               placeholder="Enter your email"
               id="email-input"
               endAdornment={
@@ -51,13 +51,25 @@ const Login = (): ReactElement => {
                 width: 1,
                 backgroundColor: 'action.focus',
               }}
+            /> */}
+            <TextField
+              variant="filled"
+              placeholder="Enter your email"
+              id="email-input"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconifyIcon icon="ic:baseline-email" />
+                  </InputAdornment>
+                ),
+              }}
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
             <InputLabel shrink htmlFor="password-input">
               Password
             </InputLabel>
-            <OutlinedInput
+            {/* <OutlinedInput
               placeholder="********"
               type={showPassword ? 'text' : 'password'}
               id="password-input"
@@ -83,6 +95,32 @@ const Login = (): ReactElement => {
                 width: 1,
                 backgroundColor: 'action.focus',
                 paddingRight: 3,
+              }}
+            /> */}
+            <TextField
+              variant="filled"
+              placeholder="********"
+              type={showPassword ? 'text' : 'password'}
+              id="password-input"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      edge="end"
+                      sx={{
+                        color: 'text.secondary',
+                      }}
+                    >
+                      {showPassword ? (
+                        <IconifyIcon icon="ic:baseline-key" />
+                      ) : (
+                        <IconifyIcon icon="ic:baseline-key-off" />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           </FormControl>

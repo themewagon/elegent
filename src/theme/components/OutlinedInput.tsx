@@ -1,5 +1,6 @@
-import { Theme, outlinedInputClasses } from '@mui/material';
+import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
+import pxToRem from 'theme/functions/px-to-rem';
 
 const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] = {
   defaultProps: {
@@ -7,36 +8,40 @@ const OutlinedInput: Components<Omit<Theme, 'components'>>['MuiOutlinedInput'] =
   },
   styleOverrides: {
     root: ({ theme }) => ({
+      borderRadius: 999,
+      borderWidth: pxToRem(1),
+      borderStyle: 'solid',
+      borderColor: theme.palette.divider,
       backgroundColor: theme.palette.background.paper,
-      borderRadius: theme.shape.borderRadius * 7.5,
-      color: theme.palette.text.secondary,
-      width: theme.spacing(41.25),
-      height: theme.spacing(5.625),
-      '&::before, &::after': {
-        border: 0,
-        borderBottom: 0,
-      },
-      '&:hover:not(.Mui-disabled, .Mui-error):before': {
-        border: 0,
-      },
-      '&.Mui-focused:after': {
-        border: 0,
-      },
-      [`& .${outlinedInputClasses.notchedOutline}`]: {
-        borderColor: theme.palette.divider,
-      },
       '&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
         border: '1px solid black',
       },
-    }),
-    input: ({ theme }) => ({
-      padding: theme.spacing(1.5, 2.5),
-      '&::placeholder': {
-        color: theme.palette.text.secondary,
-        fontSize: theme.typography.body1.fontSize,
-        fontWeight: theme.typography.body1.fontWeight,
-        fontFamily: theme.typography.body1.fontFamily,
+      '&.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline > legend': {
+        width: 0,
       },
+    }),
+    input: () => ({
+      paddingLeft: pxToRem(20),
+      paddingTop: pxToRem(12),
+      paddingBottom: pxToRem(12),
+      '&::placeholder': {
+        opacity: 1,
+      },
+    }),
+    notchedOutline: ({ theme }) => ({
+      borderColor: theme.palette.divider,
+      ':hover': {
+        borderColor: theme.palette.primary.main,
+      },
+      ':focus': {
+        borderColor: theme.palette.secondary.main,
+      },
+    }),
+    adornedEnd: ({ theme }) => ({
+      color: theme.palette.common.black,
+    }),
+    inputAdornedEnd: ({ theme }) => ({
+      color: theme.palette.common.black,
     }),
   },
 };

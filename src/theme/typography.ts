@@ -1,54 +1,55 @@
 import { TypographyOptions } from '@mui/material/styles/createTypography';
+import pxToRem from './functions/px-to-rem';
 
 const typography: TypographyOptions = {
   fontFamily: ['IBM Plex Sans', 'Poppins', 'sans-serif'].join(','),
   h1: {
-    fontSize: '2.5rem',
+    fontSize: pxToRem(40),
     fontWeight: 700,
     fontFamily: 'IBM Plex Sans',
   },
   h2: {
-    fontSize: '1.75rem',
+    fontSize: pxToRem(28),
     fontWeight: 700,
     fontFamily: 'IBM Plex Sans',
   },
   h3: {
-    fontSize: '1.563rem',
+    fontSize: pxToRem(25),
     fontWeight: 700,
     fontFamily: 'IBM Plex Sans',
   },
   h4: {
-    fontSize: '1.375rem',
+    fontSize: pxToRem(22),
     fontWeight: 700,
     fontFamily: 'IBM Plex Sans',
   },
   h5: {
-    fontSize: '1.25rem',
+    fontSize: pxToRem(20),
     fontWeight: 500,
     fontFamily: 'IBM Plex Sans',
   },
   h6: {
-    fontSize: '1.125rem',
+    fontSize: pxToRem(18),
     fontWeight: 500,
     fontFamily: 'IBM Plex Sans',
   },
   subtitle1: {
-    fontSize: '1rem',
+    fontSize: pxToRem(16),
     fontWeight: 500,
     fontFamily: 'IBM Plex Sans',
   },
   subtitle2: {
-    fontSize: '1rem',
+    fontSize: pxToRem(16),
     fontWeight: 400,
     fontFamily: 'IBM Plex Sans',
   },
   body1: {
-    fontSize: '0.875rem',
+    fontSize: pxToRem(14),
     fontWeight: 400,
     fontFamily: 'Poppins',
   },
   body2: {
-    fontSize: '0.75rem',
+    fontSize: pxToRem(12),
     fontWeight: 400,
     fontFamily: 'Poppins',
   },

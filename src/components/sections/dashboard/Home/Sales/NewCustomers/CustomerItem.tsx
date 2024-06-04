@@ -31,8 +31,8 @@ const CustomerItem = ({ name, country, avatar }: CustomerItemProps): ReactElemen
           </Typography>
         </Box>
       </Stack>
-      <IconButton sx={(theme) => ({ padding: theme.spacing(1.75, 1.5) })}>
-        <IconifyIcon icon="mingcute:mail-fill" color="primary.main" />
+      <IconButton>
+        <IconifyIcon icon="mingcute:mail-fill" color="primary.main" width={16} height={12} />
       </IconButton>
     </ListItem>
   );
