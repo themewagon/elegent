@@ -65,7 +65,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       border: 'none',
       display: 'flex',
       alignItems: 'center',
-      ':focus': {
+      ':focus, :focus-within': {
         outline: 'none',
       },
     }),

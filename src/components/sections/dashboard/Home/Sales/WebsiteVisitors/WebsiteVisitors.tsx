@@ -72,7 +72,7 @@ const WebsiteVisitors = (): ReactElement => {
         seriesData={seriesData}
         colors={pieChartColors}
         legendData={legendData}
-        sx={{ maxWidth: 222, maxHeight: 222, mx: 'auto' }}
+        sx={{ width: 222, maxHeight: 222, mx: 'auto' }}
       />
       <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
         {Array.isArray(seriesData) &&

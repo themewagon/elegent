@@ -20,6 +20,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 // } from 'helpers/datagrid-filter-functions';
 import { dataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
+import { currencyFormat } from 'helpers/format-functions';
 
 const columns: GridColDef<dataRow>[] = [
   {
@@ -32,7 +33,7 @@ const columns: GridColDef<dataRow>[] = [
     flex: 1,
     minWidth: 182.9625,
     valueGetter: (params: any) => {
-      return params.title;
+      return params.title + ' ' + params.subtitle;
     },
     renderCell: (params: any) => {
       return (
@@ -64,8 +65,8 @@ const columns: GridColDef<dataRow>[] = [
     headerName: 'Price',
     flex: 0.75,
     minWidth: 137.221875,
-    renderCell: ({ row: { price } }: any) => {
-      return `$${price}`;
+    valueGetter: (params: any) => {
+      return currencyFormat(params, {});
     },
   },
   {
@@ -73,8 +74,8 @@ const columns: GridColDef<dataRow>[] = [
     headerName: 'Ads Spent',
     flex: 0.75,
     minWidth: 137.221875,
-    renderCell: ({ row: { adsSpent } }: any) => {
-      return `$${adsSpent.toFixed(3)}`;
+    valueGetter: (params: any) => {
+      return currencyFormat(params, { minimumFractionDigits: 3 });
     },
   },
   {
