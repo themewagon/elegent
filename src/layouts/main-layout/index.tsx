@@ -51,7 +51,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
               boxSizing: 'border-box',
               width: drawerWidth,
               border: 0,
-              backgroundColor: 'background.paper',
+              backgroundColor: 'background.default',
             },
           }}
         >

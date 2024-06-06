@@ -11,6 +11,12 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.subtitle1.fontWeight,
     }),
+    previousNext: () => ({
+      borderRadius: 0,
+    }),
+    page: () => ({
+      borderRadius: 999,
+    }),
   },
 };
 

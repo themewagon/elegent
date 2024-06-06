@@ -22,10 +22,13 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       '& .MuiDataGrid-filler': {
         flex: 0,
       },
+      '& .MuiDataGrid-scrollbar--vertical': {
+        display: 'none',
+      },
     }),
-    main: () => ({
-      marginLeft: 20,
-      marginRight: 20,
+    main: ({ theme }) => ({
+      marginLeft: theme.spacing(2.5),
+      marginRight: theme.spacing(2.5),
     }),
     'container--top': ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
@@ -37,6 +40,11 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       borderBottom: 'none',
       backgroundColor: theme.palette.background.paper,
       // minWidth: theme.spacing(18.75),
+    }),
+    columnHeader: () => ({
+      ':focus': {
+        outline: 'none',
+      },
     }),
     columnHeaderTitle: ({ theme }) => ({
       fontSize: theme.typography.subtitle1.fontSize,

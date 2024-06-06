@@ -1,13 +1,15 @@
-import { ReactElement, Suspense } from 'react';
+import { ReactElement, Suspense, useState } from 'react';
 import {
   Button,
   FormControl,
+  IconButton,
   InputAdornment,
   InputLabel,
   Link,
   OutlinedInput,
   Skeleton,
   Stack,
+  TextField,
   Typography,
 } from '@mui/material';
 import signupBanner from 'assets/authentication-banners/signup.png';
@@ -16,6 +18,9 @@ import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
 
 const SignUp = (): ReactElement => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
   return (
     <Stack
       direction="row"
@@ -24,39 +29,38 @@ const SignUp = (): ReactElement => {
       height={591}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={2.5} gap={10}>
+      <Stack width={{ md: 0.5 }} m={2.5} gap={10}>
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
         <Stack alignItems="center" gap={2.5} width={330} mx="auto">
           <Typography variant="h3">Signup</Typography>
           <FormControl variant="standard" fullWidth>
-            <InputLabel shrink htmlFor="name-input1">
+            <InputLabel shrink htmlFor="name">
               Name
             </InputLabel>
-            <OutlinedInput
+            <TextField
+              variant="filled"
               placeholder="Enter your full name"
-              id="name-input1"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:user" width={1} height={1} />
-                </InputAdornment>
-              }
-              sx={{
-                width: 1,
-                backgroundColor: 'action.focus',
+              id="name"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end" sx={{ width: 16, height: 16 }}>
+                    <IconifyIcon icon="mdi:user" width={1} height={1} />
+                  </InputAdornment>
+                ),
               }}
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
-            <InputLabel shrink htmlFor="email-input1">
+            <InputLabel shrink htmlFor="email">
               Email
             </InputLabel>
             <OutlinedInput
               placeholder="Enter your email"
-              id="email-input1"
+              id="email"
               endAdornment={
-                <InputAdornment position="end">
+                <InputAdornment position="end" sx={{ width: 16, height: 16 }}>
                   <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
                 </InputAdornment>
               }
@@ -67,21 +71,33 @@ const SignUp = (): ReactElement => {
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
-            <InputLabel shrink htmlFor="password-input2">
+            <InputLabel shrink htmlFor="password">
               Password
             </InputLabel>
-            <OutlinedInput
-              placeholder="Create password"
-              type="password"
-              id="password-input2"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
-                </InputAdornment>
-              }
-              sx={{
-                width: 1,
-                backgroundColor: 'action.focus',
+            <TextField
+              variant="filled"
+              placeholder="********"
+              type={showPassword ? 'text' : 'password'}
+              id="password"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickShowPassword}
+                      edge="end"
+                      sx={{
+                        color: 'text.secondary',
+                      }}
+                    >
+                      {showPassword ? (
+                        <IconifyIcon icon="ic:baseline-key" />
+                      ) : (
+                        <IconifyIcon icon="ic:baseline-key-off" />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
               }}
             />
           </FormControl>

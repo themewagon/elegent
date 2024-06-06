@@ -5,9 +5,9 @@ import SaleInfo from './SaleInfo';
 const SaleInfoCards = () => {
   return (
     <Stack direction={{ sm: 'row' }} justifyContent={{ sm: 'space-between' }} gap={3.75}>
-      {saleInfoData.map((saleInfoDataItem, index) => (
+      {saleInfoData.map((saleInfoDataItem) => (
         <SaleInfo
-          key={index}
+          key={saleInfoDataItem.id}
           title={saleInfoDataItem.title}
           image={saleInfoDataItem.image}
           sales={saleInfoDataItem.sales}

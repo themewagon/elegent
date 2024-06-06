@@ -29,33 +29,20 @@ const Login = (): ReactElement => {
       height={560}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={2.5} gap={10}>
+      <Stack width={{ md: 0.5 }} m={2.5} gap={10}>
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
         <Stack alignItems="center" gap={2.5} width={330} mx="auto">
           <Typography variant="h3">Login</Typography>
           <FormControl variant="standard" fullWidth>
-            <InputLabel shrink htmlFor="email-input">
+            <InputLabel shrink htmlFor="email">
               Email
             </InputLabel>
-            {/* <OutlinedInput
-              placeholder="Enter your email"
-              id="email-input"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconifyIcon icon="ic:baseline-email" width={1} height={1} />
-                </InputAdornment>
-              }
-              sx={{
-                width: 1,
-                backgroundColor: 'action.focus',
-              }}
-            /> */}
             <TextField
               variant="filled"
               placeholder="Enter your email"
-              id="email-input"
+              id="email"
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -66,42 +53,14 @@ const Login = (): ReactElement => {
             />
           </FormControl>
           <FormControl variant="standard" fullWidth>
-            <InputLabel shrink htmlFor="password-input">
+            <InputLabel shrink htmlFor="password">
               Password
             </InputLabel>
-            {/* <OutlinedInput
-              placeholder="********"
-              type={showPassword ? 'text' : 'password'}
-              id="password-input"
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    edge="end"
-                    sx={{
-                      color: 'text.secondary',
-                    }}
-                  >
-                    {showPassword ? (
-                      <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
-                    ) : (
-                      <IconifyIcon icon="ic:baseline-key-off" width={1} height={1} />
-                    )}
-                  </IconButton>
-                </InputAdornment>
-              }
-              sx={{
-                width: 1,
-                backgroundColor: 'action.focus',
-                paddingRight: 3,
-              }}
-            /> */}
             <TextField
               variant="filled"
               placeholder="********"
               type={showPassword ? 'text' : 'password'}
-              id="password-input"
+              id="password"
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">

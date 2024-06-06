@@ -75,9 +75,9 @@ const NewCustomers = (): ReactElement => {
         </Menu>
       </Stack>
       <Stack pb={1.25}>
-        {customerList.map((customer, index) => (
+        {customerList.map((customer) => (
           <CustomerItem
-            key={index}
+            key={customer.id}
             name={customer.name}
             country={customer.country}
             avatar={customer.avatar}

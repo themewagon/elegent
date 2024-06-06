@@ -2,12 +2,13 @@ import { ReactElement, Suspense, useState } from 'react';
 import {
   Button,
   FormControl,
+  IconButton,
   InputAdornment,
   InputLabel,
   Link,
-  OutlinedInput,
   Skeleton,
   Stack,
+  TextField,
   Typography,
 } from '@mui/material';
 import logo from 'assets/logo/elegant-logo.png';
@@ -18,14 +19,19 @@ import Image from 'components/base/Image';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 const ResetPassword = (): ReactElement => {
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleClickShowNewPassword = () => setShowNewPassword(!showNewPassword);
+  const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
   const [resetSuccessful, setResetSuccessful] = useState(false);
 
   const handleResetPassword = () => {
     const passwordField: HTMLInputElement = document.getElementById(
-      'password-input',
+      'new-password',
     ) as HTMLInputElement;
     const confirmPasswordField: HTMLInputElement = document.getElementById(
-      'confirm-password-input',
+      'confirm-password',
     ) as HTMLInputElement;
 
     if (passwordField.value !== confirmPasswordField.value) {
@@ -43,7 +49,7 @@ const ResetPassword = (): ReactElement => {
       height={560}
       width={{ md: 960 }}
     >
-      <Stack width={0.5} m={2.5} gap={10}>
+      <Stack width={{ md: 0.5 }} m={2.5} gap={10}>
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
@@ -51,40 +57,64 @@ const ResetPassword = (): ReactElement => {
           <Stack alignItems="center" gap={3.75} width={330} mx="auto">
             <Typography variant="h3">Reset Password</Typography>
             <FormControl variant="standard" fullWidth>
-              <InputLabel shrink htmlFor="password-input">
+              <InputLabel shrink htmlFor="new-password">
                 Password
               </InputLabel>
-              <OutlinedInput
+              <TextField
+                variant="filled"
                 placeholder="Enter new password"
-                type="password"
-                id="password-input"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
-                  </InputAdornment>
-                }
-                sx={{
-                  width: 1,
-                  backgroundColor: 'action.focus',
+                type={showNewPassword ? 'text' : 'password'}
+                id="new-password"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowNewPassword}
+                        edge="end"
+                        sx={{
+                          color: 'text.secondary',
+                        }}
+                      >
+                        {showNewPassword ? (
+                          <IconifyIcon icon="ic:baseline-key" />
+                        ) : (
+                          <IconifyIcon icon="ic:baseline-key-off" />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
               />
             </FormControl>
             <FormControl variant="standard" fullWidth>
-              <InputLabel shrink htmlFor="password-input">
+              <InputLabel shrink htmlFor="confirm-password">
                 Password
               </InputLabel>
-              <OutlinedInput
+              <TextField
+                variant="filled"
                 placeholder="Confirm password"
-                type="password"
-                id="confirm-password-input"
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconifyIcon icon="ic:baseline-key" width={1} height={1} />
-                  </InputAdornment>
-                }
-                sx={{
-                  width: 1,
-                  backgroundColor: 'action.focus',
+                type={showConfirmPassword ? 'text' : 'password'}
+                id="confirm-password"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowConfirmPassword}
+                        edge="end"
+                        sx={{
+                          color: 'text.secondary',
+                        }}
+                      >
+                        {showConfirmPassword ? (
+                          <IconifyIcon icon="ic:baseline-key" />
+                        ) : (
+                          <IconifyIcon icon="ic:baseline-key-off" />
+                        )}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
                 }}
               />
             </FormControl>

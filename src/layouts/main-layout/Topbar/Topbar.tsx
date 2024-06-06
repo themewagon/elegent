@@ -62,8 +62,8 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
             placeholder="Search..."
             InputProps={{
               endAdornment: (
-                <InputAdornment position="end">
-                  <IconifyIcon icon="mdi:search" />
+                <InputAdornment position="end" sx={{ width: 24, height: 24 }}>
+                  <IconifyIcon icon="mdi:search" width={1} height={1} />
                 </InputAdornment>
               ),
             }}

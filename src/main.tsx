@@ -5,7 +5,7 @@ import { RouterProvider } from 'react-router-dom';
 import { theme } from './theme/theme.ts';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import BreakpointsProvider from 'providers/BreakpointsProvider.tsx';
-import { router } from './routes/router.tsx';
+import router from 'routes/router.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

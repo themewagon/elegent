@@ -40,7 +40,7 @@ const WebsiteVisitors = (): ReactElement => {
       });
     }
   };
-  const [clicked, setClicked] = useState<any>({
+  const [visitorType, setVisitorType] = useState<any>({
     Direct: false,
     Organic: false,
     Paid: false,
@@ -48,7 +48,7 @@ const WebsiteVisitors = (): ReactElement => {
   });
 
   const toggleClicked = (name: string) => {
-    setClicked((prevState: any) => ({
+    setVisitorType((prevState: any) => ({
       ...prevState,
       [name]: !prevState[name],
     }));
@@ -92,7 +92,7 @@ const WebsiteVisitors = (): ReactElement => {
                 padding: 0,
                 px: 1,
                 borderRadius: 1,
-                bgcolor: clicked[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
+                bgcolor: visitorType[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
                 ':hover': {
                   bgcolor: 'action.active',
                 },
@@ -104,7 +104,7 @@ const WebsiteVisitors = (): ReactElement => {
                   sx={{
                     width: 10,
                     height: 10,
-                    backgroundColor: clicked[`${dataItem.name}`]
+                    backgroundColor: visitorType[`${dataItem.name}`]
                       ? 'action.disabled'
                       : pieChartColors[index],
                     borderRadius: 400,

@@ -17,7 +17,7 @@ interface NavItemProps {
   Link: OverridableComponent<LinkTypeMap>;
 }
 
-const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
+const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
   const { pathname } = useLocation();
   const [checked, setChecked] = useState(false);
   const [nestedChecked, setNestedChecked] = useState<boolean[]>([]);
@@ -101,14 +101,13 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                                 <ListItemButton
                                   LinkComponent={Link}
                                   href={
-                                    // navItem.path !== '/'
-                                    //   ? navItem.path +
-                                    //     '/' +
-                                    //     subListItem.path +
-                                    //     '/' +
-                                    //     nestedSubListItem.path
-                                    //   : nestedSubListItem.path
-                                    '#!'
+                                    navItem.path !== '/'
+                                      ? navItem.path +
+                                        '/' +
+                                        subListItem.path +
+                                        '/' +
+                                        nestedSubListItem.path
+                                      : nestedSubListItem.path
                                   }
                                 >
                                   <ListItemText sx={{ ml: 5 }}>
@@ -124,13 +123,7 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
                   ) : (
                     <ListItemButton
                       LinkComponent={Link}
-                      href={
-                        navItem.path === 'authentication'
-                          ? navItem.path + '/' + subListItem.path
-                          : navItem.path === '/'
-                          ? navItem.path
-                          : '#!'
-                      }
+                      href={navItem.path + '/' + subListItem.path}
                     >
                       <ListItemText sx={{ ml: 3 }}>{subListItem.title}</ListItemText>
                     </ListItemButton>
@@ -143,8 +136,8 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
       ) : (
         <ListItemButton
           LinkComponent={Link}
-          // href={navItem.path}
-          href={'#!'}
+          href={navItem.path}
+          sx={{ opacity: navItem.active ? 1 : 0.6 }}
         >
           <ListItemIcon>
             <IconifyIcon icon={navItem.icon} width={1} height={1} />
@@ -156,4 +149,4 @@ const CollapsibleNavButton = ({ navItem, Link }: NavItemProps): ReactElement => 
   );
 };
 
-export default CollapsibleNavButton;
+export default NavButton;

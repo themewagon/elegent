@@ -9,11 +9,12 @@ import {
   Stack,
 } from '@mui/material';
 
-import CollapsibleNavButton from './CollapsibleNavButton';
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
 import Image from 'components/base/Image';
-import { navItems } from 'data/nav-items';
+import navItems from 'data/nav-items';
+import pxToRem from 'theme/functions/px-to-rem';
+import NavButton from './NavButton';
 
 const Sidebar = (): ReactElement => {
   return (
@@ -23,7 +24,8 @@ const Sidebar = (): ReactElement => {
       height={1}
       sx={{
         overflowY: 'overlay',
-        margin: { md: 3.75 },
+        // margin: { md: 3.75 },
+        margin: 3.75,
         borderRadius: 5,
         // scrollbarWidth: 'none',
       }}
@@ -31,58 +33,68 @@ const Sidebar = (): ReactElement => {
       <Link
         href="/"
         sx={{
-          // position: 'absolute',
-          // zIndex: 5,
-          mt: 6.25,
-          mx: 5,
-          mb: 3.75,
+          position: 'fixed',
+          zIndex: 5,
+          pt: 6.25,
+          px: pxToRem(32.5),
+          pb: 3.75,
+          bgcolor: 'background.paper',
+          borderRadius: 5,
         }}
       >
         <Image src={logo} width={1} />
       </Link>
-      <List
+      <Stack
+        justifyContent="space-between"
+        mt={16.25}
+        height={1}
         sx={{
-          mx: 2.5,
-          // mt: 16.25,
-          py: 1.25,
-          flex: '1 1 auto',
+          overflowY: 'auto',
         }}
       >
-        {navItems.map((navItem, index) => (
-          <CollapsibleNavButton key={index} navItem={navItem} Link={Link} />
-        ))}
-      </List>
-      <List
-        sx={{
-          mx: 2.5,
-        }}
-      >
-        <ListItem
+        <List
           sx={{
-            mx: 0,
-            my: 2.5,
+            mx: 2.5,
+            py: 1.25,
+            flex: '1 1 auto',
           }}
         >
-          <ListItemButton
-            LinkComponent={Link}
-            href="/"
+          {navItems.map((navItem, index) => (
+            <NavButton key={index} navItem={navItem} Link={Link} />
+          ))}
+        </List>
+        <List
+          sx={{
+            mx: 2.5,
+          }}
+        >
+          <ListItem
             sx={{
-              backgroundColor: 'background.paper',
-              color: 'primary.main',
-              ':hover': {
-                backgroundColor: 'primary.main',
-                color: 'common.white',
-                opacity: 1.5,
-              },
+              mx: 0,
+              my: 2.5,
             }}
           >
-            <ListItemIcon>
-              <IconifyIcon icon="ri:logout-circle-line" />
-            </ListItemIcon>
-            <ListItemText>Log out</ListItemText>
-          </ListItemButton>
-        </ListItem>
-      </List>
+            <ListItemButton
+              LinkComponent={Link}
+              href="/"
+              sx={{
+                backgroundColor: 'background.paper',
+                color: 'primary.main',
+                ':hover': {
+                  backgroundColor: 'primary.main',
+                  color: 'common.white',
+                  opacity: 1.5,
+                },
+              }}
+            >
+              <ListItemIcon>
+                <IconifyIcon icon="ri:logout-circle-line" />
+              </ListItemIcon>
+              <ListItemText>Log out</ListItemText>
+            </ListItemButton>
+          </ListItem>
+        </List>
+      </Stack>
     </Stack>
   );
 };

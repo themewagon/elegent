@@ -2,12 +2,7 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination'] = {
-  defaultProps: {
-    labelDisplayedRows: ({ from, to, count }) => {
-      return `Showing ${to - from + 1} of ${count} products`;
-      // return `Showing ${from} to ${to} of ${count} products`;
-    },
-  },
+  defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
       width: '100%',
@@ -19,11 +14,13 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     toolbar: ({ theme }) => ({
       display: 'flex',
       justifyContent: 'space-between',
+      alignItems: 'center',
       flexDirection: 'row',
       padding: theme.spacing(2.5, 3.75),
       paddingRight: `${theme.spacing(3.75)} !important`,
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
+        gap: 15,
       },
     }),
     spacer: {
@@ -38,19 +35,11 @@ const TablePagination: Components<Omit<Theme, 'components'>>['MuiTablePagination
     input: {
       display: 'none',
     },
-    displayedRows: ({ theme }) => ({
-      flex: 'auto',
-      fontSize: theme.typography.body2.fontSize,
-      fontWeight: theme.typography.body2.fontWeight,
-      color: theme.palette.text.secondary,
-      fontFamily: theme.typography.body2.fontFamily,
-      textAlign: 'left',
-      [theme.breakpoints.down('sm')]: {
-        textAlign: 'center',
-      },
+    displayedRows: () => ({
+      display: 'none',
     }),
     actions: {
-      margin: 'auto',
+      marginLeft: 'auto',
     },
   },
 };

@@ -2,99 +2,116 @@ interface NavItem {
   title: string;
   path: string;
   icon?: string;
+  active: boolean;
   collapsible: boolean;
   sublist?: NavItem[];
 }
 
-export const navItems: NavItem[] = [
+const navItems: NavItem[] = [
   {
     title: 'Home',
     path: '/',
     icon: 'ion:home-sharp',
-    collapsible: true,
+    active: true,
+    collapsible: false,
     sublist: [
       {
         title: 'Dashboard',
         path: '/',
+        active: false,
         collapsible: false,
       },
       {
         title: 'Sales',
         path: '/',
+        active: false,
         collapsible: false,
       },
     ],
   },
   {
     title: 'Pages',
-    path: 'pages',
+    path: '#!',
     icon: 'icomoon-free:drawer',
-    collapsible: true,
+    active: false,
+    collapsible: false,
     sublist: [
       {
         title: 'Profile',
-        path: 'profile',
-        collapsible: true,
+        path: '#!',
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'Overview',
-            path: 'overview',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'All Projects',
-            path: 'all-projects',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
       },
       {
         title: 'Users',
-        path: 'users',
-        collapsible: true,
+        path: '#!',
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'All Users',
-            path: 'all-users',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'Add user',
-            path: 'add-user',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
       },
       {
         title: 'Account',
-        path: 'account',
-        collapsible: true,
+        path: '#!',
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'Setting',
-            path: 'setting',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'Billing',
-            path: 'billing',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'Invoice',
-            path: 'invoice',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
       },
       {
         title: 'Projects',
-        path: 'projects',
-        collapsible: true,
+        path: '#!',
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'Timeline',
-            path: 'timeline',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
@@ -103,56 +120,66 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Applications',
-    path: 'applications',
+    path: '#!',
     icon: 'mingcute:grid-fill',
-    collapsible: true,
+    active: false,
+    collapsible: false,
     sublist: [
       {
         title: 'Kanban',
-        path: 'kanban',
+        path: '#!',
+        active: false,
         collapsible: false,
       },
       {
         title: 'Wizard',
-        path: 'wizard',
+        path: '#!',
+        active: false,
         collapsible: false,
       },
       {
         title: 'Data Tables',
-        path: 'data-tables',
+        path: '#!',
+        active: false,
         collapsible: false,
       },
       {
         title: 'Schedule',
-        path: 'schedule',
+        path: '#!',
+        active: false,
         collapsible: false,
       },
     ],
   },
   {
     title: 'Ecommerce',
-    path: 'ecommerce',
+    path: '#!',
     icon: 'tabler:shopping-bag',
-    collapsible: true,
+    active: false,
+    collapsible: false,
     sublist: [
       {
         title: 'Products',
-        path: 'products',
-        collapsible: true,
+        path: '#!',
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'All Products',
-            path: 'all-products',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'Edit Product',
-            path: 'edit-product',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'New Product',
-            path: 'new-product',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
@@ -160,16 +187,19 @@ export const navItems: NavItem[] = [
       {
         title: 'Orders',
         path: 'orders',
-        collapsible: true,
+        active: false,
+        collapsible: false,
         sublist: [
           {
             title: 'Order List',
-            path: 'order-list',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
           {
             title: 'Order Detail',
-            path: 'order-detail',
+            path: '#!',
+            active: false,
             collapsible: false,
           },
         ],
@@ -180,41 +210,50 @@ export const navItems: NavItem[] = [
     title: 'Authentication',
     path: 'authentication',
     icon: 'f7:exclamationmark-shield-fill',
+    active: true,
     collapsible: true,
     sublist: [
       {
         title: 'Sign In',
         path: 'login',
+        active: true,
         collapsible: false,
       },
       {
         title: 'Sign Up',
         path: 'sign-up',
+        active: true,
         collapsible: false,
       },
       {
         title: 'Reset password',
         path: 'reset-password',
+        active: true,
         collapsible: false,
       },
     ],
   },
   {
     title: 'Notification',
-    path: 'notifications',
+    path: '#!',
     icon: 'zondicons:notifications',
+    active: false,
     collapsible: false,
   },
   {
     title: 'Calendar',
-    path: 'calendar',
+    path: '#!',
     icon: 'ph:calendar',
+    active: false,
     collapsible: false,
   },
   {
     title: 'Message',
-    path: 'messages',
+    path: '#!',
     icon: 'ph:chat-circle-dots-fill',
+    active: false,
     collapsible: false,
   },
 ];
+
+export default navItems;

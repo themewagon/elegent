@@ -12,9 +12,9 @@ const scrollbar = (theme: Theme) => ({
     height: 5,
     backgroundColor: 'transparent',
   },
-  // '*::-webkit-scrollbar-track': {
-  //   margin: 9,
-  // },
+  '*::-webkit-scrollbar-track': {
+    margin: 9,
+  },
   '*::-webkit-scrollbar-thumb': {
     visibility: 'hidden',
     borderRadius: 3,

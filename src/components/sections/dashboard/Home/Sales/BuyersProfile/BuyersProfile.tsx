@@ -35,14 +35,14 @@ const BuyersProfile = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const [clicked, setClicked] = useState<any>({
+  const [buyerGenderType, setBuyerGenderType] = useState<any>({
     Male: false,
     Female: false,
     Others: false,
   });
 
   const toggleClicked = (name: string) => {
-    setClicked((prevState: any) => ({
+    setBuyerGenderType((prevState: any) => ({
       ...prevState,
       [name]: !prevState[name],
     }));
@@ -119,8 +119,8 @@ const BuyersProfile = (): ReactElement => {
         </Menu>
       </Stack>
       <Stack
-        // direction={{ xs: 'row', md: 'column', lg: 'row' }}
-        direction={'row'}
+        direction={{ xs: 'row', sm: 'column', md: 'row' }}
+        // direction={'row'}
         alignItems="center"
         flex={1}
         gap={2}
@@ -161,7 +161,9 @@ const BuyersProfile = (): ReactElement => {
                   padding: 0,
                   px: 1,
                   borderRadius: 1,
-                  bgcolor: clicked[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
+                  bgcolor: buyerGenderType[`${dataItem.name}`]
+                    ? 'action.focus'
+                    : 'background.paper',
                   ':hover': {
                     bgcolor: 'action.active',
                   },
@@ -173,12 +175,12 @@ const BuyersProfile = (): ReactElement => {
                     sx={{
                       width: 10,
                       height: 10,
-                      backgroundColor: clicked[`${dataItem.name}`]
+                      backgroundColor: buyerGenderType[`${dataItem.name}`]
                         ? 'action.disabled'
                         : pieChartColors[index],
                       borderRadius: 400,
                     }}
-                  ></Box>
+                  />
                   <Typography variant="body1" color="text.secondary" textAlign="left" flex={1}>
                     {dataItem.name}
                   </Typography>

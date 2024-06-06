@@ -32,7 +32,7 @@ const columns: GridColDef<dataRow>[] = [
     flex: 1,
     minWidth: 182.9625,
     valueGetter: (params: any) => {
-      return params.title + params.subtitle;
+      return params.title;
     },
     renderCell: (params: any) => {
       return (
@@ -51,7 +51,7 @@ const columns: GridColDef<dataRow>[] = [
         </Stack>
       );
     },
-    sortComparator: (v1: any, v2: any) => v1.title.localeCompare(v2.title),
+    sortComparator: (v1: string, v2: string) => v1.localeCompare(v2),
   },
   {
     field: 'orders',
@@ -98,24 +98,6 @@ const TopSellingProduct = (): ReactElement => {
       columns
         .filter((column) => column.field !== 'id')
         .map((column) => {
-          // if (column.field === 'product') {
-          //   return {
-          //     ...column,
-          //     getApplyQuickFilterFn: getApplyQuickFilterFnProductField,
-          //   };
-          // }
-          // if (column.field === 'price') {
-          //   return {
-          //     ...column,
-          //     getApplyQuickFilterFn: getApplyQuickFilterFnPriceField,
-          //   };
-          // }
-          // if (column.field === 'adsSpent') {
-          //   return {
-          //     ...column,
-          //     getApplyQuickFilterFn: getApplyQuickFilterFnAdsSpentField,
-          //   };
-          // }
           if (column.field === 'refunds') {
             return {
               ...column,
@@ -168,8 +150,8 @@ const TopSellingProduct = (): ReactElement => {
           value={search}
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
-                <IconifyIcon icon="mdi:search" />
+              <InputAdornment position="end" sx={{ width: 24, height: 24 }}>
+                <IconifyIcon icon="mdi:search" width={1} height={1} />
               </InputAdornment>
             ),
           }}
@@ -195,6 +177,7 @@ const TopSellingProduct = (): ReactElement => {
               },
             },
           }}
+          pageSizeOptions={[5]}
           onResize={() => {
             apiRef.current.autosizeColumns({
               includeOutliers: true,
