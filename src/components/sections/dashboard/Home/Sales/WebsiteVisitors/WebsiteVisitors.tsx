@@ -30,10 +30,8 @@ const WebsiteVisitors = (): ReactElement => {
 
   const chartRef = useRef<EChartsReactCore | null>(null);
   const onChartLegendSelectChanged = (name: string) => {
-    console.log(chartRef.current?.getEchartsInstance().getOption());
     if (chartRef.current) {
       const instance = chartRef.current.getEchartsInstance();
-      console.log(instance.getOption());
       instance.dispatchAction({
         type: 'legendToggleSelect',
         name: name,

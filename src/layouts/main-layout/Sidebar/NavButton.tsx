@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useState } from 'react';
 import {
   Collapse,
   LinkTypeMap,
@@ -27,10 +27,6 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
     updatedBooleanArray[index] = value;
     setNestedChecked(updatedBooleanArray);
   };
-
-  useEffect(() => {
-    console.log(pathname);
-  }, [pathname]);
 
   return (
     <ListItem

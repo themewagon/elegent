@@ -1,11 +1,7 @@
-import { PropsWithChildren, ReactElement, useEffect } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import { Stack } from '@mui/material';
-import { useLocation } from 'react-router-dom';
 
 const AuthLayout = ({ children }: PropsWithChildren): ReactElement => {
-  const location = useLocation();
-
-  useEffect(() => console.log(location), [location]);
   return (
     <Stack
       direction="row"

@@ -1,18 +1,14 @@
-import { PropsWithChildren, ReactElement, useEffect, useState } from 'react';
+import { PropsWithChildren, ReactElement, useState } from 'react';
 import { Box, Drawer, Stack, Toolbar } from '@mui/material';
 
 import Sidebar from 'layouts/main-layout/Sidebar/Sidebar';
 import Topbar from 'layouts/main-layout/Topbar/Topbar';
-import { useLocation } from 'react-router-dom';
 
 export const drawerWidth = 278;
 
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => console.log(location), [location]);
 
   const handleDrawerClose = () => {
     setIsClosing(true);
