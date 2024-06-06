@@ -122,6 +122,7 @@ const BuyersProfile = (): ReactElement => {
         direction={{ xs: 'row', sm: 'column', md: 'row' }}
         // direction={'row'}
         alignItems="center"
+        justifyContent="space-between"
         flex={1}
         gap={2}
         padding={(theme) => theme.spacing(0, 2.5, 2.5)}
@@ -135,15 +136,16 @@ const BuyersProfile = (): ReactElement => {
             display: 'flex',
             justifyContent: 'center',
             flex: '1 1 0%',
-            width: 0.5,
-            maxWidth: 177,
+            // width: 0.5,
+            width: 177,
             maxHeight: 177,
           }}
         />
         <Stack
           spacing={2}
           sx={{
-            width: 0.5,
+            width: { xs: 0.5, sm: 'auto', md: 'auto', lg: 'auto' },
+            flex: 1,
           }}
         >
           {Array.isArray(seriesData) &&
@@ -159,7 +161,7 @@ const BuyersProfile = (): ReactElement => {
                 sx={{
                   justifyContent: 'flex-start',
                   padding: 0,
-                  px: 1,
+                  pr: 1,
                   borderRadius: 1,
                   bgcolor: buyerGenderType[`${dataItem.name}`]
                     ? 'action.focus'
