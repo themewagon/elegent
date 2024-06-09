@@ -23,10 +23,14 @@ const Sidebar = (): ReactElement => {
       bgcolor="background.paper"
       height={1}
       sx={{
-        overflowY: 'overlay',
+        overflow: 'hidden',
         margin: 3.75,
         borderRadius: 5,
         // scrollbarWidth: 'none',
+        ':hover': {
+          overflowY: 'auto',
+        },
+        width: 218,
       }}
     >
       <Link
@@ -48,8 +52,11 @@ const Sidebar = (): ReactElement => {
         mt={16.25}
         height={1}
         sx={{
-          overflowY: 'auto',
-          // width: 218,
+          overflow: 'hidden',
+          ':hover': {
+            overflowY: 'auto',
+          },
+          width: 218,
         }}
       >
         <List
@@ -57,6 +64,7 @@ const Sidebar = (): ReactElement => {
             mx: 2.5,
             py: 1.25,
             flex: '1 1 auto',
+            width: 178,
           }}
         >
           {navItems.map((navItem, index) => (

@@ -11,9 +11,10 @@ import {
 import { OverridableComponent } from '@mui/material/OverridableComponent';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useLocation } from 'react-router-dom';
+import { NavItem } from 'data/nav-items';
 
 interface NavItemProps {
-  navItem?: any;
+  navItem: NavItem;
   Link: OverridableComponent<LinkTypeMap>;
 }
 
@@ -45,7 +46,7 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
         <>
           <ListItemButton LinkComponent={Link} onClick={() => setChecked(!checked)}>
             <ListItemIcon>
-              <IconifyIcon icon={navItem.icon} width={1} height={1} />
+              <IconifyIcon icon={navItem.icon as string} width={1} height={1} />
             </ListItemIcon>
             <ListItemText>{navItem.title}</ListItemText>
             <ListItemIcon>
@@ -59,7 +60,7 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
           </ListItemButton>
           <Collapse in={checked}>
             <List>
-              {navItem.sublist.map((subListItem: any, idx: number) => (
+              {navItem.sublist?.map((subListItem: any, idx: number) => (
                 <ListItem
                   key={idx}
                   sx={{
@@ -136,7 +137,7 @@ const NavButton = ({ navItem, Link }: NavItemProps): ReactElement => {
           sx={{ opacity: navItem.active ? 1 : 0.6 }}
         >
           <ListItemIcon>
-            <IconifyIcon icon={navItem.icon} width={1} height={1} />
+            <IconifyIcon icon={navItem.icon as string} width={1} height={1} />
           </ListItemIcon>
           <ListItemText>{navItem.title}</ListItemText>
         </ListItemButton>

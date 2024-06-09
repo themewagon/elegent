@@ -10,6 +10,7 @@ const scrollbar = (theme: Theme) => ({
     WebkitAppearance: 'none',
     width: 5,
     height: 5,
+    zIndex: 5,
     backgroundColor: 'transparent',
   },
   '*::-webkit-scrollbar-track': {

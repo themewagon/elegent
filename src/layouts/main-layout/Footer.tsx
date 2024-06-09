@@ -9,7 +9,7 @@ const Footer = () => {
       mr={3.75}
       my={3.75}
     >
-      <Typography variant="subtitle2" fontFamily={'Poppins'}>
+      <Typography variant="subtitle2" fontFamily={'Poppins'} color="text.primary">
         Made with <span style={{ color: 'red' }}>&#10084;</span> by{' '}
         <Link
           href="https://themewagon.com"
