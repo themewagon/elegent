@@ -1,6 +1,7 @@
 import { Theme } from '@mui/material';
 
 import type { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
+import pxToRem from 'theme/functions/px-to-rem';
 
 const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
   defaultProps: {
@@ -78,6 +79,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       overflowX: 'scroll !important' as 'scroll',
       display: 'flex',
       flexDirection: 'column',
+      height: pxToRem(432),
     }),
     virtualScrollerContent: () => ({
       width: 'auto',
@@ -113,6 +115,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       fontSize: theme.typography.subtitle1.fontSize,
       fontWeight: theme.typography.subtitle1.fontWeight,
       fontFamily: theme.typography.body1.fontFamily,
+    }),
+    overlayWrapperInner: () => ({
+      height: '100%',
     }),
   },
 };

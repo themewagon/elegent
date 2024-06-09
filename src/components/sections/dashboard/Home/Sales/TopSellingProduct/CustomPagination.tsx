@@ -41,8 +41,7 @@ function Pagination({
           mr="auto"
           ml={belowSmallScreen ? 'auto' : ''}
         >
-          Showing {(paginationRowRange?.firstRowIndex as number) + 1} -{' '}
-          {(paginationRowRange?.lastRowIndex as number) + 1} of {available} Products
+          Showing 0 - 0 of {available} Products
         </Typography>
       )}
       <MuiPagination
