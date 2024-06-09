@@ -74,7 +74,7 @@ const WebsiteVisitors = (): ReactElement => {
         legendData={legendData}
         sx={{ width: 222, maxHeight: 222, mx: 'auto' }}
       />
-      <Stack spacing={1} divider={<Divider />} sx={{ p: 2.5 }}>
+      <Stack spacing={1} divider={<Divider />} sx={{ px: 1.5, py: 2.5 }}>
         {Array.isArray(seriesData) &&
           seriesData.map((dataItem, index) => (
             <Button
@@ -90,10 +90,7 @@ const WebsiteVisitors = (): ReactElement => {
                 padding: 0,
                 px: 1,
                 borderRadius: 1,
-                bgcolor: visitorType[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
-                ':hover': {
-                  bgcolor: 'action.active',
-                },
+                opacity: visitorType[`${dataItem.name}`] ? 0.5 : 1,
               }}
               disableRipple
             >
@@ -102,7 +99,7 @@ const WebsiteVisitors = (): ReactElement => {
                   sx={{
                     width: 10,
                     height: 10,
-                    backgroundColor: visitorType[`${dataItem.name}`]
+                    bgcolor: visitorType[`${dataItem.name}`]
                       ? 'action.disabled'
                       : pieChartColors[index],
                     borderRadius: 400,

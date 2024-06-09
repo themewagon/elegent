@@ -21,7 +21,7 @@ const Sales = (): ReactElement => {
       flexGrow={1}
       pt={4.375}
       pr={1.875}
-      pb={1.875}
+      pb={0}
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         pl: { xs: 3.75, lg: 0 },

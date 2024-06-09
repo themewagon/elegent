@@ -6,6 +6,7 @@ import {
   ListItemText,
   Menu,
   MenuItem,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
@@ -35,7 +36,9 @@ const AccountDropdown = (): ReactElement => {
           gap: 1.875,
         }}
       >
-        <Avatar alt="Remy Sharp" src={profile} sx={{ width: 45, height: 45 }} />
+        <Tooltip title="Aiden Max" arrow>
+          <Avatar alt="Aiden Max" src={profile} sx={{ width: 45, height: 45 }} />
+        </Tooltip>
         <Typography variant="body1" component="p" color="text.primary">
           Aiden Max
         </Typography>

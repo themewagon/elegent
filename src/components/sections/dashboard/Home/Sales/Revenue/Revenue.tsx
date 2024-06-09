@@ -56,15 +56,13 @@ const Revenue = (): ReactElement => {
     }
   };
 
-  const [clicked, setClicked] = useState<any>({
-    Direct: false,
-    Organic: false,
-    Paid: false,
-    Social: false,
+  const [revenueAdType, setRevenueAdType] = useState<any>({
+    'Google ads': false,
+    'Facebook ads': false,
   });
 
   const toggleClicked = (name: string) => {
-    setClicked((prevState: any) => ({
+    setRevenueAdType((prevState: any) => ({
       ...prevState,
       [name]: !prevState[name],
     }));
@@ -105,10 +103,7 @@ const Revenue = (): ReactElement => {
                   padding: 0,
                   px: 1,
                   borderRadius: 1,
-                  bgcolor: clicked[`${dataItem.name}`] ? 'action.focus' : 'background.paper',
-                  ':hover': {
-                    bgcolor: 'action.active',
-                  },
+                  opacity: revenueAdType[`${dataItem.name}`] ? 0.5 : 1,
                 }}
                 disableRipple
               >
@@ -118,7 +113,7 @@ const Revenue = (): ReactElement => {
                     sx={{
                       width: 13,
                       height: 13,
-                      backgroundColor: clicked[`${dataItem.name}`]
+                      bgcolor: revenueAdType[`${dataItem.name}`]
                         ? 'action.disabled'
                         : lineChartColors[index],
                       borderRadius: 400,

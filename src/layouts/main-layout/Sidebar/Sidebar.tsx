@@ -11,9 +11,9 @@ import {
 
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
+import pxToRem from 'theme/functions/px-to-rem';
 import Image from 'components/base/Image';
 import navItems from 'data/nav-items';
-import pxToRem from 'theme/functions/px-to-rem';
 import NavButton from './NavButton';
 
 const Sidebar = (): ReactElement => {
@@ -24,7 +24,6 @@ const Sidebar = (): ReactElement => {
       height={1}
       sx={{
         overflowY: 'overlay',
-        // margin: { md: 3.75 },
         margin: 3.75,
         borderRadius: 5,
         // scrollbarWidth: 'none',
@@ -50,6 +49,7 @@ const Sidebar = (): ReactElement => {
         height={1}
         sx={{
           overflowY: 'auto',
+          // width: 218,
         }}
       >
         <List
@@ -66,6 +66,7 @@ const Sidebar = (): ReactElement => {
         <List
           sx={{
             mx: 2.5,
+            // flex: '1 1 auto',
           }}
         >
           <ListItem

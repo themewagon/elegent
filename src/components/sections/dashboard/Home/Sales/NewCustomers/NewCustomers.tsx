@@ -22,6 +22,7 @@ const NewCustomers = (): ReactElement => {
         borderRadius: 5,
         height: 1,
         flex: '1 1 auto',
+        width: { xs: 'auto', sm: 0.5, lg: 'auto' },
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>

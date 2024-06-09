@@ -71,6 +71,7 @@ const BuyersProfile = (): ReactElement => {
         borderRadius: 5,
         height: 1,
         flex: '1 1 auto',
+        width: { xs: 'auto', sm: 0.5, lg: 'auto' },
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
@@ -163,12 +164,7 @@ const BuyersProfile = (): ReactElement => {
                   padding: 0,
                   pr: 1,
                   borderRadius: 1,
-                  bgcolor: buyerGenderType[`${dataItem.name}`]
-                    ? 'action.focus'
-                    : 'background.paper',
-                  ':hover': {
-                    bgcolor: 'action.active',
-                  },
+                  opacity: buyerGenderType[`${dataItem.name}`] ? 0.5 : 1,
                 }}
                 disableRipple
               >
@@ -177,7 +173,7 @@ const BuyersProfile = (): ReactElement => {
                     sx={{
                       width: 10,
                       height: 10,
-                      backgroundColor: buyerGenderType[`${dataItem.name}`]
+                      bgcolor: buyerGenderType[`${dataItem.name}`]
                         ? 'action.disabled'
                         : pieChartColors[index],
                       borderRadius: 400,
