@@ -39,10 +39,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     columnHeaders: ({ theme }) => ({
       borderBottom: 'none',
       backgroundColor: theme.palette.background.paper,
-      // minWidth: theme.spacing(18.75),
     }),
     columnHeader: () => ({
-      ':focus': {
+      '&:focus': {
         outline: 'none',
       },
     }),
@@ -61,18 +60,17 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
       fontFamily: theme.typography.body1.fontFamily,
-      // minWidth: theme.spacing(18.75),
       border: 'none',
       display: 'flex',
       alignItems: 'center',
-      ':focus, :focus-within': {
+      '&:focus, :focus-within': {
         outline: 'none',
       },
     }),
     row: ({ theme }) => ({
       border: 'none',
       width: '100%',
-      ':hover': {
+      '&:hover': {
         backgroundColor: theme.palette.background.default,
       },
     }),
@@ -83,8 +81,6 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     virtualScrollerContent: () => ({
       width: 'auto',
-      // minHeight: 'fit-content',
-      // height: '100%',
     }),
     virtualScrollerRenderZone: () => ({
       width: 'auto',
@@ -101,8 +97,6 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       borderColor: theme.palette.divider,
     }),
     footerContainer: ({ theme }) => ({
-      // minHeight: theme.spacing(12.5),
-      // maxHeight: theme.spacing(12.5),
       borderBottomLeftRadius: theme.spacing(2.5),
       borderBottomRightRadius: theme.spacing(2.5),
     }),

@@ -62,6 +62,7 @@ const WebsiteVisitors = (): ReactElement => {
         bgcolor: 'common.white',
         borderRadius: 5,
         height: 'min-content',
+        boxShadow: theme.shadows[4],
       }}
     >
       <Typography variant="subtitle1" color="text.primary" p={2.5}>

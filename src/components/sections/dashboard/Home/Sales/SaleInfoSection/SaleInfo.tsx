@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
-// import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 type SaleInfoProps = {
   image?: string;
@@ -13,14 +12,10 @@ type SaleInfoProps = {
 };
 
 const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): ReactElement => {
-  // const { between } = useBreakpoints();
-
   return (
     <Card
       sx={(theme) => ({
         boxShadow: theme.shadows[4],
-        // flexDirection: between('md', 'lg') ? 'column' : 'row',
-        // alignItems: between('md', 'lg') ? 'flex-start' : 'center',
         width: 1,
       })}
     >

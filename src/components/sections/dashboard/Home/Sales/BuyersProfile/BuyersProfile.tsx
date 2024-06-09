@@ -72,6 +72,7 @@ const BuyersProfile = (): ReactElement => {
         height: 1,
         flex: '1 1 auto',
         width: { xs: 'auto', sm: 0.5, lg: 'auto' },
+        boxShadow: (theme) => theme.shadows[4],
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
@@ -79,8 +80,8 @@ const BuyersProfile = (): ReactElement => {
           Buyers Profile
         </Typography>
         <IconButton
-          id="basic-button"
-          aria-controls={open ? 'basic-menu' : undefined}
+          id="buyers-profile-button"
+          aria-controls={open ? 'buyers-profile-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
@@ -89,7 +90,7 @@ const BuyersProfile = (): ReactElement => {
             padding: 1,
             width: 36,
             height: 36,
-            ':hover': {
+            '&:hover': {
               bgcolor: 'action.active',
             },
           }}
@@ -97,12 +98,12 @@ const BuyersProfile = (): ReactElement => {
           <IconifyIcon icon="ph:dots-three-outline-fill" color="text.secondary" />
         </IconButton>
         <Menu
-          id="basic-menu"
+          id="buyers-profile-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
           MenuListProps={{
-            'aria-labelledby': 'basic-button',
+            'aria-labelledby': 'buyers-profile-button',
           }}
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
@@ -121,7 +122,6 @@ const BuyersProfile = (): ReactElement => {
       </Stack>
       <Stack
         direction={{ xs: 'row', sm: 'column', md: 'row' }}
-        // direction={'row'}
         alignItems="center"
         justifyContent="space-between"
         flex={1}
@@ -137,7 +137,6 @@ const BuyersProfile = (): ReactElement => {
             display: 'flex',
             justifyContent: 'center',
             flex: '1 1 0%',
-            // width: 0.5,
             width: 177,
             maxHeight: 177,
           }}

@@ -23,6 +23,7 @@ const NewCustomers = (): ReactElement => {
         height: 1,
         flex: '1 1 auto',
         width: { xs: 'auto', sm: 0.5, lg: 'auto' },
+        boxShadow: (theme) => theme.shadows[4],
       }}
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center" padding={2.5}>
@@ -30,8 +31,8 @@ const NewCustomers = (): ReactElement => {
           New Customers
         </Typography>
         <IconButton
-          id="basic-button"
-          aria-controls={open ? 'basic-menu' : undefined}
+          id="new-customers-button"
+          aria-controls={open ? 'new-customers-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
@@ -40,7 +41,7 @@ const NewCustomers = (): ReactElement => {
             padding: 1,
             width: 36,
             height: 36,
-            ':hover': {
+            '&:hover': {
               bgcolor: 'action.active',
             },
           }}
@@ -48,12 +49,12 @@ const NewCustomers = (): ReactElement => {
           <IconifyIcon icon="ph:dots-three-outline-fill" color="text.secondary" />
         </IconButton>
         <Menu
-          id="basic-menu"
+          id="new-customers-menu"
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
           MenuListProps={{
-            'aria-labelledby': 'basic-button',
+            'aria-labelledby': 'new-customers-button',
           }}
           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}

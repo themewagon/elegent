@@ -1,10 +1,10 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
-import { EChartOption } from 'data/chart-data';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { LineSeriesOption } from 'echarts';
 import { useMemo } from 'react';
+import { EChartsOption } from 'echarts-for-react';
 
 type RevenueChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
@@ -18,7 +18,7 @@ const RevenueChart = ({ chartRef, seriesData, legendData, colors, ...rest }: Rev
   const theme = useTheme();
 
   const chartOption = useMemo(() => {
-    const option: EChartOption = {
+    const option: EChartsOption = {
       xAxis: {
         type: 'category',
         data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
@@ -36,7 +36,7 @@ const RevenueChart = ({ chartRef, seriesData, legendData, colors, ...rest }: Rev
           padding: 30,
           color: theme.palette.text.secondary,
           formatter: (value: any) => value.slice(0, 3),
-          fontFamily: theme.typography.body1.fontFamily,
+          fontFamily: theme.typography.body2.fontFamily,
         },
         axisTick: {
           show: false,
@@ -54,7 +54,7 @@ const RevenueChart = ({ chartRef, seriesData, legendData, colors, ...rest }: Rev
           color: theme.palette.text.secondary,
           align: 'center',
           padding: [0, 20, 0, 0],
-          fontFamily: theme.typography.body1.fontFamily,
+          fontFamily: theme.typography.body2.fontFamily,
         },
         splitLine: {
           interval: 5,

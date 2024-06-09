@@ -1,7 +1,7 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
-import { EChartOption } from 'data/chart-data';
 import * as echarts from 'echarts';
+import { EChartsOption } from 'echarts-for-react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
 import { useMemo } from 'react';
@@ -23,7 +23,7 @@ const BuyersProfileChart = ({
 }: BuyersProfileChartProps) => {
   const theme = useTheme();
   const chartOption = useMemo(() => {
-    const option: EChartOption = {
+    const option: EChartsOption = {
       tooltip: {
         trigger: 'item',
         formatter: '{a} <br/>{b} : {c}%',

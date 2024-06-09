@@ -13,14 +13,9 @@ import {
 } from '@mui/material';
 import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
-// import {
-//   // getApplyQuickFilterFnAdsSpentField,
-//   // getApplyQuickFilterFnPriceField,
-//   // getApplyQuickFilterFnProductField,
-// } from 'helpers/datagrid-filter-functions';
 import { dataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
-import { currencyFormat } from 'helpers/format-functions';
+import currencyFormat from 'helpers/format-functions';
 
 const columns: GridColDef<dataRow>[] = [
   {
@@ -129,7 +124,7 @@ const TopSellingProduct = (): ReactElement => {
       bgcolor="background.paper"
       borderRadius={5}
       width={1}
-      // maxWidth={(theme) => theme.spacing(110)}
+      boxShadow={(theme) => theme.shadows[4]}
       height={1}
     >
       <Stack

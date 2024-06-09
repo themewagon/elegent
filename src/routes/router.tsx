@@ -317,6 +317,6 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes, { basename: '/react-mui-elegant-dashboard' });
+const router = createBrowserRouter(routes, { basename: '/elegent' });
 
 export default router;

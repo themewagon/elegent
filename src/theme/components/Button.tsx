@@ -42,7 +42,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
       borderRadius: theme.shape.borderRadius * 7.5,
       boxShadow: theme.shadows[0],
       color: theme.palette.common.white,
-      ':hover': {
+      '&:hover': {
         boxShadow: theme.shadows[0],
       },
     }),

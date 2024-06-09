@@ -11,22 +11,22 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       borderStyle: 'solid',
       borderColor: theme.palette.divider,
       backgroundColor: theme.palette.action.focus,
-      ':hover': {
+      '&:hover': {
         backgroundColor: theme.palette.action.focus,
       },
-      ':focus': {
+      '&:focus': {
         backgroundColor: theme.palette.action.focus,
       },
       '&.Mui-focused': {
         backgroundColor: theme.palette.action.focus,
       },
-      '::before': {
+      '&::before': {
         border: 'none',
       },
-      '::after': {
+      '&::after': {
         border: 'none',
       },
-      ':hover:not(.Mui-disabled,.Mui-error):before': {
+      '&:hover:not(.Mui-disabled,.Mui-error):before': {
         border: 'none',
       },
     }),
@@ -40,7 +40,7 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       '&::placeholder': {
         opacity: 1,
       },
-      ':-webkit-autofill': {
+      '&:-webkit-autofill': {
         borderTopLeftRadius: 'inherit',
         borderBottomLeftRadius: 'inherit',
         borderTopRightRadius: 'initial',

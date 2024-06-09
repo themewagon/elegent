@@ -40,20 +40,20 @@ const Switch: Components<Omit<Theme, 'components'>>['MuiSwitch'] = {
     }),
     switchBase: ({ theme }) => ({
       padding: 2,
-      ':hover': {
+      '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.08)',
       },
       '&.Mui-Checked': {
         transform: `translateX(12px)`,
         color: theme.palette.common.white,
-        ':hover': {
+        '&:hover': {
           backgroundColor: theme.palette.primary.main,
         },
       },
-      ':checked': {
+      '&:checked': {
         transform: `translateX(12px)`,
         color: theme.palette.common.white,
-        ':hover': {
+        '&:hover': {
           backgroundColor: theme.palette.primary.main,
         },
       },
@@ -61,7 +61,7 @@ const Switch: Components<Omit<Theme, 'components'>>['MuiSwitch'] = {
     checked: ({ theme }) => ({
       transform: `translateX(12px)`,
       color: theme.palette.common.white,
-      ':hover': {
+      '&:hover': {
         backgroundColor: theme.palette.primary.main,
       },
     }),

@@ -1,4 +1,4 @@
-export const currencyFormat = (amount: number, options: Intl.NumberFormatOptions) => {
+const currencyFormat = (amount: number, options: Intl.NumberFormatOptions) => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'usd',
@@ -7,3 +7,4 @@ export const currencyFormat = (amount: number, options: Intl.NumberFormatOptions
     ...options,
   }).format(amount);
 };
+export default currencyFormat;

@@ -1,10 +1,10 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEchart from 'components/base/ReactEchart';
-import { EChartOption } from 'data/chart-data';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { PieDataItemOption } from 'echarts/types/src/chart/pie/PieSeries.js';
 import { useMemo } from 'react';
+import { EChartsOption } from 'echarts-for-react';
 
 type WebsiteVisitorsChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
@@ -23,7 +23,7 @@ const WebsiteVisitorsChart = ({
 }: WebsiteVisitorsChartProps) => {
   const theme = useTheme();
   const chartOption = useMemo(() => {
-    const option: EChartOption = {
+    const option: EChartsOption = {
       tooltip: {
         trigger: 'item',
       },

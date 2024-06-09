@@ -15,7 +15,7 @@ const Footer = () => {
           href="https://themewagon.com"
           target="_blank"
           rel="noopener"
-          sx={{ color: 'text.primary', ':hover': { color: 'primary.main' } }}
+          sx={{ color: 'text.primary', '&:hover': { color: 'primary.main' } }}
         >
           ThemeWagon
         </Link>

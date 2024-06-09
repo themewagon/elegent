@@ -26,8 +26,8 @@ const AccountDropdown = (): ReactElement => {
     <>
       <Button
         color="inherit"
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        id="account-dropdown-button"
+        aria-controls={open ? 'account-dropdown-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
@@ -45,12 +45,12 @@ const AccountDropdown = (): ReactElement => {
         <IconifyIcon icon="ion:caret-down-outline" width={24} height={24} color="text.primary" />
       </Button>
       <Menu
-        id="basic-menu"
+        id="account-dropdown-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          'aria-labelledby': 'account-dropdown-button',
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}

@@ -25,7 +25,6 @@ const palette: PaletteOptions = {
   },
   action: {
     focus: smoke[100],
-    // hover: white[300],
     disabled: smoke[400],
     active: white[300],
   },

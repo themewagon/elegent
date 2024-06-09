@@ -70,13 +70,12 @@ const Revenue = (): ReactElement => {
 
   return (
     <Stack
-      sx={{
-        bgcolor: 'common.white',
-        borderRadius: 5,
-        minHeight: 460,
-        height: 1,
-        mx: 'auto',
-      }}
+      bgcolor="common.white"
+      borderRadius={5}
+      minHeight={460}
+      height={1}
+      mx="auto"
+      boxShadow={theme.shadows[4]}
     >
       <Stack
         direction={{ sm: 'row' }}

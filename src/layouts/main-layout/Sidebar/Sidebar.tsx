@@ -22,12 +22,12 @@ const Sidebar = (): ReactElement => {
       justifyContent="space-between"
       bgcolor="background.paper"
       height={1}
+      boxShadow={(theme) => theme.shadows[4]}
       sx={{
         overflow: 'hidden',
         margin: 3.75,
         borderRadius: 5,
-        // scrollbarWidth: 'none',
-        ':hover': {
+        '&:hover': {
           overflowY: 'auto',
         },
         width: 218,
@@ -53,7 +53,7 @@ const Sidebar = (): ReactElement => {
         height={1}
         sx={{
           overflow: 'hidden',
-          ':hover': {
+          '&:hover': {
             overflowY: 'auto',
           },
           width: 218,
@@ -74,7 +74,6 @@ const Sidebar = (): ReactElement => {
         <List
           sx={{
             mx: 2.5,
-            // flex: '1 1 auto',
           }}
         >
           <ListItem
@@ -89,7 +88,7 @@ const Sidebar = (): ReactElement => {
               sx={{
                 backgroundColor: 'background.paper',
                 color: 'primary.main',
-                ':hover': {
+                '&:hover': {
                   backgroundColor: 'primary.main',
                   color: 'common.white',
                   opacity: 1.5,
