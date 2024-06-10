@@ -68,52 +68,67 @@ const WebsiteVisitors = (): ReactElement => {
       <Typography variant="subtitle1" color="text.primary" p={2.5}>
         Website Visitors
       </Typography>
-      <WebsiteVisitorsChart
-        chartRef={chartRef}
-        seriesData={seriesData}
-        colors={pieChartColors}
-        legendData={legendData}
-        sx={{ width: 222, maxHeight: 222, mx: 'auto' }}
-      />
-      <Stack spacing={1} divider={<Divider />} sx={{ px: 2.5, py: 2.5 }}>
-        {Array.isArray(seriesData) &&
-          seriesData.map((dataItem, index) => (
-            <Button
-              key={dataItem.name}
-              variant="text"
-              fullWidth
-              onClick={() => {
-                toggleClicked(dataItem.name as string);
-                onChartLegendSelectChanged(dataItem.name as string);
-              }}
-              sx={{
-                justifyContent: 'flex-start',
-                p: 0,
-                borderRadius: 1,
-                opacity: visitorType[`${dataItem.name}`] ? 0.5 : 1,
-              }}
-              disableRipple
-            >
-              <Stack direction="row" alignItems="center" gap={1} width={1}>
-                <Box
-                  sx={{
-                    width: 10,
-                    height: 10,
-                    bgcolor: visitorType[`${dataItem.name}`]
-                      ? 'action.disabled'
-                      : pieChartColors[index],
-                    borderRadius: 400,
-                  }}
-                ></Box>
-                <Typography variant="body1" color="text.secondary" flex={1} textAlign={'left'}>
-                  {dataItem.name}
-                </Typography>
-                <Typography variant="body1" color="text.primary">
-                  {((parseInt(`${dataItem.value}`) / totalVisitors) * 100).toFixed(0)}%
-                </Typography>
-              </Stack>
-            </Button>
-          ))}
+      <Stack direction={{ xs: 'column', sm: 'row', md: 'column' }}>
+        <Stack direction="row" justifyContent="center" flex={'1 1 0%'}>
+          <WebsiteVisitorsChart
+            chartRef={chartRef}
+            seriesData={seriesData}
+            colors={pieChartColors}
+            legendData={legendData}
+            sx={{
+              width: 222,
+              maxHeight: 222,
+              mx: 'auto',
+            }}
+          />
+        </Stack>
+        <Stack
+          spacing={1}
+          divider={<Divider />}
+          sx={{ px: 2.5, py: 2.5 }}
+          justifyContent="center"
+          alignItems="stretch"
+          flex={'1 1 0%'}
+        >
+          {Array.isArray(seriesData) &&
+            seriesData.map((dataItem, index) => (
+              <Button
+                key={dataItem.name}
+                variant="text"
+                fullWidth
+                onClick={() => {
+                  toggleClicked(dataItem.name as string);
+                  onChartLegendSelectChanged(dataItem.name as string);
+                }}
+                sx={{
+                  justifyContent: 'flex-start',
+                  p: 0,
+                  borderRadius: 1,
+                  opacity: visitorType[`${dataItem.name}`] ? 0.5 : 1,
+                }}
+                disableRipple
+              >
+                <Stack direction="row" alignItems="center" gap={1} width={1}>
+                  <Box
+                    sx={{
+                      width: 10,
+                      height: 10,
+                      bgcolor: visitorType[`${dataItem.name}`]
+                        ? 'action.disabled'
+                        : pieChartColors[index],
+                      borderRadius: 400,
+                    }}
+                  ></Box>
+                  <Typography variant="body1" color="text.secondary" flex={1} textAlign={'left'}>
+                    {dataItem.name}
+                  </Typography>
+                  <Typography variant="body1" color="text.primary">
+                    {((parseInt(`${dataItem.value}`) / totalVisitors) * 100).toFixed(0)}%
+                  </Typography>
+                </Stack>
+              </Button>
+            ))}
+        </Stack>
       </Stack>
     </Box>
   );

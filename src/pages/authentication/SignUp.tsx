@@ -91,9 +91,9 @@ const SignUp = (): ReactElement => {
                       }}
                     >
                       {showPassword ? (
-                        <IconifyIcon icon="ic:baseline-key" />
-                      ) : (
                         <IconifyIcon icon="ic:baseline-key-off" />
+                      ) : (
+                        <IconifyIcon icon="ic:baseline-key" />
                       )}
                     </IconButton>
                   </InputAdornment>

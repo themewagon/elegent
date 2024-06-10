@@ -77,9 +77,9 @@ const ResetPassword = (): ReactElement => {
                         }}
                       >
                         {showNewPassword ? (
-                          <IconifyIcon icon="ic:baseline-key" />
-                        ) : (
                           <IconifyIcon icon="ic:baseline-key-off" />
+                        ) : (
+                          <IconifyIcon icon="ic:baseline-key" />
                         )}
                       </IconButton>
                     </InputAdornment>
@@ -108,9 +108,9 @@ const ResetPassword = (): ReactElement => {
                         }}
                       >
                         {showConfirmPassword ? (
-                          <IconifyIcon icon="ic:baseline-key" />
-                        ) : (
                           <IconifyIcon icon="ic:baseline-key-off" />
+                        ) : (
+                          <IconifyIcon icon="ic:baseline-key" />
                         )}
                       </IconButton>
                     </InputAdornment>
