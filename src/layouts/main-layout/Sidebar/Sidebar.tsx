@@ -37,9 +37,9 @@ const Sidebar = (): ReactElement => {
         sx={{
           position: 'fixed',
           zIndex: 5,
-          pt: 6.25,
-          px: 4.0625,
-          pb: 3.75,
+          mt: 6.25,
+          mx: 4.0625,
+          mb: 3.75,
           bgcolor: 'background.paper',
           borderRadius: 5,
         }}
