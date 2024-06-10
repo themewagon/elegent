@@ -4,7 +4,7 @@ import nikeV22 from 'assets/top-selling-products/nikeV22.jpg';
 import laptop from 'assets/top-selling-products/laptop.jpg';
 import watch from 'assets/top-selling-products/watch.jpg';
 
-export interface dataRow {
+export interface DataRow {
   id: number;
   product: {
     avatar: string;
@@ -17,7 +17,7 @@ export interface dataRow {
   refunds: number;
 }
 
-export const rows: dataRow[] = [
+export const rows: DataRow[] = [
   {
     id: 1,
     product: {

@@ -13,11 +13,11 @@ import {
 } from '@mui/material';
 import { DataGrid, GridApi, GridColDef, GridSlots, useGridApiRef } from '@mui/x-data-grid';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { dataRow, rows } from 'data/products';
+import { DataRow, rows } from 'data/products';
 import CustomPagination from './CustomPagination';
 import currencyFormat from 'helpers/format-functions';
 
-const columns: GridColDef<dataRow>[] = [
+const columns: GridColDef<DataRow>[] = [
   {
     field: 'id',
     headerName: 'ID',

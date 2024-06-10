@@ -11,7 +11,6 @@ import {
 
 import IconifyIcon from 'components/base/IconifyIcon';
 import logo from 'assets/logo/elegant-logo.png';
-import pxToRem from 'theme/functions/px-to-rem';
 import Image from 'components/base/Image';
 import navItems from 'data/nav-items';
 import NavButton from './NavButton';
@@ -39,7 +38,7 @@ const Sidebar = (): ReactElement => {
           position: 'fixed',
           zIndex: 5,
           pt: 6.25,
-          px: pxToRem(32.5),
+          px: 4.0625,
           pb: 3.75,
           bgcolor: 'background.paper',
           borderRadius: 5,
