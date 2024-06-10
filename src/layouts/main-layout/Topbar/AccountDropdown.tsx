@@ -34,15 +34,28 @@ const AccountDropdown = (): ReactElement => {
         sx={{
           borderRadius: 2,
           gap: 1.875,
+          px: { xs: 0, sm: 0.625 },
+          py: 0.625,
         }}
       >
         <Tooltip title="Aiden Max" placement="top" arrow enterDelay={0} leaveDelay={0}>
           <Avatar alt="Aiden Max" src={profile} sx={{ width: 45, height: 45 }} />
         </Tooltip>
-        <Typography variant="body1" component="p" color="text.primary">
+        <Typography
+          variant="body1"
+          component="p"
+          color="text.primary"
+          display={{ xs: 'none', sm: 'block' }}
+        >
           Aiden Max
         </Typography>
-        <IconifyIcon icon="ion:caret-down-outline" width={24} height={24} color="text.primary" />
+        <IconifyIcon
+          icon="ion:caret-down-outline"
+          width={24}
+          height={24}
+          color="text.primary"
+          display={{ xs: 'none', sm: 'block' }}
+        />
       </Button>
       <Menu
         id="account-dropdown-menu"

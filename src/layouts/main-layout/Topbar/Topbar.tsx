@@ -5,6 +5,7 @@ import {
   Box,
   IconButton,
   InputAdornment,
+  Link,
   TextField,
   Toolbar,
   Typography,
@@ -16,6 +17,8 @@ import { useLocation } from 'react-router-dom';
 import capitalizePathname from 'helpers/capitalize-pathname';
 import AccountDropdown from './AccountDropdown';
 import LanguageDropdown from './LanguageDropdown';
+import Image from 'components/base/Image';
+import logo from 'assets/logo/elegent-favicon-logo.png';
 
 interface TopbarProps {
   handleDrawerToggle: MouseEventHandler;
@@ -37,12 +40,24 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
           p: 3.75,
         }}
       >
+        <Link href="/" width={40} height={40} display={{ xs: 'block', lg: 'none' }}>
+          <IconButton color="inherit" sx={{ p: 0.75, bgcolor: 'inherit' }}>
+            <Image src={logo} width={1} height={1} />
+          </IconButton>
+        </Link>
         <IconButton
           color="inherit"
           aria-label="open drawer"
           edge="start"
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, ml: 0, display: { lg: 'none' }, bgcolor: 'inherit' }}
+          sx={{
+            width: 40,
+            height: 40,
+            m: 0,
+            p: 0.75,
+            display: { lg: 'none' },
+            bgcolor: 'inherit',
+          }}
         >
           <IconifyIcon icon="mdi:menu" />
         </IconButton>
@@ -73,19 +88,26 @@ const Topbar = ({ handleDrawerToggle }: TopbarProps): ReactElement => {
         </Box>
         <IconButton
           color="inherit"
-          sx={{ display: { xs: 'flex', lg: 'none' }, mr: 'auto', bgcolor: 'inherit' }}
+          sx={{
+            width: 40,
+            height: 40,
+            p: 1,
+            display: { xs: 'flex', lg: 'none' },
+            mr: 'auto',
+            bgcolor: 'inherit',
+          }}
         >
-          <IconifyIcon icon="mdi:search" width={24} height={24} />
+          <IconifyIcon icon="mdi:search" width={1} height={1} />
         </IconButton>
         <Box
           sx={{
             display: 'flex',
-            gap: 2,
+            gap: { xs: 1, sm: 1.5 },
             alignItems: 'center',
           }}
         >
           <LanguageDropdown />
-          <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit' }}>
+          <IconButton color="inherit" centerRipple sx={{ bgcolor: 'inherit', p: 0.75 }}>
             <Badge badgeContent={1} color="primary">
               <IconifyIcon icon="carbon:notification-filled" width={24} height={24} />
             </Badge>

@@ -17,6 +17,7 @@ const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): Reac
       sx={(theme) => ({
         boxShadow: theme.shadows[4],
         width: 1,
+        height: 'auto',
       })}
     >
       <CardMedia
@@ -47,17 +48,18 @@ const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): Reac
         <Typography variant="body1" component="p" color="text.secondary">
           ${sales}
         </Typography>
-        <Stack
-          direction={{ xs: 'row', sm: 'column', md: 'row' }}
-          alignItems={{ md: 'center' }}
-          mt={{ xs: 0, sm: 1, md: 0 }}
-          gap={1}
-          minWidth={150}
+        <Typography
+          variant="body2"
           color="primary.main"
+          display="flex"
+          mt={{ xs: 0, sm: 1, md: 0 }}
+          alignItems="center"
+          gap={1}
+          whiteSpace={'nowrap'}
         >
-          <IconifyIcon icon="ph:trend-up-fill" width={18} height={18} />
-          <Typography variant="body1">{`+${increment}%`} last month</Typography>
-        </Stack>
+          <IconifyIcon icon="ph:trend-up-fill" width={16} height={16} />
+          {`+${increment}%`} last month
+        </Typography>
       </CardContent>
     </Card>
   );

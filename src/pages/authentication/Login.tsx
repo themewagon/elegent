@@ -89,7 +89,7 @@ const Login = (): ReactElement => {
               alignSelf: 'flex-end',
             }}
           >
-            <Link href="/authentication/reset-password" underline="hover">
+            <Link href="/authentication/forgot-password" underline="hover">
               Forget password
             </Link>
           </Typography>

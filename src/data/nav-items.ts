@@ -226,6 +226,12 @@ const navItems: NavItem[] = [
         collapsible: false,
       },
       {
+        title: 'Forgot password',
+        path: 'forgot-password',
+        active: true,
+        collapsible: false,
+      },
+      {
         title: 'Reset password',
         path: 'reset-password',
         active: true,

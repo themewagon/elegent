@@ -32,19 +32,11 @@ const Sales = lazy(async () => {
   ]).then(([moduleExports]) => moduleExports);
 });
 
-const Login = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return import('pages/authentication/Login');
-});
-const SignUp = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return import('pages/authentication/SignUp');
-});
+const Login = lazy(async () => import('pages/authentication/Login'));
+const SignUp = lazy(async () => import('pages/authentication/SignUp'));
 
-const ResetPassword = lazy(async () => {
-  await new Promise((resolve) => setTimeout(resolve, 500));
-  return import('pages/authentication/ResetPassword');
-});
+const ResetPassword = lazy(async () => import('pages/authentication/ResetPassword'));
+const ForgotPassword = lazy(async () => import('pages/authentication/ForgotPassword'));
 
 const routes: RouteObject[] = [
   {
@@ -91,6 +83,10 @@ const routes: RouteObject[] = [
           {
             path: paths.resetPassword,
             element: <ResetPassword />,
+          },
+          {
+            path: paths.forgotPassword,
+            element: <ForgotPassword />,
           },
         ],
       },

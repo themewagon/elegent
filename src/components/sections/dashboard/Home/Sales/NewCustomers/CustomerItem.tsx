@@ -33,7 +33,7 @@ const CustomerItem = ({ name, country, avatar }: CustomerItemProps): ReactElemen
         </Stack>
       </Stack>
       <IconButton>
-        <IconifyIcon icon="mingcute:mail-fill" color="primary.main" width={16} height={12} />
+        <IconifyIcon icon="mingcute:mail-fill" color="primary.main" width={16} height={16} />
       </IconButton>
     </ListItem>
   );

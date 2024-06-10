@@ -15,5 +15,6 @@ export default {
   login: `/${rootPaths.authRoot}/login`,
   signup: `/${rootPaths.authRoot}/sign-up`,
   resetPassword: `/${rootPaths.authRoot}/reset-password`,
+  forgotPassword: `/${rootPaths.authRoot}/forgot-password`,
   404: `/${rootPaths.errorRoot}/404`,
 };

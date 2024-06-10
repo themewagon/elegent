@@ -24,8 +24,8 @@ const Sidebar = (): ReactElement => {
       boxShadow={(theme) => theme.shadows[4]}
       sx={{
         overflow: 'hidden',
-        margin: 3.75,
-        borderRadius: 5,
+        margin: { xs: 0, lg: 3.75 },
+        borderRadius: { xs: 0, lg: 5 },
         '&:hover': {
           overflowY: 'auto',
         },

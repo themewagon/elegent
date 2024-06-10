@@ -47,7 +47,6 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
               display: { xs: 'block', lg: 'none' },
               '& .MuiDrawer-paper': {
                 boxSizing: 'border-box',
-                width: drawerWidth,
                 border: 0,
                 backgroundColor: 'background.default',
               },
