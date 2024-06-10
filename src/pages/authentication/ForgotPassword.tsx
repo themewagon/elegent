@@ -28,7 +28,7 @@ const ForgotPassword = () => {
         <Link href="/" width="fit-content">
           <Image src={logo} width={82.6} />
         </Link>
-        <Stack alignItems="center" gap={3.75} width={330} mx="auto">
+        <Stack alignItems="center" gap={6.5} width={330} mx="auto">
           <Typography variant="h3">Forgot Password</Typography>
           <FormControl variant="standard" fullWidth>
             <InputLabel shrink htmlFor="new-password">
@@ -47,7 +47,6 @@ const ForgotPassword = () => {
               }}
             />
           </FormControl>
-
           <Button variant="contained" fullWidth>
             Send Password Reset Link
           </Button>
