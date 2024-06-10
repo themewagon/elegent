@@ -45,6 +45,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       '&:focus': {
         outline: 'none',
       },
+      '&:focus-within': {
+        outline: 'none',
+      },
     }),
     columnHeaderTitle: ({ theme }) => ({
       fontSize: theme.typography.subtitle1.fontSize,
@@ -64,7 +67,10 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       border: 'none',
       display: 'flex',
       alignItems: 'center',
-      '&:focus, :focus-within': {
+      '&:focus': {
+        outline: 'none',
+      },
+      '&:focus-within': {
         outline: 'none',
       },
     }),

@@ -36,7 +36,7 @@ const AccountDropdown = (): ReactElement => {
           gap: 1.875,
         }}
       >
-        <Tooltip title="Aiden Max" arrow>
+        <Tooltip title="Aiden Max" placement="top" arrow enterDelay={0} leaveDelay={0}>
           <Avatar alt="Aiden Max" src={profile} sx={{ width: 45, height: 45 }} />
         </Tooltip>
         <Typography variant="body1" component="p" color="text.primary">
