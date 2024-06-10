@@ -87,7 +87,7 @@ const Revenue = (): ReactElement => {
         <Typography variant="h5" color="text.primary">
           Revenue
         </Typography>
-        <Stack direction="row" gap={1}>
+        <Stack direction="row" gap={2}>
           {Array.isArray(seriesData) &&
             seriesData.map((dataItem, index) => (
               <Button
@@ -99,8 +99,7 @@ const Revenue = (): ReactElement => {
                 }}
                 sx={{
                   justifyContent: 'flex-start',
-                  padding: 0,
-                  px: 1,
+                  p: 0,
                   borderRadius: 1,
                   opacity: revenueAdType[`${dataItem.name}`] ? 0.5 : 1,
                 }}

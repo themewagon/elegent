@@ -2,11 +2,12 @@ import { ReactElement } from 'react';
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import Image from 'components/base/Image';
+import { currencyFormat } from 'helpers/format-functions';
 
 type SaleInfoProps = {
   image?: string;
   title: string;
-  sales: string;
+  sales: number;
   increment: number;
   date?: string;
 };
@@ -46,13 +47,12 @@ const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): Reac
           </Typography>
         </Stack>
         <Typography variant="body1" component="p" color="text.secondary">
-          ${sales}
+          {currencyFormat(sales, {})}
         </Typography>
         <Typography
           variant="body2"
           color="primary.main"
           display="flex"
-          mt={{ xs: 0, sm: 1, md: 0 }}
           alignItems="center"
           gap={1}
           whiteSpace={'nowrap'}

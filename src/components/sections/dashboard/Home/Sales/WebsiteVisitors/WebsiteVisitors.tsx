@@ -75,7 +75,7 @@ const WebsiteVisitors = (): ReactElement => {
         legendData={legendData}
         sx={{ width: 222, maxHeight: 222, mx: 'auto' }}
       />
-      <Stack spacing={1} divider={<Divider />} sx={{ px: 1.5, py: 2.5 }}>
+      <Stack spacing={1} divider={<Divider />} sx={{ px: 2.5, py: 2.5 }}>
         {Array.isArray(seriesData) &&
           seriesData.map((dataItem, index) => (
             <Button
@@ -88,8 +88,7 @@ const WebsiteVisitors = (): ReactElement => {
               }}
               sx={{
                 justifyContent: 'flex-start',
-                padding: 0,
-                px: 1,
+                p: 0,
                 borderRadius: 1,
                 opacity: visitorType[`${dataItem.name}`] ? 0.5 : 1,
               }}

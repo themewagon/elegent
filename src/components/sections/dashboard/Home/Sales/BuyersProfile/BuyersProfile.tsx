@@ -87,7 +87,7 @@ const BuyersProfile = (): ReactElement => {
           onClick={handleClick}
           sx={{
             bgcolor: open ? 'action.active' : 'transparent',
-            padding: 1,
+            p: 1,
             width: 36,
             height: 36,
             '&:hover': {
@@ -160,7 +160,7 @@ const BuyersProfile = (): ReactElement => {
                 }}
                 sx={{
                   justifyContent: 'flex-start',
-                  padding: 0,
+                  p: 0,
                   pr: 1,
                   borderRadius: 1,
                   opacity: buyerGenderType[`${dataItem.name}`] ? 0.5 : 1,
