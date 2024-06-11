@@ -21,8 +21,6 @@ const WebsiteVisitorsChart = ({
   colors,
   ...rest
 }: WebsiteVisitorsChartProps) => {
-  console.log('test');
-
   const theme = useTheme();
   const option: EChartsOption = useMemo(
     () => ({
