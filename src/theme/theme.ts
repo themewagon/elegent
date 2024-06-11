@@ -19,7 +19,6 @@ import Toolbar from './components/Toolbar';
 import AppBar from './components/AppBar';
 import Avatar from './components/Avatar';
 import Button from './components/Button';
-import Switch from './components/Switch';
 import Badge from './components/Badge';
 import Grid2 from './components/Grid2';
 import Input from './components/Input';
@@ -64,7 +63,6 @@ export const theme = createTheme({
     MuiAppBar: AppBar,
     MuiAvatar: Avatar,
     MuiButton: Button,
-    MuiSwitch: Switch,
     MuiBadge: Badge,
     MuiGrid2: Grid2,
     MuiInput: Input,

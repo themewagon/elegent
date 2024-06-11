@@ -61,7 +61,7 @@ const columns: GridColDef<DataRow>[] = [
     flex: 0.75,
     minWidth: 137.221875,
     valueGetter: (params: any) => {
-      return currencyFormat(params, {});
+      return currencyFormat(params);
     },
   },
   {
@@ -82,6 +82,7 @@ const columns: GridColDef<DataRow>[] = [
       if (refunds > 0) return `> ${refunds}`;
       else return `< ${-refunds}`;
     },
+    filterable: false,
   },
 ];
 
@@ -98,6 +99,7 @@ const TopSellingProduct = (): ReactElement => {
             return {
               ...column,
               getApplyQuickFilterFn: undefined,
+              filterable: false,
             };
           }
           return column;
@@ -130,7 +132,7 @@ const TopSellingProduct = (): ReactElement => {
       <Stack
         direction={{ sm: 'row' }}
         justifyContent="space-between"
-        alignItems={{ sm: 'center' }}
+        alignItems="center"
         padding={3.75}
         gap={3.75}
       >

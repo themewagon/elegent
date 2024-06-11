@@ -17,8 +17,8 @@ type RevenueChartProps = {
 const RevenueChart = ({ chartRef, seriesData, legendData, colors, ...rest }: RevenueChartProps) => {
   const theme = useTheme();
 
-  const chartOption = useMemo(() => {
-    const option: EChartsOption = {
+  const option: EChartsOption = useMemo(
+    () => ({
       xAxis: {
         type: 'category',
         data: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August'],
@@ -80,11 +80,11 @@ const RevenueChart = ({ chartRef, seriesData, legendData, colors, ...rest }: Rev
         valueFormatter: (value: any) => '$' + value.toFixed(0),
       },
       series: seriesData,
-    };
-    return option;
-  }, [theme]);
+    }),
+    [theme],
+  );
 
-  return <ReactEchart ref={chartRef} echarts={echarts} option={chartOption} {...rest} />;
+  return <ReactEchart ref={chartRef} echarts={echarts} option={option} {...rest} />;
 };
 
 export default RevenueChart;

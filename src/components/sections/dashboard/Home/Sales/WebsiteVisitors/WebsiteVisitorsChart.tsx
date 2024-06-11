@@ -22,8 +22,8 @@ const WebsiteVisitorsChart = ({
   ...rest
 }: WebsiteVisitorsChartProps) => {
   const theme = useTheme();
-  const chartOption = useMemo(() => {
-    const option: EChartsOption = {
+  const option: EChartsOption = useMemo(
+    () => ({
       tooltip: {
         trigger: 'item',
       },
@@ -62,11 +62,11 @@ const WebsiteVisitorsChart = ({
           data: seriesData,
         },
       ],
-    };
-    return option;
-  }, [theme]);
+    }),
+    [theme],
+  );
 
-  return <ReactEchart ref={chartRef} option={chartOption} echarts={echarts} {...rest} />;
+  return <ReactEchart ref={chartRef} option={option} echarts={echarts} {...rest} />;
 };
 
 export default WebsiteVisitorsChart;

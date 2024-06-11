@@ -72,19 +72,49 @@ const AccountDropdown = (): ReactElement => {
           <ListItemIcon>
             <IconifyIcon icon="ion:home-sharp" />
           </ListItemIcon>
-          <ListItemText>Home</ListItemText>
+          <ListItemText
+            sx={(theme) => ({
+              '& .MuiListItemText-primary': {
+                fontSize: theme.typography.body1.fontSize,
+                fontFamily: theme.typography.body1.fontFamily,
+                fontWeight: theme.typography.body1.fontWeight,
+              },
+            })}
+          >
+            Home
+          </ListItemText>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <IconifyIcon icon="mdi:account-outline" />
           </ListItemIcon>
-          <ListItemText>Profile</ListItemText>
+          <ListItemText
+            sx={(theme) => ({
+              '& .MuiListItemText-primary': {
+                fontSize: theme.typography.body1.fontSize,
+                fontFamily: theme.typography.body1.fontFamily,
+                fontWeight: theme.typography.body1.fontWeight,
+              },
+            })}
+          >
+            Profile
+          </ListItemText>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <IconifyIcon icon="material-symbols:settings" />
           </ListItemIcon>
-          <ListItemText>Settings</ListItemText>
+          <ListItemText
+            sx={(theme) => ({
+              '& .MuiListItemText-primary': {
+                fontSize: theme.typography.body1.fontSize,
+                fontFamily: theme.typography.body1.fontFamily,
+                fontWeight: theme.typography.body1.fontWeight,
+              },
+            })}
+          >
+            Settings
+          </ListItemText>
         </MenuItem>
         <Divider />
         <MenuItem
@@ -96,7 +126,17 @@ const AccountDropdown = (): ReactElement => {
           <ListItemIcon>
             <IconifyIcon icon="ri:logout-circle-line" color="error.main" />
           </ListItemIcon>
-          <ListItemText>Logout</ListItemText>
+          <ListItemText
+            sx={(theme) => ({
+              '& .MuiListItemText-primary': {
+                fontSize: theme.typography.body1.fontSize,
+                fontFamily: theme.typography.body1.fontFamily,
+                fontWeight: theme.typography.body1.fontWeight,
+              },
+            })}
+          >
+            Logout
+          </ListItemText>
         </MenuItem>
       </Menu>
     </>

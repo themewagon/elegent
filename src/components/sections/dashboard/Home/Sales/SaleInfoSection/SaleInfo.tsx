@@ -47,7 +47,7 @@ const SaleInfo = ({ image, title, sales, increment, date }: SaleInfoProps): Reac
           </Typography>
         </Stack>
         <Typography variant="body1" component="p" color="text.secondary">
-          {currencyFormat(sales, {})}
+          {currencyFormat(sales)}
         </Typography>
         <Typography
           variant="body2"

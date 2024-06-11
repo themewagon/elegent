@@ -78,7 +78,7 @@ const LanguageDropdown = (): ReactElement => {
       <IconButton
         onClick={handleClickItem}
         id="language-menu"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={open ? 'language-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         sx={{
@@ -91,12 +91,12 @@ const LanguageDropdown = (): ReactElement => {
         <IconifyIcon icon={languages[selectedIndex].icon} width={24} height={24} />
       </IconButton>
       <Menu
-        id="basic-menu"
+        id="language-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          'aria-labelledby': 'language-button',
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
